@@ -1,0 +1,48 @@
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[project]
+name = "eleicoes-mercado"
+version = "0.1.0"
+description = "Como bolsa, dólar e juros reagiram às eleições presidenciais do Brasil, de 1994 a 2026"
+requires-python = ">=3.11"
+dependencies = [
+    "pandas>=2.2",
+    "numpy>=2.0",
+    "typer>=0.12",
+    "pyyaml>=6.0",
+    "yfinance>=1.7.0",
+    "openpyxl>=3.1.5",
+]
+
+[project.scripts]
+eleicoes = "eleicoes.cli:app"
+
+[dependency-groups]
+dev = [
+    "pytest>=8.2",
+    "ruff>=0.6",
+]
+
+[tool.hatch.build.targets.wheel]
+packages = ["src/eleicoes"]
+
+[tool.ruff]
+line-length = 100
+target-version = "py311"
+src = ["src", "tests"]
+
+[tool.ruff.lint]
+select = ["E", "W", "F", "I", "N", "UP", "B", "C4", "SIM", "PTH", "RUF"]
+
+[tool.ruff.lint.per-file-ignores]
+# Textos mostrados ao leitor: sinais tipográficos (×, −) de propósito.
+"src/eleicoes/series.py" = ["RUF001"]
+"src/eleicoes/cli.py" = ["RUF001"]
+"src/eleicoes/conferir.py" = ["RUF001", "RUF002"]
+"tests/*" = ["RUF001", "RUF002", "RUF003"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+addopts = "-q --strict-markers"
