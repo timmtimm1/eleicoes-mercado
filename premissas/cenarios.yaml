@@ -1,0 +1,68 @@
+# Cenários para bolsa, dólar e juros depois da eleição de 2026.
+#
+# Cada cenário é "se X, então Y": os gatilhos dizem o que precisaria acontecer, e a faixa
+# vem do que bolsa, dólar e juros fizeram, descontado o mundo ("só Brasil"), nas eleições
+# passadas em que aconteceu algo parecido. Não há probabilidade: com 9 eleições, um
+# número de chance seria chute.
+#
+# Ponto de partida: o 5º pregão depois do turno decisivo (em 2026, 30/10). É onde 2026
+# está agora, e a comparação com o passado começa no mesmo ponto do calendário.
+#
+# Proposta minha (Claude) em 31/10/2026; só o Bernardo troca o status para aprovada.
+status: proposta
+data_base: 2026-10-30
+posse: 2027-01-05
+horizontes:
+  ate_posse: 2027-01-04 # último pregão antes da posse
+  posse_100d: 2027-04-15
+  posse_1ano: 2028-01-05
+
+cenarios:
+  - nome: otimista
+    titulo: Sinal fiscal crível
+    analogos: [2002, 2006]
+    por_que_estes: >-
+      Em 2002 o mercado temia o Lula e se acalmou com Palocci na Fazenda, Meirelles no
+      Banco Central e um superávit maior que o pedido pelo FMI. Em 2006 o Lula foi reeleito
+      com a mesma equipe e o mesmo compromisso fiscal, sem susto.
+    gatilhos:
+      - >-
+        Até a posse, Lula anuncia para a Fazenda um nome visto como comprometido com a meta,
+        ou mantém Durigan com o pacote que mira o centro da meta.
+      - >-
+        O governo manda ao Congresso, antes da posse, a lei ou a PEC que persegue o centro da
+        meta, com medidas de pelo menos R$ 39,8 bilhões.
+      - >-
+        O Copom (04/11 e dezembro) segue o rumo sem as expectativas de inflação do Focus
+        subirem.
+      - A contestação de Flávio Bolsonaro termina no TSE sem efeito.
+  - nome: base
+    titulo: Continuidade com ruído
+    analogos: [2010, 2022]
+    por_que_estes: >-
+      Em 2010 a Dilma manteve a equipe e foi afrouxando o fiscal aos poucos. Em 2022 o Lula
+      começou com a PEC da Transição e o discurso contra o teto, e só em março de 2023 veio
+      o arcabouço. Nos dois casos não houve crise aberta, mas o mercado cobrou um prêmio.
+    gatilhos:
+      - O ministro da Fazenda demora a ser definido ou é um nome sem compromisso fiscal claro.
+      - >-
+        A meta fica no papel, com parte das medidas, e o centro da meta é adiado para depois
+        de 2027.
+      - O Copom interrompe os cortes da Selic.
+      - O ruído da contestação diminui, mas não some.
+  - nome: pessimista
+    titulo: Crise de confiança fiscal
+    analogos: [1998, 2014]
+    por_que_estes: >-
+      Em 1998 o FHC foi reeleito com as contas no vermelho, e o real foi desvalorizado em
+      janeiro de 1999. Em 2014 a Dilma foi reeleita por pouco, o mercado tinha apostado no
+      adversário, e veio a crise fiscal de 2015. Nos dois, o presidente reeleito enfrentou
+      desconfiança sobre as contas logo depois da eleição.
+    gatilhos:
+      - >-
+        A meta é reduzida ou trocada, ou surge uma PEC de gastos fora do arcabouço.
+      - >-
+        Interferência no preço da Petrobras ou uso dos bancos públicos para segurar a
+        economia.
+      - A contestação do resultado se arrasta no TSE ou na rua.
+      - O Copom precisa voltar a subir a Selic para segurar a inflação e o dólar.
