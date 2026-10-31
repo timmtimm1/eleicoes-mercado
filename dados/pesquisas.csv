@@ -1,0 +1,73 @@
+ano,turno,instituto,data_divulgacao,campo_inicio,campo_fim,candidato,pct_validos,base,pct_total,fonte
+2026,1,Datafolha,2026-10-03,2026-10-02,2026-10-03,Flávio Bolsonaro,42,validos,40,https://www.dgabc.com.br/Noticia/4350626/datafolha-lula-tem-45-dos-votos-validos-e-flavio-bolsonaro-42-no-1-turno
+2026,1,Datafolha,2026-10-03,2026-10-02,2026-10-03,Lula,45,validos,42,https://www.dgabc.com.br/Noticia/4350626/datafolha-lula-tem-45-dos-votos-validos-e-flavio-bolsonaro-42-no-1-turno
+2026,1,Quaest,2026-10-03,2026-10-02,2026-10-03,Flávio Bolsonaro,45,validos,38,https://viva.com.br/politica/quaest-lula-tem-46-e-flavio-45-dos-votos-validos-no-primeiro-turno.html
+2026,1,Quaest,2026-10-03,2026-10-02,2026-10-03,Lula,46,validos,40,https://viva.com.br/politica/quaest-lula-tem-46-e-flavio-45-dos-votos-validos-no-primeiro-turno.html
+2026,1,AtlasIntel,2026-10-03,2026-09-27,2026-10-02,Flávio Bolsonaro,44.1,validos,43.8,https://www.diariodepernambuco.com.br/politica/2026/10/11725710-atlasintel-lula-tem-47-e-flavio-bolsonaro-441-de-votos-validos-no-primeiro-turno.html
+2026,1,AtlasIntel,2026-10-03,2026-09-27,2026-10-02,Lula,47,validos,46.7,https://www.diariodepernambuco.com.br/politica/2026/10/11725710-atlasintel-lula-tem-47-e-flavio-bolsonaro-441-de-votos-validos-no-primeiro-turno.html
+2026,2,Datafolha,2026-10-24,2026-10-23,2026-10-24,Flávio Bolsonaro,51,validos,48,https://tribunadejundiai.com.br/politica/eleicoes-2026/pesquisa-datafolha-presidente-flavio-bolsonaro-lula-24-outubro-2026/
+2026,2,Datafolha,2026-10-24,2026-10-23,2026-10-24,Lula,49,validos,47,https://tribunadejundiai.com.br/politica/eleicoes-2026/pesquisa-datafolha-presidente-flavio-bolsonaro-lula-24-outubro-2026/
+2026,2,Quaest,2026-10-24,2026-10-23,2026-10-24,Flávio Bolsonaro,51,validos,46,https://www.oliberal.com/politica/quaest-flavio-bolsonaro-tem-51-dos-votos-validos-e-lula-49-na-vespera-do-segundo-turno-1.1186432
+2026,2,Quaest,2026-10-24,2026-10-23,2026-10-24,Lula,49,validos,45,https://www.oliberal.com/politica/quaest-flavio-bolsonaro-tem-51-dos-votos-validos-e-lula-49-na-vespera-do-segundo-turno-1.1186432
+2026,2,AtlasIntel,2026-10-24,2026-10-18,2026-10-23,Flávio Bolsonaro,50.8,validos,49.9,https://www.bloomberglinea.com.br/brasil/flavio-bolsonaro-tem-508-dos-votos-validos-contra-492-de-lula-aponta-atlasintel/
+2026,2,AtlasIntel,2026-10-24,2026-10-18,2026-10-23,Lula,49.2,validos,48.4,https://www.bloomberglinea.com.br/brasil/flavio-bolsonaro-tem-508-dos-votos-validos-contra-492-de-lula-aponta-atlasintel/
+2022,1,Datafolha,2022-10-01,2022-09-30,2022-10-01,Lula,50,validos,48,https://www.bloomberglinea.com.br/2022/10/01/datafolha-lula-mantem-50-dos-votos-validos-para-o-1-turno-e-bolsonaro-36/
+2022,1,Datafolha,2022-10-01,2022-09-30,2022-10-01,Jair Bolsonaro,36,validos,34,https://www.bloomberglinea.com.br/2022/10/01/datafolha-lula-mantem-50-dos-votos-validos-para-o-1-turno-e-bolsonaro-36/
+2022,1,Ipec,2022-10-01,2022-09-29,2022-10-01,Lula,51,validos,47,https://www.poder360.com.br/pesquisas/ipec-lula-tem-51-dos-votos-validos-contra-37-de-bolsonaro/
+2022,1,Ipec,2022-10-01,2022-09-29,2022-10-01,Jair Bolsonaro,37,validos,34,https://www.poder360.com.br/pesquisas/ipec-lula-tem-51-dos-votos-validos-contra-37-de-bolsonaro/
+2022,1,Quaest,2022-09-28,2022-09-24,2022-09-27,Lula,50.55,calculado,46,https://en.wikipedia.org/wiki/Opinion_polling_for_the_2022_Brazilian_presidential_election
+2022,1,Quaest,2022-09-28,2022-09-24,2022-09-27,Jair Bolsonaro,36.26,calculado,33,https://en.wikipedia.org/wiki/Opinion_polling_for_the_2022_Brazilian_presidential_election
+2022,1,AtlasIntel,2022-10-01,2022-09-28,2022-09-30,Lula,50.3,calculado,49.8,https://en.wikipedia.org/wiki/Opinion_polling_for_the_2022_Brazilian_presidential_election
+2022,1,AtlasIntel,2022-10-01,2022-09-28,2022-09-30,Jair Bolsonaro,41.11,calculado,40.7,https://en.wikipedia.org/wiki/Opinion_polling_for_the_2022_Brazilian_presidential_election
+2022,2,Datafolha,2022-10-29,2022-10-28,2022-10-29,Lula,52,validos,49,https://www.poder360.com.br/eleicoes/datafolha-lula-tem-52-dos-votos-validos-bolsonaro-48/
+2022,2,Datafolha,2022-10-29,2022-10-28,2022-10-29,Jair Bolsonaro,48,validos,45,https://www.poder360.com.br/eleicoes/datafolha-lula-tem-52-dos-votos-validos-bolsonaro-48/
+2022,2,Ipec,2022-10-29,2022-10-27,2022-10-29,Lula,54,validos,50,https://www.tribunapr.com.br/eleicoes/2022/pesquisa-ipec-lula-chega-a-54-e-bolsonaro-a-46-dos-votos-validos-no-2o-turno/
+2022,2,Ipec,2022-10-29,2022-10-27,2022-10-29,Jair Bolsonaro,46,validos,43,https://www.tribunapr.com.br/eleicoes/2022/pesquisa-ipec-lula-chega-a-54-e-bolsonaro-a-46-dos-votos-validos-no-2o-turno/
+2022,2,Quaest,2022-10-29,2022-10-27,2022-10-29,Lula,52,validos,45,https://istoedinheiro.com.br/quaest-aponta-empate-tecnico-lula-tem-52-e-bolsonaro-48
+2022,2,Quaest,2022-10-29,2022-10-27,2022-10-29,Jair Bolsonaro,48,validos,42,https://istoedinheiro.com.br/quaest-aponta-empate-tecnico-lula-tem-52-e-bolsonaro-48
+2022,2,AtlasIntel,2022-10-29,2022-10-26,2022-10-29,Lula,53.4,validos,52.4,https://www.bloomberglinea.com.br/2022/10/29/atlas-divulga-ultima-pesquisa-lula-mantem-524-e-bolsonaro-cai-para-457/
+2022,2,AtlasIntel,2022-10-29,2022-10-26,2022-10-29,Jair Bolsonaro,46.6,validos,45.7,https://www.bloomberglinea.com.br/2022/10/29/atlas-divulga-ultima-pesquisa-lula-mantem-524-e-bolsonaro-cai-para-457/
+2018,1,Datafolha,2018-10-06,,,Jair Bolsonaro,40,validos,,https://bpmoney.com.br/politica/eleicoes-pesquisas-vespera-2018
+2018,1,Datafolha,2018-10-06,,,Fernando Haddad,25,validos,,https://bpmoney.com.br/politica/eleicoes-pesquisas-vespera-2018
+2018,1,Ibope,2018-10-06,2018-10-05,2018-10-06,Jair Bolsonaro,41,validos,36,https://jovempan.com.br/politica/ibope-bolsonaro-sobe-para-36-haddad-cai-para-22/
+2018,1,Ibope,2018-10-06,2018-10-05,2018-10-06,Fernando Haddad,25,validos,22,https://jovempan.com.br/politica/ibope-bolsonaro-sobe-para-36-haddad-cai-para-22/
+2018,2,Datafolha,2018-10-27,2018-10-26,2018-10-27,Jair Bolsonaro,55,validos,47,https://www.infomoney.com.br/?p=58709
+2018,2,Datafolha,2018-10-27,2018-10-26,2018-10-27,Fernando Haddad,45,validos,39,https://www.infomoney.com.br/?p=58709
+2018,2,Ibope,2018-10-27,2018-10-26,2018-10-27,Jair Bolsonaro,54,validos,47,https://www.infomoney.com.br/?p=58709
+2018,2,Ibope,2018-10-27,2018-10-26,2018-10-27,Fernando Haddad,46,validos,41,https://www.infomoney.com.br/?p=58709
+2014,1,Datafolha,2014-10-04,2014-10-03,2014-10-04,Dilma,44,validos,40,https://tribunademinas.com.br/?p=6722
+2014,1,Datafolha,2014-10-04,2014-10-03,2014-10-04,Aécio Neves,26,validos,24,https://tribunademinas.com.br/?p=6722
+2014,1,Datafolha,2014-10-04,2014-10-03,2014-10-04,Marina Silva,24,validos,22,https://tribunademinas.com.br/?p=6722
+2014,1,Ibope,2014-10-04,2014-10-02,2014-10-04,Dilma,46,validos,40,https://www.jb.com.br/eleicoes-2014/noticias/2014/10/04/ibope-votos-validos-dilma-tem-46-aecio-27-e-marina-24.html
+2014,1,Ibope,2014-10-04,2014-10-02,2014-10-04,Aécio Neves,27,validos,24,https://www.jb.com.br/eleicoes-2014/noticias/2014/10/04/ibope-votos-validos-dilma-tem-46-aecio-27-e-marina-24.html
+2014,1,Ibope,2014-10-04,2014-10-02,2014-10-04,Marina Silva,24,validos,21,https://www.jb.com.br/eleicoes-2014/noticias/2014/10/04/ibope-votos-validos-dilma-tem-46-aecio-27-e-marina-24.html
+2014,2,Datafolha,2014-10-25,2014-10-24,2014-10-25,Dilma,52,validos,47,https://www.jb.com.br/eleicoes-2014/noticias/2014/10/25/amp/dilma-na-frente-de-aecio-aponta-ultimas-pesquisas-do-ibope-e-datafolha.html
+2014,2,Datafolha,2014-10-25,2014-10-24,2014-10-25,Aécio Neves,48,validos,43,https://www.jb.com.br/eleicoes-2014/noticias/2014/10/25/amp/dilma-na-frente-de-aecio-aponta-ultimas-pesquisas-do-ibope-e-datafolha.html
+2014,2,Ibope,2014-10-25,2014-10-24,2014-10-25,Dilma,53,validos,49,https://www.jb.com.br/eleicoes-2014/noticias/2014/10/25/amp/dilma-na-frente-de-aecio-aponta-ultimas-pesquisas-do-ibope-e-datafolha.html
+2014,2,Ibope,2014-10-25,2014-10-24,2014-10-25,Aécio Neves,47,validos,43,https://www.jb.com.br/eleicoes-2014/noticias/2014/10/25/amp/dilma-na-frente-de-aecio-aponta-ultimas-pesquisas-do-ibope-e-datafolha.html
+2010,1,Datafolha,2010-10-02,2010-10-01,2010-10-02,Dilma,50,validos,47,https://www.gazetadopovo.com.br/vida-publica/eleicoes/2010/dilma-cai-e-eleicao-pode-ir-para-o-segundo-turno-057khxdvqza4le77zssfgg6z2
+2010,1,Datafolha,2010-10-02,2010-10-01,2010-10-02,José Serra,31,validos,29,https://www.gazetadopovo.com.br/vida-publica/eleicoes/2010/dilma-cai-e-eleicao-pode-ir-para-o-segundo-turno-057khxdvqza4le77zssfgg6z2
+2010,1,Datafolha,2010-10-02,2010-10-01,2010-10-02,Marina Silva,17,validos,16,https://www.gazetadopovo.com.br/vida-publica/eleicoes/2010/dilma-cai-e-eleicao-pode-ir-para-o-segundo-turno-057khxdvqza4le77zssfgg6z2
+2010,1,Ibope,2010-10-02,2010-10-01,2010-10-02,Dilma,51,validos,47,https://www.gazetadopovo.com.br/vida-publica/eleicoes/2010/dilma-cai-e-eleicao-pode-ir-para-o-segundo-turno-057khxdvqza4le77zssfgg6z2
+2010,1,Ibope,2010-10-02,2010-10-01,2010-10-02,José Serra,31,validos,29,https://www.gazetadopovo.com.br/vida-publica/eleicoes/2010/dilma-cai-e-eleicao-pode-ir-para-o-segundo-turno-057khxdvqza4le77zssfgg6z2
+2010,1,Ibope,2010-10-02,2010-10-01,2010-10-02,Marina Silva,17,validos,16,https://www.gazetadopovo.com.br/vida-publica/eleicoes/2010/dilma-cai-e-eleicao-pode-ir-para-o-segundo-turno-057khxdvqza4le77zssfgg6z2
+2010,2,Datafolha,2010-10-30,2010-10-29,2010-10-30,Dilma,55,validos,51,https://www.congressoemfoco.com.br/noticia/82633/veja-ultimos-numeros-do-ibope-e-datafolha
+2010,2,Datafolha,2010-10-30,2010-10-29,2010-10-30,José Serra,45,validos,41,https://www.congressoemfoco.com.br/noticia/82633/veja-ultimos-numeros-do-ibope-e-datafolha
+2010,2,Ibope,2010-10-30,2010-10-27,2010-10-30,Dilma,56,validos,52,https://www.congressoemfoco.com.br/noticia/82633/veja-ultimos-numeros-do-ibope-e-datafolha
+2010,2,Ibope,2010-10-30,2010-10-27,2010-10-30,José Serra,44,validos,40,https://www.congressoemfoco.com.br/noticia/82633/veja-ultimos-numeros-do-ibope-e-datafolha
+2006,1,Datafolha,2006-09-30,2006-09-29,2006-09-30,Lula,50,validos,46,https://www.congressoemfoco.com.br/noticia/2213/pesquisas-revelam-possibilidade-de-segundo-turno
+2006,1,Datafolha,2006-09-30,2006-09-29,2006-09-30,Geraldo Alckmin,38,validos,35,https://www.congressoemfoco.com.br/noticia/2213/pesquisas-revelam-possibilidade-de-segundo-turno
+2006,1,Ibope,2006-09-30,,,Lula,49,validos,45,https://www.congressoemfoco.com.br/noticia/2213/pesquisas-revelam-possibilidade-de-segundo-turno
+2006,1,Ibope,2006-09-30,,,Geraldo Alckmin,37,validos,34,https://www.congressoemfoco.com.br/noticia/2213/pesquisas-revelam-possibilidade-de-segundo-turno
+2006,2,Datafolha,2006-10-28,2006-10-27,2006-10-28,Lula,61,validos,,https://www.congressoemfoco.com.br/noticia/97223/pesquisas-apontam-vitoria-de-lula
+2006,2,Datafolha,2006-10-28,2006-10-27,2006-10-28,Geraldo Alckmin,39,validos,,https://www.congressoemfoco.com.br/noticia/97223/pesquisas-apontam-vitoria-de-lula
+2006,2,Ibope,2006-10-28,2006-10-27,2006-10-28,Lula,61,validos,,https://www.congressoemfoco.com.br/noticia/97223/pesquisas-apontam-vitoria-de-lula
+2006,2,Ibope,2006-10-28,2006-10-27,2006-10-28,Geraldo Alckmin,39,validos,,https://www.congressoemfoco.com.br/noticia/97223/pesquisas-apontam-vitoria-de-lula
+2002,1,Datafolha,2002-10-05,2002-10-04,2002-10-05,Lula,48,validos,,https://www.anbima.com.br/data/files/03/37/1D/D6/246775106582A275862C16A8/LucianoDias_170914_1_.pdf
+2002,1,Datafolha,2002-10-05,2002-10-04,2002-10-05,José Serra,21,validos,,https://www.anbima.com.br/data/files/03/37/1D/D6/246775106582A275862C16A8/LucianoDias_170914_1_.pdf
+2002,1,Datafolha,2002-10-05,2002-10-04,2002-10-05,Anthony Garotinho,19,validos,,https://www.anbima.com.br/data/files/03/37/1D/D6/246775106582A275862C16A8/LucianoDias_170914_1_.pdf
+2002,1,Ibope,2002-10-05,2002-10-03,2002-10-05,Lula,50,validos,,https://www.anbima.com.br/data/files/03/37/1D/D6/246775106582A275862C16A8/LucianoDias_170914_1_.pdf
+2002,1,Ibope,2002-10-05,2002-10-03,2002-10-05,José Serra,22,validos,,https://www.anbima.com.br/data/files/03/37/1D/D6/246775106582A275862C16A8/LucianoDias_170914_1_.pdf
+2002,1,Ibope,2002-10-05,2002-10-03,2002-10-05,Anthony Garotinho,17,validos,,https://www.anbima.com.br/data/files/03/37/1D/D6/246775106582A275862C16A8/LucianoDias_170914_1_.pdf
+1994,1,Datafolha,,1994-09-30,1994-10-01,FHC,55.17,calculado,48,https://static.poder360.com.br/2024/06/datafolha-1994.pdf
+1994,1,Datafolha,,1994-09-30,1994-10-01,Lula,25.29,calculado,22,https://static.poder360.com.br/2024/06/datafolha-1994.pdf

@@ -1,0 +1,191 @@
+# Eleições presidenciais de 1994 a 2026 (votos válidos do TSE).
+# situacao: reeleicao (o presidente ganhou), continuidade (ganhou o candidato do
+#   governo; 1994 = FHC, ministro da Fazenda do Itamar) ou oposicao.
+# candidato_mercado: dos dois primeiros, o que o mercado preferia (sempre o de
+#   fora do PT). A surpresa das pesquisas é medida a favor dele, para o sinal
+#   bater com o da reação da bolsa. Decisões do Bernardo em 31/10/2026.
+- ano: 1994
+  vencedor: FHC
+  segundo: Lula
+  posse: 1995-01-01
+  partido_vencedor: PSDB
+  partido_segundo: PT
+  situacao: continuidade
+  candidato_mercado: FHC
+  turnos:
+    - numero: 1
+      data: 1994-10-03
+      resultado:
+        - {candidato: FHC, partido: PSDB, pct: 54.28}
+        - {candidato: Lula, partido: PT, pct: 27.04}
+        - {candidato: Enéas Carneiro, partido: PRONA, pct: 7.38}
+      fonte: https://en.wikipedia.org/wiki/1994_Brazilian_general_election
+- ano: 1998
+  vencedor: FHC
+  segundo: Lula
+  posse: 1999-01-01
+  partido_vencedor: PSDB
+  partido_segundo: PT
+  situacao: reeleicao
+  candidato_mercado: FHC
+  turnos:
+    - numero: 1
+      data: 1998-10-04
+      resultado:
+        - {candidato: FHC, partido: PSDB, pct: 53.06}
+        - {candidato: Lula, partido: PT, pct: 31.71}
+        - {candidato: Ciro Gomes, partido: PPS, pct: 10.97}
+      fonte: https://en.wikipedia.org/wiki/1998_Brazilian_general_election
+- ano: 2002
+  vencedor: Lula
+  segundo: José Serra
+  posse: 2003-01-01
+  partido_vencedor: PT
+  partido_segundo: PSDB
+  situacao: oposicao
+  candidato_mercado: José Serra
+  turnos:
+    - numero: 1
+      data: 2002-10-06
+      resultado:
+        - {candidato: Lula, partido: PT, pct: 46.44}
+        - {candidato: José Serra, partido: PSDB, pct: 23.20}
+        - {candidato: Anthony Garotinho, partido: PSB, pct: 17.87}
+        - {candidato: Ciro Gomes, partido: PPS, pct: 11.97}
+      fonte: https://en.wikipedia.org/wiki/2002_Brazilian_general_election
+    - numero: 2
+      data: 2002-10-27
+      resultado:
+        - {candidato: Lula, partido: PT, pct: 61.27}
+        - {candidato: José Serra, partido: PSDB, pct: 38.73}
+      fonte: https://en.wikipedia.org/wiki/2002_Brazilian_general_election
+- ano: 2006
+  vencedor: Lula
+  segundo: Geraldo Alckmin
+  posse: 2007-01-01
+  partido_vencedor: PT
+  partido_segundo: PSDB
+  situacao: reeleicao
+  candidato_mercado: Geraldo Alckmin
+  turnos:
+    - numero: 1
+      data: 2006-10-01
+      resultado:
+        - {candidato: Lula, partido: PT, pct: 48.61}
+        - {candidato: Geraldo Alckmin, partido: PSDB, pct: 41.64}
+        - {candidato: Heloísa Helena, partido: PSOL, pct: 6.85}
+      fonte: https://en.wikipedia.org/wiki/2006_Brazilian_general_election
+    - numero: 2
+      data: 2006-10-29
+      resultado:
+        - {candidato: Lula, partido: PT, pct: 60.83}
+        - {candidato: Geraldo Alckmin, partido: PSDB, pct: 39.17}
+      fonte: https://en.wikipedia.org/wiki/2006_Brazilian_general_election
+- ano: 2010
+  vencedor: Dilma
+  segundo: José Serra
+  posse: 2011-01-01
+  partido_vencedor: PT
+  partido_segundo: PSDB
+  situacao: continuidade
+  candidato_mercado: José Serra
+  turnos:
+    - numero: 1
+      data: 2010-10-03
+      resultado:
+        - {candidato: Dilma, partido: PT, pct: 46.91}
+        - {candidato: José Serra, partido: PSDB, pct: 32.61}
+        - {candidato: Marina Silva, partido: PV, pct: 19.33}
+      fonte: https://pt.wikipedia.org/wiki/Elei%C3%A7%C3%A3o_presidencial_no_Brasil_em_2010
+    - numero: 2
+      data: 2010-10-31
+      resultado:
+        - {candidato: Dilma, partido: PT, pct: 56.05}
+        - {candidato: José Serra, partido: PSDB, pct: 43.95}
+      fonte: https://pt.wikipedia.org/wiki/Elei%C3%A7%C3%A3o_presidencial_no_Brasil_em_2010
+- ano: 2014
+  vencedor: Dilma
+  segundo: Aécio Neves
+  posse: 2015-01-01
+  partido_vencedor: PT
+  partido_segundo: PSDB
+  situacao: reeleicao
+  candidato_mercado: Aécio Neves
+  turnos:
+    - numero: 1
+      data: 2014-10-05
+      resultado:
+        - {candidato: Dilma, partido: PT, pct: 41.59}
+        - {candidato: Aécio Neves, partido: PSDB, pct: 33.55}
+        - {candidato: Marina Silva, partido: PSB, pct: 21.32}
+      fonte: https://en.wikipedia.org/wiki/2014_Brazilian_general_election
+    - numero: 2
+      data: 2014-10-26
+      resultado:
+        - {candidato: Dilma, partido: PT, pct: 51.64}
+        - {candidato: Aécio Neves, partido: PSDB, pct: 48.36}
+      fonte: https://en.wikipedia.org/wiki/2014_Brazilian_general_election
+- ano: 2018
+  vencedor: Jair Bolsonaro
+  segundo: Fernando Haddad
+  posse: 2019-01-01
+  partido_vencedor: PSL
+  partido_segundo: PT
+  situacao: oposicao
+  candidato_mercado: Jair Bolsonaro
+  turnos:
+    - numero: 1
+      data: 2018-10-07
+      resultado:
+        - {candidato: Jair Bolsonaro, partido: PSL, pct: 46.03}
+        - {candidato: Fernando Haddad, partido: PT, pct: 29.28}
+        - {candidato: Ciro Gomes, partido: PDT, pct: 12.47}
+      fonte: https://en.wikipedia.org/wiki/2018_Brazilian_general_election
+    - numero: 2
+      data: 2018-10-28
+      resultado:
+        - {candidato: Jair Bolsonaro, partido: PSL, pct: 55.13}
+        - {candidato: Fernando Haddad, partido: PT, pct: 44.87}
+      fonte: https://en.wikipedia.org/wiki/2018_Brazilian_general_election
+- ano: 2022
+  vencedor: Lula
+  segundo: Jair Bolsonaro
+  posse: 2023-01-01
+  partido_vencedor: PT
+  partido_segundo: PL
+  situacao: oposicao
+  candidato_mercado: Jair Bolsonaro
+  turnos:
+    - numero: 1
+      data: 2022-10-02
+      resultado:
+        - {candidato: Lula, partido: PT, pct: 48.43}
+        - {candidato: Jair Bolsonaro, partido: PL, pct: 43.20}
+      fonte: https://en.wikipedia.org/wiki/2022_Brazilian_general_election
+    - numero: 2
+      data: 2022-10-30
+      resultado:
+        - {candidato: Lula, partido: PT, pct: 50.90}
+        - {candidato: Jair Bolsonaro, partido: PL, pct: 49.10}
+      fonte: https://en.wikipedia.org/wiki/2022_Brazilian_general_election
+- ano: 2026
+  vencedor: Lula
+  segundo: Flávio Bolsonaro
+  posse: 2027-01-05
+  partido_vencedor: PT
+  partido_segundo: PL
+  situacao: reeleicao
+  candidato_mercado: Flávio Bolsonaro
+  turnos:
+    - numero: 1
+      data: 2026-10-04
+      resultado:
+        - {candidato: Flávio Bolsonaro, partido: PL, pct: 47.03}
+        - {candidato: Lula, partido: PT, pct: 45.16}
+      fonte: https://pt.wikipedia.org/wiki/Elei%C3%A7%C3%A3o_presidencial_no_Brasil_em_2026
+    - numero: 2
+      data: 2026-10-25
+      resultado:
+        - {candidato: Lula, partido: PT, pct: 51.79}
+        - {candidato: Flávio Bolsonaro, partido: PL, pct: 48.21}
+      fonte: https://pt.wikipedia.org/wiki/Elei%C3%A7%C3%A3o_presidencial_no_Brasil_em_2026

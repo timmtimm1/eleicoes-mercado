@@ -1,0 +1,15 @@
+nome,descricao,unidade,fonte,codigo,url,inicio,fim,linhas
+ibov,"Ibovespa, fechamento",pontos,Yahoo,^BVSP,https://finance.yahoo.com/quote/^BVSP,1993-04-27,2026-10-30,8302
+ibov_ipea,"Ibovespa, fechamento (Ipeadata)",pontos,Ipeadata,GM366_IBVSP366,http://www.ipeadata.gov.br/api/odata4/ValoresSerie(SERCODIGO='GM366_IBVSP366'),1993-04-27,2026-10-29,8331
+dolar,"Dólar comercial, venda (antes de 01/07/1994, cruzeiros reais ÷ 2.750)",R$ por US$,BCB SGS,1,https://api.bcb.gov.br/dados/serie/bcdata.sgs.1/dados,1993-01-04,2026-10-30,8489
+selic,Selic diária anualizada (base 252),% a.a.,BCB SGS,1178,https://api.bcb.gov.br/dados/serie/bcdata.sgs.1178/dados,1993-01-04,2026-10-30,8488
+embi,EMBI+ Risco-Brasil (encerrado em jul/2024),pontos-base,Ipeadata,JPM366_EMBI366,http://www.ipeadata.gov.br/api/odata4/ValoresSerie(SERCODIGO='JPM366_EMBI366'),1994-04-29,2024-07-30,7756
+swap360_mensal,"Swap DI × pré 360 dias, fim de mês (mensal)",% a.a.,Ipeadata,BMF12_SWAPDI360F12,http://www.ipeadata.gov.br/api/odata4/ValoresSerie(SERCODIGO='BMF12_SWAPDI360F12'),1999-09-01,2025-11-01,315
+prefixado_10a,"Tesouro Prefixado com Juros Semestrais, vencimento mais perto de 10 anos",% a.a.,Tesouro Direto,NTN-F ~10 anos,https://www.tesourotransparente.gov.br/ckan/dataset/df56aa42-484a-4a59-8184-7676580c81e3/resource/796d2059-14e9-44e3-80c9-2d9e30b405c1/download/PrecoTaxaTesouroDireto.csv,2004-12-31,2026-10-30,5450
+prefixado_10a_prazo,Prazo do título usado em prefixado_10a,anos,Tesouro Direto,,https://www.tesourotransparente.gov.br/ckan/dataset/df56aa42-484a-4a59-8184-7676580c81e3/resource/796d2059-14e9-44e3-80c9-2d9e30b405c1/download/PrecoTaxaTesouroDireto.csv,2004-12-31,2026-10-30,5450
+prefixado_1a,"Tesouro Prefixado, vencimento mais perto de 1 ano",% a.a.,Tesouro Direto,LTN ~1 ano,https://www.tesourotransparente.gov.br/ckan/dataset/df56aa42-484a-4a59-8184-7676580c81e3/resource/796d2059-14e9-44e3-80c9-2d9e30b405c1/download/PrecoTaxaTesouroDireto.csv,2004-12-31,2026-10-30,5450
+prefixado_1a_prazo,Prazo do título usado em prefixado_1a,anos,Tesouro Direto,,https://www.tesourotransparente.gov.br/ckan/dataset/df56aa42-484a-4a59-8184-7676580c81e3/resource/796d2059-14e9-44e3-80c9-2d9e30b405c1/download/PrecoTaxaTesouroDireto.csv,2004-12-31,2026-10-30,5450
+msci_em,MSCI Emergentes em dólar,pontos (US$),MSCI,891800,https://app2.msci.com/products/service/index/indexmaster/getLevelDataForGraph?currency_symbol=USD&index_variant=STRD&start_date=19970101&end_date=<hoje>&data_frequency=DAILY&index_codes=891800,1997-01-01,2026-10-30,7783
+sp500,S&P 500,pontos,Yahoo,^GSPC,https://finance.yahoo.com/quote/^GSPC,1993-01-04,2026-10-30,8516
+dxy,Índice do dólar no mundo,pontos,Yahoo,DX-Y.NYB,https://finance.yahoo.com/quote/DX-Y.NYB,1993-01-01,2026-10-30,8601
+ust10,Treasury 10 anos,% a.a.,Yahoo,^TNX,https://finance.yahoo.com/quote/^TNX,1993-01-04,2026-10-30,8494
