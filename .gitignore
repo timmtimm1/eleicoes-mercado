@@ -11,3 +11,5 @@ dados/cache/
 .swarm/
 .claude-flow/
 ruvector.db
+agentdb.rvf
+agentdb.rvf.lock

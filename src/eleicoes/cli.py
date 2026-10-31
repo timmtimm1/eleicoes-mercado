@@ -7,6 +7,7 @@ import typer
 
 from eleicoes import acoes, calendario, caminhos, series, surpresa
 from eleicoes import carteiras as carteiras_estudo
+from eleicoes import cenarios as cenarios_estudo
 from eleicoes import conferir as conferencia
 from eleicoes import conferir_acoes as conferir_acoes_estudo
 from eleicoes import empresas as empresas_csv
@@ -231,3 +232,34 @@ def conferir_acoes(
     colunas = ["ano", "janela", "ticker", "variacao", "variacao_yahoo", "diferenca", "ajustes"]
     with pd.option_context("display.width", 250, "display.max_colwidth", 60):
         typer.echo(piores[colunas].to_string(index=False, float_format=lambda v: f"{v:.1f}"))
+
+
+NOMES_DAS_MEDIDAS = {
+    "ibov": "Ibovespa (pontos)",
+    "ibov_usd": "Ibovespa em dólar",
+    "dolar": "Dólar (R$)",
+    "prefixado_10a": "Tesouro prefixado 10 anos (% a.a.)",
+}
+
+
+@app.command()
+def cenarios() -> None:
+    """Faixas de cada cenário na posse, nos 100 dias e em 1 ano (premissas/cenarios.yaml)."""
+    _, tabela = cenarios_estudo.calcular()
+    typer.echo(f"Premissas: {tabela['status_premissas'].iloc[0]} (só Brasil, mundo parado)")
+    casas = {"ibov": 0, "ibov_usd": 0, "dolar": 2, "prefixado_10a": 2}
+    for medida, nome in NOMES_DAS_MEDIDAS.items():
+        da_medida = tabela[tabela["medida"] == medida]
+        base = da_medida["nivel_base"].iloc[0]
+        typer.echo(f"\n{nome}: hoje {base:,.{casas[medida]}f}")
+        for linha in da_medida.itertuples():
+            if pd.isna(linha.nivel_central):
+                faixa = "sem análogo com dado"
+            else:
+                n = casas[medida]
+                faixa = (
+                    f"{linha.nivel_minimo:,.{n}f} a {linha.nivel_maximo:,.{n}f} "
+                    f"(meio {linha.nivel_central:,.{n}f}; {linha.minimo:+.1f} a "
+                    f"{linha.maximo:+.1f} {linha.unidade}; análogos {linha.analogos_com_dado})"
+                )
+            typer.echo(f"  {linha.cenario:<10} {linha.horizonte:<11} {faixa}")
