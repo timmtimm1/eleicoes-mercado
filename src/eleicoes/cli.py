@@ -1,11 +1,17 @@
 """Linha de comando do estudo."""
 
+from datetime import date
+
 import pandas as pd
 import typer
 
+from eleicoes import calendario, series, surpresa
 from eleicoes import conferir as conferencia
 from eleicoes import janelas as estudo
-from eleicoes import series, surpresa
+from eleicoes import liquidez as liquidez_estudo
+from eleicoes.fontes import cotahist
+
+PRIMEIRO_ANO_COTAHIST = 1993
 
 app = typer.Typer(
     help="Bolsa, dólar e juros diante das eleições presidenciais de 1994 a 2026.",
@@ -88,3 +94,42 @@ def janelas() -> None:
         typer.echo(
             correlacoes.to_string(index=False, float_format=lambda v: f"{v:.2f}", na_rep="-")
         )
+
+
+@app.command()
+def liquidez(
+    atualizar: bool = typer.Option(False, help="Baixa o COTAHIST de todos os anos de novo."),
+) -> None:
+    """Lista as 60 ações mais negociadas antes de cada eleição e grava em dados/resultados/."""
+    hoje = date.today()
+    anos = range(PRIMEIRO_ANO_COTAHIST, hoje.year + 1)
+    # A B3 regrava o arquivo do ano corrente todo dia: ele é sempre baixado de novo.
+    convertidos = cotahist.garantir_anos(
+        [ano for ano in anos if ano != hoje.year],
+        atualizar,
+        ao_converter=lambda r: typer.echo(r.resumo()),
+    )
+    convertidos |= cotahist.garantir_anos(
+        [hoje.year], True, ao_converter=lambda r: typer.echo(r.resumo())
+    )
+    reprovados = {a: e for a, e in convertidos.items() if isinstance(e, cotahist.CotahistError)}
+    for ano, erro in reprovados.items():
+        typer.echo(f"ERRO {ano}: {erro}", err=True)
+    if reprovados:
+        raise typer.Exit(code=1)
+
+    eleicoes = calendario.carregar_eleicoes()
+    tabela = liquidez_estudo.calcular_liquidez(eleicoes, calendario.pregoes())
+    caminho = liquidez_estudo.gravar_liquidez(tabela)
+    for eleicao in eleicoes:
+        do_ano = tabela[tabela["ano"] == eleicao.ano]
+        inicio, fim = liquidez_estudo.periodo(eleicao, calendario.pregoes())
+        typer.echo("")
+        typer.echo(
+            f"{eleicao.ano}: {inicio:%d/%m/%Y} a {fim:%d/%m/%Y}, "
+            f"{do_ano['pregoes_no_periodo'].iloc[0]} pregões"
+        )
+        for linha in do_ano.itertuples(index=False):
+            typer.echo(f"{linha.posicao:>3}  {linha.raiz:<5} {linha.ticker:<8} {linha.nomres}")
+    typer.echo("")
+    typer.echo(f"Gravado em {caminho}")
