@@ -62,6 +62,12 @@ CELULA_INICIO, CELULA_FIM, CELULA_SITUACAO = "C6", "C7", "C8"
 COL_BRUTA, COL_SO_BRASIL = 3, 4  # C e D
 COL_MEDIA, COL_MEDIANA = 3, 4
 PRIMEIRA_LINHA_MEDIDAS = 12
+# A unidade vai no próprio número, com sinal: +9,19%, +2,52 p.p., −34 p.b.
+FORMATO_DA_UNIDADE = {
+    "%": '+0.00"%";-0.00"%";0.00"%"',
+    "p.p.": '+0.00" p.p.";-0.00" p.p.";0.00" p.p."',
+    "p.b.": '+0" p.b.";-0" p.b.";0" p.b."',
+}
 MEDIDAS_DO_PAINEL = [
     # código em janelas.csv, nome, unidade, explicação
     (
@@ -652,7 +658,7 @@ def _aba_painel(wb: Workbook, ultima_janelas: int, ultima_carteiras: int) -> Non
         ws.cell(linha, 5, unidade)
         ws.cell(linha, 6, explicacao).alignment = QUEBRA
         for coluna in (COL_BRUTA, COL_SO_BRASIL):
-            ws.cell(linha, coluna).number_format = "0.00"
+            ws.cell(linha, coluna).number_format = FORMATO_DA_UNIDADE.get(unidade, "0.00")
             ws.cell(linha, coluna).alignment = Alignment(horizontal="right")
         ws.row_dimensions[linha].height = 32
 
@@ -676,8 +682,9 @@ def _aba_painel(wb: Workbook, ultima_janelas: int, ultima_carteiras: int) -> Non
         )
         ws.cell(linha, 5, "% (p.p. na diferença)" if "menos" in codigo else "%")
         ws.cell(linha, 6, explicacao).alignment = QUEBRA
+        formato = FORMATO_DA_UNIDADE["p.p." if "menos" in codigo else "%"]
         for coluna in (COL_MEDIA, COL_MEDIANA):
-            ws.cell(linha, coluna).number_format = "0.00"
+            ws.cell(linha, coluna).number_format = formato
             ws.cell(linha, coluna).alignment = Alignment(horizontal="right")
         ws.row_dimensions[linha].height = 32
 
