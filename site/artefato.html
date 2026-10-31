@@ -1,0 +1,1282 @@
+<title>Eleições e mercado: bolsa, dólar e juros de 1994 a 2026</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@75..100,500..800&family=IBM+Plex+Mono:wght@400;500&family=IBM+Plex+Sans:wght@400;500;600&display=swap">
+<style>
+/* Uma coluna de seções numeradas. Tema claro e escuro: pelo sistema (prefers-color-scheme) ou por data-theme. */
+:root {
+  --bg: #f4f4f1;
+  --superficie: #fcfcfb;
+  --ink: #0b0b0b;
+  --ink-2: #52514e;
+  --ink-3: #898781;
+  --grade: #e1e0d9;
+  --eixo: #c3c2b7;
+  --linha: #d9d8d0;
+  --link: #1c5cab;
+  --serie-1: #2a78d6;   /* azul */
+  --serie-2: #eb6834;   /* laranja */
+  --serie-3: #1baf7a;   /* aqua */
+  --div-meio: #f0efec;  /* mapa de calor: cinza no meio, azul para cima, vermelho para baixo */
+  --div-alto: #2a78d6;
+  --div-baixo: #e34948;
+  --realce: rgba(11, 11, 11, 0.05);
+  --aviso: #8a5a00;
+  --display: "Archivo", "Arial Narrow", system-ui, sans-serif;
+  --body: "IBM Plex Sans", system-ui, -apple-system, "Segoe UI", sans-serif;
+  --mono: "IBM Plex Mono", ui-monospace, "SF Mono", Menlo, monospace;
+}
+@media (prefers-color-scheme: dark) {
+  :root:where(:not([data-theme="light"])) {
+    --bg: #0d0d0d; --superficie: #1a1a19; --ink: #f0efec; --ink-2: #c3c2b7; --ink-3: #898781;
+    --grade: #2c2c2a; --eixo: #383835; --linha: #2f2f2d; --link: #6da7ec;
+    --serie-1: #3987e5; --serie-2: #d95926; --serie-3: #199e70;
+    --div-meio: #383835; --div-alto: #3987e5; --div-baixo: #e66767;
+    --realce: rgba(255, 255, 255, 0.06); --aviso: #e0a93b; color-scheme: dark;
+  }
+}
+:root[data-theme="dark"] {
+  --bg: #0d0d0d; --superficie: #1a1a19; --ink: #f0efec; --ink-2: #c3c2b7; --ink-3: #898781;
+  --grade: #2c2c2a; --eixo: #383835; --linha: #2f2f2d; --link: #6da7ec;
+  --serie-1: #3987e5; --serie-2: #d95926; --serie-3: #199e70;
+  --div-meio: #383835; --div-alto: #3987e5; --div-baixo: #e66767;
+  --realce: rgba(255, 255, 255, 0.06); --aviso: #e0a93b; color-scheme: dark;
+}
+* { box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+@media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } }
+body { background: var(--bg); color: var(--ink); font-family: var(--body); font-size: 16px; line-height: 1.55; }
+.wrap { max-width: 1040px; margin: 0 auto; padding-inline: 18px; padding-block: 28px 56px; display: grid; gap: 36px; background: var(--bg); color: var(--ink); font-family: var(--body); line-height: 1.55; }
+h1 { font-family: var(--display); font-stretch: 80%; font-weight: 800; font-size: clamp(1.9rem, 5vw, 3rem); line-height: 1.04; margin: 0; letter-spacing: -0.01em; text-wrap: balance; }
+h2 { font-family: var(--display); font-stretch: 88%; font-weight: 700; font-size: 1.3rem; margin: 0; text-wrap: balance; display: flex; gap: 10px; align-items: baseline; }
+h2 .n { font-family: var(--mono); font-weight: 500; font-size: 0.85rem; color: var(--link); min-width: 1.4em; }
+h3 { font-family: var(--display); font-stretch: 88%; font-weight: 700; font-size: 1.05rem; margin: 10px 0 0; }
+p { margin: 0; }
+a { color: var(--link); }
+.lede { color: var(--ink-2); max-width: 62ch; margin-top: 12px; font-size: 1.05rem; }
+.eyebrow { font-size: 0.74rem; letter-spacing: 0.09em; text-transform: uppercase; color: var(--ink-2); font-weight: 600; margin: 0; }
+.so-leitor { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; }
+.num { font-family: var(--mono); font-variant-numeric: tabular-nums; }
+button:focus-visible, select:focus-visible, a:focus-visible, [tabindex]:focus-visible { outline: 2px solid var(--link); outline-offset: 2px; }
+svg [tabindex]:focus-visible { outline: none; }
+svg [tabindex]:focus-visible.alvo, svg [tabindex]:focus-visible.alvo-ponto { stroke: var(--ink); stroke-width: 2; }
+svg:focus-visible { outline: 2px solid var(--link); outline-offset: 2px; }
+
+.indice { display: flex; flex-wrap: wrap; gap: 6px 16px; font-size: 0.86rem; padding-block: 10px; border-block: 1px solid var(--linha); }
+.indice a { color: var(--ink-2); text-decoration: none; display: flex; gap: 6px; }
+.indice a:hover { color: var(--link); text-decoration: underline; }
+.indice a span { font-family: var(--mono); color: var(--ink-3); }
+
+.bloco { display: grid; gap: 16px; min-width: 0; scroll-margin-top: 16px; }
+.bloco > p, .bloco > .texto { color: var(--ink-2); max-width: 72ch; }
+.cartao { background: var(--superficie); border: 1px solid var(--linha); border-radius: 8px; padding: 16px; min-width: 0; }
+.duas { display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 16px; }
+.graficos-cenarios { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 16px; }
+@media (max-width: 760px) { .graficos-cenarios { grid-template-columns: minmax(0, 1fr); } }
+.tres { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 16px; }
+.rolagem { overflow-x: auto; }
+.aviso { padding: 10px 12px; border-left: 3px solid var(--aviso); background: color-mix(in srgb, var(--aviso) 10%, transparent); font-size: 0.92rem; border-radius: 4px; max-width: 72ch; }
+.nota { font-size: 0.82rem; color: var(--ink-2); line-height: 1.4; margin-top: 2px; }
+.explica { font-size: 0.9rem; color: var(--ink-2); max-width: 72ch; }
+.explica strong { color: var(--ink); }
+
+/* Resumo */
+.resumo { display: grid; gap: 12px; }
+.resumo p, .prosa p, .prosa li { max-width: 72ch; }
+.destaques { display: grid; grid-template-columns: repeat(auto-fit, minmax(210px, 1fr)); gap: 12px; }
+.destaque { background: var(--superficie); border: 1px solid var(--linha); border-radius: 8px; padding: 14px 16px; display: grid; gap: 4px; align-content: start; }
+.destaque .rotulo { font-size: 0.82rem; color: var(--ink-2); }
+.destaque .valor { font-family: var(--body); font-weight: 600; font-size: 2.1rem; line-height: 1.1; white-space: nowrap; }
+.destaque .contexto { font-size: 0.82rem; color: var(--ink-2); line-height: 1.4; }
+.prosa { display: grid; gap: 12px; line-height: 1.6; }
+.prosa h3 { margin: 14px 0 0; }
+.prosa h3:first-child { margin-top: 0; }
+.prosa ul { margin: 0; padding-left: 1.2em; display: grid; gap: 8px; }
+.prosa table { max-width: 100%; }
+
+/* Controles */
+.filtro { display: flex; flex-wrap: wrap; gap: 8px 12px; align-items: center; }
+.filtro label { font-weight: 600; font-size: 0.9rem; }
+select { font: inherit; font-size: 0.92rem; padding: 7px 10px; border: 1px solid var(--eixo); border-radius: 4px; background: var(--superficie); color: var(--ink); min-height: 36px; max-width: 100%; }
+
+/* Tabelas */
+table { border-collapse: collapse; width: 100%; font-size: 0.86rem; }
+th, td { padding: 6px 10px; text-align: right; white-space: nowrap; border-bottom: 1px solid var(--grade); }
+th:first-child, td:first-child { text-align: left; white-space: normal; min-width: 90px; }
+thead th { white-space: normal; font-family: var(--body); font-weight: 600; color: var(--ink-2); font-size: 0.78rem; vertical-align: bottom; }
+td.num, th.num { font-family: var(--mono); font-variant-numeric: tabular-nums; }
+thead th.num { font-family: var(--body); min-width: 86px; }
+td.texto, th.texto { text-align: left; white-space: normal; min-width: 180px; }
+td.quebra { white-space: normal; }
+table.proposta td, table.proposta th { text-align: left; white-space: normal; vertical-align: top; min-width: 150px; }
+table.proposta th:first-child, table.proposta td:first-child { min-width: 120px; font-weight: 600; }
+.vazio { color: var(--ink-3); }
+
+/* Gráficos */
+.grafico { margin: 0; display: grid; gap: 8px; min-width: 0; }
+.grafico-cab { display: grid; gap: 2px; }
+.grafico-area { min-width: 0; }
+.grafico-rodape { display: flex; justify-content: flex-end; }
+.ver-tabela { font: inherit; font-size: 0.82rem; padding: 6px 10px; min-height: 32px; border: 1px solid var(--eixo); background: transparent; color: var(--ink-2); border-radius: 4px; cursor: pointer; }
+.ver-tabela:hover { color: var(--ink); border-color: var(--ink-3); }
+.grafico-tabela { border-top: 1px solid var(--grade); padding-top: 8px; max-height: 360px; overflow: auto; }
+.legenda { display: flex; flex-wrap: wrap; gap: 6px 16px; font-size: 0.84rem; color: var(--ink-2); }
+.legenda .chave { display: inline-block; width: 10px; height: 10px; border-radius: 2px; margin-right: 6px; vertical-align: -1px; }
+.legenda .chave-linha { width: 16px; height: 2px; border-radius: 1px; vertical-align: 3px; }
+.legenda .chave-ponto { border-radius: 50%; }
+svg { display: block; max-width: 100%; overflow: visible; }
+svg text { font-family: var(--body); font-size: 11px; fill: var(--ink-2); }
+svg .grade { stroke: var(--grade); stroke-width: 1; }
+svg .eixo-base { stroke: var(--eixo); stroke-width: 1; }
+svg .nivel-hoje { stroke: var(--ink-3); stroke-width: 1; }
+svg .marca-vertical { stroke: var(--ink-3); stroke-width: 1; }
+svg .rotulo-marca { font-size: 10.5px; fill: var(--ink-2); }
+svg .rotulo-valor { fill: var(--ink); font-family: var(--mono); font-size: 10.5px; font-weight: 500; }
+svg .rotulo-cat { fill: var(--ink); font-size: 11px; }
+svg .titulo-eixo { font-size: 11px; fill: var(--ink-2); }
+svg .tendencia { stroke: var(--ink-3); stroke-width: 2; stroke-linecap: round; }
+svg .mira-linha { stroke: var(--ink-2); stroke-width: 1; }
+svg .realce { fill: var(--realce); opacity: 0; }
+svg .grupo:hover .realce, svg .grupo:focus-within .realce { opacity: 1; }
+svg .alvo, svg .alvo-ponto { cursor: default; }
+svg .alvo-ponto:hover { stroke: var(--ink-3); stroke-width: 1; }
+
+#dica { position: fixed; pointer-events: none; background: var(--ink); color: var(--superficie); padding: 7px 10px; border-radius: 6px; font-size: 0.82rem; z-index: 20; max-width: 280px; line-height: 1.35; box-shadow: 0 2px 10px rgba(0, 0, 0, 0.25); }
+#dica .dica-titulo { opacity: 0.8; margin-bottom: 3px; }
+#dica .dica-linha { display: flex; gap: 7px; align-items: baseline; }
+#dica .dica-linha strong { font-size: 0.95rem; font-weight: 600; }
+#dica .dica-rotulo { opacity: 0.8; }
+#dica .dica-chave { display: inline-block; width: 12px; height: 2px; border-radius: 1px; align-self: center; flex: none; }
+#dica .dica-nota { opacity: 0.85; margin-top: 3px; }
+
+/* Mapa de calor */
+table.mapa { table-layout: fixed; min-width: 760px; }
+table.mapa th, table.mapa td { text-align: center; padding: 0; white-space: normal; border-bottom: 0; }
+table.mapa thead th { font-size: 0.72rem; line-height: 1.2; padding: 0 3px 6px; }
+table.mapa th.ano { width: 52px; text-align: left; font-family: var(--mono); font-size: 0.82rem; padding-right: 6px; color: var(--ink); font-weight: 600; }
+table.mapa td { height: 38px; font-family: var(--mono); font-size: 0.78rem; font-variant-numeric: tabular-nums; border: 2px solid var(--superficie); border-radius: 4px; cursor: default; }
+table.mapa td.sem { color: var(--ink-3); background: transparent; border: 1px dashed var(--linha); border-radius: 4px; }
+table.mapa td:focus-visible { outline: 2px solid var(--ink); outline-offset: -2px; }
+.escala-mapa { display: flex; align-items: center; gap: 10px; font-size: 0.78rem; color: var(--ink-2); flex-wrap: wrap; }
+.escala-mapa .barra { width: 200px; max-width: 100%; height: 8px; border-radius: 4px; }
+
+/* Cenários */
+.cartao-cenario { display: grid; gap: 8px; align-content: start; }
+.cartao-cenario h3 { margin: 0; display: flex; gap: 8px; align-items: center; }
+.cartao-cenario .chave { width: 12px; height: 12px; border-radius: 3px; flex: none; }
+.cartao-cenario ul { margin: 0; padding-left: 1.2em; display: grid; gap: 6px; font-size: 0.92rem; }
+.cartao-cenario .rotulo { font-size: 0.72rem; letter-spacing: 0.08em; text-transform: uppercase; color: var(--ink-2); font-weight: 600; }
+.cartao-cenario p { font-size: 0.92rem; color: var(--ink-2); }
+
+footer { color: var(--ink-2); font-size: 0.86rem; display: grid; gap: 8px; max-width: 80ch; }
+</style>
+
+<div class="wrap">
+  <header>
+    <p class="eyebrow">Eleições presidenciais · Ibovespa, dólar e juros</p>
+    <h1>Eleições e mercado: bolsa, dólar e juros de 1994 a 2026</h1>
+    <p class="lede">O que a bolsa, o dólar e os juros fizeram depois de cada eleição para presidente, e o que isso diz sobre os próximos meses. Dados até 30/10/2026.</p>
+  </header>
+
+  <nav class="indice" aria-label="Seções">
+    <a href="#resumo"><span>1</span>Resumo</a>
+    <a href="#agora"><span>2</span>2026 agora</a>
+    <a href="#historico"><span>3</span>Cada eleição</a>
+    <a href="#pesquisas"><span>4</span>Pesquisas</a>
+    <a href="#setores"><span>5</span>Estatais e setores</a>
+    <a href="#propostas"><span>6</span>Propostas</a>
+    <a href="#cenarios"><span>7</span>Cenários</a>
+    <a href="#analise"><span>8</span>Análise</a>
+    <a href="#limites"><span>9</span>Limites e fontes</a>
+  </nav>
+
+  <section class="bloco" id="resumo">
+    <h2><span class="n">1</span>Resumo</h2>
+    <div class="cartao resumo prosa"><p>Em 2026 a bolsa teve, nos dois turnos, as reações mais fortes a uma eleição desde 1994. No
+dia seguinte ao 1º turno, o Ibovespa subiu 7,7%. O Flávio Bolsonaro tinha ficado em
+primeiro, e as pesquisas davam o Lula na frente. No dia seguinte ao 2º turno, com a vitória
+do Lula, a bolsa caiu 13,9%. Até então, a maior queda em um dia pós-eleição tinha sido de
+4,5%, em 1998. O dólar subiu 9,2% e o Tesouro de 10 anos foi de 12,90% para 15,42% ao ano.</p>
+<p>O motivo principal é a surpresa. As três pesquisas da véspera davam o Flávio na frente no 2º
+turno, e o mercado já tinha subido apostando nele. Nas eleições passadas, quanto maior a
+surpresa a favor do candidato preferido pelo mercado, mais a bolsa sobe no dia seguinte, e
+o contrário também vale.</p>
+<p>O que vem depois depende menos de quem ganhou e mais do sinal fiscal dos primeiros meses. O
+histórico mostra os dois caminhos: em 2002 a bolsa subiu 122% no primeiro ano de governo, e
+em 2014 caiu 16,5% enquanto o dólar subia 57%. Os três cenários deste estudo vão de um dólar
+entre R$ 4,49 e R$ 4,60 em janeiro de 2028, se vier um sinal fiscal crível, a um dólar entre
+R$ 7,93 e R$ 8,18, se vier uma crise de confiança nas contas.</p></div>
+    <div class="destaques" id="destaques"></div>
+    <p class="nota">Pontos percentuais (p.p.) são a diferença entre duas taxas: se o juro vai de 12,9% para 15,4% ao ano, subiu 2,5 pontos percentuais. “Surpresa” é a diferença entre o que as pesquisas mostravam e o que saiu das urnas, a favor do candidato que o mercado preferia.</p>
+  </section>
+
+  <section class="bloco" id="agora">
+    <h2><span class="n">2</span>2026 agora: bolsa e dólar desde 1º de agosto</h2>
+    <p>As linhas vão de 1º de agosto a 30 de outubro de 2026. As marcas verticais são os dois turnos (4 e 25 de outubro). Passe o mouse ou use as setas do teclado para ler cada dia.</p>
+    <div class="duas">
+      <div class="cartao" id="g-ibov"></div>
+      <div class="cartao" id="g-dolar"></div>
+    </div>
+    <h3>Janelas de 2026 que já aconteceram</h3>
+    <p class="explica"><strong>Só Brasil</strong> é o que sobra da variação depois de tirar o que o resto do mundo fez no mesmo período. Se as bolsas de todos os países emergentes caem, a daqui costuma cair junto; o “só Brasil” mostra a parte que é nossa. <strong>Pregão</strong> é um dia em que a bolsa abre.</p>
+    <div class="cartao rolagem" id="t-agora"></div>
+  </section>
+
+  <section class="bloco" id="historico">
+    <h2><span class="n">3</span>O que aconteceu em cada eleição</h2>
+    <p>O gráfico mostra o dia seguinte ao <strong>turno decisivo</strong>: o 1º turno em 1994 e 1998 (FHC ganhou na primeira volta) e o 2º turno nas outras. Se o mundo estava em queda, parte da queda da bolsa não é do Brasil. Por isso a segunda barra tira o exterior: é a bolsa em dólar, descontadas as bolsas dos países emergentes (“só Brasil”).</p>
+    <div class="cartao" id="g-decisivo"></div>
+    <p class="nota">Em 1994 só há a barra bruta: o Real tinha três meses e não existe índice de bolsas emergentes por dia antes de 1997.</p>
+
+    <h3>Todas as janelas, uma tabela de cores</h3>
+    <p class="explica">Cada linha é uma eleição, cada coluna é um período depois (ou antes) do voto. <strong>Azul subiu, vermelho caiu</strong>, e a cor fica mais forte quanto maior a variação. Cinza com tracejado é “sem dado” ou “ainda não aconteceu”: passe o mouse para ver o motivo. <strong>“Só Brasil”</strong> é a variação sem o que o exterior fez.</p>
+    <div class="cartao" style="display:grid;gap:12px">
+      <div class="filtro"><label for="sel-mapa">Medida</label><select id="sel-mapa"></select></div>
+      <div class="rolagem" id="mapa"></div>
+      <div class="escala-mapa" id="escala-mapa"></div>
+      <div class="rolagem"><button type="button" class="ver-tabela" id="ver-tabela-mapa" aria-expanded="false">Ver tabela</button><div id="t-mapa" hidden class="grafico-tabela"></div></div>
+    </div>
+  </section>
+
+  <section class="bloco" id="pesquisas">
+    <h2><span class="n">4</span>Pesquisas × resultado</h2>
+    <p>A <strong>surpresa</strong> é o resultado do TSE menos o que as pesquisas da véspera mostravam, medida a favor do candidato que o mercado preferia (sempre o de fora do PT). Surpresa positiva: ele foi melhor do que as pesquisas diziam. No gráfico, cada ponto é um turno.</p>
+    <div class="cartao" id="g-surpresa"></div>
+    <p class="aviso" id="aviso-corr"></p>
+    <h3>Os 16 turnos, um por um</h3>
+    <p class="explica"><strong>Margem</strong> é a diferença, em pontos, entre o candidato que o mercado preferia e o rival, nos votos válidos (sem brancos e nulos). Positiva: o candidato do mercado na frente. “Favorito” é quem estava na frente nas pesquisas. D+1 é o dia seguinte ao turno.</p>
+    <div class="cartao rolagem" id="t-surpresa"></div>
+  </section>
+
+  <section class="bloco" id="setores">
+    <h2><span class="n">5</span>Estatais, privadas e setores</h2>
+    <p class="explica"><strong>Peso igual, só preço</strong>: cada carteira junta as empresas mais negociadas antes da eleição, com o mesmo valor em cada uma e sem contar dividendos. Assim a comparação entre estatais e privadas é justa, mas a variação não é igual à do Ibovespa. A lista de estatais muda a cada eleição.</p>
+    <div class="cartao" style="display:grid;gap:12px">
+      <div class="filtro"><label for="sel-estatais">Janela</label><select id="sel-estatais"></select></div>
+      <div id="g-estatais"></div>
+      <div class="rolagem" id="t-medias"></div>
+    </div>
+    <h3>Setores em 2026, dia seguinte ao 2º turno</h3>
+    <p class="explica" id="p-setores"></p>
+    <div class="cartao" id="g-setores"></div>
+    <div class="duas">
+      <div class="cartao" id="g-cairam"></div>
+      <div class="cartao" id="g-menos-cairam"></div>
+    </div>
+  </section>
+
+  <section class="bloco" id="propostas">
+    <h2><span class="n">6</span>Propostas e marcos</h2>
+    <div id="propostas-conteudo"></div>
+  </section>
+
+  <section class="bloco" id="cenarios">
+    <h2><span class="n">7</span>Cenários para os próximos 14 meses</h2>
+    <p>Três caminhos possíveis para o Ibovespa, o dólar e o juro. Cada um diz “se isto acontecer, a faixa foi esta nas eleições parecidas”. A barra vai do menor ao maior valor dessas duas eleições, e o círculo é a média delas. A linha fina horizontal é o nível de hoje (30/10/2026).</p>
+    <p class="aviso"><strong>Sem chance em %: com 9 eleições, um número seria chute.</strong> <strong>Mundo parado: se o exterior subir ou cair, isso soma por cima.</strong> <span id="status-premissas"></span></p>
+    <div class="graficos-cenarios" id="g-cenarios"></div>
+    <h3>Os três cenários, lado a lado</h3>
+    <div class="tres" id="cartoes-cenarios"></div>
+  </section>
+
+  <section class="bloco" id="analise">
+    <h2><span class="n">8</span>Análise: o que os números mostram</h2>
+    <div class="cartao prosa"><h3>O que aconteceu em 2026</h3>
+<p>No 1º turno, em 4 de outubro, o Flávio Bolsonaro teve 47,03% dos votos válidos e o Lula,
+45,16%. As últimas pesquisas davam o contrário: Datafolha 45% a 42% para o Lula, Quaest 46%
+a 45% e AtlasIntel 47,0% a 44,1%. No dia seguinte o Ibovespa subiu 7,7% e fechou em 206.912
+pontos, recorde. O dólar caiu 4,6% e o Tesouro de 10 anos caiu 1,2 ponto. Foi a maior alta
+pós-1º turno da série (a anterior era de 5,5%, em 2022).</p>
+<p>Entre os turnos a bolsa segurou a maior parte da alta: na véspera do 2º turno estava 6,8%
+acima do nível de antes do 1º. O mercado passou a trabalhar com a vitória do Flávio, e as
+três pesquisas da véspera o colocavam na frente: Datafolha e Quaest com 51% a 49%,
+AtlasIntel com 50,8% a 49,2%.</p>
+<p>O Lula ganhou com 51,79%, uma diferença de 4,4 milhões de votos. Em 26 de outubro a bolsa
+caiu 13,9%, com o circuit breaker acionado. O dólar foi de R$ 5,04 para R$ 5,50, alta de
+9,2%, e o Tesouro de 10 anos subiu 2,5 pontos, para 15,42% ao ano. Em cinco pregões a bolsa
+perdeu 18,1%. No discurso da vitória não houve sinal sobre a meta fiscal, e o Flávio disse
+que não reconhecia o resultado (no dia seguinte o PL reconheceu, e ele passou a falar em
+pedir a cassação da chapa). Em 26 e 27 de outubro o ministro da Fazenda, Dario Durigan, disse
+que o governo vai mudar a lei ou mandar uma PEC para buscar o centro da meta, com um pacote
+de pelo menos R$ 39,8 bilhões, e que a equipe do novo mandato ainda não está definida.</p>
+<h3>Por que subiu e por que caiu: a surpresa</h3>
+<p>O mercado não reage ao vencedor; reage ao que não esperava. Em 2026 o candidato preferido
+pelo mercado foi 4,2 pontos melhor do que as pesquisas no 1º turno e 5,4 pontos pior no 2º.
+É a maior surpresa da série, e foi o único 2º turno, entre os seis com pesquisas na nossa
+base, em que o favorito das pesquisas perdeu.</p>
+<p>O padrão vem de antes. Nos 14 turnos com pesquisa, a correlação entre a surpresa e o
+Ibovespa no dia seguinte é de 0,69. Sem 2026, fica em 0,54, com cerca de 0,5% de bolsa para
+cada ponto de surpresa. Em todos os 1º turnos em que o candidato do PT liderava as
+pesquisas (2002, 2006, 2010, 2014, 2022 e 2026), ele teve menos votos do que elas indicavam,
+e em cinco desses seis a bolsa subiu no dia seguinte (2014 +4,7%, 2022 +5,5%, 2026 +7,7%; a
+exceção foi 2002, −4,3%). São poucos casos: é um indício forte, não uma lei.</p>
+<p>Uma parte do tamanho da queda vem da aposta anterior: a alta da campanha foi desfeita num
+dia só, e em 26 de outubro o Ibovespa fechou abaixo do nível de antes do 1º turno.</p>
+<h3>O que o histórico diz sobre quem ganha</h3>
+<p>O nome do vencedor explica pouco do que vem depois. Nos cinco primeiros anos de governo do
+PT na série, a bolsa fez de tudo: +122% (2002), +62% (2006), −20% (2010), −16,5% (2014) e
++17% (2022). O que separa um caso do outro é o sinal fiscal e a equipe econômica:</p>
+<ul>
+<li>Em <strong>2002</strong> o mercado temia o Lula. Vieram a Carta ao Povo Brasileiro, o Palocci na
+  Fazenda, o Meirelles no Banco Central e um superávit maior que o pedido pelo FMI. Em um
+  ano de governo a bolsa subiu 122% e o dólar caiu 24%.</li>
+<li>Em <strong>2014</strong> a Dilma foi reeleita por pouco, com o mercado apostando no Aécio. O Levy foi
+  para a Fazenda, mas as contas pioraram e veio a recessão. Em um ano a bolsa caiu 16,5% e
+  o dólar subiu 57%.</li>
+<li>Em <strong>2022</strong> a bolsa caiu 3,9% até a posse, com a PEC da Transição e o discurso contra o
+  teto. Depois do arcabouço fiscal, fechou o primeiro ano com alta de 17%.</li>
+</ul>
+<h3>Estatais, privadas e setores</h3>
+<p>Em 2014 e em 2022, no dia seguinte à vitória do PT, as estatais ficaram 5,1 pontos atrás
+das privadas. Em 2026 aconteceu o contrário: estatais −10,3%, privadas −19,0%. O choque
+desta vez foi de juros e de consumo interno, e não de medo de intervenção. Varejo caiu
+30,9%, construção 27,3%, bancos e elétricas 17,8% cada, petróleo 14,9%. A mineração caiu só
+4,4%: a Vale subiu 4% no dia, porque exportadora ganha com o dólar alto.</p>
+<p>O medo da eleição também nem sempre se confirma depois. Um ano depois da posse de 2022, a
+estatal típica tinha subido 21% e a privada típica, 1,5%. Em 2010, a privada típica caiu
+30%, contra 3% da estatal. Em 2014 o contrário: estatais −33%, privadas −21%.</p>
+<h3>O que vem pela frente: três cenários</h3>
+<p>Os cenários partem de 30/10/2026: Ibovespa em 167.922 pontos, dólar a R$ 5,42 e Tesouro de
+10 anos a 15,23%. Cada faixa é o que bolsa, dólar e juros fizeram, do mesmo ponto do
+calendário em diante, em duas eleições parecidas, sem o efeito do resto do mundo.</p>
+<div class="rolagem"><table>
+<thead>
+<tr>
+<th>Em 1 ano de governo (jan/2028)</th>
+<th>Otimista</th>
+<th>Base</th>
+<th>Pessimista</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Parecido com</td>
+<td>2002 e 2006</td>
+<td>2010 e 2022</td>
+<td>1998 e 2014</td>
+</tr>
+<tr>
+<td>Bolsa em dólar</td>
+<td>+5% a +41%</td>
+<td>−3% a +7%</td>
+<td>−31% a −25%</td>
+</tr>
+<tr>
+<td>Ibovespa (pontos)</td>
+<td>150 a 196 mil</td>
+<td>174 a 185 mil</td>
+<td>170 a 189 mil</td>
+</tr>
+<tr>
+<td>Dólar</td>
+<td>R$ 4,49 a 4,60</td>
+<td>R$ 5,61 a 5,77</td>
+<td>R$ 7,93 a 8,18</td>
+</tr>
+<tr>
+<td>Tesouro 10 anos</td>
+<td>~15,1% (só 2006)</td>
+<td>13,8% a 14,5%</td>
+<td>~19,5% (só 2014)</td>
+</tr>
+</tbody>
+</table></div>
+<ul>
+<li><strong>Otimista, sinal fiscal crível</strong>: um nome para a Fazenda visto como comprometido com a
+  meta (ou o Durigan mantido com o pacote), a lei ou PEC do centro da meta enviada antes da
+  posse, um Copom sem perder a confiança e a contestação encerrada no TSE.</li>
+<li><strong>Base, continuidade com ruído</strong>: a equipe demora a ser definida, a meta fica no papel e
+  o centro é adiado, o Copom para de cortar a Selic.</li>
+<li><strong>Pessimista, crise de confiança fiscal</strong>: a meta reduzida ou uma PEC de gastos,
+  interferência na Petrobras ou nos bancos públicos, contestação que se arrasta e o Copom
+  obrigado a voltar a subir os juros.</li>
+</ul>
+<p>Até a posse, os três cenários ficam próximos: a separação aparece nos 100 dias e no
+primeiro ano. No pessimista o Ibovespa quase não cai em pontos porque o real perde valor;
+em dólar a bolsa cai de 25% a 31%. Nos juros há um caso só no otimista e no pessimista (o
+histórico do Tesouro começa em dezembro de 2004), então esses números valem menos que os de
+bolsa e dólar. Não há chance em %: com 9 eleições, um número seria chute. E o mundo está
+parado nas contas: um ano de bolsas emergentes em queda, ou um novo choque do petróleo (o
+conflito no Golfo fechou o Estreito de Ormuz em fevereiro), soma por cima.</p>
+<h3>O que acompanhar</h3>
+<ul>
+<li>O nome do ministro da Fazenda e o envio da lei ou PEC do centro da meta.</li>
+<li>O Copom de 4 de novembro e o de dezembro, e as expectativas de inflação no boletim Focus.</li>
+<li>O pedido de cassação da chapa no TSE.</li>
+<li>A política de preços da Petrobras e o uso dos bancos públicos.</li>
+</ul></div>
+  </section>
+
+  <section class="bloco" id="limites">
+    <h2><span class="n">9</span>Limites e fontes</h2>
+    <div class="cartao prosa">
+      <h3>O que este estudo não consegue dizer</h3>
+      <ul id="lista-limites"></ul>
+      <h3>Como as contas foram feitas</h3>
+      <ul id="lista-metodo"></ul>
+    </div>
+    <h3>De onde vêm os dados</h3>
+    <div class="cartao rolagem" id="t-fontes"></div>
+    <p class="aviso" id="aviso-final"></p>
+  </section>
+
+  <footer>
+    <p>Estudo de Bernardo Steffen Timm.</p>
+    
+  </footer>
+</div>
+<div id="dica" hidden></div>
+
+<script>
+"use strict";
+/* Gráficos em SVG puro (sem biblioteca). Cada gráfico:
+   - é redesenhado na largura real do cartão, para o texto manter o tamanho;
+   - tem dica (mouse e teclado), com o texto sempre inserido por textContent;
+   - tem "Ver tabela", a tabela com os mesmos números. */
+
+const NS = "http://www.w3.org/2000/svg";
+
+// ------------------------------------------------------------------ DOM
+function aplicar(el, atributos, filhos) {
+  for (const [k, v] of Object.entries(atributos || {})) {
+    if (v === null || v === undefined || v === false) continue;
+    if (k === "texto") el.textContent = v;
+    else if (k.startsWith("on")) el.addEventListener(k.slice(2), v);
+    else el.setAttribute(k, v === true ? "" : v);
+  }
+  for (const f of filhos.flat()) {
+    if (f === null || f === undefined || f === false) continue;
+    el.append(f.nodeType ? f : document.createTextNode(String(f)));
+  }
+  return el;
+}
+const h = (tag, atributos, ...filhos) => aplicar(document.createElement(tag), atributos, filhos);
+const s = (tag, atributos, ...filhos) => aplicar(document.createElementNS(NS, tag), atributos, filhos);
+
+// ------------------------------------------------------------------ números em português
+const formatadores = {};
+function nf(casas) {
+  formatadores[casas] ||= new Intl.NumberFormat("pt-BR", { minimumFractionDigits: casas, maximumFractionDigits: casas });
+  return formatadores[casas];
+}
+function num(v, casas = 1, sinal = false) {
+  if (!Number.isFinite(v)) return "–";
+  let r = Math.round(v * 10 ** casas) / 10 ** casas;
+  if (Object.is(r, -0)) r = 0;
+  const texto = nf(casas).format(Math.abs(r));
+  if (r < 0) return "−" + texto;
+  return sinal && r > 0 ? "+" + texto : texto;
+}
+const pct = (v, casas = 1) => (Number.isFinite(v) ? num(v, casas, true) + "%" : "–");
+const pctSimples = (v, casas = 1) => (Number.isFinite(v) ? num(v, casas, false) + "%" : "–");
+const pontos = (v, casas = 1) => (Number.isFinite(v) ? num(v, casas, true) + " pontos" : "–");
+function comUnidade(v, unidade, casas) {
+  if (!Number.isFinite(v)) return "–";
+  if (unidade === "%") return pct(v, casas ?? 1);
+  if (unidade === "p.p.") return num(v, casas ?? 2, true) + " p.p.";
+  if (unidade === "p.b.") return num(v, casas ?? 0, true) + " p.b.";
+  return num(v, casas ?? 1, true);
+}
+function dataBR(iso) {
+  if (!iso) return "";
+  const [a, m, d] = String(iso).slice(0, 10).split("-");
+  return `${d}/${m}/${a}`;
+}
+const DIAS = ["dom", "seg", "ter", "qua", "qui", "sex", "sáb"];
+function dataComDia(iso) {
+  const [a, m, d] = iso.split("-").map(Number);
+  return `${DIAS[new Date(Date.UTC(a, m - 1, d)).getUTCDay()]}., ${dataBR(iso)}`;
+}
+
+// Só links http(s) viram <a>: o texto vem de arquivos de dados.
+function ligacao(url, texto) {
+  if (typeof url === "string" && /^https?:\/\//.test(url.trim())) {
+    return h("a", { href: url.trim(), target: "_blank", rel: "noopener", texto });
+  }
+  return null;
+}
+
+// ------------------------------------------------------------------ dica
+const Dica = {
+  caixa: null,
+  iniciar() {
+    this.caixa = document.getElementById("dica");
+    document.addEventListener("pointerdown", (e) => {
+      if (!e.target.closest("[data-dica]")) this.esconder();
+    });
+    window.addEventListener("scroll", () => this.esconder(), { passive: true });
+  },
+  mostrar(conteudo, x, y) {
+    const c = this.caixa;
+    c.replaceChildren();
+    if (conteudo.titulo) c.append(h("div", { class: "dica-titulo", texto: conteudo.titulo }));
+    for (const l of conteudo.linhas || []) {
+      c.append(
+        h("div", { class: "dica-linha" },
+          l.cor ? h("span", { class: "dica-chave", style: `background:${l.cor}` }) : null,
+          h("strong", { texto: l.valor }),
+          l.rotulo ? h("span", { class: "dica-rotulo", texto: l.rotulo }) : null)
+      );
+    }
+    if (conteudo.nota) c.append(h("div", { class: "dica-nota", texto: conteudo.nota }));
+    c.hidden = false;
+    const larg = c.offsetWidth, alt = c.offsetHeight;
+    const esquerda = Math.max(6, Math.min(x + 14, innerWidth - larg - 6));
+    let topo = y + 16;
+    if (topo + alt > innerHeight - 6) topo = Math.max(6, y - alt - 12);
+    c.style.left = esquerda + "px";
+    c.style.top = topo + "px";
+  },
+  esconder() {
+    if (this.caixa) this.caixa.hidden = true;
+  },
+  // Dica de um elemento: mouse, toque e foco do teclado mostram o mesmo conteúdo.
+  ligar(alvo, conteudoDe) {
+    alvo.setAttribute("data-dica", "1");
+    const sobre = () => { const r = alvo.getBoundingClientRect(); return [r.left + r.width / 2, r.top + r.height / 2]; };
+    alvo.addEventListener("pointermove", (e) => this.mostrar(conteudoDe(), e.clientX, e.clientY));
+    alvo.addEventListener("pointerdown", (e) => this.mostrar(conteudoDe(), e.clientX, e.clientY));
+    alvo.addEventListener("pointerleave", (e) => { if (e.pointerType === "mouse") this.esconder(); });
+    alvo.addEventListener("focus", () => this.mostrar(conteudoDe(), ...sobre()));
+    alvo.addEventListener("blur", () => this.esconder());
+  },
+};
+
+// ------------------------------------------------------------------ escalas
+function linear(d0, d1, r0, r1) {
+  const k = (r1 - r0) / (d1 - d0 || 1);
+  const f = (v) => r0 + (v - d0) * k;
+  f.inversa = (y) => d0 + (y - r0) / k;
+  return f;
+}
+function passoBonito(min, max, alvo) {
+  const bruto = (max - min || 1) / alvo;
+  const pot = 10 ** Math.floor(Math.log10(bruto));
+  const f = bruto / pot;
+  return (f < 1.5 ? 1 : f < 3 ? 2 : f < 7 ? 5 : 10) * pot;
+}
+// Domínio arredondado para múltiplos do passo, com os marcadores do eixo.
+function dominioBonito(min, max, alvo = 5) {
+  const passo = passoBonito(min, max, alvo);
+  const lo = Math.floor(min / passo + 1e-9) * passo, hi = Math.ceil(max / passo - 1e-9) * passo;
+  const marcas = [];
+  for (let v = lo; v <= hi + passo / 1e6; v += passo) marcas.push(Math.round(v / passo) * passo);
+  return { lo, hi, marcas, passo };
+}
+const larguraTexto = (t, tamanho = 11) => String(t).length * tamanho * 0.58;
+
+// ------------------------------------------------------------------ moldura: título, legenda, gráfico e tabela
+function chaveDaLegenda(item) {
+  if (item.tipo === "linha") return h("i", { class: "chave chave-linha", style: `background:${item.cor}` });
+  if (item.tipo === "ponto") return h("i", { class: "chave chave-ponto", style: `background:${item.cor}` });
+  return h("i", { class: "chave", style: `background:${item.cor}` });
+}
+
+function tabelaSimples(cabecalho, linhas, opcoes = {}) {
+  const t = h("table", { class: opcoes.classe || "" });
+  if (opcoes.legenda) t.append(h("caption", { class: "so-leitor", texto: opcoes.legenda }));
+  t.append(h("thead", {}, h("tr", {}, cabecalho.map((c, i) => h("th", { scope: "col", class: i && !(opcoes.texto || []).includes(i) ? "num" : "texto", texto: c })))));
+  t.append(h("tbody", {}, linhas.map((l) => h("tr", {}, l.map((c, i) => {
+    const td = h("td", { class: i && !(opcoes.texto || []).includes(i) ? "num" : "texto" });
+    if (c && c.nodeType) td.append(c); else td.textContent = c ?? "–";
+    return td;
+  })))));
+  return h("div", { class: "rolagem" }, t);
+}
+
+// `fabrica()` devolve {titulo, nota, legenda, descricao, svg(largura), tabela()} e é chamada a cada desenho.
+function criarGrafico(host, fabrica) {
+  const cabeca = h("div", { class: "grafico-cab" });
+  const legenda = h("div", { class: "legenda" });
+  const area = h("div", { class: "grafico-area" });
+  const caixaTabela = h("div", { class: "grafico-tabela", hidden: true });
+  const botao = h("button", { type: "button", class: "ver-tabela", "aria-expanded": "false" }, "Ver tabela");
+  botao.addEventListener("click", () => {
+    const aberta = caixaTabela.hidden;
+    caixaTabela.hidden = !aberta;
+    botao.setAttribute("aria-expanded", String(aberta));
+    botao.textContent = aberta ? "Esconder tabela" : "Ver tabela";
+  });
+  host.replaceChildren(h("figure", { class: "grafico" }, cabeca, legenda, area, h("div", { class: "grafico-rodape" }, botao), caixaTabela));
+
+  let larguraAtual = 0;
+  const g = {
+    render() {
+      const spec = fabrica();
+      cabeca.replaceChildren(...[h("figcaption", { class: "eyebrow", texto: spec.titulo }), spec.nota ? h("p", { class: "nota", texto: spec.nota }) : null].filter(Boolean));
+      legenda.replaceChildren(...(spec.legenda && spec.legenda.length >= 2 ? spec.legenda.map((i) => h("span", {}, chaveDaLegenda(i), i.nome)) : []));
+      legenda.hidden = legenda.childElementCount === 0;
+      larguraAtual = Math.floor(area.clientWidth) || 320;
+      const svg = spec.svg(Math.max(240, larguraAtual));
+      svg.setAttribute("role", "group");
+      svg.setAttribute("aria-label", spec.descricao || spec.titulo);
+      area.replaceChildren(svg);
+      caixaTabela.replaceChildren(spec.tabela());
+      Dica.esconder();
+    },
+  };
+  if (window.ResizeObserver) {
+    new ResizeObserver(() => {
+      if (Math.abs(Math.floor(area.clientWidth) - larguraAtual) > 2 && area.clientWidth > 0) g.render();
+    }).observe(area);
+  }
+  g.render();
+  return g;
+}
+
+// ------------------------------------------------------------------ gráfico de linha com mira
+// pontos: [{data:"2026-08-03", y}], marcas: [{data, rotulo}]
+function desenharLinha(w, spec) {
+  const alt = w < 480 ? 230 : 280;
+  const m = { e: 54, d: 62, t: 26, b: 28 };
+  const pontos = spec.pontos.map((p) => ({ ...p, t: Date.parse(p.data + "T12:00:00Z") }));
+  const ys = pontos.map((p) => p.y);
+  const folga = (Math.max(...ys) - Math.min(...ys)) * 0.1;
+  const dom = dominioBonito(Math.min(...ys) - folga, Math.max(...ys) + folga, 4);
+  const x = linear(pontos[0].t, pontos[pontos.length - 1].t, m.e, w - m.d);
+  const y = linear(dom.lo, dom.hi, alt - m.b, m.t);
+  const svg = s("svg", { width: w, height: alt, viewBox: `0 0 ${w} ${alt}`, tabindex: "0" });
+
+  for (const v of dom.marcas) {
+    svg.append(s("line", { class: "grade", x1: m.e, x2: w - m.d, y1: y(v), y2: y(v) }));
+    svg.append(s("text", { class: "eixo-y", x: m.e - 6, y: y(v) + 4, "text-anchor": "end", texto: spec.formatoY(v) }));
+  }
+  // Marcadores do eixo x: dia 1 de cada mês e o último dia.
+  const inicio = new Date(pontos[0].t), fim = new Date(pontos[pontos.length - 1].t);
+  const rotulosX = [];
+  for (let d = new Date(Date.UTC(inicio.getUTCFullYear(), inicio.getUTCMonth(), 1)); d <= fim; d = new Date(Date.UTC(d.getUTCFullYear(), d.getUTCMonth() + 1, 1))) {
+    if (d >= inicio) rotulosX.push(d.getTime());
+  }
+  rotulosX.push(fim.getTime());
+  for (const t of rotulosX) {
+    const iso = new Date(t).toISOString().slice(0, 10);
+    svg.append(s("text", { class: "eixo-x", x: x(t), y: alt - 8, "text-anchor": t === fim.getTime() ? "end" : "middle", texto: dataBR(iso).slice(0, 5) }));
+  }
+  for (const marca of spec.marcas || []) {
+    const t = Date.parse(marca.data + "T12:00:00Z");
+    if (t < pontos[0].t || t > pontos[pontos.length - 1].t) continue;
+    svg.append(s("line", { class: "marca-vertical", x1: x(t), x2: x(t), y1: m.t - 4, y2: alt - m.b }));
+    svg.append(s("text", { class: "rotulo-marca", x: x(t), y: m.t - 9, "text-anchor": "middle", texto: marca.rotulo }));
+  }
+  const caminho = pontos.map((p, i) => `${i ? "L" : "M"}${x(p.t).toFixed(1)},${y(p.y).toFixed(1)}`).join("");
+  svg.append(s("path", { d: caminho, fill: "none", stroke: spec.cor, "stroke-width": 2, "stroke-linejoin": "round", "stroke-linecap": "round" }));
+
+  // Rótulos diretos: último valor, máximo e mínimo.
+  const ultimo = pontos[pontos.length - 1];
+  const imax = ys.indexOf(Math.max(...ys)), imin = ys.indexOf(Math.min(...ys));
+  const rotulados = [[pontos.length - 1, "fim"], [imax, "max"], [imin, "min"]].filter(([i], k, a) => a.findIndex(([j]) => j === i) === k);
+  for (const [i, tipo] of rotulados) {
+    const p = pontos[i];
+    svg.append(s("circle", { cx: x(p.t), cy: y(p.y), r: 4, fill: spec.cor, stroke: "var(--superficie)", "stroke-width": 2 }));
+    const texto = spec.formatoRotulo(p.y);
+    if (tipo === "fim") {
+      svg.append(s("text", { class: "rotulo-valor", x: x(p.t) + 8, y: y(p.y) + 4, texto }));
+    } else {
+      const acima = tipo === "max";
+      svg.append(s("text", { class: "rotulo-valor", x: Math.min(Math.max(x(p.t), m.e + larguraTexto(texto, 10.5) / 2), w - m.d - larguraTexto(texto, 10.5) / 2), y: y(p.y) + (acima ? -9 : 17), "text-anchor": "middle", texto }));
+    }
+  }
+
+  // Mira: linha vertical que segue o ponteiro e se prende ao dia mais próximo.
+  const mira = s("g", { class: "mira", visibility: "hidden" },
+    s("line", { class: "mira-linha", y1: m.t - 4, y2: alt - m.b }),
+    s("circle", { r: 5, fill: spec.cor, stroke: "var(--superficie)", "stroke-width": 2 }));
+  svg.append(mira);
+  let ativo = pontos.length - 1;
+  function mostrar(i, ancora) {
+    ativo = Math.max(0, Math.min(pontos.length - 1, i));
+    const p = pontos[ativo];
+    mira.setAttribute("visibility", "visible");
+    mira.firstChild.setAttribute("x1", x(p.t)); mira.firstChild.setAttribute("x2", x(p.t));
+    mira.lastChild.setAttribute("cx", x(p.t)); mira.lastChild.setAttribute("cy", y(p.y));
+    const ret = svg.getBoundingClientRect();
+    const [ax, ay] = ancora || [ret.left + x(p.t), ret.top + y(p.y)];
+    const anterior = ativo > 0 ? pontos[ativo - 1].y : null;
+    const linhas = [{ cor: spec.cor, valor: spec.formatoValor(p.y), rotulo: spec.nome }];
+    if (anterior !== null) linhas.push({ valor: pct((p.y / anterior - 1) * 100, 1), rotulo: "no dia" });
+    Dica.mostrar({ titulo: dataComDia(p.data), linhas }, ax, ay);
+  }
+  const sobre = s("rect", { x: m.e, y: m.t - 4, width: w - m.d - m.e, height: alt - m.b - m.t + 4, fill: "transparent", "data-dica": "1" });
+  const mover = (e) => {
+    const ret = svg.getBoundingClientRect();
+    const t = x.inversa(e.clientX - ret.left);
+    let melhor = 0;
+    pontos.forEach((p, i) => { if (Math.abs(p.t - t) < Math.abs(pontos[melhor].t - t)) melhor = i; });
+    mostrar(melhor, [ret.left + x(pontos[melhor].t), e.clientY]);
+  };
+  sobre.addEventListener("pointermove", mover);
+  sobre.addEventListener("pointerdown", mover);
+  sobre.addEventListener("pointerleave", (e) => { if (e.pointerType === "mouse") { mira.setAttribute("visibility", "hidden"); Dica.esconder(); } });
+  svg.append(sobre);
+  svg.addEventListener("keydown", (e) => {
+    const passo = { ArrowLeft: -1, ArrowRight: 1, Home: -9999, End: 9999 }[e.key];
+    if (passo === undefined) return;
+    e.preventDefault();
+    mostrar(ativo + passo);
+  });
+  svg.addEventListener("focus", () => mostrar(ativo));
+  svg.addEventListener("blur", () => { mira.setAttribute("visibility", "hidden"); Dica.esconder(); });
+  return svg;
+}
+
+// ------------------------------------------------------------------ barras agrupadas (colunas)
+function caminhoBarraV(x, largura, yBase, yValor, r = 4) {
+  const alto = Math.abs(yBase - yValor);
+  if (alto < 0.5) return `M${x},${yBase}h${largura}`;
+  const rr = Math.min(r, largura / 2, alto);
+  if (yValor < yBase) {
+    return `M${x},${yBase}V${yValor + rr}Q${x},${yValor} ${x + rr},${yValor}H${x + largura - rr}Q${x + largura},${yValor} ${x + largura},${yValor + rr}V${yBase}Z`;
+  }
+  return `M${x},${yBase}V${yValor - rr}Q${x},${yValor} ${x + rr},${yValor}H${x + largura - rr}Q${x + largura},${yValor} ${x + largura},${yValor - rr}V${yBase}Z`;
+}
+
+// categorias: [{rotulo, itens:[valor|null por série], motivos:[texto|null por série]}]
+// series: [{nome, cor}]; rotular(ci, si, valor) decide quais barras levam o valor escrito.
+function desenharBarras(w, spec) {
+  const alt = w < 480 ? 250 : 290;
+  const rotulosY = (v) => spec.formatoEixo(v);
+  const valores = spec.categorias.flatMap((c) => c.itens).filter(Number.isFinite);
+  const dom = dominioBonito(Math.min(0, ...valores), Math.max(0, ...valores), 5);
+  const m = { e: Math.max(...dom.marcas.map((v) => larguraTexto(rotulosY(v)))) + 14, d: 8, t: 12, b: 28 };
+  const y = linear(dom.lo, dom.hi, alt - m.b - 16, m.t + 16);
+  const nCat = spec.categorias.length, nSer = spec.series.length;
+  const grupo = (w - m.e - m.d) / nCat;
+  const larguraBarra = Math.max(6, Math.min(22, (grupo - 8) / (nSer + 0.4)));
+  const folga = 2;
+  const svg = s("svg", { width: w, height: alt, viewBox: `0 0 ${w} ${alt}` });
+  const yTopo = y(dom.hi) - 16, yFundo = y(dom.lo) + 16;
+  for (const v of dom.marcas) {
+    svg.append(s("line", { class: "grade", x1: m.e, x2: w - m.d, y1: y(v), y2: y(v) }));
+    svg.append(s("text", { class: "eixo-y", x: m.e - 6, y: y(v) + 4, "text-anchor": "end", texto: rotulosY(v) }));
+  }
+  svg.append(s("line", { class: "eixo-base", x1: m.e, x2: w - m.d, y1: y(0), y2: y(0) }));
+
+  // Quais barras levam o valor escrito: a última categoria e os extremos de cada série.
+  const rotular = new Set();
+  rotulo: for (let si = 0; si < nSer; si++) {
+    const col = spec.categorias.map((c) => c.itens[si]);
+    const vs = col.filter(Number.isFinite);
+    if (!vs.length) continue rotulo;
+    rotular.add(`${col.indexOf(Math.max(...vs))}|${si}`);
+    rotular.add(`${col.indexOf(Math.min(...vs))}|${si}`);
+    if (Number.isFinite(col[nCat - 1])) rotular.add(`${nCat - 1}|${si}`);
+  }
+
+  spec.categorias.forEach((cat, ci) => {
+    const x0 = m.e + ci * grupo;
+    const centro = x0 + grupo / 2;
+    const larguraTotal = nSer * larguraBarra + (nSer - 1) * folga;
+    const g = s("g", { class: "grupo" });
+    g.append(s("rect", { class: "realce", x: x0 + 1, y: yTopo, width: grupo - 2, height: yFundo - yTopo, rx: 4 }));
+    cat.itens.forEach((v, si) => {
+      if (!Number.isFinite(v)) return;
+      const bx = centro - larguraTotal / 2 + si * (larguraBarra + folga);
+      g.append(s("path", { d: caminhoBarraV(bx, larguraBarra, y(0), y(v)), fill: spec.series[si].cor }));
+      if (rotular.has(`${ci}|${si}`)) {
+        const texto = spec.formatoValor(v);
+        const largT = larguraTexto(texto, 10.5);
+        // Com duas séries os valores se abrem para os lados, para não se sobreporem.
+        let ancora = "middle", tx = bx + larguraBarra / 2;
+        if (nSer === 2) { ancora = si === 0 ? "end" : "start"; tx = si === 0 ? bx + larguraBarra - 2 : bx + 2; }
+        const minX = m.e + 2, maxX = w - 2;
+        if (ancora === "end") tx = Math.max(tx, minX + largT);
+        else if (ancora === "start") tx = Math.min(tx, maxX - largT);
+        g.append(s("text", { class: "rotulo-valor", x: tx, y: v >= 0 ? y(v) - 6 : y(v) + 14, "text-anchor": ancora, texto }));
+      }
+    });
+    g.append(s("text", { class: "eixo-x", x: centro, y: alt - 8, "text-anchor": "middle", texto: cat.rotulo }));
+    const alvo = s("rect", { class: "alvo", x: x0, y: yTopo, width: grupo, height: yFundo - yTopo + 20, fill: "transparent", tabindex: "0", "aria-label": spec.descricaoDaCategoria(cat) });
+    Dica.ligar(alvo, () => spec.dicaDaCategoria(cat, ci));
+    g.append(alvo);
+    svg.append(g);
+  });
+  return svg;
+}
+
+// ------------------------------------------------------------------ barras horizontais (uma série, em ordem)
+function desenharBarrasH(w, spec) {
+  const itens = spec.itens;
+  const passo = 28, topo = 8;
+  const alt = topo * 2 + itens.length * passo;
+  const maxRotulo = Math.min(w * 0.42, Math.max(...itens.map((i) => larguraTexto(i.rotulo, 11))) + 8);
+  const letras = Math.floor(maxRotulo / (11 * 0.58));
+  const vs = itens.map((i) => i.valor);
+  const lo = Math.min(0, ...vs), hi = Math.max(0, ...vs);
+  const margemRotulo = 46;
+  const x0 = maxRotulo + 8 + (lo < 0 ? margemRotulo : 0);
+  const x1 = w - 16 - (hi > 0 ? margemRotulo : 0);
+  const x = linear(lo, hi, x0, x1);
+  const svg = s("svg", { width: w, height: alt, viewBox: `0 0 ${w} ${alt}` });
+  svg.append(s("line", { class: "eixo-base", x1: x(0), x2: x(0), y1: topo, y2: alt - topo }));
+  itens.forEach((it, i) => {
+    const cy = topo + i * passo + passo / 2;
+    const g = s("g", { class: "grupo" });
+    g.append(s("rect", { class: "realce", x: 0, y: cy - passo / 2, width: w, height: passo, rx: 4 }));
+    const rotulo = it.rotulo.length > letras ? it.rotulo.slice(0, Math.max(1, letras - 1)) + "…" : it.rotulo;
+    g.append(s("text", { class: "rotulo-cat", x: maxRotulo, y: cy + 4, "text-anchor": "end", texto: rotulo }));
+    const ponta = x(it.valor), base = x(0);
+    const barra = s("path", { d: caminhoBarraH(base, ponta, cy - 7, 14, 4), fill: spec.cor });
+    g.append(barra);
+    const negativo = it.valor < 0;
+    g.append(s("text", { class: "rotulo-valor", x: ponta + (negativo ? -6 : 6), y: cy + 4, "text-anchor": negativo ? "end" : "start", texto: spec.formatoValor(it.valor) }));
+    const alvo = s("rect", { class: "alvo", x: 0, y: cy - passo / 2, width: w, height: passo, fill: "transparent", tabindex: "0", "aria-label": `${it.rotulo}: ${spec.formatoValor(it.valor)}` });
+    Dica.ligar(alvo, () => spec.dica(it));
+    g.append(alvo);
+    svg.append(g);
+  });
+  return svg;
+}
+function caminhoBarraH(base, ponta, y0, alto, r) {
+  const largura = Math.abs(ponta - base);
+  if (largura < 0.5) return `M${base},${y0}v${alto}`;
+  const rr = Math.min(r, largura, alto / 2);
+  const y1 = y0 + alto;
+  if (ponta > base) return `M${base},${y0}H${ponta - rr}Q${ponta},${y0} ${ponta},${y0 + rr}V${y1 - rr}Q${ponta},${y1} ${ponta - rr},${y1}H${base}Z`;
+  return `M${base},${y0}H${ponta + rr}Q${ponta},${y0} ${ponta},${y0 + rr}V${y1 - rr}Q${ponta},${y1} ${ponta + rr},${y1}H${base}Z`;
+}
+
+// ------------------------------------------------------------------ dispersão com reta de tendência
+// pontos: [{x, y, serie:0|1, rotulo, texto?, dica}], series: [{nome, cor}]
+function desenharDispersao(w, spec) {
+  const alt = w < 480 ? 300 : 360;
+  const xs = spec.pontos.map((p) => p.x), ys = spec.pontos.map((p) => p.y);
+  const dx = dominioBonito(Math.min(0, ...xs) - 1, Math.max(0, ...xs) + 1, 6);
+  const dy = dominioBonito(Math.min(0, ...ys) - 1, Math.max(0, ...ys) + 1, 5);
+  const m = { e: Math.max(...dy.marcas.map((v) => larguraTexto(spec.formatoY(v)))) + 28, d: 12, t: 12, b: 44 };
+  const x = linear(dx.lo, dx.hi, m.e, w - m.d);
+  const y = linear(dy.lo, dy.hi, alt - m.b, m.t);
+  const svg = s("svg", { width: w, height: alt, viewBox: `0 0 ${w} ${alt}` });
+  for (const v of dy.marcas) {
+    svg.append(s("line", { class: "grade", x1: m.e, x2: w - m.d, y1: y(v), y2: y(v) }));
+    svg.append(s("text", { class: "eixo-y", x: m.e - 6, y: y(v) + 4, "text-anchor": "end", texto: spec.formatoY(v) }));
+  }
+  for (const v of dx.marcas) {
+    svg.append(s("line", { class: "grade", x1: x(v), x2: x(v), y1: m.t, y2: alt - m.b }));
+    svg.append(s("text", { class: "eixo-x", x: x(v), y: alt - m.b + 16, "text-anchor": "middle", texto: num(v, 0) }));
+  }
+  svg.append(s("line", { class: "eixo-base", x1: m.e, x2: w - m.d, y1: y(0), y2: y(0) }));
+  svg.append(s("line", { class: "eixo-base", x1: x(0), x2: x(0), y1: m.t, y2: alt - m.b }));
+  svg.append(s("text", { class: "titulo-eixo", x: (m.e + w - m.d) / 2, y: alt - 6, "text-anchor": "middle", texto: spec.tituloX }));
+  svg.append(s("text", { class: "titulo-eixo", transform: `translate(12 ${(m.t + alt - m.b) / 2}) rotate(-90)`, "text-anchor": "middle", texto: spec.tituloY }));
+
+  const reta = spec.tendencia;
+  const xa = Math.max(dx.lo, Math.min(...xs) - 0.5), xb = Math.min(dx.hi, Math.max(...xs) + 0.5);
+  svg.append(s("line", { class: "tendencia", x1: x(xa), y1: y(reta.intercepto + reta.inclinacao * xa), x2: x(xb), y2: y(reta.intercepto + reta.inclinacao * xb) }));
+
+  // Quais pontos levam nome: 2026 e os extremos dos dois eixos.
+  const nomeados = new Set();
+  spec.pontos.forEach((p, i) => { if (p.destaque) nomeados.add(i); });
+  for (const lista of [xs, ys]) {
+    nomeados.add(lista.indexOf(Math.max(...lista)));
+    nomeados.add(lista.indexOf(Math.min(...lista)));
+  }
+  const ocupados = [];
+  spec.pontos.forEach((p, i) => {
+    svg.append(s("circle", { cx: x(p.x), cy: y(p.y), r: 5, fill: spec.series[p.serie].cor, stroke: "var(--superficie)", "stroke-width": 2 }));
+    if (!nomeados.has(i)) return;
+    const largT = larguraTexto(p.rotulo, 10.5);
+    // Tenta à direita do ponto, depois à esquerda, subindo ou descendo até não bater em outro nome.
+    const candidatos = [];
+    for (const lado of ["start", "end"]) for (const dy of [0, -14, 14, -28, 28]) candidatos.push([lado, dy]);
+    let escolhido = null;
+    for (const [lado, dy] of candidatos) {
+      const tx = lado === "start" ? x(p.x) + 9 : x(p.x) - 9;
+      const caixa = { x0: lado === "start" ? tx : tx - largT, x1: lado === "start" ? tx + largT : tx, y: y(p.y) + 4 + dy };
+      const dentro = caixa.x0 > m.e && caixa.x1 < w - 2;
+      const bate = ocupados.some((o) => Math.abs(o.y - caixa.y) < 13 && o.x0 < caixa.x1 && o.x1 > caixa.x0);
+      if (dentro && !bate) { escolhido = [lado, tx, caixa]; break; }
+    }
+    if (!escolhido) return;
+    const [ancora, tx, caixa] = escolhido;
+    const ty = caixa.y;
+    ocupados.push(caixa);
+    svg.append(s("text", { class: "rotulo-valor", x: tx, y: ty, "text-anchor": ancora, texto: p.rotulo }));
+  });
+
+  // Um alvo de 28 px em volta de cada ponto: dá para acertar com o dedo e com o teclado.
+  spec.pontos.forEach((p) => {
+    const alvo = s("circle", { class: "alvo-ponto", cx: x(p.x), cy: y(p.y), r: 14, fill: "transparent", tabindex: "0", "aria-label": p.rotulo + ": " + p.texto });
+    Dica.ligar(alvo, () => p.dica);
+    svg.append(alvo);
+  });
+  return svg;
+}
+
+// ------------------------------------------------------------------ faixas dos cenários
+// categorias: ["Hoje", "Posse", ...]; base: nível de hoje; series: [{nome, curto, cor, faixas:[{minimo,central,maximo}|null por horizonte]}]
+function desenharFaixas(w, spec) {
+  const alt = w < 480 ? 280 : 320;
+  const todos = [spec.base, ...spec.series.flatMap((s_) => s_.faixas.filter(Boolean).flatMap((f) => [f.minimo, f.maximo]))].filter(Number.isFinite);
+  const dom = dominioBonito(Math.min(...todos), Math.max(...todos), 5);
+  const m = { e: Math.max(...dom.marcas.map((v) => larguraTexto(spec.formatoEixo(v)))) + 14, d: 8, t: 22, b: 30 };
+  const y = linear(dom.lo, dom.hi, alt - m.b - 6, m.t + 6);
+  const nCat = spec.categorias.length;
+  const grupo = (w - m.e - m.d) / nCat;
+  const n = spec.series.length;
+  const espaco = Math.min(40, grupo / (n + 0.15));
+  const svg = s("svg", { width: w, height: alt, viewBox: `0 0 ${w} ${alt}` });
+  for (const v of dom.marcas) {
+    svg.append(s("line", { class: "grade", x1: m.e, x2: w - m.d, y1: y(v), y2: y(v) }));
+    svg.append(s("text", { class: "eixo-y", x: m.e - 6, y: y(v) + 4, "text-anchor": "end", texto: spec.formatoEixo(v) }));
+  }
+  // Nível de hoje: linha fina no mesmo eixo.
+  svg.append(s("line", { class: "nivel-hoje", x1: m.e, x2: w - m.d, y1: y(spec.base), y2: y(spec.base) }));
+  svg.append(s("text", { class: "rotulo-cat", x: m.e + 4, y: y(spec.base) - 12, "text-anchor": "start", texto: "Hoje: " + spec.formatoValor(spec.base) }));
+
+  const mostrarNomes = espaco >= 26;
+  spec.categorias.forEach((nome, ci) => {
+    const x0 = m.e + ci * grupo, centro = x0 + grupo / 2;
+    const g = s("g", { class: "grupo" });
+    g.append(s("rect", { class: "realce", x: x0 + 1, y: m.t - 4, width: grupo - 2, height: alt - m.b - m.t + 8, rx: 4 }));
+    if (ci === 0) {
+      g.append(s("circle", { cx: centro, cy: y(spec.base), r: 5, fill: "var(--ink)", stroke: "var(--superficie)", "stroke-width": 2 }));
+    } else {
+      spec.series.forEach((serie, si) => {
+        const f = serie.faixas[ci - 1];
+        if (!f || !Number.isFinite(f.minimo)) return;
+        const cx = centro + (si - (n - 1) / 2) * espaco;
+        const topo = y(f.maximo), fundo = y(f.minimo);
+        g.append(s("rect", { x: cx - 4, y: topo, width: 8, height: Math.max(fundo - topo, 2), rx: 4, fill: serie.cor }));
+        g.append(s("circle", { cx, cy: y(f.central), r: 5, fill: "var(--superficie)", stroke: serie.cor, "stroke-width": 2 }));
+        if (ci === nCat - 1 && mostrarNomes) {
+          g.append(s("text", { class: "rotulo-cat", x: cx, y: topo - 7, "text-anchor": "middle", texto: serie.curto }));
+        }
+      });
+    }
+    g.append(s("text", { class: "eixo-x", x: centro, y: alt - 10, "text-anchor": "middle", texto: nome }));
+    const alvo = s("rect", { class: "alvo", x: x0, y: m.t - 4, width: grupo, height: alt - m.t - m.b + 8, fill: "transparent", tabindex: "0", "aria-label": spec.descricaoDaCategoria(ci) });
+    Dica.ligar(alvo, () => spec.dicaDaCategoria(ci));
+    g.append(alvo);
+    svg.append(g);
+  });
+  return svg;
+}
+
+// ------------------------------------------------------------------ mapa de calor (tabela HTML colorida)
+function corCSS(nome) {
+  return getComputedStyle(document.documentElement).getPropertyValue(nome).trim();
+}
+function hexParaRgb(hex) {
+  const t = hex.replace("#", "");
+  return [0, 2, 4].map((i) => parseInt(t.slice(i, i + 2), 16));
+}
+function luminancia([r, g, b]) {
+  const f = (c) => { c /= 255; return c <= 0.03928 ? c / 12.92 : ((c + 0.055) / 1.055) ** 2.4; };
+  return 0.2126 * f(r) + 0.7152 * f(g) + 0.0722 * f(b);
+}
+function contraste(a, b) {
+  const [l1, l2] = [luminancia(a), luminancia(b)].sort((p, q) => q - p);
+  return (l1 + 0.05) / (l2 + 0.05);
+}
+// Cor da célula: cinza no meio, azul para cima e vermelho para baixo, mais forte quanto maior o valor.
+function corDaCelula(valor, teto) {
+  const meio = hexParaRgb(corCSS("--div-meio"));
+  const polo = hexParaRgb(corCSS(valor >= 0 ? "--div-alto" : "--div-baixo"));
+  const t = Math.min(1, Math.abs(valor) / teto);
+  const rgb = meio.map((c, i) => Math.round(c + (polo[i] - c) * t));
+  const claro = [255, 255, 255], escuro = [11, 11, 11];
+  const texto = contraste(rgb, claro) >= contraste(rgb, escuro) ? "#ffffff" : "#0b0b0b";
+  return { fundo: `rgb(${rgb.join(",")})`, texto, rgb };
+}
+function gradienteDaLegenda(teto) {
+  const passos = [-1, -0.5, 0, 0.5, 1].map((f) => corDaCelula(f * teto, teto).fundo);
+  return `linear-gradient(90deg, ${passos.join(", ")})`;
+}
+
+</script>
+<script>
+const DADOS = {"dados_ate":"30/10/2026","janelas":[{"id":"corrida","nome":"Corrida (60 dias antes)"},{"id":"t1_d1","nome":"Dia seguinte ao 1º turno"},{"id":"t1_d5","nome":"5 pregões depois do 1º"},{"id":"t1_d20","nome":"20 pregões depois do 1º"},{"id":"entre_turnos","nome":"Entre os turnos"},{"id":"t2_d1","nome":"Dia seguinte ao 2º turno"},{"id":"t2_d5","nome":"5 pregões depois do 2º"},{"id":"t2_d20","nome":"20 pregões depois do 2º"},{"id":"ate_posse","nome":"Até a posse"},{"id":"posse_100d","nome":"100 dias de governo"},{"id":"posse_1ano","nome":"1 ano de governo"}],"destaques":[{"rotulo":"Ibovespa, dia seguinte ao 2º turno de 2026","valor":"−13,9%","contexto":"A maior queda no dia seguinte a um turno desde 1994. A segunda maior foi −4,5%, em 1998 (depois do 1º turno)."},{"rotulo":"Dólar, no mesmo dia","valor":"+9,2%","contexto":"A maior alta no dia seguinte a um turno desde 1994. A segunda maior foi +2,2%, em 2014 (depois do 2º turno)."},{"rotulo":"Tesouro de 10 anos, no mesmo dia","valor":"+2,5 p.p.","contexto":"A maior alta no dia seguinte a um turno entre os 12 que têm o dado (a série começa em 2005). A segunda maior foi +0,03 p.p., em 2010 (depois do 1º turno)."},{"rotulo":"Surpresa das pesquisas, 2º turno de 2026","valor":"−5,4 pontos","contexto":"Pesquisas: Flávio Bolsonaro 1,9 pontos à frente. Urnas: Lula 3,6 pontos à frente. A pior surpresa de 14 turnos com pesquisa; a segunda pior foi −2,6 pontos, em 1994."}],"eleicoes":[{"ano":1994,"vencedor":"FHC","segundo":"Lula","posse":"1995-01-01","situacao":"continuidade","turnos":[{"numero":1,"data":"1994-10-03"}],"decisivo":1},{"ano":1998,"vencedor":"FHC","segundo":"Lula","posse":"1999-01-01","situacao":"reeleicao","turnos":[{"numero":1,"data":"1998-10-04"}],"decisivo":1},{"ano":2002,"vencedor":"Lula","segundo":"José Serra","posse":"2003-01-01","situacao":"oposicao","turnos":[{"numero":1,"data":"2002-10-06"},{"numero":2,"data":"2002-10-27"}],"decisivo":2},{"ano":2006,"vencedor":"Lula","segundo":"Geraldo Alckmin","posse":"2007-01-01","situacao":"reeleicao","turnos":[{"numero":1,"data":"2006-10-01"},{"numero":2,"data":"2006-10-29"}],"decisivo":2},{"ano":2010,"vencedor":"Dilma","segundo":"José Serra","posse":"2011-01-01","situacao":"continuidade","turnos":[{"numero":1,"data":"2010-10-03"},{"numero":2,"data":"2010-10-31"}],"decisivo":2},{"ano":2014,"vencedor":"Dilma","segundo":"Aécio Neves","posse":"2015-01-01","situacao":"reeleicao","turnos":[{"numero":1,"data":"2014-10-05"},{"numero":2,"data":"2014-10-26"}],"decisivo":2},{"ano":2018,"vencedor":"Jair Bolsonaro","segundo":"Fernando Haddad","posse":"2019-01-01","situacao":"oposicao","turnos":[{"numero":1,"data":"2018-10-07"},{"numero":2,"data":"2018-10-28"}],"decisivo":2},{"ano":2022,"vencedor":"Lula","segundo":"Jair Bolsonaro","posse":"2023-01-01","situacao":"oposicao","turnos":[{"numero":1,"data":"2022-10-02"},{"numero":2,"data":"2022-10-30"}],"decisivo":2},{"ano":2026,"vencedor":"Lula","segundo":"Flávio Bolsonaro","posse":"2027-01-05","situacao":"reeleicao","turnos":[{"numero":1,"data":"2026-10-04"},{"numero":2,"data":"2026-10-25"}],"decisivo":2}],"agora":{"series":{"ibov":[["2026-08-03",178000.0],["2026-08-04",177895.0],["2026-08-05",177726.0],["2026-08-06",175546.0],["2026-08-07",172513.0],["2026-08-10",172180.0],["2026-08-11",167875.0],["2026-08-12",167491.0],["2026-08-13",167101.0],["2026-08-14",166934.0],["2026-08-17",166784.0],["2026-08-18",166335.0],["2026-08-19",167830.0],["2026-08-20",167927.0],["2026-08-21",171032.0],["2026-08-24",171907.0],["2026-08-25",174577.0],["2026-08-26",174586.0],["2026-08-27",175135.0],["2026-08-28",175665.0],["2026-08-31",177419.0],["2026-09-01",179723.0],["2026-09-02",185205.0],["2026-09-03",185188.0],["2026-09-04",185147.0],["2026-09-08",187367.0],["2026-09-09",185629.0],["2026-09-10",188269.0],["2026-09-11",187207.0],["2026-09-14",185501.0],["2026-09-15",186503.0],["2026-09-16",185548.0],["2026-09-17",185992.0],["2026-09-18",185229.0],["2026-09-21",186596.0],["2026-09-22",187423.0],["2026-09-23",185814.0],["2026-09-24",183966.0],["2026-09-25",183477.0],["2026-09-28",182991.0],["2026-09-29",183828.0],["2026-09-30",186340.0],["2026-10-01",187198.0],["2026-10-02",192115.0],["2026-10-05",206912.0],["2026-10-06",205835.0],["2026-10-07",204302.0],["2026-10-08",206220.0],["2026-10-09",209067.0],["2026-10-13",206888.0],["2026-10-14",206506.0],["2026-10-15",204324.0],["2026-10-16",205430.0],["2026-10-19",205079.0],["2026-10-20",208296.0],["2026-10-21",206495.0],["2026-10-22",204120.0],["2026-10-23",205083.0],["2026-10-26",176608.0],["2026-10-27",175710.0],["2026-10-28",171006.0],["2026-10-29",169186.0],["2026-10-30",167922.0]],"dolar":[["2026-08-03",5.0723],["2026-08-04",5.1053],["2026-08-05",5.1154],["2026-08-06",5.1017],["2026-08-07",5.0908],["2026-08-10",5.0963],["2026-08-11",5.1285],["2026-08-12",5.1639],["2026-08-13",5.1859],["2026-08-14",5.2236],["2026-08-17",5.2014],["2026-08-18",5.2043],["2026-08-19",5.1714],["2026-08-20",5.1862],["2026-08-21",5.1625],["2026-08-24",5.1512],["2026-08-25",5.149],["2026-08-26",5.1604],["2026-08-27",5.1642],["2026-08-28",5.2005],["2026-08-31",5.1816],["2026-09-01",5.157],["2026-09-02",5.1273],["2026-09-03",5.0962],["2026-09-04",5.1253],["2026-09-08",5.0856],["2026-09-09",5.0979],["2026-09-10",5.1149],["2026-09-11",5.0918],["2026-09-14",5.1696],["2026-09-15",5.149],["2026-09-16",5.1527],["2026-09-17",5.1521],["2026-09-18",5.1575],["2026-09-21",5.1117],["2026-09-22",5.1161],["2026-09-23",5.1414],["2026-09-24",5.1795],["2026-09-25",5.1991],["2026-09-28",5.2132],["2026-09-29",5.2204],["2026-09-30",5.1809],["2026-10-01",5.2079],["2026-10-02",5.2238],["2026-10-05",4.9859],["2026-10-06",4.9698],["2026-10-07",4.9935],["2026-10-08",5.0119],["2026-10-09",4.9892],["2026-10-13",5.0096],["2026-10-14",5.0441],["2026-10-15",5.0521],["2026-10-16",5.0826],["2026-10-19",5.0564],["2026-10-20",5.014],["2026-10-21",5.0277],["2026-10-22",5.0383],["2026-10-23",5.0377],["2026-10-26",5.5007],["2026-10-27",5.3346],["2026-10-28",5.342],["2026-10-29",5.3744],["2026-10-30",5.4212]]},"janelas":[{"janela":"Corrida (60 dias antes)","de":"2026-08-05","ate":"2026-10-02","ibov":8.0962,"ibov_usd_so_brasil":4.9795,"dolar":2.1191,"tesouro_10a":-0.24},{"janela":"Dia seguinte ao 1º turno","de":"2026-10-02","ate":"2026-10-05","ibov":7.7022,"ibov_usd_so_brasil":11.5441,"dolar":-4.5542,"tesouro_10a":-1.17},{"janela":"5 pregões depois do 1º","de":"2026-10-02","ate":"2026-10-09","ibov":8.8239,"ibov_usd_so_brasil":13.9469,"dolar":-4.491,"tesouro_10a":-1.6},{"janela":"Entre os turnos","de":"2026-10-02","ate":"2026-10-23","ibov":6.7501,"ibov_usd_so_brasil":16.5133,"dolar":-3.5625,"tesouro_10a":-1.27},{"janela":"Dia seguinte ao 2º turno","de":"2026-10-23","ate":"2026-10-26","ibov":-13.8846,"ibov_usd_so_brasil":-20.6328,"dolar":9.1907,"tesouro_10a":2.52},{"janela":"5 pregões depois do 2º","de":"2026-10-23","ate":"2026-10-30","ibov":-18.12,"ibov_usd_so_brasil":-23.5562,"dolar":7.6126,"tesouro_10a":2.33}]},"decisivo":[{"ano":1994,"turno":1,"ibov":-2.7152,"so_brasil":null,"ibov_usd":-2.2568},{"ano":1998,"turno":1,"ibov":-4.4774,"so_brasil":-2.5899,"ibov_usd":-4.6626},{"ano":2002,"turno":2,"ibov":-4.4034,"so_brasil":-4.6579,"ibov_usd":-2.847},{"ano":2006,"turno":2,"ibov":-1.0883,"so_brasil":0.0545,"ibov_usd":-1.4479},{"ano":2010,"turno":2,"ibov":1.2565,"so_brasil":-0.7739,"ibov_usd":1.0783},{"ano":2014,"turno":2,"ibov":-2.7666,"so_brasil":-3.9701,"ibov_usd":-4.8232},{"ano":2018,"turno":2,"ibov":-2.2433,"so_brasil":-0.6766,"ibov_usd":-1.2085},{"ano":2022,"turno":2,"ibov":1.3079,"so_brasil":2.6811,"ibov_usd":3.0114},{"ano":2026,"turno":2,"ibov":-13.8846,"so_brasil":-20.6328,"ibov_usd":-21.133}],"mapa":[{"nome":"Ibovespa","unidade":"%","linhas":[{"ano":1994,"celulas":[{"v":25.9242,"de":"1994-08-04","ate":"1994-09-30"},{"v":-2.7152,"de":"1994-09-30","ate":"1994-10-04"},{"v":-8.2403,"de":"1994-09-30","ate":"1994-10-10"},{"v":-14.2797,"de":"1994-09-30","ate":"1994-11-01"},{"v":null,"motivo":"Esta eleição não teve 2º turno."},{"v":null,"motivo":"Esta eleição não teve 2º turno."},{"v":null,"motivo":"Esta eleição não teve 2º turno."},{"v":null,"motivo":"Esta eleição não teve 2º turno."},{"v":-20.6072,"de":"1994-09-30","ate":"1994-12-29"},{"v":-44.9708,"de":"1994-09-30","ate":"1995-04-11"},{"v":-21.6083,"de":"1994-09-30","ate":"1995-12-28"}]},{"ano":1998,"celulas":[{"v":-34.7782,"de":"1998-08-05","ate":"1998-10-02"},{"v":-4.4774,"de":"1998-10-02","ate":"1998-10-05"},{"v":1.8409,"de":"1998-10-02","ate":"1998-10-09"},{"v":17.1451,"de":"1998-10-02","ate":"1998-11-03"},{"v":null,"motivo":"Esta eleição não teve 2º turno."},{"v":null,"motivo":"Esta eleição não teve 2º turno."},{"v":null,"motivo":"Esta eleição não teve 2º turno."},{"v":null,"motivo":"Esta eleição não teve 2º turno."},{"v":5.8346,"de":"1998-10-02","ate":"1998-12-30"},{"v":76.209,"de":"1998-10-02","ate":"1999-04-09"},{"v":166.6459,"de":"1998-10-02","ate":"1999-12-30"}]},{"ano":2002,"celulas":[{"v":-6.1803,"de":"2002-08-07","ate":"2002-10-04"},{"v":-4.2873,"de":"2002-10-04","ate":"2002-10-07"},{"v":-4.3736,"de":"2002-10-04","ate":"2002-10-11"},{"v":9.5032,"de":"2002-10-04","ate":"2002-11-01"},{"v":8.1533,"de":"2002-10-04","ate":"2002-10-25"},{"v":-4.4034,"de":"2002-10-25","ate":"2002-10-28"},{"v":1.2481,"de":"2002-10-25","ate":"2002-11-01"},{"v":2.3065,"de":"2002-10-25","ate":"2002-11-25"},{"v":12.5112,"de":"2002-10-25","ate":"2002-12-30"},{"v":17.0145,"de":"2002-10-25","ate":"2003-04-11"},{"v":122.027,"de":"2002-10-25","ate":"2003-12-30"}]},{"ano":2006,"celulas":[{"v":-2.2501,"de":"2006-08-02","ate":"2006-09-29"},{"v":1.6708,"de":"2006-09-29","ate":"2006-10-02"},{"v":4.0906,"de":"2006-09-29","ate":"2006-10-06"},{"v":6.7245,"de":"2006-09-29","ate":"2006-10-30"},{"v":7.8987,"de":"2006-09-29","ate":"2006-10-27"},{"v":-1.0883,"de":"2006-10-27","ate":"2006-10-30"},{"v":4.8795,"de":"2006-10-27","ate":"2006-11-06"},{"v":6.7179,"de":"2006-10-27","ate":"2006-11-29"},{"v":13.0848,"de":"2006-10-27","ate":"2006-12-28"},{"v":19.3526,"de":"2006-10-27","ate":"2007-04-11"},{"v":62.4441,"de":"2006-10-27","ate":"2007-12-28"}]},{"ano":2010,"celulas":[{"v":2.8665,"de":"2010-08-04","ate":"2010-10-01"},{"v":0.2221,"de":"2010-10-01","ate":"2010-10-04"},{"v":0.8259,"de":"2010-10-01","ate":"2010-10-08"},{"v":1.8967,"de":"2010-10-01","ate":"2010-11-01"},{"v":0.6322,"de":"2010-10-01","ate":"2010-10-29"},{"v":1.2565,"de":"2010-10-29","ate":"2010-11-01"},{"v":2.8073,"de":"2010-10-29","ate":"2010-11-08"},{"v":-4.1996,"de":"2010-10-29","ate":"2010-11-30"},{"v":-1.9357,"de":"2010-10-29","ate":"2010-12-30"},{"v":-3.5502,"de":"2010-10-29","ate":"2011-04-11"},{"v":-19.6949,"de":"2010-10-29","ate":"2011-12-29"}]},{"ano":2014,"celulas":[{"v":-3.4468,"de":"2014-08-06","ate":"2014-10-03"},{"v":4.7231,"de":"2014-10-03","ate":"2014-10-06"},{"v":1.4155,"de":"2014-10-03","ate":"2014-10-10"},{"v":0.1632,"de":"2014-10-03","ate":"2014-10-31"},{"v":-4.7653,"de":"2014-10-03","ate":"2014-10-24"},{"v":-2.7666,"de":"2014-10-24","ate":"2014-10-27"},{"v":5.1751,"de":"2014-10-24","ate":"2014-10-31"},{"v":6.673,"de":"2014-10-24","ate":"2014-11-24"},{"v":-3.7235,"de":"2014-10-24","ate":"2014-12-30"},{"v":4.3761,"de":"2014-10-24","ate":"2015-04-10"},{"v":-16.5399,"de":"2014-10-24","ate":"2015-12-30"}]},{"ano":2018,"celulas":[{"v":4.005,"de":"2018-08-08","ate":"2018-10-05"},{"v":4.5699,"de":"2018-10-05","ate":"2018-10-08"},{"v":1.2609,"de":"2018-10-05","ate":"2018-10-15"},{"v":7.71,"de":"2018-10-05","ate":"2018-11-06"},{"v":4.1277,"de":"2018-10-05","ate":"2018-10-26"},{"v":-2.2433,"de":"2018-10-26","ate":"2018-10-29"},{"v":4.524,"de":"2018-10-26","ate":"2018-11-05"},{"v":4.1192,"de":"2018-10-26","ate":"2018-11-28"},{"v":2.528,"de":"2018-10-26","ate":"2018-12-28"},{"v":10.5401,"de":"2018-10-26","ate":"2019-04-11"},{"v":35.2823,"de":"2018-10-26","ate":"2019-12-30"}]},{"ano":2022,"celulas":[{"v":6.0342,"de":"2022-08-03","ate":"2022-09-30"},{"v":5.5409,"de":"2022-09-30","ate":"2022-10-03"},{"v":5.7599,"de":"2022-09-30","ate":"2022-10-07"},{"v":5.4527,"de":"2022-09-30","ate":"2022-10-31"},{"v":4.0914,"de":"2022-09-30","ate":"2022-10-28"},{"v":1.3079,"de":"2022-10-28","ate":"2022-10-31"},{"v":0.7011,"de":"2022-10-28","ate":"2022-11-07"},{"v":-3.1684,"de":"2022-10-28","ate":"2022-11-29"},{"v":-3.9358,"de":"2022-10-28","ate":"2022-12-29"},{"v":-7.2683,"de":"2022-10-28","ate":"2023-04-11"},{"v":17.1522,"de":"2022-10-28","ate":"2023-12-28"}]},{"ano":2026,"celulas":[{"v":8.0962,"de":"2026-08-05","ate":"2026-10-02"},{"v":7.7022,"de":"2026-10-02","ate":"2026-10-05"},{"v":8.8239,"de":"2026-10-02","ate":"2026-10-09"},{"v":null,"motivo":"Ainda não aconteceu."},{"v":6.7501,"de":"2026-10-02","ate":"2026-10-23"},{"v":-13.8846,"de":"2026-10-23","ate":"2026-10-26"},{"v":-18.12,"de":"2026-10-23","ate":"2026-10-30"},{"v":null,"motivo":"Ainda não aconteceu."},{"v":null,"motivo":"Ainda não aconteceu."},{"v":null,"motivo":"Ainda não aconteceu."},{"v":null,"motivo":"Ainda não aconteceu."}]}]},{"nome":"Ibovespa em dólar","unidade":"%","linhas":[{"ano":1994,"celulas":[{"v":34.3389,"de":"1994-08-04","ate":"1994-09-30"},{"v":-2.2568,"de":"1994-09-30","ate":"1994-10-04"},{"v":-6.7092,"de":"1994-09-30","ate":"1994-10-10"},{"v":-13.4682,"de":"1994-09-30","ate":"1994-11-01"},{"v":null,"motivo":"Esta eleição não teve 2º turno."},{"v":null,"motivo":"Esta eleição não teve 2º turno."},{"v":null,"motivo":"Esta eleição não teve 2º turno."},{"v":null,"motivo":"Esta eleição não teve 2º turno."},{"v":-20.1391,"de":"1994-09-30","ate":"1994-12-29"},{"v":-47.9025,"de":"1994-09-30","ate":"1995-04-11"},{"v":-31.2481,"de":"1994-09-30","ate":"1995-12-28"}]},{"ano":1998,"celulas":[{"v":-35.6928,"de":"1998-08-05","ate":"1998-10-02"},{"v":-4.6626,"de":"1998-10-02","ate":"1998-10-05"},{"v":1.5834,"de":"1998-10-02","ate":"1998-10-09"},{"v":16.2416,"de":"1998-10-02","ate":"1998-11-03"},{"v":null,"motivo":"Esta eleição não teve 2º turno."},{"v":null,"motivo":"Esta eleição não teve 2º turno."},{"v":null,"motivo":"Esta eleição não teve 2º turno."},{"v":null,"motivo":"Esta eleição não teve 2º turno."},{"v":3.6799,"de":"1998-10-02","ate":"1998-12-30"},{"v":22.0472,"de":"1998-10-02","ate":"1999-04-09"},{"v":76.4275,"de":"1998-10-02","ate":"1999-12-30"}]},{"ano":2002,"celulas":[{"v":-21.5507,"de":"2002-08-07","ate":"2002-10-04"},{"v":-5.2505,"de":"2002-10-04","ate":"2002-10-07"},{"v":-10.8129,"de":"2002-10-04","ate":"2002-10-11"},{"v":10.9587,"de":"2002-10-04","ate":"2002-11-01"},{"v":4.1077,"de":"2002-10-04","ate":"2002-10-25"},{"v":-2.847,"de":"2002-10-25","ate":"2002-10-28"},{"v":6.5807,"de":"2002-10-25","ate":"2002-11-01"},{"v":9.5791,"de":"2002-10-25","ate":"2002-11-25"},{"v":21.0516,"de":"2002-10-25","ate":"2002-12-30"},{"v":38.3739,"de":"2002-10-25","ate":"2003-04-11"},{"v":192.1347,"de":"2002-10-25","ate":"2003-12-30"}]},{"ano":2006,"celulas":[{"v":-1.8949,"de":"2006-08-02","ate":"2006-09-29"},{"v":2.2304,"de":"2006-09-29","ate":"2006-10-02"},{"v":4.6006,"de":"2006-09-29","ate":"2006-10-06"},{"v":8.1471,"de":"2006-09-29","ate":"2006-10-30"},{"v":9.7359,"de":"2006-09-29","ate":"2006-10-27"},{"v":-1.4479,"de":"2006-10-27","ate":"2006-10-30"},{"v":4.8795,"de":"2006-10-27","ate":"2006-11-06"},{"v":4.7337,"de":"2006-10-27","ate":"2006-11-29"},{"v":13.0742,"de":"2006-10-27","ate":"2006-12-28"},{"v":25.4867,"de":"2006-10-27","ate":"2007-04-11"},{"v":96.0554,"de":"2006-10-27","ate":"2007-12-28"}]},{"ano":2010,"celulas":[{"v":7.4616,"de":"2010-08-04","ate":"2010-10-01"},{"v":-0.1934,"de":"2010-10-01","ate":"2010-10-04"},{"v":0.8739,"de":"2010-10-01","ate":"2010-10-08"},{"v":0.5097,"de":"2010-10-01","ate":"2010-11-01"},{"v":-0.5625,"de":"2010-10-01","ate":"2010-10-29"},{"v":1.0783,"de":"2010-10-29","ate":"2010-11-01"},{"v":3.0739,"de":"2010-10-29","ate":"2010-11-08"},{"v":-5.0202,"de":"2010-10-29","ate":"2010-11-30"},{"v":0.136,"de":"2010-10-29","ate":"2010-12-30"},{"v":3.8278,"de":"2010-10-29","ate":"2011-04-11"},{"v":-27.1612,"de":"2010-10-29","ate":"2011-12-29"}]},{"ano":2014,"celulas":[{"v":-11.7421,"de":"2014-08-06","ate":"2014-10-03"},{"v":8.3475,"de":"2014-10-03","ate":"2014-10-06"},{"v":4.9036,"de":"2014-10-03","ate":"2014-10-10"},{"v":2.1712,"de":"2014-10-03","ate":"2014-10-31"},{"v":-4.2777,"de":"2014-10-03","ate":"2014-10-24"},{"v":-4.8232,"de":"2014-10-24","ate":"2014-10-27"},{"v":6.7371,"de":"2014-10-24","ate":"2014-10-31"},{"v":4.6603,"de":"2014-10-24","ate":"2014-11-24"},{"v":-10.0919,"de":"2014-10-24","ate":"2014-12-30"},{"v":-15.929,"de":"2014-10-24","ate":"2015-04-10"},{"v":-46.9825,"de":"2014-10-24","ate":"2015-12-30"}]},{"ano":2018,"celulas":[{"v":0.8337,"de":"2018-08-08","ate":"2018-10-05"},{"v":7.6607,"de":"2018-10-05","ate":"2018-10-08"},{"v":4.9688,"de":"2018-10-05","ate":"2018-10-15"},{"v":11.1775,"de":"2018-10-05","ate":"2018-11-06"},{"v":9.6411,"de":"2018-10-05","ate":"2018-10-26"},{"v":-1.2085,"de":"2018-10-26","ate":"2018-10-29"},{"v":3.6917,"de":"2018-10-26","ate":"2018-11-05"},{"v":-0.9424,"de":"2018-10-26","ate":"2018-11-28"},{"v":-2.7508,"de":"2018-10-26","ate":"2018-12-28"},{"v":5.8018,"de":"2018-10-26","ate":"2019-04-11"},{"v":23.354,"de":"2018-10-26","ate":"2019-12-30"}]},{"ano":2022,"celulas":[{"v":3.6415,"de":"2022-08-03","ate":"2022-09-30"},{"v":9.7299,"de":"2022-09-30","ate":"2022-10-03"},{"v":9.4964,"de":"2022-09-30","ate":"2022-10-07"},{"v":8.4536,"de":"2022-09-30","ate":"2022-10-31"},{"v":5.2831,"de":"2022-09-30","ate":"2022-10-28"},{"v":3.0114,"de":"2022-10-28","ate":"2022-10-31"},{"v":5.783,"de":"2022-10-28","ate":"2022-11-07"},{"v":-2.4787,"de":"2022-10-28","ate":"2022-11-29"},{"v":-1.5847,"de":"2022-10-28","ate":"2022-12-29"},{"v":-1.1155,"de":"2022-10-28","ate":"2023-04-11"},{"v":29.3507,"de":"2022-10-28","ate":"2023-12-28"}]},{"ano":2026,"celulas":[{"v":5.853,"de":"2026-08-05","ate":"2026-10-02"},{"v":12.8411,"de":"2026-10-02","ate":"2026-10-05"},{"v":13.941,"de":"2026-10-02","ate":"2026-10-09"},{"v":null,"motivo":"Ainda não aconteceu."},{"v":10.6936,"de":"2026-10-02","ate":"2026-10-23"},{"v":-21.133,"de":"2026-10-23","ate":"2026-10-26"},{"v":-23.9122,"de":"2026-10-23","ate":"2026-10-30"},{"v":null,"motivo":"Ainda não aconteceu."},{"v":null,"motivo":"Ainda não aconteceu."},{"v":null,"motivo":"Ainda não aconteceu."},{"v":null,"motivo":"Ainda não aconteceu."}]}]},{"nome":"Ibovespa em dólar, só Brasil","unidade":"%","linhas":[{"ano":1994,"celulas":[{"v":null,"motivo":"Em 1994 só há variação bruta: não existe índice de bolsas emergentes por dia antes de 1997."},{"v":null,"motivo":"Em 1994 só há variação bruta: não existe índice de bolsas emergentes por dia antes de 1997."},{"v":null,"motivo":"Em 1994 só há variação bruta: não existe índice de bolsas emergentes por dia antes de 1997."},{"v":null,"motivo":"Em 1994 só há variação bruta: não existe índice de bolsas emergentes por dia antes de 1997."},{"v":null,"motivo":"Esta eleição não teve 2º turno."},{"v":null,"motivo":"Esta eleição não teve 2º turno."},{"v":null,"motivo":"Esta eleição não teve 2º turno."},{"v":null,"motivo":"Esta eleição não teve 2º turno."},{"v":null,"motivo":"Em 1994 só há variação bruta: não existe índice de bolsas emergentes por dia antes de 1997."},{"v":null,"motivo":"Em 1994 só há variação bruta: não existe índice de bolsas emergentes por dia antes de 1997."},{"v":null,"motivo":"Em 1994 só há variação bruta: não existe índice de bolsas emergentes por dia antes de 1997."}]},{"ano":1998,"celulas":[{"v":-8.6614,"de":"1998-08-05","ate":"1998-10-02"},{"v":-2.5899,"de":"1998-10-02","ate":"1998-10-05"},{"v":-0.9024,"de":"1998-10-02","ate":"1998-10-09"},{"v":-6.2657,"de":"1998-10-02","ate":"1998-11-03"},{"v":null,"motivo":"Esta eleição não teve 2º turno."},{"v":null,"motivo":"Esta eleição não teve 2º turno."},{"v":null,"motivo":"Esta eleição não teve 2º turno."},{"v":null,"motivo":"Esta eleição não teve 2º turno."},{"v":-19.2712,"de":"1998-10-02","ate":"1998-12-30"},{"v":-21.7199,"de":"1998-10-02","ate":"1999-04-09"},{"v":-25.938,"de":"1998-10-02","ate":"1999-12-30"}]},{"ano":2002,"celulas":[{"v":-13.7061,"de":"2002-08-07","ate":"2002-10-04"},{"v":-1.5166,"de":"2002-10-04","ate":"2002-10-07"},{"v":-3.6848,"de":"2002-10-04","ate":"2002-10-11"},{"v":3.7754,"de":"2002-10-04","ate":"2002-11-01"},{"v":-1.5484,"de":"2002-10-04","ate":"2002-10-25"},{"v":-4.6579,"de":"2002-10-25","ate":"2002-10-28"},{"v":5.4075,"de":"2002-10-25","ate":"2002-11-01"},{"v":-0.7824,"de":"2002-10-25","ate":"2002-11-25"},{"v":13.7805,"de":"2002-10-25","ate":"2002-12-30"},{"v":34.996,"de":"2002-10-25","ate":"2003-04-11"},{"v":48.7726,"de":"2002-10-25","ate":"2003-12-30"}]},{"ano":2006,"celulas":[{"v":-5.8029,"de":"2006-08-02","ate":"2006-09-29"},{"v":1.6888,"de":"2006-09-29","ate":"2006-10-02"},{"v":3.5396,"de":"2006-09-29","ate":"2006-10-06"},{"v":2.8721,"de":"2006-09-29","ate":"2006-10-30"},{"v":2.816,"de":"2006-09-29","ate":"2006-10-27"},{"v":0.0545,"de":"2006-10-27","ate":"2006-10-30"},{"v":1.8988,"de":"2006-10-27","ate":"2006-11-06"},{"v":-3.9928,"de":"2006-10-27","ate":"2006-11-29"},{"v":-3.309,"de":"2006-10-27","ate":"2006-12-28"},{"v":-0.9941,"de":"2006-10-27","ate":"2007-04-11"},{"v":7.4108,"de":"2006-10-27","ate":"2007-12-28"}]},{"ano":2010,"celulas":[{"v":-2.478,"de":"2010-08-04","ate":"2010-10-01"},{"v":-0.7759,"de":"2010-10-01","ate":"2010-10-04"},{"v":-1.0173,"de":"2010-10-01","ate":"2010-10-08"},{"v":-3.7171,"de":"2010-10-01","ate":"2010-11-01"},{"v":-2.9662,"de":"2010-10-01","ate":"2010-10-29"},{"v":-0.7739,"de":"2010-10-29","ate":"2010-11-01"},{"v":-2.7786,"de":"2010-10-29","ate":"2010-11-08"},{"v":-1.4023,"de":"2010-10-29","ate":"2010-11-30"},{"v":-4.6049,"de":"2010-10-29","ate":"2010-12-30"},{"v":-7.1567,"de":"2010-10-29","ate":"2011-04-11"},{"v":-5.5885,"de":"2010-10-29","ate":"2011-12-29"}]},{"ano":2014,"celulas":[{"v":-4.671,"de":"2014-08-06","ate":"2014-10-03"},{"v":6.4905,"de":"2014-10-03","ate":"2014-10-06"},{"v":5.9479,"de":"2014-10-03","ate":"2014-10-10"},{"v":-0.3355,"de":"2014-10-03","ate":"2014-10-31"},{"v":-2.6069,"de":"2014-10-03","ate":"2014-10-24"},{"v":-3.9701,"de":"2014-10-24","ate":"2014-10-27"},{"v":2.3322,"de":"2014-10-24","ate":"2014-10-31"},{"v":0.9805,"de":"2014-10-24","ate":"2014-11-24"},{"v":-6.3405,"de":"2014-10-24","ate":"2014-12-30"},{"v":-21.3118,"de":"2014-10-24","ate":"2015-04-10"},{"v":-29.14,"de":"2014-10-24","ate":"2015-12-30"}]},{"ano":2018,"celulas":[{"v":9.2677,"de":"2018-08-08","ate":"2018-10-05"},{"v":8.2618,"de":"2018-10-05","ate":"2018-10-08"},{"v":8.2944,"de":"2018-10-05","ate":"2018-10-15"},{"v":12.1839,"de":"2018-10-05","ate":"2018-11-06"},{"v":17.2084,"de":"2018-10-05","ate":"2018-10-26"},{"v":-0.6766,"de":"2018-10-26","ate":"2018-10-29"},{"v":-2.1364,"de":"2018-10-26","ate":"2018-11-05"},{"v":-6.4398,"de":"2018-10-26","ate":"2018-11-28"},{"v":-5.2149,"de":"2018-10-26","ate":"2018-12-28"},{"v":-9.3578,"de":"2018-10-26","ate":"2019-04-11"},{"v":2.5911,"de":"2018-10-26","ate":"2019-12-30"}]},{"ano":2022,"celulas":[{"v":17.4027,"de":"2022-08-03","ate":"2022-09-30"},{"v":9.6823,"de":"2022-09-30","ate":"2022-10-03"},{"v":6.677,"de":"2022-09-30","ate":"2022-10-07"},{"v":12.1778,"de":"2022-09-30","ate":"2022-10-31"},{"v":9.2488,"de":"2022-09-30","ate":"2022-10-28"},{"v":2.6811,"de":"2022-10-28","ate":"2022-10-31"},{"v":-0.6373,"de":"2022-10-28","ate":"2022-11-07"},{"v":-14.0166,"de":"2022-10-28","ate":"2022-11-29"},{"v":-13.659,"de":"2022-10-28","ate":"2022-12-29"},{"v":-16.8029,"de":"2022-10-28","ate":"2023-04-11"},{"v":5.8453,"de":"2022-10-28","ate":"2023-12-28"}]},{"ano":2026,"celulas":[{"v":4.9795,"de":"2026-08-05","ate":"2026-10-02"},{"v":11.5441,"de":"2026-10-02","ate":"2026-10-05"},{"v":13.9469,"de":"2026-10-02","ate":"2026-10-09"},{"v":null,"motivo":"Ainda não aconteceu."},{"v":16.5133,"de":"2026-10-02","ate":"2026-10-23"},{"v":-20.6328,"de":"2026-10-23","ate":"2026-10-26"},{"v":-23.5562,"de":"2026-10-23","ate":"2026-10-30"},{"v":null,"motivo":"Ainda não aconteceu."},{"v":null,"motivo":"Ainda não aconteceu."},{"v":null,"motivo":"Ainda não aconteceu."},{"v":null,"motivo":"Ainda não aconteceu."}]}]},{"nome":"Dólar","unidade":"%","linhas":[{"ano":1994,"celulas":[{"v":-6.2637,"de":"1994-08-04","ate":"1994-09-30"},{"v":-0.4689,"de":"1994-09-30","ate":"1994-10-04"},{"v":-1.6413,"de":"1994-09-30","ate":"1994-10-10"},{"v":-0.9379,"de":"1994-09-30","ate":"1994-11-01"},{"v":null,"motivo":"Esta eleição não teve 2º turno."},{"v":null,"motivo":"Esta eleição não teve 2º turno."},{"v":null,"motivo":"Esta eleição não teve 2º turno."},{"v":null,"motivo":"Esta eleição não teve 2º turno."},{"v":-0.5862,"de":"1994-09-30","ate":"1994-12-29"},{"v":5.6272,"de":"1994-09-30","ate":"1995-04-11"},{"v":14.0211,"de":"1994-09-30","ate":"1995-12-28"}]},{"ano":1998,"celulas":[{"v":1.4223,"de":"1998-08-05","ate":"1998-10-02"},{"v":0.1943,"de":"1998-10-02","ate":"1998-10-05"},{"v":0.2534,"de":"1998-10-02","ate":"1998-10-09"},{"v":0.7772,"de":"1998-10-02","ate":"1998-11-03"},{"v":null,"motivo":"Esta eleição não teve 2º turno."},{"v":null,"motivo":"Esta eleição não teve 2º turno."},{"v":null,"motivo":"Esta eleição não teve 2º turno."},{"v":null,"motivo":"Esta eleição não teve 2º turno."},{"v":2.0782,"de":"1998-10-02","ate":"1998-12-30"},{"v":44.3778,"de":"1998-10-02","ate":"1999-04-09"},{"v":51.1363,"de":"1998-10-02","ate":"1999-12-30"}]},{"ano":2002,"celulas":[{"v":19.5928,"de":"2002-08-07","ate":"2002-10-04"},{"v":1.0166,"de":"2002-10-04","ate":"2002-10-07"},{"v":7.22,"de":"2002-10-04","ate":"2002-10-11"},{"v":-1.3117,"de":"2002-10-04","ate":"2002-11-01"},{"v":3.886,"de":"2002-10-04","ate":"2002-10-25"},{"v":-1.602,"de":"2002-10-25","ate":"2002-10-28"},{"v":-5.0033,"de":"2002-10-25","ate":"2002-11-01"},{"v":-6.6369,"de":"2002-10-25","ate":"2002-11-25"},{"v":-7.0551,"de":"2002-10-25","ate":"2002-12-30"},{"v":-15.436,"de":"2002-10-25","ate":"2003-04-11"},{"v":-23.9984,"de":"2002-10-25","ate":"2003-12-30"}]},{"ano":2006,"celulas":[{"v":-0.362,"de":"2006-08-02","ate":"2006-09-29"},{"v":-0.5473,"de":"2006-09-29","ate":"2006-10-02"},{"v":-0.4875,"de":"2006-09-29","ate":"2006-10-06"},{"v":-1.3154,"de":"2006-09-29","ate":"2006-10-30"},{"v":-1.6742,"de":"2006-09-29","ate":"2006-10-27"},{"v":0.3649,"de":"2006-10-27","ate":"2006-10-30"},{"v":0.0,"de":"2006-10-27","ate":"2006-11-06"},{"v":1.8945,"de":"2006-10-27","ate":"2006-11-29"},{"v":0.0094,"de":"2006-10-27","ate":"2006-12-28"},{"v":-4.8882,"de":"2006-10-27","ate":"2007-04-11"},{"v":-17.1438,"de":"2006-10-27","ate":"2007-12-28"}]},{"ano":2010,"celulas":[{"v":-4.276,"de":"2010-08-04","ate":"2010-10-01"},{"v":0.4164,"de":"2010-10-01","ate":"2010-10-04"},{"v":-0.0476,"de":"2010-10-01","ate":"2010-10-08"},{"v":1.38,"de":"2010-10-01","ate":"2010-11-01"},{"v":1.2015,"de":"2010-10-01","ate":"2010-10-29"},{"v":0.1763,"de":"2010-10-29","ate":"2010-11-01"},{"v":-0.2586,"de":"2010-10-29","ate":"2010-11-08"},{"v":0.864,"de":"2010-10-29","ate":"2010-11-30"},{"v":-2.0689,"de":"2010-10-29","ate":"2010-12-30"},{"v":-7.1059,"de":"2010-10-29","ate":"2011-04-11"},{"v":10.2504,"de":"2010-10-29","ate":"2011-12-29"}]},{"ano":2014,"celulas":[{"v":9.3989,"de":"2014-08-06","ate":"2014-10-03"},{"v":-3.3451,"de":"2014-10-03","ate":"2014-10-06"},{"v":-3.325,"de":"2014-10-03","ate":"2014-10-10"},{"v":-1.9653,"de":"2014-10-03","ate":"2014-10-31"},{"v":-0.5094,"de":"2014-10-03","ate":"2014-10-24"},{"v":2.1609,"de":"2014-10-24","ate":"2014-10-27"},{"v":-1.4634,"de":"2014-10-24","ate":"2014-10-31"},{"v":1.923,"de":"2014-10-24","ate":"2014-11-24"},{"v":7.0832,"de":"2014-10-24","ate":"2014-12-30"},{"v":24.1524,"de":"2014-10-24","ate":"2015-04-10"},{"v":57.4199,"de":"2014-10-24","ate":"2015-12-30"}]},{"ano":2018,"celulas":[{"v":3.1451,"de":"2018-08-08","ate":"2018-10-05"},{"v":-2.8709,"de":"2018-10-05","ate":"2018-10-08"},{"v":-3.5324,"de":"2018-10-05","ate":"2018-10-15"},{"v":-3.1189,"de":"2018-10-05","ate":"2018-11-06"},{"v":-5.0286,"de":"2018-10-05","ate":"2018-10-26"},{"v":-1.0475,"de":"2018-10-26","ate":"2018-10-29"},{"v":0.8027,"de":"2018-10-26","ate":"2018-11-05"},{"v":5.1098,"de":"2018-10-26","ate":"2018-11-28"},{"v":5.4281,"de":"2018-10-26","ate":"2018-12-28"},{"v":4.4785,"de":"2018-10-26","ate":"2019-04-11"},{"v":9.67,"de":"2018-10-26","ate":"2019-12-30"}]},{"ano":2022,"celulas":[{"v":2.3086,"de":"2022-08-03","ate":"2022-09-30"},{"v":-3.8176,"de":"2022-09-30","ate":"2022-10-03"},{"v":-3.4125,"de":"2022-09-30","ate":"2022-10-07"},{"v":-2.767,"de":"2022-09-30","ate":"2022-10-31"},{"v":-1.132,"de":"2022-09-30","ate":"2022-10-28"},{"v":-1.6538,"de":"2022-10-28","ate":"2022-10-31"},{"v":-4.8041,"de":"2022-10-28","ate":"2022-11-07"},{"v":-0.7071,"de":"2022-10-28","ate":"2022-11-29"},{"v":-2.389,"de":"2022-10-28","ate":"2022-12-29"},{"v":-6.2222,"de":"2022-10-28","ate":"2023-04-11"},{"v":-9.4305,"de":"2022-10-28","ate":"2023-12-28"}]},{"ano":2026,"celulas":[{"v":2.1191,"de":"2026-08-05","ate":"2026-10-02"},{"v":-4.5542,"de":"2026-10-02","ate":"2026-10-05"},{"v":-4.491,"de":"2026-10-02","ate":"2026-10-09"},{"v":null,"motivo":"Ainda não aconteceu."},{"v":-3.5625,"de":"2026-10-02","ate":"2026-10-23"},{"v":9.1907,"de":"2026-10-23","ate":"2026-10-26"},{"v":7.6126,"de":"2026-10-23","ate":"2026-10-30"},{"v":null,"motivo":"Ainda não aconteceu."},{"v":null,"motivo":"Ainda não aconteceu."},{"v":null,"motivo":"Ainda não aconteceu."},{"v":null,"motivo":"Ainda não aconteceu."}]}]},{"nome":"Dólar, só Brasil","unidade":"%","linhas":[{"ano":1994,"celulas":[{"v":null,"motivo":"Em 1994 só há variação bruta: não existe índice de bolsas emergentes por dia antes de 1997."},{"v":null,"motivo":"Em 1994 só há variação bruta: não existe índice de bolsas emergentes por dia antes de 1997."},{"v":null,"motivo":"Em 1994 só há variação bruta: não existe índice de bolsas emergentes por dia antes de 1997."},{"v":null,"motivo":"Em 1994 só há variação bruta: não existe índice de bolsas emergentes por dia antes de 1997."},{"v":null,"motivo":"Esta eleição não teve 2º turno."},{"v":null,"motivo":"Esta eleição não teve 2º turno."},{"v":null,"motivo":"Esta eleição não teve 2º turno."},{"v":null,"motivo":"Esta eleição não teve 2º turno."},{"v":null,"motivo":"Em 1994 só há variação bruta: não existe índice de bolsas emergentes por dia antes de 1997."},{"v":null,"motivo":"Em 1994 só há variação bruta: não existe índice de bolsas emergentes por dia antes de 1997."},{"v":null,"motivo":"Em 1994 só há variação bruta: não existe índice de bolsas emergentes por dia antes de 1997."}]},{"ano":1998,"celulas":[{"v":1.3386,"de":"1998-08-05","ate":"1998-10-02"},{"v":0.1882,"de":"1998-10-02","ate":"1998-10-05"},{"v":0.2177,"de":"1998-10-02","ate":"1998-10-09"},{"v":0.7542,"de":"1998-10-02","ate":"1998-11-03"},{"v":null,"motivo":"Esta eleição não teve 2º turno."},{"v":null,"motivo":"Esta eleição não teve 2º turno."},{"v":null,"motivo":"Esta eleição não teve 2º turno."},{"v":null,"motivo":"Esta eleição não teve 2º turno."},{"v":2.0674,"de":"1998-10-02","ate":"1998-12-30"},{"v":44.4808,"de":"1998-10-02","ate":"1999-04-09"},{"v":51.2827,"de":"1998-10-02","ate":"1999-12-30"}]},{"ano":2002,"celulas":[{"v":19.6402,"de":"2002-08-07","ate":"2002-10-04"},{"v":1.0246,"de":"2002-10-04","ate":"2002-10-07"},{"v":7.2796,"de":"2002-10-04","ate":"2002-10-11"},{"v":-1.0718,"de":"2002-10-04","ate":"2002-11-01"},{"v":3.8333,"de":"2002-10-04","ate":"2002-10-25"},{"v":-1.4832,"de":"2002-10-25","ate":"2002-10-28"},{"v":-4.724,"de":"2002-10-25","ate":"2002-11-01"},{"v":-6.4315,"de":"2002-10-25","ate":"2002-11-25"},{"v":-6.1573,"de":"2002-10-25","ate":"2002-12-30"},{"v":-14.355,"de":"2002-10-25","ate":"2003-04-11"},{"v":-21.1511,"de":"2002-10-25","ate":"2003-12-30"}]},{"ano":2006,"celulas":[{"v":-0.5705,"de":"2006-08-02","ate":"2006-09-29"},{"v":-0.4615,"de":"2006-09-29","ate":"2006-10-02"},{"v":-0.5931,"de":"2006-09-29","ate":"2006-10-06"},{"v":-1.2303,"de":"2006-09-29","ate":"2006-10-30"},{"v":-1.5826,"de":"2006-09-29","ate":"2006-10-27"},{"v":0.358,"de":"2006-10-27","ate":"2006-10-30"},{"v":-0.0432,"de":"2006-10-27","ate":"2006-11-06"},{"v":2.3933,"de":"2006-10-27","ate":"2006-11-29"},{"v":0.4101,"de":"2006-10-27","ate":"2006-12-28"},{"v":-4.2499,"de":"2006-10-27","ate":"2007-04-11"},{"v":-15.2584,"de":"2006-10-27","ate":"2007-12-28"}]},{"ano":2010,"celulas":[{"v":-1.3312,"de":"2010-08-04","ate":"2010-10-01"},{"v":0.0199,"de":"2010-10-01","ate":"2010-10-04"},{"v":0.808,"de":"2010-10-01","ate":"2010-10-08"},{"v":2.2705,"de":"2010-10-01","ate":"2010-11-01"},{"v":2.1246,"de":"2010-10-01","ate":"2010-10-29"},{"v":0.1429,"de":"2010-10-29","ate":"2010-11-01"},{"v":0.0086,"de":"2010-10-29","ate":"2010-11-08"},{"v":-3.3493,"de":"2010-10-29","ate":"2010-11-30"},{"v":-4.457,"de":"2010-10-29","ate":"2010-12-30"},{"v":-4.7582,"de":"2010-10-29","ate":"2011-04-11"},{"v":6.4574,"de":"2010-10-29","ate":"2011-12-29"}]},{"ano":2014,"celulas":[{"v":4.5875,"de":"2014-08-06","ate":"2014-10-03"},{"v":-2.5507,"de":"2014-10-03","ate":"2014-10-06"},{"v":-2.6939,"de":"2014-10-03","ate":"2014-10-10"},{"v":-2.1197,"de":"2014-10-03","ate":"2014-10-31"},{"v":0.2914,"de":"2014-10-03","ate":"2014-10-24"},{"v":2.3586,"de":"2014-10-24","ate":"2014-10-27"},{"v":-2.4042,"de":"2014-10-24","ate":"2014-10-31"},{"v":-0.0993,"de":"2014-10-24","ate":"2014-11-24"},{"v":3.4091,"de":"2014-10-24","ate":"2014-12-30"},{"v":11.6164,"de":"2014-10-24","ate":"2015-04-10"},{"v":42.6841,"de":"2014-10-24","ate":"2015-12-30"}]},{"ano":2018,"celulas":[{"v":2.7831,"de":"2018-08-08","ate":"2018-10-05"},{"v":-2.969,"de":"2018-10-05","ate":"2018-10-08"},{"v":-3.1729,"de":"2018-10-05","ate":"2018-10-15"},{"v":-3.5735,"de":"2018-10-05","ate":"2018-11-06"},{"v":-5.4994,"de":"2018-10-05","ate":"2018-10-26"},{"v":-1.1929,"de":"2018-10-26","ate":"2018-10-29"},{"v":0.8094,"de":"2018-10-26","ate":"2018-11-05"},{"v":4.8085,"de":"2018-10-26","ate":"2018-11-28"},{"v":5.407,"de":"2018-10-26","ate":"2018-12-28"},{"v":3.9093,"de":"2018-10-26","ate":"2019-04-11"},{"v":9.392,"de":"2018-10-26","ate":"2019-12-30"}]},{"ano":2022,"celulas":[{"v":-2.7554,"de":"2022-08-03","ate":"2022-09-30"},{"v":-3.5026,"de":"2022-09-30","ate":"2022-10-03"},{"v":-3.9884,"de":"2022-09-30","ate":"2022-10-07"},{"v":-2.2583,"de":"2022-09-30","ate":"2022-10-31"},{"v":0.149,"de":"2022-09-30","ate":"2022-10-28"},{"v":-2.4038,"de":"2022-10-28","ate":"2022-10-31"},{"v":-4.3339,"de":"2022-10-28","ate":"2022-11-07"},{"v":2.8313,"de":"2022-10-28","ate":"2022-11-29"},{"v":3.9582,"de":"2022-10-28","ate":"2022-12-29"},{"v":1.4606,"de":"2022-10-28","ate":"2023-04-11"},{"v":-1.0821,"de":"2022-10-28","ate":"2023-12-28"}]},{"ano":2026,"celulas":[{"v":-0.2448,"de":"2026-08-05","ate":"2026-10-02"},{"v":-4.7905,"de":"2026-10-02","ate":"2026-10-05"},{"v":-4.7667,"de":"2026-10-02","ate":"2026-10-09"},{"v":null,"motivo":"Ainda não aconteceu."},{"v":-3.4427,"de":"2026-10-02","ate":"2026-10-23"},{"v":9.0214,"de":"2026-10-23","ate":"2026-10-26"},{"v":7.5347,"de":"2026-10-23","ate":"2026-10-30"},{"v":null,"motivo":"Ainda não aconteceu."},{"v":null,"motivo":"Ainda não aconteceu."},{"v":null,"motivo":"Ainda não aconteceu."},{"v":null,"motivo":"Ainda não aconteceu."}]}]},{"nome":"Tesouro 10 anos","unidade":"p.p.","linhas":[{"ano":1994,"celulas":[{"v":null,"motivo":"O Tesouro Direto só tem dados desde dezembro de 2004."},{"v":null,"motivo":"O Tesouro Direto só tem dados desde dezembro de 2004."},{"v":null,"motivo":"O Tesouro Direto só tem dados desde dezembro de 2004."},{"v":null,"motivo":"O Tesouro Direto só tem dados desde dezembro de 2004."},{"v":null,"motivo":"Esta eleição não teve 2º turno."},{"v":null,"motivo":"Esta eleição não teve 2º turno."},{"v":null,"motivo":"Esta eleição não teve 2º turno."},{"v":null,"motivo":"Esta eleição não teve 2º turno."},{"v":null,"motivo":"O Tesouro Direto só tem dados desde dezembro de 2004."},{"v":null,"motivo":"O Tesouro Direto só tem dados desde dezembro de 2004."},{"v":null,"motivo":"O Tesouro Direto só tem dados desde dezembro de 2004."}]},{"ano":1998,"celulas":[{"v":null,"motivo":"O Tesouro Direto só tem dados desde dezembro de 2004."},{"v":null,"motivo":"O Tesouro Direto só tem dados desde dezembro de 2004."},{"v":null,"motivo":"O Tesouro Direto só tem dados desde dezembro de 2004."},{"v":null,"motivo":"O Tesouro Direto só tem dados desde dezembro de 2004."},{"v":null,"motivo":"Esta eleição não teve 2º turno."},{"v":null,"motivo":"Esta eleição não teve 2º turno."},{"v":null,"motivo":"Esta eleição não teve 2º turno."},{"v":null,"motivo":"Esta eleição não teve 2º turno."},{"v":null,"motivo":"O Tesouro Direto só tem dados desde dezembro de 2004."},{"v":null,"motivo":"O Tesouro Direto só tem dados desde dezembro de 2004."},{"v":null,"motivo":"O Tesouro Direto só tem dados desde dezembro de 2004."}]},{"ano":2002,"celulas":[{"v":null,"motivo":"O Tesouro Direto só tem dados desde dezembro de 2004."},{"v":null,"motivo":"O Tesouro Direto só tem dados desde dezembro de 2004."},{"v":null,"motivo":"O Tesouro Direto só tem dados desde dezembro de 2004."},{"v":null,"motivo":"O Tesouro Direto só tem dados desde dezembro de 2004."},{"v":null,"motivo":"O Tesouro Direto só tem dados desde dezembro de 2004."},{"v":null,"motivo":"O Tesouro Direto só tem dados desde dezembro de 2004."},{"v":null,"motivo":"O Tesouro Direto só tem dados desde dezembro de 2004."},{"v":null,"motivo":"O Tesouro Direto só tem dados desde dezembro de 2004."},{"v":null,"motivo":"O Tesouro Direto só tem dados desde dezembro de 2004."},{"v":null,"motivo":"O Tesouro Direto só tem dados desde dezembro de 2004."},{"v":null,"motivo":"O Tesouro Direto só tem dados desde dezembro de 2004."}]},{"ano":2006,"celulas":[{"v":-1.1,"de":"2006-08-02","ate":"2006-09-29"},{"v":-0.01,"de":"2006-09-29","ate":"2006-10-02"},{"v":-0.44,"de":"2006-09-29","ate":"2006-10-06"},{"v":-0.56,"de":"2006-09-29","ate":"2006-10-30"},{"v":-0.45,"de":"2006-09-29","ate":"2006-10-27"},{"v":-0.11,"de":"2006-10-27","ate":"2006-10-30"},{"v":-0.23,"de":"2006-10-27","ate":"2006-11-06"},{"v":-0.3,"de":"2006-10-27","ate":"2006-11-29"},{"v":-1.21,"de":"2006-10-27","ate":"2006-12-28"},{"v":-2.37,"de":"2006-10-27","ate":"2007-04-11"},{"v":-0.61,"de":"2006-10-27","ate":"2007-12-28"}]},{"ano":2010,"celulas":[{"v":-0.11,"de":"2010-08-04","ate":"2010-10-01"},{"v":0.03,"de":"2010-10-01","ate":"2010-10-04"},{"v":-0.06,"de":"2010-10-01","ate":"2010-10-08"},{"v":-0.02,"de":"2010-10-01","ate":"2010-11-01"},{"v":0.26,"de":"2010-10-01","ate":"2010-10-29"},{"v":-0.28,"de":"2010-10-29","ate":"2010-11-01"},{"v":-0.14,"de":"2010-10-29","ate":"2010-11-08"},{"v":0.38,"de":"2010-10-29","ate":"2010-11-30"},{"v":0.1,"de":"2010-10-29","ate":"2010-12-30"},{"v":0.67,"de":"2010-10-29","ate":"2011-04-11"},{"v":-0.84,"de":"2010-10-29","ate":"2011-12-29"}]},{"ano":2014,"celulas":[{"v":0.24,"de":"2014-08-06","ate":"2014-10-03"},{"v":-0.84,"de":"2014-10-03","ate":"2014-10-06"},{"v":-0.96,"de":"2014-10-03","ate":"2014-10-10"},{"v":-0.23,"de":"2014-10-03","ate":"2014-10-31"},{"v":-0.17,"de":"2014-10-03","ate":"2014-10-24"},{"v":-0.16,"de":"2014-10-24","ate":"2014-10-27"},{"v":-0.06,"de":"2014-10-24","ate":"2014-10-31"},{"v":-0.07,"de":"2014-10-24","ate":"2014-11-24"},{"v":0.22,"de":"2014-10-24","ate":"2014-12-30"},{"v":0.38,"de":"2014-10-24","ate":"2015-04-10"},{"v":4.15,"de":"2014-10-24","ate":"2015-12-30"}]},{"ano":2018,"celulas":[{"v":-0.17,"de":"2018-08-08","ate":"2018-10-05"},{"v":-0.21,"de":"2018-10-05","ate":"2018-10-08"},{"v":-0.29,"de":"2018-10-05","ate":"2018-10-15"},{"v":-0.89,"de":"2018-10-05","ate":"2018-11-06"},{"v":-0.6,"de":"2018-10-05","ate":"2018-10-26"},{"v":-0.46,"de":"2018-10-26","ate":"2018-10-29"},{"v":-0.35,"de":"2018-10-26","ate":"2018-11-05"},{"v":-0.4,"de":"2018-10-26","ate":"2018-11-28"},{"v":-1.22,"de":"2018-10-26","ate":"2018-12-28"},{"v":-1.51,"de":"2018-10-26","ate":"2019-04-11"},{"v":-3.61,"de":"2018-10-26","ate":"2019-12-30"}]},{"ano":2022,"celulas":[{"v":-0.85,"de":"2022-08-03","ate":"2022-09-30"},{"v":-0.42,"de":"2022-09-30","ate":"2022-10-03"},{"v":-0.33,"de":"2022-09-30","ate":"2022-10-07"},{"v":-0.05,"de":"2022-09-30","ate":"2022-10-31"},{"v":-0.05,"de":"2022-09-30","ate":"2022-10-28"},{"v":0.0,"de":"2022-10-28","ate":"2022-10-31"},{"v":-0.21,"de":"2022-10-28","ate":"2022-11-07"},{"v":1.2,"de":"2022-10-28","ate":"2022-11-29"},{"v":0.59,"de":"2022-10-28","ate":"2022-12-29"},{"v":0.44,"de":"2022-10-28","ate":"2023-04-11"},{"v":-1.78,"de":"2022-10-28","ate":"2023-12-28"}]},{"ano":2026,"celulas":[{"v":-0.24,"de":"2026-08-05","ate":"2026-10-02"},{"v":-1.17,"de":"2026-10-02","ate":"2026-10-05"},{"v":-1.6,"de":"2026-10-02","ate":"2026-10-09"},{"v":null,"motivo":"Ainda não aconteceu."},{"v":-1.27,"de":"2026-10-02","ate":"2026-10-23"},{"v":2.52,"de":"2026-10-23","ate":"2026-10-26"},{"v":2.33,"de":"2026-10-23","ate":"2026-10-30"},{"v":null,"motivo":"Ainda não aconteceu."},{"v":null,"motivo":"Ainda não aconteceu."},{"v":null,"motivo":"Ainda não aconteceu."},{"v":null,"motivo":"Ainda não aconteceu."}]}]},{"nome":"Risco-país (EMBI+)","unidade":"p.b.","linhas":[{"ano":1994,"celulas":[{"v":-299.0,"de":"1994-08-04","ate":"1994-09-30"},{"v":-15.0,"de":"1994-09-30","ate":"1994-10-04"},{"v":13.0,"de":"1994-09-30","ate":"1994-10-10"},{"v":129.0,"de":"1994-09-30","ate":"1994-11-01"},{"v":null,"motivo":"Esta eleição não teve 2º turno."},{"v":null,"motivo":"Esta eleição não teve 2º turno."},{"v":null,"motivo":"Esta eleição não teve 2º turno."},{"v":null,"motivo":"Esta eleição não teve 2º turno."},{"v":156.0,"de":"1994-09-30","ate":"1994-12-29"},{"v":673.0,"de":"1994-09-30","ate":"1995-04-11"},{"v":211.0,"de":"1994-09-30","ate":"1995-12-28"}]},{"ano":1998,"celulas":[{"v":681.0,"de":"1998-08-05","ate":"1998-10-02"},{"v":104.0,"de":"1998-10-02","ate":"1998-10-05"},{"v":-19.0,"de":"1998-10-02","ate":"1998-10-09"},{"v":-218.0,"de":"1998-10-02","ate":"1998-11-03"},{"v":null,"motivo":"Esta eleição não teve 2º turno."},{"v":null,"motivo":"Esta eleição não teve 2º turno."},{"v":null,"motivo":"Esta eleição não teve 2º turno."},{"v":null,"motivo":"Esta eleição não teve 2º turno."},{"v":-86.0,"de":"1998-10-02","ate":"1998-12-30"},{"v":-374.0,"de":"1998-10-02","ate":"1999-04-09"},{"v":-709.0,"de":"1998-10-02","ate":"1999-12-30"}]},{"ano":2002,"celulas":[{"v":38.0,"de":"2002-08-07","ate":"2002-10-04"},{"v":80.0,"de":"2002-10-04","ate":"2002-10-07"},{"v":260.0,"de":"2002-10-04","ate":"2002-10-11"},{"v":-264.0,"de":"2002-10-04","ate":"2002-11-01"},{"v":-175.0,"de":"2002-10-04","ate":"2002-10-25"},{"v":65.0,"de":"2002-10-25","ate":"2002-10-28"},{"v":-89.0,"de":"2002-10-25","ate":"2002-11-01"},{"v":-191.0,"de":"2002-10-25","ate":"2002-11-25"},{"v":-340.0,"de":"2002-10-25","ate":"2002-12-30"},{"v":-867.0,"de":"2002-10-25","ate":"2003-04-11"},{"v":-1314.0,"de":"2002-10-25","ate":"2003-12-30"}]},{"ano":2006,"celulas":[{"v":12.0,"de":"2006-08-02","ate":"2006-09-29"},{"v":-2.0,"de":"2006-09-29","ate":"2006-10-02"},{"v":-10.0,"de":"2006-09-29","ate":"2006-10-06"},{"v":-15.0,"de":"2006-09-29","ate":"2006-10-30"},{"v":-18.0,"de":"2006-09-29","ate":"2006-10-27"},{"v":3.0,"de":"2006-10-27","ate":"2006-10-30"},{"v":-3.0,"de":"2006-10-27","ate":"2006-11-06"},{"v":7.0,"de":"2006-10-27","ate":"2006-11-29"},{"v":-23.0,"de":"2006-10-27","ate":"2006-12-28"},{"v":-59.0,"de":"2006-10-27","ate":"2007-04-11"},{"v":-2.0,"de":"2006-10-27","ate":"2007-12-28"}]},{"ano":2010,"celulas":[{"v":3.0,"de":"2010-08-04","ate":"2010-10-01"},{"v":3.0,"de":"2010-10-01","ate":"2010-10-04"},{"v":-6.0,"de":"2010-10-01","ate":"2010-10-08"},{"v":-32.0,"de":"2010-10-01","ate":"2010-11-01"},{"v":-28.0,"de":"2010-10-01","ate":"2010-10-29"},{"v":-4.0,"de":"2010-10-29","ate":"2010-11-01"},{"v":5.0,"de":"2010-10-29","ate":"2010-11-08"},{"v":23.0,"de":"2010-10-29","ate":"2010-11-30"},{"v":5.0,"de":"2010-10-29","ate":"2010-12-30"},{"v":-11.0,"de":"2010-10-29","ate":"2011-04-11"},{"v":48.0,"de":"2010-10-29","ate":"2011-12-29"}]},{"ano":2014,"celulas":[{"v":9.0,"de":"2014-08-06","ate":"2014-10-03"},{"v":-2.0,"de":"2014-10-03","ate":"2014-10-06"},{"v":-3.0,"de":"2014-10-03","ate":"2014-10-10"},{"v":-6.0,"de":"2014-10-03","ate":"2014-10-31"},{"v":4.0,"de":"2014-10-03","ate":"2014-10-24"},{"v":2.0,"de":"2014-10-24","ate":"2014-10-27"},{"v":-10.0,"de":"2014-10-24","ate":"2014-10-31"},{"v":-2.0,"de":"2014-10-24","ate":"2014-11-24"},{"v":18.0,"de":"2014-10-24","ate":"2014-12-30"},{"v":44.0,"de":"2014-10-24","ate":"2015-04-10"},{"v":273.0,"de":"2014-10-24","ate":"2015-12-30"}]},{"ano":2018,"celulas":[{"v":-5.0,"de":"2018-08-08","ate":"2018-10-05"},{"v":0.0,"de":"2018-10-05","ate":"2018-10-08"},{"v":-11.0,"de":"2018-10-05","ate":"2018-10-15"},{"v":-23.0,"de":"2018-10-05","ate":"2018-11-06"},{"v":-6.0,"de":"2018-10-05","ate":"2018-10-26"},{"v":1.0,"de":"2018-10-26","ate":"2018-10-29"},{"v":-19.0,"de":"2018-10-26","ate":"2018-11-05"},{"v":6.0,"de":"2018-10-26","ate":"2018-11-28"},{"v":6.0,"de":"2018-10-26","ate":"2018-12-28"},{"v":-13.0,"de":"2018-10-26","ate":"2019-04-11"},{"v":-51.0,"de":"2018-10-26","ate":"2019-12-30"}]},{"ano":2022,"celulas":[{"v":-23.0,"de":"2022-08-03","ate":"2022-09-30"},{"v":-8.0,"de":"2022-09-30","ate":"2022-10-03"},{"v":-12.0,"de":"2022-09-30","ate":"2022-10-07"},{"v":-33.0,"de":"2022-09-30","ate":"2022-10-31"},{"v":-33.0,"de":"2022-09-30","ate":"2022-10-28"},{"v":0.0,"de":"2022-10-28","ate":"2022-10-31"},{"v":-3.0,"de":"2022-10-28","ate":"2022-11-07"},{"v":-4.0,"de":"2022-10-28","ate":"2022-11-29"},{"v":5.0,"de":"2022-10-28","ate":"2022-12-29"},{"v":6.0,"de":"2022-10-28","ate":"2023-04-11"},{"v":-58.0,"de":"2022-10-28","ate":"2023-12-28"}]},{"ano":2026,"celulas":[{"v":null,"motivo":"O risco-país (EMBI+) acabou em julho de 2024; em 2026 fica de fora."},{"v":null,"motivo":"O risco-país (EMBI+) acabou em julho de 2024; em 2026 fica de fora."},{"v":null,"motivo":"O risco-país (EMBI+) acabou em julho de 2024; em 2026 fica de fora."},{"v":null,"motivo":"Ainda não aconteceu."},{"v":null,"motivo":"O risco-país (EMBI+) acabou em julho de 2024; em 2026 fica de fora."},{"v":null,"motivo":"O risco-país (EMBI+) acabou em julho de 2024; em 2026 fica de fora."},{"v":null,"motivo":"O risco-país (EMBI+) acabou em julho de 2024; em 2026 fica de fora."},{"v":null,"motivo":"Ainda não aconteceu."},{"v":null,"motivo":"Ainda não aconteceu."},{"v":null,"motivo":"Ainda não aconteceu."},{"v":null,"motivo":"Ainda não aconteceu."}]}]}],"surpresa":{"turnos":[{"ano":1994,"turno":1,"data":"1994-10-03","margem_pesquisas":29.88,"margem_resultado":27.24,"surpresa":-2.64,"favorito":"FHC","candidato_mercado":"FHC","ibov_d1":-2.7152,"dolar_d1":-0.4689},{"ano":1998,"turno":1,"data":"1998-10-04","margem_pesquisas":null,"margem_resultado":21.35,"surpresa":null,"favorito":null,"candidato_mercado":"FHC","ibov_d1":-4.4774,"dolar_d1":0.1943},{"ano":2002,"turno":1,"data":"2002-10-06","margem_pesquisas":-27.5,"margem_resultado":-23.24,"surpresa":4.26,"favorito":"Lula","candidato_mercado":"José Serra","ibov_d1":-4.2873,"dolar_d1":1.0166},{"ano":2002,"turno":2,"data":"2002-10-27","margem_pesquisas":null,"margem_resultado":-22.54,"surpresa":null,"favorito":null,"candidato_mercado":"José Serra","ibov_d1":-4.4034,"dolar_d1":-1.602},{"ano":2006,"turno":1,"data":"2006-10-01","margem_pesquisas":-12.0,"margem_resultado":-6.97,"surpresa":5.03,"favorito":"Lula","candidato_mercado":"Geraldo Alckmin","ibov_d1":1.6708,"dolar_d1":-0.5473},{"ano":2006,"turno":2,"data":"2006-10-29","margem_pesquisas":-22.0,"margem_resultado":-21.66,"surpresa":0.34,"favorito":"Lula","candidato_mercado":"Geraldo Alckmin","ibov_d1":-1.0883,"dolar_d1":0.3649},{"ano":2010,"turno":1,"data":"2010-10-03","margem_pesquisas":-19.5,"margem_resultado":-14.3,"surpresa":5.2,"favorito":"Dilma","candidato_mercado":"José Serra","ibov_d1":0.2221,"dolar_d1":0.4164},{"ano":2010,"turno":2,"data":"2010-10-31","margem_pesquisas":-11.0,"margem_resultado":-12.1,"surpresa":-1.1,"favorito":"Dilma","candidato_mercado":"José Serra","ibov_d1":1.2565,"dolar_d1":0.1763},{"ano":2014,"turno":1,"data":"2014-10-05","margem_pesquisas":-18.5,"margem_resultado":-8.04,"surpresa":10.46,"favorito":"Dilma","candidato_mercado":"Aécio Neves","ibov_d1":4.7231,"dolar_d1":-3.3451},{"ano":2014,"turno":2,"data":"2014-10-26","margem_pesquisas":-5.0,"margem_resultado":-3.28,"surpresa":1.72,"favorito":"Dilma","candidato_mercado":"Aécio Neves","ibov_d1":-2.7666,"dolar_d1":2.1609},{"ano":2018,"turno":1,"data":"2018-10-07","margem_pesquisas":15.5,"margem_resultado":16.75,"surpresa":1.25,"favorito":"Jair Bolsonaro","candidato_mercado":"Jair Bolsonaro","ibov_d1":4.5699,"dolar_d1":-2.8709},{"ano":2018,"turno":2,"data":"2018-10-28","margem_pesquisas":9.0,"margem_resultado":10.26,"surpresa":1.26,"favorito":"Jair Bolsonaro","candidato_mercado":"Jair Bolsonaro","ibov_d1":-2.2433,"dolar_d1":-1.0475},{"ano":2022,"turno":1,"data":"2022-10-02","margem_pesquisas":-12.87,"margem_resultado":-5.23,"surpresa":7.64,"favorito":"Lula","candidato_mercado":"Jair Bolsonaro","ibov_d1":5.5409,"dolar_d1":-3.8176},{"ano":2022,"turno":2,"data":"2022-10-30","margem_pesquisas":-5.7,"margem_resultado":-1.8,"surpresa":3.9,"favorito":"Lula","candidato_mercado":"Jair Bolsonaro","ibov_d1":1.3079,"dolar_d1":-1.6538},{"ano":2026,"turno":1,"data":"2026-10-04","margem_pesquisas":-2.3,"margem_resultado":1.87,"surpresa":4.17,"favorito":"Lula","candidato_mercado":"Flávio Bolsonaro","ibov_d1":7.7022,"dolar_d1":-4.5542},{"ano":2026,"turno":2,"data":"2026-10-25","margem_pesquisas":1.8667,"margem_resultado":-3.58,"surpresa":-5.4467,"favorito":"Flávio Bolsonaro","candidato_mercado":"Flávio Bolsonaro","ibov_d1":-13.8846,"dolar_d1":9.1907}],"tendencia":{"inclinacao":0.8976055309557963,"intercepto":-2.310332646777256},"correlacoes":[{"grupo":"1º turno","n":8,"correlacao":0.4412,"inclinacao":0.4729},{"grupo":"2º turno","n":6,"correlacao":0.8161,"inclinacao":1.4474},{"grupo":"todos","n":14,"correlacao":0.6939,"inclinacao":0.8976}]},"estatais":{"decisivo":{"nome":"Dia seguinte ao turno decisivo","linhas":[{"ano":1994,"janela":"t1_d1","estatais":-1.415,"estatais_mediana":-1.1239,"privadas":0.6168,"privadas_mediana":0.0,"todas":0.1427,"todas_mediana":0.0,"estatais_menos_privadas":-2.0318,"estatais_menos_privadas_mediana":null,"n_estatais":14,"ainda_nao":false},{"ano":1998,"janela":"t1_d1","estatais":-4.7247,"estatais_mediana":-5.719,"privadas":-3.3776,"privadas_mediana":-3.6909,"todas":-3.6885,"todas_mediana":-4.1242,"estatais_menos_privadas":-1.3471,"estatais_menos_privadas_mediana":null,"n_estatais":12,"ainda_nao":false},{"ano":2002,"janela":"t2_d1","estatais":-4.7011,"estatais_mediana":-5.456,"privadas":-3.1612,"privadas_mediana":-2.8986,"todas":-3.4314,"todas_mediana":-3.2481,"estatais_menos_privadas":-1.5399,"estatais_menos_privadas_mediana":null,"n_estatais":10,"ainda_nao":false},{"ano":2006,"janela":"t2_d1","estatais":-0.0036,"estatais_mediana":0.2475,"privadas":-0.7167,"privadas_mediana":-0.7193,"todas":-0.6041,"todas_mediana":-0.4329,"estatais_menos_privadas":0.7131,"estatais_menos_privadas_mediana":null,"n_estatais":9,"ainda_nao":false},{"ano":2010,"janela":"t2_d1","estatais":0.3301,"estatais_mediana":0.9242,"privadas":0.807,"privadas_mediana":1.0661,"todas":0.7495,"todas_mediana":0.9952,"estatais_menos_privadas":-0.4769,"estatais_menos_privadas_mediana":null,"n_estatais":7,"ainda_nao":false},{"ano":2014,"janela":"t2_d1","estatais":-5.9516,"estatais_mediana":-5.4496,"privadas":-0.8162,"privadas_mediana":-1.1499,"todas":-1.5125,"todas_mediana":-1.8519,"estatais_menos_privadas":-5.1355,"estatais_menos_privadas_mediana":null,"n_estatais":8,"ainda_nao":false},{"ano":2018,"janela":"t2_d1","estatais":-2.1358,"estatais_mediana":-1.2966,"privadas":-1.7797,"privadas_mediana":-1.3587,"todas":-1.8213,"todas_mediana":-1.346,"estatais_menos_privadas":-0.3561,"estatais_menos_privadas_mediana":null,"n_estatais":7,"ainda_nao":false},{"ano":2022,"janela":"t2_d1","estatais":-1.5604,"estatais_mediana":0.5584,"privadas":3.5813,"privadas_mediana":3.993,"todas":3.0494,"todas_mediana":3.4324,"estatais_menos_privadas":-5.1417,"estatais_menos_privadas_mediana":null,"n_estatais":6,"ainda_nao":false},{"ano":2026,"janela":"t2_d1","estatais":-10.3179,"estatais_mediana":-8.18,"privadas":-18.9913,"privadas_mediana":-16.6769,"todas":-18.2685,"todas_mediana":-14.8889,"estatais_menos_privadas":8.6734,"estatais_menos_privadas_mediana":null,"n_estatais":5,"ainda_nao":false}]},"posse_1ano":{"nome":"1 ano de governo","linhas":[{"ano":1994,"janela":"posse_1ano","estatais":-27.0176,"estatais_mediana":-23.5807,"privadas":-34.2045,"privadas_mediana":-37.4663,"todas":-32.4991,"todas_mediana":-35.0,"estatais_menos_privadas":7.1869,"estatais_menos_privadas_mediana":null,"n_estatais":14,"ainda_nao":false},{"ano":1998,"janela":"posse_1ano","estatais":143.2233,"estatais_mediana":80.8177,"privadas":224.6742,"privadas_mediana":173.0637,"todas":203.4262,"todas_mediana":149.6261,"estatais_menos_privadas":-81.4509,"estatais_menos_privadas_mediana":null,"n_estatais":12,"ainda_nao":false},{"ano":2002,"janela":"posse_1ano","estatais":107.7083,"estatais_mediana":117.2727,"privadas":120.2351,"privadas_mediana":91.9732,"todas":118.2218,"todas_mediana":94.1186,"estatais_menos_privadas":-12.5267,"estatais_menos_privadas_mediana":null,"n_estatais":9,"ainda_nao":false},{"ano":2006,"janela":"posse_1ano","estatais":35.6492,"estatais_mediana":19.7183,"privadas":34.2165,"privadas_mediana":28.1097,"todas":34.451,"todas_mediana":26.7103,"estatais_menos_privadas":1.4327,"estatais_menos_privadas_mediana":null,"n_estatais":9,"ainda_nao":false},{"ano":2010,"janela":"posse_1ano","estatais":-4.0516,"estatais_mediana":-2.7014,"privadas":-23.6162,"privadas_mediana":-29.5947,"todas":-21.1262,"todas_mediana":-26.6055,"estatais_menos_privadas":19.5646,"estatais_menos_privadas_mediana":null,"n_estatais":7,"ainda_nao":false},{"ano":2014,"janela":"posse_1ano","estatais":-28.7063,"estatais_mediana":-33.2311,"privadas":-13.7479,"privadas_mediana":-21.0692,"todas":-15.8473,"todas_mediana":-21.6495,"estatais_menos_privadas":-14.9584,"estatais_menos_privadas_mediana":null,"n_estatais":8,"ainda_nao":false},{"ano":2018,"janela":"posse_1ano","estatais":43.361,"estatais_mediana":30.4555,"privadas":47.0317,"privadas_mediana":47.6084,"todas":46.581,"todas_mediana":44.8329,"estatais_menos_privadas":-3.6707,"estatais_menos_privadas_mediana":null,"n_estatais":7,"ainda_nao":false},{"ano":2022,"janela":"posse_1ano","estatais":23.5735,"estatais_mediana":20.6776,"privadas":-1.0156,"privadas_mediana":1.5075,"todas":1.6668,"todas_mediana":2.6093,"estatais_menos_privadas":24.5891,"estatais_menos_privadas_mediana":null,"n_estatais":6,"ainda_nao":false},{"ano":2026,"janela":"posse_1ano","estatais":null,"estatais_mediana":null,"privadas":null,"privadas_mediana":null,"todas":null,"todas_mediana":null,"estatais_menos_privadas":null,"estatais_menos_privadas_mediana":null,"n_estatais":0,"ainda_nao":true}]}},"setores":{"janela":"Dia seguinte ao 2º turno","todas":-18.2685,"setores":[{"setor":"Varejo e consumo","variacao":-30.8952,"mediana":-30.2459,"contra_todas":-12.6267,"n":10},{"setor":"Construção e imóveis","variacao":-27.2536,"mediana":-25.2598,"contra_todas":-8.9851,"n":5},{"setor":"Elétricas e saneamento","variacao":-17.8044,"mediana":-14.7597,"contra_todas":0.4641,"n":10},{"setor":"Bancos","variacao":-17.7552,"mediana":-17.6816,"contra_todas":0.5133,"n":6},{"setor":"Petróleo","variacao":-14.8611,"mediana":-9.3322,"contra_todas":3.4074,"n":6},{"setor":"Mineração e siderurgia","variacao":-4.4402,"mediana":0.912,"contra_todas":13.8283,"n":5}],"mais_cairam":[{"nome":"Magazine Luiza","setor":"Varejo e consumo","estatal":false,"variacao":-58.2348},{"nome":"Hapvida","setor":"Outros","estatal":false,"variacao":-54.9264},{"nome":"C&A","setor":"Varejo e consumo","estatal":false,"variacao":-47.4711},{"nome":"Cosan","setor":"Petróleo","estatal":false,"variacao":-46.7308},{"nome":"Cyrela","setor":"Construção e imóveis","estatal":false,"variacao":-44.813},{"nome":"Assaí","setor":"Varejo e consumo","estatal":false,"variacao":-42.971},{"nome":"Localiza","setor":"Outros","estatal":false,"variacao":-39.5841},{"nome":"Cogna (ex-Kroton)","setor":"Outros","estatal":false,"variacao":-38.3871}],"menos_cairam":[{"nome":"Suzano","setor":"Outros","estatal":false,"variacao":10.079},{"nome":"Embraer","setor":"Outros","estatal":false,"variacao":8.8851},{"nome":"WEG","setor":"Outros","estatal":false,"variacao":4.2125},{"nome":"Vale","setor":"Mineração e siderurgia","estatal":false,"variacao":4.0065},{"nome":"Klabin","setor":"Outros","estatal":false,"variacao":3.2382},{"nome":"Metalúrgica Gerdau","setor":"Mineração e siderurgia","estatal":false,"variacao":1.0526},{"nome":"Gerdau","setor":"Mineração e siderurgia","estatal":false,"variacao":0.912},{"nome":"BB Seguridade","setor":"Outros","estatal":true,"variacao":-1.2363}],"n_empresas":60},"propostas":null,"cenarios":{"status":"aprovada","data_base":"2026-10-30","posse":"2027-01-05","horizontes":[{"id":"ate_posse","nome":"Posse","data":"2027-01-04"},{"id":"posse_100d","nome":"100 dias","data":"2027-04-15"},{"id":"posse_1ano","nome":"1 ano","data":"2028-01-05"}],"cenarios":[{"id":"otimista","titulo":"Sinal fiscal crível","analogos":[2002,2006],"por_que":"Em 2002 o mercado temia o Lula e se acalmou com Palocci na Fazenda, Meirelles no Banco Central e um superávit maior que o pedido pelo FMI. Em 2006 o Lula foi reeleito com a mesma equipe e o mesmo compromisso fiscal, sem susto.","gatilhos":["Até a posse, Lula anuncia para a Fazenda um nome visto como comprometido com a meta, ou mantém Durigan com o pacote que mira o centro da meta.","O governo manda ao Congresso, antes da posse, a lei ou a PEC que persegue o centro da meta, com medidas de pelo menos R$ 39,8 bilhões.","O Copom (04/11 e dezembro) segue o rumo sem as expectativas de inflação do Focus subirem.","A contestação de Flávio Bolsonaro termina no TSE sem efeito."]},{"id":"base","titulo":"Continuidade com ruído","analogos":[2010,2022],"por_que":"Em 2010 a Dilma manteve a equipe e foi afrouxando o fiscal aos poucos. Em 2022 o Lula começou com a PEC da Transição e o discurso contra o teto, e só em março de 2023 veio o arcabouço. Nos dois casos não houve crise aberta, mas o mercado cobrou um prêmio.","gatilhos":["O ministro da Fazenda demora a ser definido ou é um nome sem compromisso fiscal claro.","A meta fica no papel, com parte das medidas, e o centro da meta é adiado para depois de 2027.","O Copom interrompe os cortes da Selic.","O ruído da contestação diminui, mas não some."]},{"id":"pessimista","titulo":"Crise de confiança fiscal","analogos":[1998,2014],"por_que":"Em 1998 o FHC foi reeleito com as contas no vermelho, e o real foi desvalorizado em janeiro de 1999. Em 2014 a Dilma foi reeleita por pouco, o mercado tinha apostado no adversário, e veio a crise fiscal de 2015. Nos dois, o presidente reeleito enfrentou desconfiança sobre as contas logo depois da eleição.","gatilhos":["A meta é reduzida ou trocada, ou surge uma PEC de gastos fora do arcabouço.","Interferência no preço da Petrobras ou uso dos bancos públicos para segurar a economia.","A contestação do resultado se arrasta no TSE ou na rua.","O Copom precisa voltar a subir a Selic para segurar a inflação e o dólar."]}],"medidas":[{"id":"ibov","nome":"Ibovespa (pontos)","casas":0,"unidade":"%","base":167922.0,"faixas":{"otimista":{"ate_posse":{"minimo":160062.4789,"central":169298.2454,"maximo":178534.0118,"var_minimo":-4.6805,"var_maximo":6.3196,"analogos":"2002;2006"},"posse_100d":{"minimo":156288.2194,"central":174803.9023,"maximo":193319.5852,"var_minimo":-6.9281,"var_maximo":15.1246,"analogos":"2002;2006"},"posse_1ano":{"minimo":150062.0956,"central":173102.216,"maximo":196142.3364,"var_minimo":-10.6358,"var_maximo":16.8056,"analogos":"2002;2006"}},"base":{"ate_posse":{"minimo":157410.4178,"central":157986.7272,"maximo":158563.0367,"var_minimo":-6.2598,"var_maximo":-5.5734,"analogos":"2010;2022"},"posse_100d":{"minimo":149118.5094,"central":150917.5963,"maximo":152716.6832,"var_minimo":-11.1978,"var_maximo":-9.055,"analogos":"2010;2022"},"posse_1ano":{"minimo":173583.8637,"central":179270.812,"maximo":184957.7603,"var_minimo":3.3717,"var_maximo":10.145,"analogos":"2010;2022"}},"pessimista":{"ate_posse":{"minimo":139320.6699,"central":151082.8274,"maximo":162844.9849,"var_minimo":-17.0325,"var_maximo":-3.0234,"analogos":"1998;2014"},"posse_100d":{"minimo":147673.1111,"central":169452.7022,"maximo":191232.2933,"var_minimo":-12.0585,"var_maximo":13.8816,"analogos":"1998;2014"},"posse_1ano":{"minimo":169996.7829,"central":179721.2595,"maximo":189445.7361,"var_minimo":1.2356,"var_maximo":12.8177,"analogos":"1998;2014"}}}},{"id":"ibov_usd","nome":"Ibovespa em dólar (pontos)","casas":0,"unidade":"%","base":30975.0609,"faixas":{"otimista":{"ate_posse":{"minimo":29391.9972,"central":31413.777,"maximo":33435.5567,"var_minimo":-5.1108,"var_maximo":7.9435,"analogos":"2002;2006"},"posse_100d":{"minimo":30095.6828,"central":34882.8164,"maximo":39669.9499,"var_minimo":-2.839,"var_maximo":28.0706,"analogos":"2002;2006"},"posse_1ano":{"minimo":32650.6107,"central":38184.4754,"maximo":43718.3402,"var_minimo":5.4094,"var_maximo":41.1405,"analogos":"2002;2006"}},"base":{"ate_posse":{"minimo":26915.7042,"central":28654.452,"maximo":30393.1999,"var_minimo":-13.1052,"var_maximo":-1.8785,"analogos":"2010;2022"},"posse_100d":{"minimo":25935.6197,"central":27757.9065,"maximo":29580.1933,"var_minimo":-16.2693,"var_maximo":-4.5032,"analogos":"2010;2022"},"posse_1ano":{"minimo":30079.8368,"central":31537.8734,"maximo":32995.9101,"var_minimo":-2.8901,"var_maximo":6.5241,"analogos":"2010;2022"}},"pessimista":{"ate_posse":{"minimo":25233.4972,"central":26791.7008,"maximo":28349.9045,"var_minimo":-18.5361,"var_maximo":-8.4751,"analogos":"1998;2014"},"posse_100d":{"minimo":23818.223,"central":24143.1544,"maximo":24468.0859,"var_minimo":-23.1052,"var_maximo":-21.0071,"analogos":"1998;2014"},"posse_1ano":{"minimo":21448.6911,"central":22299.1732,"maximo":23149.6553,"var_minimo":-30.755,"var_maximo":-25.2636,"analogos":"1998;2014"}}}},{"id":"dolar","nome":"Dólar (R$)","casas":2,"unidade":"%","base":5.4212,"faixas":{"otimista":{"ate_posse":{"minimo":5.3396,"central":5.3927,"maximo":5.4458,"var_minimo":-1.5044,"var_maximo":0.4535,"analogos":"2002;2006"},"posse_100d":{"minimo":4.8732,"central":5.0331,"maximo":5.193,"var_minimo":-10.1085,"var_maximo":-4.2086,"analogos":"2002;2006"},"posse_1ano":{"minimo":4.4865,"central":4.5412,"maximo":4.596,"var_minimo":-17.2416,"var_maximo":-15.2218,"analogos":"2002;2006"}},"base":{"ate_posse":{"minimo":5.1791,"central":5.5351,"maximo":5.8911,"var_minimo":-4.4652,"var_maximo":8.6678,"analogos":"2010;2022"},"posse_100d":{"minimo":5.1628,"central":5.4562,"maximo":5.7496,"var_minimo":-4.7664,"var_maximo":6.057,"analogos":"2010;2022"},"posse_1ano":{"minimo":5.6055,"central":5.6881,"maximo":5.7708,"var_minimo":3.3992,"var_maximo":6.4482,"analogos":"2010;2022"}},"pessimista":{"ate_posse":{"minimo":5.5213,"central":5.6327,"maximo":5.7441,"var_minimo":1.8457,"var_maximo":5.9564,"analogos":"1998;2014"},"posse_100d":{"minimo":6.2,"central":7.0078,"maximo":7.8156,"var_minimo":14.3659,"var_maximo":44.167,"analogos":"1998;2014"},"posse_1ano":{"minimo":7.9257,"central":8.0546,"maximo":8.1835,"var_minimo":46.199,"var_maximo":50.9541,"analogos":"1998;2014"}}}},{"id":"prefixado_10a","nome":"Tesouro 10 anos (% ao ano)","casas":2,"unidade":"p.p.","base":15.23,"faixas":{"otimista":{"ate_posse":{"minimo":14.2575,"central":14.2575,"maximo":14.2575,"var_minimo":-0.9725,"var_maximo":-0.9725,"analogos":"2006"},"posse_100d":{"minimo":13.0781,"central":13.0781,"maximo":13.0781,"var_minimo":-2.1519,"var_maximo":-2.1519,"analogos":"2006"},"posse_1ano":{"minimo":15.0934,"central":15.0934,"maximo":15.0934,"var_minimo":-0.1366,"var_maximo":-0.1366,"analogos":"2006"}},"base":{"ate_posse":{"minimo":15.5396,"central":15.8794,"maximo":16.2192,"var_minimo":0.3096,"var_maximo":0.9892,"analogos":"2010;2022"},"posse_100d":{"minimo":16.127,"central":16.1982,"maximo":16.2694,"var_minimo":0.897,"var_maximo":1.0394,"analogos":"2010;2022"},"posse_1ano":{"minimo":13.8417,"central":14.1571,"maximo":14.4725,"var_minimo":-1.3883,"var_maximo":-0.7575,"analogos":"2010;2022"}},"pessimista":{"ate_posse":{"minimo":15.6771,"central":15.6771,"maximo":15.6771,"var_minimo":0.4471,"var_maximo":0.4471,"analogos":"2014"},"posse_100d":{"minimo":16.1125,"central":16.1125,"maximo":16.1125,"var_minimo":0.8825,"var_maximo":0.8825,"analogos":"2014"},"posse_1ano":{"minimo":19.4769,"central":19.4769,"maximo":19.4769,"var_minimo":4.2469,"var_maximo":4.2469,"analogos":"2014"}}}}],"frase_pessimista":"No pessimista o Ibovespa quase não cai em pontos porque o real perde valor; em dólar ele cai 25% a 31%. Isso vale para 1 ano de governo, quando a faixa em pontos vai de +1% a +13%. Até a posse, o pessimista tem queda de 3% a 17% em pontos."},"limites":["Nove eleições são poucas. As faixas mostram o que já aconteceu, não preveem o que vai acontecer.","1994: o Real tinha três meses e não existe índice de bolsas emergentes por dia antes de 1997. Por isso 1994 só tem a variação bruta, sem o “só Brasil”.","Juros: o Tesouro Direto começa em 31/12/2004. Em 1994 e 1998 só há a Selic. Em 2002 há a Selic por dia e o juro de 360 dias só uma vez por mês, então não dá para medir janelas curtas.","Risco-país: o EMBI+ acabou em julho de 2024. Em 2026 o medo aparece nos juros, no dólar e na bolsa, não no risco-país.","Estatais, privadas e setores: carteiras de peso igual e só preço, sem dividendos, nos dois lados. A lista de estatais muda a cada eleição (Vale até 1997, Telebras até 1998, Eletrobras até 2022, Sabesp até 2024).","O índice de bolsas emergentes inclui o Brasil (cerca de 5%), o que puxa o “só Brasil” um pouco para zero em dias de queda forte.","Pesquisas: média das últimas pesquisas de Datafolha, Ibope/Ipec, Quaest e AtlasIntel antes de cada turno. Em 1998 e no 2º turno de 2002 não há pesquisa na base."],"metodo":["Cada janela parte do fechamento do último pregão antes do turno. Pregão é o dia em que a bolsa abre.","“Só Brasil”: mede-se quanto o Brasil costuma andar junto com o exterior nos 250 pregões antes da campanha (inclui o dia anterior e o seguinte, porque a Ásia fecha antes da B3 abrir) e tira-se da variação a parte que o exterior explica.","A Selic anda em degraus e vem do Banco Central: só variação bruta.","Surpresa: margem do candidato que o mercado preferia no resultado do TSE menos a margem dele nas pesquisas. Positivo quer dizer melhor para ele do que as pesquisas diziam.","Cenários: ponto de partida no 5º pregão depois do turno decisivo (em 2026, 30/10). A faixa vai do menor ao maior “só Brasil” de duas eleições parecidas, aplicado aos preços de 30/10/2026. Sem chance em %, e com o mundo parado."],"catalogo":[{"nome":"Ibovespa, fechamento","fonte":"Yahoo","codigo":"^BVSP","inicio":"1993-04-27","fim":"2026-10-30","url":"https://finance.yahoo.com/quote/^BVSP"},{"nome":"Ibovespa, fechamento (Ipeadata)","fonte":"Ipeadata","codigo":"GM366_IBVSP366","inicio":"1993-04-27","fim":"2026-10-29","url":"http://www.ipeadata.gov.br/api/odata4/ValoresSerie(SERCODIGO='GM366_IBVSP366')"},{"nome":"Dólar comercial, venda (antes do Real convertido: Cr$ ÷ 2.750.000, CR$ ÷ 2.750)","fonte":"BCB SGS","codigo":"1","inicio":"1993-01-04","fim":"2026-10-30","url":"https://api.bcb.gov.br/dados/serie/bcdata.sgs.1/dados"},{"nome":"Selic diária anualizada (base 252)","fonte":"BCB SGS","codigo":"1178","inicio":"1993-01-04","fim":"2026-10-30","url":"https://api.bcb.gov.br/dados/serie/bcdata.sgs.1178/dados"},{"nome":"EMBI+ Risco-Brasil (encerrado em jul/2024)","fonte":"Ipeadata","codigo":"JPM366_EMBI366","inicio":"1994-04-29","fim":"2024-07-30","url":"http://www.ipeadata.gov.br/api/odata4/ValoresSerie(SERCODIGO='JPM366_EMBI366')"},{"nome":"Swap DI × pré 360 dias, fim de mês (mensal; data no último dia do mês)","fonte":"Ipeadata","codigo":"BMF12_SWAPDI360F12","inicio":"1999-09-30","fim":"2025-11-30","url":"http://www.ipeadata.gov.br/api/odata4/ValoresSerie(SERCODIGO='BMF12_SWAPDI360F12')"},{"nome":"Tesouro Prefixado com Juros Semestrais, vencimento mais perto de 10 anos","fonte":"Tesouro Direto","codigo":"NTN-F ~10 anos","inicio":"2004-12-31","fim":"2026-10-30","url":"https://www.tesourotransparente.gov.br/ckan/dataset/df56aa42-484a-4a59-8184-7676580c81e3/resource/796d2059-14e9-44e3-80c9-2d9e30b405c1/download/PrecoTaxaTesouroDireto.csv"},{"nome":"Prazo do título usado em prefixado_10a","fonte":"Tesouro Direto","codigo":"","inicio":"2004-12-31","fim":"2026-10-30","url":"https://www.tesourotransparente.gov.br/ckan/dataset/df56aa42-484a-4a59-8184-7676580c81e3/resource/796d2059-14e9-44e3-80c9-2d9e30b405c1/download/PrecoTaxaTesouroDireto.csv"},{"nome":"Tesouro Prefixado, vencimento mais perto de 1 ano","fonte":"Tesouro Direto","codigo":"LTN ~1 ano","inicio":"2004-12-31","fim":"2026-10-30","url":"https://www.tesourotransparente.gov.br/ckan/dataset/df56aa42-484a-4a59-8184-7676580c81e3/resource/796d2059-14e9-44e3-80c9-2d9e30b405c1/download/PrecoTaxaTesouroDireto.csv"},{"nome":"Prazo do título usado em prefixado_1a","fonte":"Tesouro Direto","codigo":"","inicio":"2004-12-31","fim":"2026-10-30","url":"https://www.tesourotransparente.gov.br/ckan/dataset/df56aa42-484a-4a59-8184-7676580c81e3/resource/796d2059-14e9-44e3-80c9-2d9e30b405c1/download/PrecoTaxaTesouroDireto.csv"},{"nome":"MSCI Emergentes em dólar","fonte":"MSCI","codigo":"891800","inicio":"1997-01-01","fim":"2026-10-30","url":"https://app2.msci.com/products/service/index/indexmaster/getLevelDataForGraph?currency_symbol=USD&index_variant=STRD&start_date=19970101&end_date=<hoje>&data_frequency=DAILY&index_codes=891800"},{"nome":"S&P 500","fonte":"Yahoo","codigo":"^GSPC","inicio":"1993-01-04","fim":"2026-10-30","url":"https://finance.yahoo.com/quote/^GSPC"},{"nome":"Índice do dólar no mundo","fonte":"Yahoo","codigo":"DX-Y.NYB","inicio":"1993-01-01","fim":"2026-10-30","url":"https://finance.yahoo.com/quote/DX-Y.NYB"},{"nome":"Treasury 10 anos","fonte":"Yahoo","codigo":"^TNX","inicio":"1993-01-04","fim":"2026-10-30","url":"https://finance.yahoo.com/quote/^TNX"}],"aviso":"Não é recomendação de investimento. É uma análise com dados públicos (B3, Banco Central, Tesouro, Ipeadata, MSCI, Yahoo, TSE e institutos de pesquisa) e simulações com dados reais e projetados."};
+
+const $ = (id) => document.getElementById(id);
+const NOME_JANELA = Object.fromEntries(DADOS.janelas.map((j) => [j.id, j.nome]));
+const COR = { 1: "var(--serie-1)", 2: "var(--serie-2)", 3: "var(--serie-3)" };
+const chaveNum = (v) => (v === null || v === undefined ? null : v);
+const periodo = (de, ate) => (de && ate ? `${dataBR(de)} a ${dataBR(ate)}` : "");
+const todosOsGraficos = [];
+function grafico(host, fabrica) { const g = criarGrafico(host, fabrica); todosOsGraficos.push(g); return g; }
+
+Dica.iniciar();
+
+// ------------------------------------------------------------------ 1. resumo
+$("destaques").replaceChildren(...DADOS.destaques.map((d) => h("div", { class: "destaque" },
+  h("span", { class: "rotulo", texto: d.rotulo }),
+  h("span", { class: "valor", texto: d.valor }),
+  h("span", { class: "contexto", texto: d.contexto }))));
+
+// ------------------------------------------------------------------ 2. 2026 agora
+const marcas2026 = DADOS.eleicoes.find((e) => e.ano === 2026).turnos.map((t) => ({ data: t.data, rotulo: `${t.numero}º turno` }));
+function graficoDeLinha(host, nome, titulo, serie, formatoY, formatoValor, formatoRotulo) {
+  grafico(host, () => ({
+    titulo,
+    descricao: `${titulo}, de ${dataBR(serie[0][0])} a ${dataBR(serie[serie.length - 1][0])}. Último valor: ${formatoValor(serie[serie.length - 1][1])}.`,
+    svg: (w) => desenharLinha(w, { pontos: serie.map(([data, y]) => ({ data, y })), marcas: marcas2026, cor: COR[1], nome, formatoY, formatoValor, formatoRotulo }),
+    tabela: () => tabelaSimples(["Data", nome, "Variação no dia"], serie.map(([d, v], i) => [dataBR(d), formatoValor(v), i ? pct((v / serie[i - 1][1] - 1) * 100, 2) : "–"])),
+  }));
+}
+graficoDeLinha($("g-ibov"), "Ibovespa", "Ibovespa, pontos de fechamento", DADOS.agora.series.ibov, (v) => num(v, 0), (v) => num(v, 0) + " pontos", (v) => num(v, 0));
+graficoDeLinha($("g-dolar"), "Dólar", "Dólar, reais por dólar", DADOS.agora.series.dolar, (v) => num(v, 2), (v) => "R$ " + num(v, 2), (v) => num(v, 2));
+
+$("t-agora").replaceChildren(tabelaSimples(
+  ["Período", "De → até", "Ibovespa", "Ibovespa em dólar, só Brasil", "Dólar", "Tesouro 10 anos"],
+  DADOS.agora.janelas.map((j) => [j.janela, `${dataBR(j.de)} → ${dataBR(j.ate)}`, pct(j.ibov), pct(j.ibov_usd_so_brasil), pct(j.dolar), num(j.tesouro_10a, 2, true) + " p.p."])));
+
+// ------------------------------------------------------------------ 3. cada eleição
+const MOTIVO_1994 = "Em 1994 só há a variação bruta: não existe índice de bolsas emergentes por dia antes de 1997.";
+grafico($("g-decisivo"), () => ({
+  titulo: "Dia seguinte ao turno decisivo, variação em %",
+  legenda: [{ nome: "Ibovespa (em reais)", cor: COR[1] }, { nome: "Só Brasil (em dólar, sem o exterior)", cor: COR[2] }],
+  descricao: "Barras por eleição: Ibovespa e Ibovespa em dólar só Brasil, no dia seguinte ao turno decisivo.",
+  svg: (w) => desenharBarras(w, {
+    categorias: DADOS.decisivo.map((d) => ({ rotulo: String(d.ano), itens: [d.ibov, d.so_brasil], d })),
+    series: [{ cor: COR[1] }, { cor: COR[2] }],
+    formatoEixo: (v) => num(v, 0) + "%", formatoValor: (v) => pct(v, 1),
+    descricaoDaCategoria: (c) => `${c.rotulo}: Ibovespa ${pct(c.d.ibov)}, só Brasil ${pct(c.d.so_brasil)}`,
+    dicaDaCategoria: (c) => ({
+      titulo: `${c.rotulo}, dia seguinte ao ${c.d.turno}º turno`,
+      linhas: [{ cor: COR[1], valor: pct(c.d.ibov), rotulo: "Ibovespa" }, { cor: COR[2], valor: pct(c.d.so_brasil), rotulo: "só Brasil" }],
+      nota: c.d.so_brasil === null ? MOTIVO_1994 : `Em dólar, sem descontar o exterior: ${pct(c.d.ibov_usd)}.`,
+    }),
+  }),
+  tabela: () => tabelaSimples(["Eleição", "Turno", "Ibovespa", "Ibovespa em dólar", "Só Brasil"], DADOS.decisivo.map((d) => [String(d.ano), `${d.turno}º`, pct(d.ibov), pct(d.ibov_usd), d.so_brasil === null ? "sem dado" : pct(d.so_brasil)])),
+}));
+
+// Mapa de calor
+const selMapa = $("sel-mapa");
+DADOS.mapa.forEach((o, i) => selMapa.append(h("option", { value: i, texto: o.nome })));
+function casasDaUnidade(u) { return u === "p.b." ? 0 : u === "p.p." ? 2 : 1; }
+function cabecalhoDasJanelas() { return DADOS.janelas.map((j) => j.nome); }
+function desenharMapa() {
+  const opcao = DADOS.mapa[Number(selMapa.value)];
+  const casas = casasDaUnidade(opcao.unidade);
+  const valores = opcao.linhas.flatMap((l) => l.celulas.map((c) => c.v)).filter(Number.isFinite).map(Math.abs).sort((a, b) => a - b);
+  // O teto das cores é o 90º percentil: um valor extremo não apaga o resto do mapa.
+  const teto = valores.length ? Math.max(valores[Math.floor(valores.length * 0.9)] || valores[valores.length - 1], 1e-6) : 1;
+  const tabela = h("table", { class: "mapa" });
+  tabela.append(h("caption", { class: "so-leitor", texto: `${opcao.nome}: variação por eleição e período` }));
+  tabela.append(h("thead", {}, h("tr", {}, h("th", { class: "ano", scope: "col", texto: "Ano" }), cabecalhoDasJanelas().map((n) => h("th", { scope: "col", texto: n })))));
+  const corpo = h("tbody");
+  opcao.linhas.forEach((linha) => {
+    const tr = h("tr", {}, h("th", { class: "ano", scope: "row", texto: String(linha.ano) }));
+    linha.celulas.forEach((c, i) => {
+      const nome = DADOS.janelas[i].nome;
+      const td = h("td", { tabindex: "0" });
+      if (c.v === null) {
+        td.className = "sem";
+        td.textContent = "·";
+        td.setAttribute("aria-label", `${linha.ano}, ${nome}: sem dado. ${c.motivo}`);
+        Dica.ligar(td, () => ({ titulo: `${linha.ano} · ${nome}`, linhas: [{ valor: "Sem dado" }], nota: c.motivo }));
+      } else {
+        const cor = corDaCelula(c.v, teto);
+        td.style.background = cor.fundo; td.style.color = cor.texto;
+        td.textContent = num(c.v, casas, true);
+        td.setAttribute("aria-label", `${linha.ano}, ${nome}: ${comUnidade(c.v, opcao.unidade)}`);
+        Dica.ligar(td, () => ({ titulo: `${linha.ano} · ${nome}`, linhas: [{ valor: comUnidade(c.v, opcao.unidade), rotulo: opcao.nome }], nota: periodo(c.de, c.ate) }));
+      }
+      tr.append(td);
+    });
+    corpo.append(tr);
+  });
+  tabela.append(corpo);
+  $("mapa").replaceChildren(tabela);
+  $("escala-mapa").replaceChildren(
+    h("span", { texto: `${comUnidade(-teto, opcao.unidade, casas)} ou menos` }),
+    h("span", { class: "barra", style: `background:${gradienteDaLegenda(teto)}`, "aria-hidden": "true" }),
+    h("span", { texto: `${comUnidade(teto, opcao.unidade, casas)} ou mais` }),
+    h("span", { texto: "· Cinza com tracejado: sem dado ou ainda não aconteceu." }));
+  const linhasTabela = [];
+  opcao.linhas.forEach((l) => l.celulas.forEach((c, i) => linhasTabela.push([String(l.ano), DADOS.janelas[i].nome, c.v === null ? "sem dado" : comUnidade(c.v, opcao.unidade, casas), c.v === null ? c.motivo : periodo(c.de, c.ate)])));
+  $("t-mapa").replaceChildren(tabelaSimples(["Eleição", "Período", opcao.nome, "Datas / motivo"], linhasTabela));
+}
+selMapa.addEventListener("change", desenharMapa);
+$("ver-tabela-mapa").addEventListener("click", (e) => {
+  const aberta = $("t-mapa").hidden;
+  $("t-mapa").hidden = !aberta;
+  e.currentTarget.setAttribute("aria-expanded", String(aberta));
+  e.currentTarget.textContent = aberta ? "Esconder tabela" : "Ver tabela";
+});
+desenharMapa();
+
+// ------------------------------------------------------------------ 4. pesquisas × resultado
+const turnosComSurpresa = DADOS.surpresa.turnos.filter((t) => t.surpresa !== null && t.ibov_d1 !== null);
+const corr = DADOS.surpresa.correlacoes;
+const corrTodos = corr.find((c) => c.grupo === "todos");
+const rotuloTurno = (t) => `${t.ano} · ${t.turno}º turno`;
+const destaquesDisp = new Set(turnosComSurpresa.filter((t) => t.ano === 2026).map((t) => `${t.ano}|${t.turno}`));
+grafico($("g-surpresa"), () => ({
+  titulo: "Surpresa das pesquisas (eixo horizontal) e Ibovespa no dia seguinte (eixo vertical)",
+  legenda: [{ nome: "1º turno", cor: COR[1], tipo: "ponto" }, { nome: "2º turno", cor: COR[2], tipo: "ponto" }, { nome: "Tendência", cor: "var(--ink-3)", tipo: "linha" }],
+  descricao: `Dispersão de ${turnosComSurpresa.length} turnos. Correlação ${num(corrTodos.correlacao, 2)}.`,
+  svg: (w) => desenharDispersao(w, {
+    tituloX: "Surpresa (pontos a favor do candidato do mercado)", tituloY: "Ibovespa no dia seguinte (%)",
+    formatoY: (v) => num(v, 0) + "%",
+    tendencia: DADOS.surpresa.tendencia,
+    series: [{ cor: COR[1] }, { cor: COR[2] }],
+    pontos: turnosComSurpresa.map((t) => ({
+      x: t.surpresa, y: t.ibov_d1, serie: t.turno - 1,
+      destaque: destaquesDisp.has(`${t.ano}|${t.turno}`),
+      rotulo: `${t.ano} · ${t.turno}º`,
+      texto: `surpresa ${pontos(t.surpresa)}, Ibovespa ${pct(t.ibov_d1)}`,
+      dica: { titulo: rotuloTurno(t), linhas: [{ cor: COR[t.turno], valor: pct(t.ibov_d1), rotulo: "Ibovespa no dia seguinte" }, { valor: pontos(t.surpresa), rotulo: "surpresa" }], nota: `Pesquisas: ${num(t.margem_pesquisas, 1, true)}; urnas: ${num(t.margem_resultado, 1, true)} (margem do candidato do mercado).` },
+    })),
+  }),
+  tabela: () => tabelaSimples(["Turno", "Surpresa", "Ibovespa no dia seguinte"], turnosComSurpresa.map((t) => [rotuloTurno(t), pontos(t.surpresa), pct(t.ibov_d1)])),
+}));
+$("aviso-corr").textContent = `Correlação entre a surpresa e o Ibovespa no dia seguinte: ${num(corrTodos.correlacao, 2)} (${corrTodos.n} turnos; 0 é nenhuma relação e 1 é relação perfeita). Só no 1º turno: ${num(corr[0].correlacao, 2)}; só no 2º: ${num(corr[1].correlacao, 2)}. ${corrTodos.n} turnos: é indício, não lei.`;
+
+const nomeCandidato = (t) => t.candidato_mercado;
+$("t-surpresa").replaceChildren(tabelaSimples(
+  ["Eleição", "Margem nas pesquisas", "Margem no TSE", "Surpresa", "Favorito nas pesquisas", "Ibovespa D+1", "Dólar D+1"],
+  DADOS.surpresa.turnos.map((t) => [rotuloTurno(t), t.margem_pesquisas === null ? "sem pesquisa" : num(t.margem_pesquisas, 1, true), num(t.margem_resultado, 1, true), t.surpresa === null ? "–" : num(t.surpresa, 1, true), t.favorito || "–", pct(t.ibov_d1), pct(t.dolar_d1)]),
+  { texto: [4] }));
+
+// ------------------------------------------------------------------ 5. estatais, privadas e setores
+const selEstatais = $("sel-estatais");
+Object.entries(DADOS.estatais).forEach(([chave, o]) => selEstatais.append(h("option", { value: chave, texto: o.nome })));
+const estatais = grafico($("g-estatais"), () => {
+  const o = DADOS.estatais[selEstatais.value];
+  return {
+    titulo: `Estatais menos privadas, ${o.nome.toLowerCase()} (pontos percentuais)`,
+    descricao: "Diferença entre a variação das estatais e a das privadas, por eleição.",
+    svg: (w) => desenharBarras(w, {
+      categorias: o.linhas.map((l) => ({ rotulo: String(l.ano), itens: [l.estatais_menos_privadas], l })),
+      series: [{ cor: COR[1] }],
+      formatoEixo: (v) => num(v, 0), formatoValor: (v) => num(v, 1, true),
+      descricaoDaCategoria: (c) => `${c.rotulo}: ${c.l.estatais_menos_privadas === null ? "ainda não aconteceu" : num(c.l.estatais_menos_privadas, 1, true) + " pontos"}`,
+      dicaDaCategoria: (c) => c.l.estatais_menos_privadas === null
+        ? { titulo: c.rotulo, linhas: [{ valor: "Sem dado" }], nota: c.l.ainda_nao ? "Ainda não aconteceu." : "Sem dado." }
+        : { titulo: c.rotulo, linhas: [{ valor: num(c.l.estatais_menos_privadas, 1, true) + " p.p.", rotulo: "estatais menos privadas" }, { valor: pct(c.l.estatais), rotulo: `estatais (${c.l.n_estatais} empresas)` }, { valor: pct(c.l.privadas), rotulo: "privadas" }], nota: "Positivo: as estatais foram melhor que as privadas." },
+    }),
+    tabela: () => tabelaSimples(["Eleição", "Estatais menos privadas (p.p.)"], o.linhas.map((l) => [String(l.ano), l.estatais_menos_privadas === null ? (l.ainda_nao ? "ainda não aconteceu" : "sem dado") : num(l.estatais_menos_privadas, 1, true)])),
+  };
+});
+function tabelaDeMedias() {
+  const o = DADOS.estatais[selEstatais.value];
+  const f = (v) => (v === null ? "–" : pct(v));
+  $("t-medias").replaceChildren(tabelaSimples(
+    ["Eleição", "Estatais: média", "Estatais: mediana", "Privadas: média", "Privadas: mediana", "Todas as 60: média", "Todas as 60: mediana"],
+    o.linhas.map((l) => [String(l.ano), f(l.estatais), f(l.estatais_mediana), f(l.privadas), f(l.privadas_mediana), f(l.todas), f(l.todas_mediana)]),
+    { legenda: "Média e mediana de cada carteira" }));
+}
+selEstatais.addEventListener("change", () => { estatais.render(); tabelaDeMedias(); });
+tabelaDeMedias();
+$("t-medias").insertAdjacentElement("beforebegin", h("p", { class: "nota", texto: "Média é a variação da carteira de peso igual. Mediana é a empresa do meio: se uma ação disparar, a média sobe, mas a mediana quase não muda." }));
+
+const S = DADOS.setores;
+$("p-setores").textContent = `Cada barra é a variação média (peso igual, só preço) das empresas do setor entre as ${S.n_empresas} mais negociadas. A carteira das 60 caiu ${pctSimples(Math.abs(S.todas), 1)} no mesmo dia; passe o mouse para ver quanto cada setor ficou acima ou abaixo dela.`;
+grafico($("g-setores"), () => ({
+  titulo: `Setores, ${S.janela.toLowerCase()} de 2026 (variação em %)`,
+  descricao: "Variação por setor em 2026, do menor ao maior.",
+  svg: (w) => desenharBarrasH(w, {
+    cor: COR[1], formatoValor: (v) => pct(v, 1),
+    itens: S.setores.map((x) => ({ rotulo: x.setor, valor: x.variacao, x })),
+    dica: (it) => ({ titulo: it.x.setor, linhas: [{ valor: pct(it.x.variacao), rotulo: "média do setor" }, { valor: pct(it.x.mediana), rotulo: "mediana" }], nota: `${it.x.n} empresas. Contra a carteira das 60: ${num(it.x.contra_todas, 1, true)} pontos.` }),
+  }),
+  tabela: () => tabelaSimples(["Setor", "Empresas", "Média", "Mediana", "Contra as 60 (p.p.)"], S.setores.map((x) => [x.setor, String(x.n), pct(x.variacao), pct(x.mediana), num(x.contra_todas, 1, true)])),
+}));
+function graficoDeEmpresas(host, titulo, lista) {
+  grafico(host, () => ({
+    titulo,
+    descricao: titulo,
+    svg: (w) => desenharBarrasH(w, {
+      cor: COR[1], formatoValor: (v) => pct(v, 1),
+      itens: lista.map((e) => ({ rotulo: e.estatal ? `${e.nome} (estatal)` : e.nome, valor: e.variacao, e })),
+      dica: (it) => ({ titulo: it.e.nome, linhas: [{ valor: pct(it.e.variacao), rotulo: "variação" }], nota: `${it.e.setor}${it.e.estatal ? " · estatal" : " · privada"}` }),
+    }),
+    tabela: () => tabelaSimples(["Empresa", "Setor", "Variação"], lista.map((e) => [e.estatal ? `${e.nome} (estatal)` : e.nome, e.setor, pct(e.variacao)])),
+  }));
+}
+graficoDeEmpresas($("g-cairam"), "As 8 empresas que mais caíram (dia seguinte ao 2º turno)", S.mais_cairam);
+graficoDeEmpresas($("g-menos-cairam"), "As 8 que menos caíram, ou subiram", S.menos_cairam);
+
+// ------------------------------------------------------------------ 6. propostas e marcos
+(function propostas() {
+  const raiz = $("propostas-conteudo");
+  const P = DADOS.propostas;
+  if (!P) {
+    raiz.replaceChildren(h("p", { class: "aviso", texto: "Em revisão. As propostas de cada candidato, o que o vencedor fez e os marcos que mexeram no mercado ainda estão sendo conferidas nas fontes. Esta seção aparece quando a revisão terminar." }));
+    return;
+  }
+  const temas = P.temas;
+  const select = h("select", { id: "sel-prop" }, P.eleicoes.map((e) => h("option", { value: e.ano, texto: String(e.ano) })));
+  select.value = String(P.eleicoes[P.eleicoes.length - 1].ano);
+  const corpo = h("div", { style: "display:grid;gap:16px" });
+  const celula = (c) => {
+    const td = h("td", { class: "quebra" });
+    if (!c) { td.append(h("span", { class: "vazio", texto: "sem informação" })); return td; }
+    td.append(c.texto || "");
+    const l = ligacao(c.fonte, "fonte");
+    if (l) td.append(" ", l);
+    return td;
+  };
+  const listaDatada = (titulo, itens) => !itens || !itens.length ? null : h("div", {}, h("h3", { texto: titulo }), h("ul", { class: "prosa" }, itens.map((i) => h("li", {}, h("span", { class: "num", texto: dataBR(i.data) + " " }), i.texto || "", i.fonte ? [" ", ligacao(i.fonte, "fonte")] : null))));
+  function desenhar() {
+    const e = P.eleicoes.find((x) => String(x.ano) === select.value);
+    const marcos = P.marcos.filter((m) => m.ano === select.value);
+    const cabecalho = h("tr", {}, h("th", { scope: "col", texto: "Tema" }), e.candidatos.map((c) => h("th", { scope: "col", texto: c.nome })), h("th", { scope: "col", texto: "O que foi feito (vencedor)" }));
+    const linhas = Object.entries(temas).map(([k, nome]) => h("tr", {}, h("th", { scope: "row", texto: nome }), e.candidatos.map((c) => celula(c.temas[k])), celula(e.realizado[k])));
+    corpo.replaceChildren(
+      h("div", { class: "cartao rolagem" }, h("table", { class: "proposta" }, h("thead", {}, cabecalho), h("tbody", {}, linhas))),
+      listaDatada("Sinais depois da eleição", e.sinais_pos_eleicao),
+      listaDatada("Contestação", e.contestacao),
+      marcos.length ? h("div", {}, h("h3", { texto: "Marcos" }), h("ul", { class: "prosa" }, marcos.map((m) => h("li", {}, h("span", { class: "num", texto: dataBR(m.data) + " " }), `${m.tipo ? m.tipo + ": " : ""}${m.descricao} `, ligacao(m.fonte, "fonte"))))) : null);
+  }
+  select.addEventListener("change", desenhar);
+  raiz.replaceChildren(h("div", { style: "display:grid;gap:16px" }, h("p", { class: "explica", texto: "Seis temas para os dois candidatos mais votados, com a fonte de cada linha. Ao lado, o que o vencedor fez." }), h("div", { class: "filtro" }, h("label", { for: "sel-prop", texto: "Eleição" }), select), corpo));
+  desenhar();
+})();
+
+// ------------------------------------------------------------------ 7. cenários
+const C = DADOS.cenarios;
+const COR_CENARIO = { otimista: COR[1], base: COR[2], pessimista: COR[3] };
+// A ordem das cores é a das categorias do guia (1 azul, 2 laranja, 3 aqua), na ordem otimista, base, pessimista.
+const NOME_CURTO = { otimista: "Otim.", base: "Base", pessimista: "Pess." };
+const NOME_CENARIO = { otimista: "Otimista", base: "Base", pessimista: "Pessimista" };
+$("status-premissas").textContent = `Premissas: ${C.status}.`;
+const categoriasCenario = ["Hoje", ...C.horizontes.map((x) => `${x.nome} (${dataBR(x.data).slice(0, 5)})`)];
+const rotulosCurtosX = ["Hoje", ...C.horizontes.map((x) => x.nome)];
+for (const medida of C.medidas) {
+  const host = h("div", { class: "cartao" });
+  $("g-cenarios").append(host);
+  const fmt = (v) => num(v, medida.casas);
+  const unidadeVar = medida.unidade;
+  grafico(host, () => ({
+    titulo: medida.nome,
+    legenda: C.cenarios.map((c) => ({ nome: NOME_CENARIO[c.id], cor: COR_CENARIO[c.id] })),
+    descricao: `${medida.nome}: faixa de cada cenário na posse, aos 100 dias e em 1 ano. Hoje: ${fmt(medida.base)}.`,
+    svg: (w) => desenharFaixas(w, {
+      categorias: w < 480 ? rotulosCurtosX : rotulosCurtosX,
+      base: medida.base, formatoEixo: fmt, formatoValor: fmt,
+      series: C.cenarios.map((c) => ({ nome: NOME_CENARIO[c.id], curto: NOME_CURTO[c.id], cor: COR_CENARIO[c.id], faixas: C.horizontes.map((x) => medida.faixas[c.id][x.id]) })),
+      descricaoDaCategoria: (ci) => ci === 0 ? `Hoje: ${fmt(medida.base)}` : `${C.horizontes[ci - 1].nome}: ` + C.cenarios.map((c) => { const f = medida.faixas[c.id][C.horizontes[ci - 1].id]; return `${NOME_CENARIO[c.id]} ${fmt(f.minimo)} a ${fmt(f.maximo)}`; }).join("; "),
+      dicaDaCategoria: (ci) => {
+        if (ci === 0) return { titulo: "Hoje (30/10/2026)", linhas: [{ valor: fmt(medida.base), rotulo: medida.nome }] };
+        const hor = C.horizontes[ci - 1];
+        return {
+          titulo: `${hor.nome}, ${dataBR(hor.data)}`,
+          linhas: C.cenarios.map((c) => { const f = medida.faixas[c.id][hor.id]; return { cor: COR_CENARIO[c.id], valor: Number.isFinite(f.minimo) ? `${fmt(f.minimo)} a ${fmt(f.maximo)}` : "sem dado", rotulo: `${NOME_CENARIO[c.id]}${Number.isFinite(f.central) ? ` (meio ${fmt(f.central)})` : ""}` }; }),
+          nota: "Cada faixa vai do menor ao maior dos dois análogos. Mundo parado.",
+        };
+      },
+    }),
+    tabela: () => tabelaSimples(["Cenário", "Horizonte", "Mínimo", "Meio", "Máximo", `Variação (${unidadeVar})`],
+      C.cenarios.flatMap((c) => C.horizontes.map((x) => { const f = medida.faixas[c.id][x.id]; return [NOME_CENARIO[c.id], x.nome, fmt(f.minimo), fmt(f.central), fmt(f.maximo), Number.isFinite(f.var_minimo) ? `${num(f.var_minimo, 1, true)} a ${num(f.var_maximo, 1, true)}` : "–"]; }))),
+  }));
+  if (medida.id === "ibov") host.append(h("p", { class: "aviso", style: "margin-top:12px", texto: C.frase_pessimista }));
+}
+$("cartoes-cenarios").replaceChildren(...C.cenarios.map((c) => h("div", { class: "cartao cartao-cenario" },
+  h("h3", {}, h("i", { class: "chave", style: `background:${COR_CENARIO[c.id]}` }), `${NOME_CENARIO[c.id]}: ${c.titulo}`),
+  h("span", { class: "rotulo", texto: "Eleições parecidas" }),
+  h("p", { texto: c.analogos.join(" e ") }),
+  h("span", { class: "rotulo", texto: "Por que estas" }),
+  h("p", { texto: c.por_que }),
+  h("span", { class: "rotulo", texto: "Gatilhos (o que precisaria acontecer)" }),
+  h("ul", {}, c.gatilhos.map((g) => h("li", { texto: g }))))));
+
+// ------------------------------------------------------------------ 9. limites e fontes
+$("lista-limites").replaceChildren(...DADOS.limites.map((t) => h("li", { texto: t })));
+$("lista-metodo").replaceChildren(...DADOS.metodo.map((t) => h("li", { texto: t })));
+$("t-fontes").replaceChildren(tabelaSimples(["Série", "Fonte", "Código", "Início", "Fim", "Link"],
+  DADOS.catalogo.map((f) => [f.nome, f.fonte, f.codigo || "–", dataBR(f.inicio), dataBR(f.fim), ligacao(f.url, "abrir") || "–"]), { classe: "fontes", texto: [1, 2, 3, 4, 5] }));
+$("aviso-final").textContent = DADOS.aviso;
+
+// Troca de tema do sistema: o mapa de calor calcula as cores em JS e precisa refazer.
+if (window.matchMedia) matchMedia("(prefers-color-scheme: dark)").addEventListener("change", () => { desenharMapa(); });
+</script>

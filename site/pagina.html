@@ -1,0 +1,592 @@
+<title>Eleições e mercado: bolsa, dólar e juros de 1994 a 2026</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@75..100,500..800&family=IBM+Plex+Mono:wght@400;500&family=IBM+Plex+Sans:wght@400;500;600&display=swap">
+<style>
+/* Uma coluna de seções numeradas. Tema claro e escuro: pelo sistema (prefers-color-scheme) ou por data-theme. */
+:root {
+  --bg: #f4f4f1;
+  --superficie: #fcfcfb;
+  --ink: #0b0b0b;
+  --ink-2: #52514e;
+  --ink-3: #898781;
+  --grade: #e1e0d9;
+  --eixo: #c3c2b7;
+  --linha: #d9d8d0;
+  --link: #1c5cab;
+  --serie-1: #2a78d6;   /* azul */
+  --serie-2: #eb6834;   /* laranja */
+  --serie-3: #1baf7a;   /* aqua */
+  --div-meio: #f0efec;  /* mapa de calor: cinza no meio, azul para cima, vermelho para baixo */
+  --div-alto: #2a78d6;
+  --div-baixo: #e34948;
+  --realce: rgba(11, 11, 11, 0.05);
+  --aviso: #8a5a00;
+  --display: "Archivo", "Arial Narrow", system-ui, sans-serif;
+  --body: "IBM Plex Sans", system-ui, -apple-system, "Segoe UI", sans-serif;
+  --mono: "IBM Plex Mono", ui-monospace, "SF Mono", Menlo, monospace;
+}
+@media (prefers-color-scheme: dark) {
+  :root:where(:not([data-theme="light"])) {
+    --bg: #0d0d0d; --superficie: #1a1a19; --ink: #f0efec; --ink-2: #c3c2b7; --ink-3: #898781;
+    --grade: #2c2c2a; --eixo: #383835; --linha: #2f2f2d; --link: #6da7ec;
+    --serie-1: #3987e5; --serie-2: #d95926; --serie-3: #199e70;
+    --div-meio: #383835; --div-alto: #3987e5; --div-baixo: #e66767;
+    --realce: rgba(255, 255, 255, 0.06); --aviso: #e0a93b; color-scheme: dark;
+  }
+}
+:root[data-theme="dark"] {
+  --bg: #0d0d0d; --superficie: #1a1a19; --ink: #f0efec; --ink-2: #c3c2b7; --ink-3: #898781;
+  --grade: #2c2c2a; --eixo: #383835; --linha: #2f2f2d; --link: #6da7ec;
+  --serie-1: #3987e5; --serie-2: #d95926; --serie-3: #199e70;
+  --div-meio: #383835; --div-alto: #3987e5; --div-baixo: #e66767;
+  --realce: rgba(255, 255, 255, 0.06); --aviso: #e0a93b; color-scheme: dark;
+}
+* { box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+@media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } }
+body { background: var(--bg); color: var(--ink); font-family: var(--body); font-size: 16px; line-height: 1.55; }
+.wrap { max-width: 1040px; margin: 0 auto; padding-inline: 18px; padding-block: 28px 56px; display: grid; gap: 36px; background: var(--bg); color: var(--ink); font-family: var(--body); line-height: 1.55; }
+h1 { font-family: var(--display); font-stretch: 80%; font-weight: 800; font-size: clamp(1.9rem, 5vw, 3rem); line-height: 1.04; margin: 0; letter-spacing: -0.01em; text-wrap: balance; }
+h2 { font-family: var(--display); font-stretch: 88%; font-weight: 700; font-size: 1.3rem; margin: 0; text-wrap: balance; display: flex; gap: 10px; align-items: baseline; }
+h2 .n { font-family: var(--mono); font-weight: 500; font-size: 0.85rem; color: var(--link); min-width: 1.4em; }
+h3 { font-family: var(--display); font-stretch: 88%; font-weight: 700; font-size: 1.05rem; margin: 10px 0 0; }
+p { margin: 0; }
+a { color: var(--link); }
+.lede { color: var(--ink-2); max-width: 62ch; margin-top: 12px; font-size: 1.05rem; }
+.eyebrow { font-size: 0.74rem; letter-spacing: 0.09em; text-transform: uppercase; color: var(--ink-2); font-weight: 600; margin: 0; }
+.so-leitor { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; }
+.num { font-family: var(--mono); font-variant-numeric: tabular-nums; }
+button:focus-visible, select:focus-visible, a:focus-visible, [tabindex]:focus-visible { outline: 2px solid var(--link); outline-offset: 2px; }
+svg [tabindex]:focus-visible { outline: none; }
+svg [tabindex]:focus-visible.alvo, svg [tabindex]:focus-visible.alvo-ponto { stroke: var(--ink); stroke-width: 2; }
+svg:focus-visible { outline: 2px solid var(--link); outline-offset: 2px; }
+
+.indice { display: flex; flex-wrap: wrap; gap: 6px 16px; font-size: 0.86rem; padding-block: 10px; border-block: 1px solid var(--linha); }
+.indice a { color: var(--ink-2); text-decoration: none; display: flex; gap: 6px; }
+.indice a:hover { color: var(--link); text-decoration: underline; }
+.indice a span { font-family: var(--mono); color: var(--ink-3); }
+
+.bloco { display: grid; gap: 16px; min-width: 0; scroll-margin-top: 16px; }
+.bloco > p, .bloco > .texto { color: var(--ink-2); max-width: 72ch; }
+.cartao { background: var(--superficie); border: 1px solid var(--linha); border-radius: 8px; padding: 16px; min-width: 0; }
+.duas { display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 16px; }
+.graficos-cenarios { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 16px; }
+@media (max-width: 760px) { .graficos-cenarios { grid-template-columns: minmax(0, 1fr); } }
+.tres { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 16px; }
+.rolagem { overflow-x: auto; }
+.aviso { padding: 10px 12px; border-left: 3px solid var(--aviso); background: color-mix(in srgb, var(--aviso) 10%, transparent); font-size: 0.92rem; border-radius: 4px; max-width: 72ch; }
+.nota { font-size: 0.82rem; color: var(--ink-2); line-height: 1.4; margin-top: 2px; }
+.explica { font-size: 0.9rem; color: var(--ink-2); max-width: 72ch; }
+.explica strong { color: var(--ink); }
+
+/* Resumo */
+.resumo { display: grid; gap: 12px; }
+.resumo p, .prosa p, .prosa li { max-width: 72ch; }
+.destaques { display: grid; grid-template-columns: repeat(auto-fit, minmax(210px, 1fr)); gap: 12px; }
+.destaque { background: var(--superficie); border: 1px solid var(--linha); border-radius: 8px; padding: 14px 16px; display: grid; gap: 4px; align-content: start; }
+.destaque .rotulo { font-size: 0.82rem; color: var(--ink-2); }
+.destaque .valor { font-family: var(--body); font-weight: 600; font-size: 2.1rem; line-height: 1.1; white-space: nowrap; }
+.destaque .contexto { font-size: 0.82rem; color: var(--ink-2); line-height: 1.4; }
+.prosa { display: grid; gap: 12px; line-height: 1.6; }
+.prosa h3 { margin: 14px 0 0; }
+.prosa h3:first-child { margin-top: 0; }
+.prosa ul { margin: 0; padding-left: 1.2em; display: grid; gap: 8px; }
+.prosa table { max-width: 100%; }
+
+/* Controles */
+.filtro { display: flex; flex-wrap: wrap; gap: 8px 12px; align-items: center; }
+.filtro label { font-weight: 600; font-size: 0.9rem; }
+select { font: inherit; font-size: 0.92rem; padding: 7px 10px; border: 1px solid var(--eixo); border-radius: 4px; background: var(--superficie); color: var(--ink); min-height: 36px; max-width: 100%; }
+
+/* Tabelas */
+table { border-collapse: collapse; width: 100%; font-size: 0.86rem; }
+th, td { padding: 6px 10px; text-align: right; white-space: nowrap; border-bottom: 1px solid var(--grade); }
+th:first-child, td:first-child { text-align: left; white-space: normal; min-width: 90px; }
+thead th { white-space: normal; font-family: var(--body); font-weight: 600; color: var(--ink-2); font-size: 0.78rem; vertical-align: bottom; }
+td.num, th.num { font-family: var(--mono); font-variant-numeric: tabular-nums; }
+thead th.num { font-family: var(--body); min-width: 86px; }
+td.texto, th.texto { text-align: left; white-space: normal; min-width: 180px; }
+td.quebra { white-space: normal; }
+table.proposta td, table.proposta th { text-align: left; white-space: normal; vertical-align: top; min-width: 150px; }
+table.proposta th:first-child, table.proposta td:first-child { min-width: 120px; font-weight: 600; }
+.vazio { color: var(--ink-3); }
+
+/* Gráficos */
+.grafico { margin: 0; display: grid; gap: 8px; min-width: 0; }
+.grafico-cab { display: grid; gap: 2px; }
+.grafico-area { min-width: 0; }
+.grafico-rodape { display: flex; justify-content: flex-end; }
+.ver-tabela { font: inherit; font-size: 0.82rem; padding: 6px 10px; min-height: 32px; border: 1px solid var(--eixo); background: transparent; color: var(--ink-2); border-radius: 4px; cursor: pointer; }
+.ver-tabela:hover { color: var(--ink); border-color: var(--ink-3); }
+.grafico-tabela { border-top: 1px solid var(--grade); padding-top: 8px; max-height: 360px; overflow: auto; }
+.legenda { display: flex; flex-wrap: wrap; gap: 6px 16px; font-size: 0.84rem; color: var(--ink-2); }
+.legenda .chave { display: inline-block; width: 10px; height: 10px; border-radius: 2px; margin-right: 6px; vertical-align: -1px; }
+.legenda .chave-linha { width: 16px; height: 2px; border-radius: 1px; vertical-align: 3px; }
+.legenda .chave-ponto { border-radius: 50%; }
+svg { display: block; max-width: 100%; overflow: visible; }
+svg text { font-family: var(--body); font-size: 11px; fill: var(--ink-2); }
+svg .grade { stroke: var(--grade); stroke-width: 1; }
+svg .eixo-base { stroke: var(--eixo); stroke-width: 1; }
+svg .nivel-hoje { stroke: var(--ink-3); stroke-width: 1; }
+svg .marca-vertical { stroke: var(--ink-3); stroke-width: 1; }
+svg .rotulo-marca { font-size: 10.5px; fill: var(--ink-2); }
+svg .rotulo-valor { fill: var(--ink); font-family: var(--mono); font-size: 10.5px; font-weight: 500; }
+svg .rotulo-cat { fill: var(--ink); font-size: 11px; }
+svg .titulo-eixo { font-size: 11px; fill: var(--ink-2); }
+svg .tendencia { stroke: var(--ink-3); stroke-width: 2; stroke-linecap: round; }
+svg .mira-linha { stroke: var(--ink-2); stroke-width: 1; }
+svg .realce { fill: var(--realce); opacity: 0; }
+svg .grupo:hover .realce, svg .grupo:focus-within .realce { opacity: 1; }
+svg .alvo, svg .alvo-ponto { cursor: default; }
+svg .alvo-ponto:hover { stroke: var(--ink-3); stroke-width: 1; }
+
+#dica { position: fixed; pointer-events: none; background: var(--ink); color: var(--superficie); padding: 7px 10px; border-radius: 6px; font-size: 0.82rem; z-index: 20; max-width: 280px; line-height: 1.35; box-shadow: 0 2px 10px rgba(0, 0, 0, 0.25); }
+#dica .dica-titulo { opacity: 0.8; margin-bottom: 3px; }
+#dica .dica-linha { display: flex; gap: 7px; align-items: baseline; }
+#dica .dica-linha strong { font-size: 0.95rem; font-weight: 600; }
+#dica .dica-rotulo { opacity: 0.8; }
+#dica .dica-chave { display: inline-block; width: 12px; height: 2px; border-radius: 1px; align-self: center; flex: none; }
+#dica .dica-nota { opacity: 0.85; margin-top: 3px; }
+
+/* Mapa de calor */
+table.mapa { table-layout: fixed; min-width: 760px; }
+table.mapa th, table.mapa td { text-align: center; padding: 0; white-space: normal; border-bottom: 0; }
+table.mapa thead th { font-size: 0.72rem; line-height: 1.2; padding: 0 3px 6px; }
+table.mapa th.ano { width: 52px; text-align: left; font-family: var(--mono); font-size: 0.82rem; padding-right: 6px; color: var(--ink); font-weight: 600; }
+table.mapa td { height: 38px; font-family: var(--mono); font-size: 0.78rem; font-variant-numeric: tabular-nums; border: 2px solid var(--superficie); border-radius: 4px; cursor: default; }
+table.mapa td.sem { color: var(--ink-3); background: transparent; border: 1px dashed var(--linha); border-radius: 4px; }
+table.mapa td:focus-visible { outline: 2px solid var(--ink); outline-offset: -2px; }
+.escala-mapa { display: flex; align-items: center; gap: 10px; font-size: 0.78rem; color: var(--ink-2); flex-wrap: wrap; }
+.escala-mapa .barra { width: 200px; max-width: 100%; height: 8px; border-radius: 4px; }
+
+/* Cenários */
+.cartao-cenario { display: grid; gap: 8px; align-content: start; }
+.cartao-cenario h3 { margin: 0; display: flex; gap: 8px; align-items: center; }
+.cartao-cenario .chave { width: 12px; height: 12px; border-radius: 3px; flex: none; }
+.cartao-cenario ul { margin: 0; padding-left: 1.2em; display: grid; gap: 6px; font-size: 0.92rem; }
+.cartao-cenario .rotulo { font-size: 0.72rem; letter-spacing: 0.08em; text-transform: uppercase; color: var(--ink-2); font-weight: 600; }
+.cartao-cenario p { font-size: 0.92rem; color: var(--ink-2); }
+
+footer { color: var(--ink-2); font-size: 0.86rem; display: grid; gap: 8px; max-width: 80ch; }
+</style>
+
+<div class="wrap">
+  <header>
+    <p class="eyebrow">Eleições presidenciais · Ibovespa, dólar e juros</p>
+    <h1>Eleições e mercado: bolsa, dólar e juros de 1994 a 2026</h1>
+    <p class="lede">O que a bolsa, o dólar e os juros fizeram depois de cada eleição para presidente, e o que isso diz sobre os próximos meses. Dados até __DADOS_ATE__.</p>
+  </header>
+
+  <nav class="indice" aria-label="Seções">
+    <a href="#resumo"><span>1</span>Resumo</a>
+    <a href="#agora"><span>2</span>2026 agora</a>
+    <a href="#historico"><span>3</span>Cada eleição</a>
+    <a href="#pesquisas"><span>4</span>Pesquisas</a>
+    <a href="#setores"><span>5</span>Estatais e setores</a>
+    <a href="#propostas"><span>6</span>Propostas</a>
+    <a href="#cenarios"><span>7</span>Cenários</a>
+    <a href="#analise"><span>8</span>Análise</a>
+    <a href="#limites"><span>9</span>Limites e fontes</a>
+  </nav>
+
+  <section class="bloco" id="resumo">
+    <h2><span class="n">1</span>Resumo</h2>
+    <div class="cartao resumo prosa"><!--__RESUMO__--></div>
+    <div class="destaques" id="destaques"></div>
+    <p class="nota">Pontos percentuais (p.p.) são a diferença entre duas taxas: se o juro vai de 12,9% para 15,4% ao ano, subiu 2,5 pontos percentuais. “Surpresa” é a diferença entre o que as pesquisas mostravam e o que saiu das urnas, a favor do candidato que o mercado preferia.</p>
+  </section>
+
+  <section class="bloco" id="agora">
+    <h2><span class="n">2</span>2026 agora: bolsa e dólar desde 1º de agosto</h2>
+    <p>As linhas vão de 1º de agosto a 30 de outubro de 2026. As marcas verticais são os dois turnos (4 e 25 de outubro). Passe o mouse ou use as setas do teclado para ler cada dia.</p>
+    <div class="duas">
+      <div class="cartao" id="g-ibov"></div>
+      <div class="cartao" id="g-dolar"></div>
+    </div>
+    <h3>Janelas de 2026 que já aconteceram</h3>
+    <p class="explica"><strong>Só Brasil</strong> é o que sobra da variação depois de tirar o que o resto do mundo fez no mesmo período. Se as bolsas de todos os países emergentes caem, a daqui costuma cair junto; o “só Brasil” mostra a parte que é nossa. <strong>Pregão</strong> é um dia em que a bolsa abre.</p>
+    <div class="cartao rolagem" id="t-agora"></div>
+  </section>
+
+  <section class="bloco" id="historico">
+    <h2><span class="n">3</span>O que aconteceu em cada eleição</h2>
+    <p>O gráfico mostra o dia seguinte ao <strong>turno decisivo</strong>: o 1º turno em 1994 e 1998 (FHC ganhou na primeira volta) e o 2º turno nas outras. Se o mundo estava em queda, parte da queda da bolsa não é do Brasil. Por isso a segunda barra tira o exterior: é a bolsa em dólar, descontadas as bolsas dos países emergentes (“só Brasil”).</p>
+    <div class="cartao" id="g-decisivo"></div>
+    <p class="nota">Em 1994 só há a barra bruta: o Real tinha três meses e não existe índice de bolsas emergentes por dia antes de 1997.</p>
+
+    <h3>Todas as janelas, uma tabela de cores</h3>
+    <p class="explica">Cada linha é uma eleição, cada coluna é um período depois (ou antes) do voto. <strong>Azul subiu, vermelho caiu</strong>, e a cor fica mais forte quanto maior a variação. Cinza com tracejado é “sem dado” ou “ainda não aconteceu”: passe o mouse para ver o motivo. <strong>“Só Brasil”</strong> é a variação sem o que o exterior fez.</p>
+    <div class="cartao" style="display:grid;gap:12px">
+      <div class="filtro"><label for="sel-mapa">Medida</label><select id="sel-mapa"></select></div>
+      <div class="rolagem" id="mapa"></div>
+      <div class="escala-mapa" id="escala-mapa"></div>
+      <div class="rolagem"><button type="button" class="ver-tabela" id="ver-tabela-mapa" aria-expanded="false">Ver tabela</button><div id="t-mapa" hidden class="grafico-tabela"></div></div>
+    </div>
+  </section>
+
+  <section class="bloco" id="pesquisas">
+    <h2><span class="n">4</span>Pesquisas × resultado</h2>
+    <p>A <strong>surpresa</strong> é o resultado do TSE menos o que as pesquisas da véspera mostravam, medida a favor do candidato que o mercado preferia (sempre o de fora do PT). Surpresa positiva: ele foi melhor do que as pesquisas diziam. No gráfico, cada ponto é um turno.</p>
+    <div class="cartao" id="g-surpresa"></div>
+    <p class="aviso" id="aviso-corr"></p>
+    <h3>Os 16 turnos, um por um</h3>
+    <p class="explica"><strong>Margem</strong> é a diferença, em pontos, entre o candidato que o mercado preferia e o rival, nos votos válidos (sem brancos e nulos). Positiva: o candidato do mercado na frente. “Favorito” é quem estava na frente nas pesquisas. D+1 é o dia seguinte ao turno.</p>
+    <div class="cartao rolagem" id="t-surpresa"></div>
+  </section>
+
+  <section class="bloco" id="setores">
+    <h2><span class="n">5</span>Estatais, privadas e setores</h2>
+    <p class="explica"><strong>Peso igual, só preço</strong>: cada carteira junta as empresas mais negociadas antes da eleição, com o mesmo valor em cada uma e sem contar dividendos. Assim a comparação entre estatais e privadas é justa, mas a variação não é igual à do Ibovespa. A lista de estatais muda a cada eleição.</p>
+    <div class="cartao" style="display:grid;gap:12px">
+      <div class="filtro"><label for="sel-estatais">Janela</label><select id="sel-estatais"></select></div>
+      <div id="g-estatais"></div>
+      <div class="rolagem" id="t-medias"></div>
+    </div>
+    <h3>Setores em 2026, dia seguinte ao 2º turno</h3>
+    <p class="explica" id="p-setores"></p>
+    <div class="cartao" id="g-setores"></div>
+    <div class="duas">
+      <div class="cartao" id="g-cairam"></div>
+      <div class="cartao" id="g-menos-cairam"></div>
+    </div>
+  </section>
+
+  <section class="bloco" id="propostas">
+    <h2><span class="n">6</span>Propostas e marcos</h2>
+    <div id="propostas-conteudo"></div>
+  </section>
+
+  <section class="bloco" id="cenarios">
+    <h2><span class="n">7</span>Cenários para os próximos 14 meses</h2>
+    <p>Três caminhos possíveis para o Ibovespa, o dólar e o juro. Cada um diz “se isto acontecer, a faixa foi esta nas eleições parecidas”. A barra vai do menor ao maior valor dessas duas eleições, e o círculo é a média delas. A linha fina horizontal é o nível de hoje (30/10/2026).</p>
+    <p class="aviso"><strong>Sem chance em %: com 9 eleições, um número seria chute.</strong> <strong>Mundo parado: se o exterior subir ou cair, isso soma por cima.</strong> <span id="status-premissas"></span></p>
+    <div class="graficos-cenarios" id="g-cenarios"></div>
+    <h3>Os três cenários, lado a lado</h3>
+    <div class="tres" id="cartoes-cenarios"></div>
+  </section>
+
+  <section class="bloco" id="analise">
+    <h2><span class="n">8</span>Análise: o que os números mostram</h2>
+    <div class="cartao prosa"><!--__ANALISE__--></div>
+  </section>
+
+  <section class="bloco" id="limites">
+    <h2><span class="n">9</span>Limites e fontes</h2>
+    <div class="cartao prosa">
+      <h3>O que este estudo não consegue dizer</h3>
+      <ul id="lista-limites"></ul>
+      <h3>Como as contas foram feitas</h3>
+      <ul id="lista-metodo"></ul>
+    </div>
+    <h3>De onde vêm os dados</h3>
+    <div class="cartao rolagem" id="t-fontes"></div>
+    <p class="aviso" id="aviso-final"></p>
+  </section>
+
+  <footer>
+    <p>Estudo de Bernardo Steffen Timm.</p>
+    <!--__LIGACOES__-->
+  </footer>
+</div>
+<div id="dica" hidden></div>
+
+<script>
+/*__GRAFICOS__*/
+</script>
+<script>
+const DADOS = /*__DADOS__*/;
+
+const $ = (id) => document.getElementById(id);
+const NOME_JANELA = Object.fromEntries(DADOS.janelas.map((j) => [j.id, j.nome]));
+const COR = { 1: "var(--serie-1)", 2: "var(--serie-2)", 3: "var(--serie-3)" };
+const chaveNum = (v) => (v === null || v === undefined ? null : v);
+const periodo = (de, ate) => (de && ate ? `${dataBR(de)} a ${dataBR(ate)}` : "");
+const todosOsGraficos = [];
+function grafico(host, fabrica) { const g = criarGrafico(host, fabrica); todosOsGraficos.push(g); return g; }
+
+Dica.iniciar();
+
+// ------------------------------------------------------------------ 1. resumo
+$("destaques").replaceChildren(...DADOS.destaques.map((d) => h("div", { class: "destaque" },
+  h("span", { class: "rotulo", texto: d.rotulo }),
+  h("span", { class: "valor", texto: d.valor }),
+  h("span", { class: "contexto", texto: d.contexto }))));
+
+// ------------------------------------------------------------------ 2. 2026 agora
+const marcas2026 = DADOS.eleicoes.find((e) => e.ano === 2026).turnos.map((t) => ({ data: t.data, rotulo: `${t.numero}º turno` }));
+function graficoDeLinha(host, nome, titulo, serie, formatoY, formatoValor, formatoRotulo) {
+  grafico(host, () => ({
+    titulo,
+    descricao: `${titulo}, de ${dataBR(serie[0][0])} a ${dataBR(serie[serie.length - 1][0])}. Último valor: ${formatoValor(serie[serie.length - 1][1])}.`,
+    svg: (w) => desenharLinha(w, { pontos: serie.map(([data, y]) => ({ data, y })), marcas: marcas2026, cor: COR[1], nome, formatoY, formatoValor, formatoRotulo }),
+    tabela: () => tabelaSimples(["Data", nome, "Variação no dia"], serie.map(([d, v], i) => [dataBR(d), formatoValor(v), i ? pct((v / serie[i - 1][1] - 1) * 100, 2) : "–"])),
+  }));
+}
+graficoDeLinha($("g-ibov"), "Ibovespa", "Ibovespa, pontos de fechamento", DADOS.agora.series.ibov, (v) => num(v, 0), (v) => num(v, 0) + " pontos", (v) => num(v, 0));
+graficoDeLinha($("g-dolar"), "Dólar", "Dólar, reais por dólar", DADOS.agora.series.dolar, (v) => num(v, 2), (v) => "R$ " + num(v, 2), (v) => num(v, 2));
+
+$("t-agora").replaceChildren(tabelaSimples(
+  ["Período", "De → até", "Ibovespa", "Ibovespa em dólar, só Brasil", "Dólar", "Tesouro 10 anos"],
+  DADOS.agora.janelas.map((j) => [j.janela, `${dataBR(j.de)} → ${dataBR(j.ate)}`, pct(j.ibov), pct(j.ibov_usd_so_brasil), pct(j.dolar), num(j.tesouro_10a, 2, true) + " p.p."])));
+
+// ------------------------------------------------------------------ 3. cada eleição
+const MOTIVO_1994 = "Em 1994 só há a variação bruta: não existe índice de bolsas emergentes por dia antes de 1997.";
+grafico($("g-decisivo"), () => ({
+  titulo: "Dia seguinte ao turno decisivo, variação em %",
+  legenda: [{ nome: "Ibovespa (em reais)", cor: COR[1] }, { nome: "Só Brasil (em dólar, sem o exterior)", cor: COR[2] }],
+  descricao: "Barras por eleição: Ibovespa e Ibovespa em dólar só Brasil, no dia seguinte ao turno decisivo.",
+  svg: (w) => desenharBarras(w, {
+    categorias: DADOS.decisivo.map((d) => ({ rotulo: String(d.ano), itens: [d.ibov, d.so_brasil], d })),
+    series: [{ cor: COR[1] }, { cor: COR[2] }],
+    formatoEixo: (v) => num(v, 0) + "%", formatoValor: (v) => pct(v, 1),
+    descricaoDaCategoria: (c) => `${c.rotulo}: Ibovespa ${pct(c.d.ibov)}, só Brasil ${pct(c.d.so_brasil)}`,
+    dicaDaCategoria: (c) => ({
+      titulo: `${c.rotulo}, dia seguinte ao ${c.d.turno}º turno`,
+      linhas: [{ cor: COR[1], valor: pct(c.d.ibov), rotulo: "Ibovespa" }, { cor: COR[2], valor: pct(c.d.so_brasil), rotulo: "só Brasil" }],
+      nota: c.d.so_brasil === null ? MOTIVO_1994 : `Em dólar, sem descontar o exterior: ${pct(c.d.ibov_usd)}.`,
+    }),
+  }),
+  tabela: () => tabelaSimples(["Eleição", "Turno", "Ibovespa", "Ibovespa em dólar", "Só Brasil"], DADOS.decisivo.map((d) => [String(d.ano), `${d.turno}º`, pct(d.ibov), pct(d.ibov_usd), d.so_brasil === null ? "sem dado" : pct(d.so_brasil)])),
+}));
+
+// Mapa de calor
+const selMapa = $("sel-mapa");
+DADOS.mapa.forEach((o, i) => selMapa.append(h("option", { value: i, texto: o.nome })));
+function casasDaUnidade(u) { return u === "p.b." ? 0 : u === "p.p." ? 2 : 1; }
+function cabecalhoDasJanelas() { return DADOS.janelas.map((j) => j.nome); }
+function desenharMapa() {
+  const opcao = DADOS.mapa[Number(selMapa.value)];
+  const casas = casasDaUnidade(opcao.unidade);
+  const valores = opcao.linhas.flatMap((l) => l.celulas.map((c) => c.v)).filter(Number.isFinite).map(Math.abs).sort((a, b) => a - b);
+  // O teto das cores é o 90º percentil: um valor extremo não apaga o resto do mapa.
+  const teto = valores.length ? Math.max(valores[Math.floor(valores.length * 0.9)] || valores[valores.length - 1], 1e-6) : 1;
+  const tabela = h("table", { class: "mapa" });
+  tabela.append(h("caption", { class: "so-leitor", texto: `${opcao.nome}: variação por eleição e período` }));
+  tabela.append(h("thead", {}, h("tr", {}, h("th", { class: "ano", scope: "col", texto: "Ano" }), cabecalhoDasJanelas().map((n) => h("th", { scope: "col", texto: n })))));
+  const corpo = h("tbody");
+  opcao.linhas.forEach((linha) => {
+    const tr = h("tr", {}, h("th", { class: "ano", scope: "row", texto: String(linha.ano) }));
+    linha.celulas.forEach((c, i) => {
+      const nome = DADOS.janelas[i].nome;
+      const td = h("td", { tabindex: "0" });
+      if (c.v === null) {
+        td.className = "sem";
+        td.textContent = "·";
+        td.setAttribute("aria-label", `${linha.ano}, ${nome}: sem dado. ${c.motivo}`);
+        Dica.ligar(td, () => ({ titulo: `${linha.ano} · ${nome}`, linhas: [{ valor: "Sem dado" }], nota: c.motivo }));
+      } else {
+        const cor = corDaCelula(c.v, teto);
+        td.style.background = cor.fundo; td.style.color = cor.texto;
+        td.textContent = num(c.v, casas, true);
+        td.setAttribute("aria-label", `${linha.ano}, ${nome}: ${comUnidade(c.v, opcao.unidade)}`);
+        Dica.ligar(td, () => ({ titulo: `${linha.ano} · ${nome}`, linhas: [{ valor: comUnidade(c.v, opcao.unidade), rotulo: opcao.nome }], nota: periodo(c.de, c.ate) }));
+      }
+      tr.append(td);
+    });
+    corpo.append(tr);
+  });
+  tabela.append(corpo);
+  $("mapa").replaceChildren(tabela);
+  $("escala-mapa").replaceChildren(
+    h("span", { texto: `${comUnidade(-teto, opcao.unidade, casas)} ou menos` }),
+    h("span", { class: "barra", style: `background:${gradienteDaLegenda(teto)}`, "aria-hidden": "true" }),
+    h("span", { texto: `${comUnidade(teto, opcao.unidade, casas)} ou mais` }),
+    h("span", { texto: "· Cinza com tracejado: sem dado ou ainda não aconteceu." }));
+  const linhasTabela = [];
+  opcao.linhas.forEach((l) => l.celulas.forEach((c, i) => linhasTabela.push([String(l.ano), DADOS.janelas[i].nome, c.v === null ? "sem dado" : comUnidade(c.v, opcao.unidade, casas), c.v === null ? c.motivo : periodo(c.de, c.ate)])));
+  $("t-mapa").replaceChildren(tabelaSimples(["Eleição", "Período", opcao.nome, "Datas / motivo"], linhasTabela));
+}
+selMapa.addEventListener("change", desenharMapa);
+$("ver-tabela-mapa").addEventListener("click", (e) => {
+  const aberta = $("t-mapa").hidden;
+  $("t-mapa").hidden = !aberta;
+  e.currentTarget.setAttribute("aria-expanded", String(aberta));
+  e.currentTarget.textContent = aberta ? "Esconder tabela" : "Ver tabela";
+});
+desenharMapa();
+
+// ------------------------------------------------------------------ 4. pesquisas × resultado
+const turnosComSurpresa = DADOS.surpresa.turnos.filter((t) => t.surpresa !== null && t.ibov_d1 !== null);
+const corr = DADOS.surpresa.correlacoes;
+const corrTodos = corr.find((c) => c.grupo === "todos");
+const rotuloTurno = (t) => `${t.ano} · ${t.turno}º turno`;
+const destaquesDisp = new Set(turnosComSurpresa.filter((t) => t.ano === 2026).map((t) => `${t.ano}|${t.turno}`));
+grafico($("g-surpresa"), () => ({
+  titulo: "Surpresa das pesquisas (eixo horizontal) e Ibovespa no dia seguinte (eixo vertical)",
+  legenda: [{ nome: "1º turno", cor: COR[1], tipo: "ponto" }, { nome: "2º turno", cor: COR[2], tipo: "ponto" }, { nome: "Tendência", cor: "var(--ink-3)", tipo: "linha" }],
+  descricao: `Dispersão de ${turnosComSurpresa.length} turnos. Correlação ${num(corrTodos.correlacao, 2)}.`,
+  svg: (w) => desenharDispersao(w, {
+    tituloX: "Surpresa (pontos a favor do candidato do mercado)", tituloY: "Ibovespa no dia seguinte (%)",
+    formatoY: (v) => num(v, 0) + "%",
+    tendencia: DADOS.surpresa.tendencia,
+    series: [{ cor: COR[1] }, { cor: COR[2] }],
+    pontos: turnosComSurpresa.map((t) => ({
+      x: t.surpresa, y: t.ibov_d1, serie: t.turno - 1,
+      destaque: destaquesDisp.has(`${t.ano}|${t.turno}`),
+      rotulo: `${t.ano} · ${t.turno}º`,
+      texto: `surpresa ${pontos(t.surpresa)}, Ibovespa ${pct(t.ibov_d1)}`,
+      dica: { titulo: rotuloTurno(t), linhas: [{ cor: COR[t.turno], valor: pct(t.ibov_d1), rotulo: "Ibovespa no dia seguinte" }, { valor: pontos(t.surpresa), rotulo: "surpresa" }], nota: `Pesquisas: ${num(t.margem_pesquisas, 1, true)}; urnas: ${num(t.margem_resultado, 1, true)} (margem do candidato do mercado).` },
+    })),
+  }),
+  tabela: () => tabelaSimples(["Turno", "Surpresa", "Ibovespa no dia seguinte"], turnosComSurpresa.map((t) => [rotuloTurno(t), pontos(t.surpresa), pct(t.ibov_d1)])),
+}));
+$("aviso-corr").textContent = `Correlação entre a surpresa e o Ibovespa no dia seguinte: ${num(corrTodos.correlacao, 2)} (${corrTodos.n} turnos; 0 é nenhuma relação e 1 é relação perfeita). Só no 1º turno: ${num(corr[0].correlacao, 2)}; só no 2º: ${num(corr[1].correlacao, 2)}. ${corrTodos.n} turnos: é indício, não lei.`;
+
+const nomeCandidato = (t) => t.candidato_mercado;
+$("t-surpresa").replaceChildren(tabelaSimples(
+  ["Eleição", "Margem nas pesquisas", "Margem no TSE", "Surpresa", "Favorito nas pesquisas", "Ibovespa D+1", "Dólar D+1"],
+  DADOS.surpresa.turnos.map((t) => [rotuloTurno(t), t.margem_pesquisas === null ? "sem pesquisa" : num(t.margem_pesquisas, 1, true), num(t.margem_resultado, 1, true), t.surpresa === null ? "–" : num(t.surpresa, 1, true), t.favorito || "–", pct(t.ibov_d1), pct(t.dolar_d1)]),
+  { texto: [4] }));
+
+// ------------------------------------------------------------------ 5. estatais, privadas e setores
+const selEstatais = $("sel-estatais");
+Object.entries(DADOS.estatais).forEach(([chave, o]) => selEstatais.append(h("option", { value: chave, texto: o.nome })));
+const estatais = grafico($("g-estatais"), () => {
+  const o = DADOS.estatais[selEstatais.value];
+  return {
+    titulo: `Estatais menos privadas, ${o.nome.toLowerCase()} (pontos percentuais)`,
+    descricao: "Diferença entre a variação das estatais e a das privadas, por eleição.",
+    svg: (w) => desenharBarras(w, {
+      categorias: o.linhas.map((l) => ({ rotulo: String(l.ano), itens: [l.estatais_menos_privadas], l })),
+      series: [{ cor: COR[1] }],
+      formatoEixo: (v) => num(v, 0), formatoValor: (v) => num(v, 1, true),
+      descricaoDaCategoria: (c) => `${c.rotulo}: ${c.l.estatais_menos_privadas === null ? "ainda não aconteceu" : num(c.l.estatais_menos_privadas, 1, true) + " pontos"}`,
+      dicaDaCategoria: (c) => c.l.estatais_menos_privadas === null
+        ? { titulo: c.rotulo, linhas: [{ valor: "Sem dado" }], nota: c.l.ainda_nao ? "Ainda não aconteceu." : "Sem dado." }
+        : { titulo: c.rotulo, linhas: [{ valor: num(c.l.estatais_menos_privadas, 1, true) + " p.p.", rotulo: "estatais menos privadas" }, { valor: pct(c.l.estatais), rotulo: `estatais (${c.l.n_estatais} empresas)` }, { valor: pct(c.l.privadas), rotulo: "privadas" }], nota: "Positivo: as estatais foram melhor que as privadas." },
+    }),
+    tabela: () => tabelaSimples(["Eleição", "Estatais menos privadas (p.p.)"], o.linhas.map((l) => [String(l.ano), l.estatais_menos_privadas === null ? (l.ainda_nao ? "ainda não aconteceu" : "sem dado") : num(l.estatais_menos_privadas, 1, true)])),
+  };
+});
+function tabelaDeMedias() {
+  const o = DADOS.estatais[selEstatais.value];
+  const f = (v) => (v === null ? "–" : pct(v));
+  $("t-medias").replaceChildren(tabelaSimples(
+    ["Eleição", "Estatais: média", "Estatais: mediana", "Privadas: média", "Privadas: mediana", "Todas as 60: média", "Todas as 60: mediana"],
+    o.linhas.map((l) => [String(l.ano), f(l.estatais), f(l.estatais_mediana), f(l.privadas), f(l.privadas_mediana), f(l.todas), f(l.todas_mediana)]),
+    { legenda: "Média e mediana de cada carteira" }));
+}
+selEstatais.addEventListener("change", () => { estatais.render(); tabelaDeMedias(); });
+tabelaDeMedias();
+$("t-medias").insertAdjacentElement("beforebegin", h("p", { class: "nota", texto: "Média é a variação da carteira de peso igual. Mediana é a empresa do meio: se uma ação disparar, a média sobe, mas a mediana quase não muda." }));
+
+const S = DADOS.setores;
+$("p-setores").textContent = `Cada barra é a variação média (peso igual, só preço) das empresas do setor entre as ${S.n_empresas} mais negociadas. A carteira das 60 caiu ${pctSimples(Math.abs(S.todas), 1)} no mesmo dia; passe o mouse para ver quanto cada setor ficou acima ou abaixo dela.`;
+grafico($("g-setores"), () => ({
+  titulo: `Setores, ${S.janela.toLowerCase()} de 2026 (variação em %)`,
+  descricao: "Variação por setor em 2026, do menor ao maior.",
+  svg: (w) => desenharBarrasH(w, {
+    cor: COR[1], formatoValor: (v) => pct(v, 1),
+    itens: S.setores.map((x) => ({ rotulo: x.setor, valor: x.variacao, x })),
+    dica: (it) => ({ titulo: it.x.setor, linhas: [{ valor: pct(it.x.variacao), rotulo: "média do setor" }, { valor: pct(it.x.mediana), rotulo: "mediana" }], nota: `${it.x.n} empresas. Contra a carteira das 60: ${num(it.x.contra_todas, 1, true)} pontos.` }),
+  }),
+  tabela: () => tabelaSimples(["Setor", "Empresas", "Média", "Mediana", "Contra as 60 (p.p.)"], S.setores.map((x) => [x.setor, String(x.n), pct(x.variacao), pct(x.mediana), num(x.contra_todas, 1, true)])),
+}));
+function graficoDeEmpresas(host, titulo, lista) {
+  grafico(host, () => ({
+    titulo,
+    descricao: titulo,
+    svg: (w) => desenharBarrasH(w, {
+      cor: COR[1], formatoValor: (v) => pct(v, 1),
+      itens: lista.map((e) => ({ rotulo: e.estatal ? `${e.nome} (estatal)` : e.nome, valor: e.variacao, e })),
+      dica: (it) => ({ titulo: it.e.nome, linhas: [{ valor: pct(it.e.variacao), rotulo: "variação" }], nota: `${it.e.setor}${it.e.estatal ? " · estatal" : " · privada"}` }),
+    }),
+    tabela: () => tabelaSimples(["Empresa", "Setor", "Variação"], lista.map((e) => [e.estatal ? `${e.nome} (estatal)` : e.nome, e.setor, pct(e.variacao)])),
+  }));
+}
+graficoDeEmpresas($("g-cairam"), "As 8 empresas que mais caíram (dia seguinte ao 2º turno)", S.mais_cairam);
+graficoDeEmpresas($("g-menos-cairam"), "As 8 que menos caíram, ou subiram", S.menos_cairam);
+
+// ------------------------------------------------------------------ 6. propostas e marcos
+(function propostas() {
+  const raiz = $("propostas-conteudo");
+  const P = DADOS.propostas;
+  if (!P) {
+    raiz.replaceChildren(h("p", { class: "aviso", texto: "Em revisão. As propostas de cada candidato, o que o vencedor fez e os marcos que mexeram no mercado ainda estão sendo conferidas nas fontes. Esta seção aparece quando a revisão terminar." }));
+    return;
+  }
+  const temas = P.temas;
+  const select = h("select", { id: "sel-prop" }, P.eleicoes.map((e) => h("option", { value: e.ano, texto: String(e.ano) })));
+  select.value = String(P.eleicoes[P.eleicoes.length - 1].ano);
+  const corpo = h("div", { style: "display:grid;gap:16px" });
+  const celula = (c) => {
+    const td = h("td", { class: "quebra" });
+    if (!c) { td.append(h("span", { class: "vazio", texto: "sem informação" })); return td; }
+    td.append(c.texto || "");
+    const l = ligacao(c.fonte, "fonte");
+    if (l) td.append(" ", l);
+    return td;
+  };
+  const listaDatada = (titulo, itens) => !itens || !itens.length ? null : h("div", {}, h("h3", { texto: titulo }), h("ul", { class: "prosa" }, itens.map((i) => h("li", {}, h("span", { class: "num", texto: dataBR(i.data) + " " }), i.texto || "", i.fonte ? [" ", ligacao(i.fonte, "fonte")] : null))));
+  function desenhar() {
+    const e = P.eleicoes.find((x) => String(x.ano) === select.value);
+    const marcos = P.marcos.filter((m) => m.ano === select.value);
+    const cabecalho = h("tr", {}, h("th", { scope: "col", texto: "Tema" }), e.candidatos.map((c) => h("th", { scope: "col", texto: c.nome })), h("th", { scope: "col", texto: "O que foi feito (vencedor)" }));
+    const linhas = Object.entries(temas).map(([k, nome]) => h("tr", {}, h("th", { scope: "row", texto: nome }), e.candidatos.map((c) => celula(c.temas[k])), celula(e.realizado[k])));
+    corpo.replaceChildren(
+      h("div", { class: "cartao rolagem" }, h("table", { class: "proposta" }, h("thead", {}, cabecalho), h("tbody", {}, linhas))),
+      listaDatada("Sinais depois da eleição", e.sinais_pos_eleicao),
+      listaDatada("Contestação", e.contestacao),
+      marcos.length ? h("div", {}, h("h3", { texto: "Marcos" }), h("ul", { class: "prosa" }, marcos.map((m) => h("li", {}, h("span", { class: "num", texto: dataBR(m.data) + " " }), `${m.tipo ? m.tipo + ": " : ""}${m.descricao} `, ligacao(m.fonte, "fonte"))))) : null);
+  }
+  select.addEventListener("change", desenhar);
+  raiz.replaceChildren(h("div", { style: "display:grid;gap:16px" }, h("p", { class: "explica", texto: "Seis temas para os dois candidatos mais votados, com a fonte de cada linha. Ao lado, o que o vencedor fez." }), h("div", { class: "filtro" }, h("label", { for: "sel-prop", texto: "Eleição" }), select), corpo));
+  desenhar();
+})();
+
+// ------------------------------------------------------------------ 7. cenários
+const C = DADOS.cenarios;
+const COR_CENARIO = { otimista: COR[1], base: COR[2], pessimista: COR[3] };
+// A ordem das cores é a das categorias do guia (1 azul, 2 laranja, 3 aqua), na ordem otimista, base, pessimista.
+const NOME_CURTO = { otimista: "Otim.", base: "Base", pessimista: "Pess." };
+const NOME_CENARIO = { otimista: "Otimista", base: "Base", pessimista: "Pessimista" };
+$("status-premissas").textContent = `Premissas: ${C.status}.`;
+const categoriasCenario = ["Hoje", ...C.horizontes.map((x) => `${x.nome} (${dataBR(x.data).slice(0, 5)})`)];
+const rotulosCurtosX = ["Hoje", ...C.horizontes.map((x) => x.nome)];
+for (const medida of C.medidas) {
+  const host = h("div", { class: "cartao" });
+  $("g-cenarios").append(host);
+  const fmt = (v) => num(v, medida.casas);
+  const unidadeVar = medida.unidade;
+  grafico(host, () => ({
+    titulo: medida.nome,
+    legenda: C.cenarios.map((c) => ({ nome: NOME_CENARIO[c.id], cor: COR_CENARIO[c.id] })),
+    descricao: `${medida.nome}: faixa de cada cenário na posse, aos 100 dias e em 1 ano. Hoje: ${fmt(medida.base)}.`,
+    svg: (w) => desenharFaixas(w, {
+      categorias: w < 480 ? rotulosCurtosX : rotulosCurtosX,
+      base: medida.base, formatoEixo: fmt, formatoValor: fmt,
+      series: C.cenarios.map((c) => ({ nome: NOME_CENARIO[c.id], curto: NOME_CURTO[c.id], cor: COR_CENARIO[c.id], faixas: C.horizontes.map((x) => medida.faixas[c.id][x.id]) })),
+      descricaoDaCategoria: (ci) => ci === 0 ? `Hoje: ${fmt(medida.base)}` : `${C.horizontes[ci - 1].nome}: ` + C.cenarios.map((c) => { const f = medida.faixas[c.id][C.horizontes[ci - 1].id]; return `${NOME_CENARIO[c.id]} ${fmt(f.minimo)} a ${fmt(f.maximo)}`; }).join("; "),
+      dicaDaCategoria: (ci) => {
+        if (ci === 0) return { titulo: "Hoje (30/10/2026)", linhas: [{ valor: fmt(medida.base), rotulo: medida.nome }] };
+        const hor = C.horizontes[ci - 1];
+        return {
+          titulo: `${hor.nome}, ${dataBR(hor.data)}`,
+          linhas: C.cenarios.map((c) => { const f = medida.faixas[c.id][hor.id]; return { cor: COR_CENARIO[c.id], valor: Number.isFinite(f.minimo) ? `${fmt(f.minimo)} a ${fmt(f.maximo)}` : "sem dado", rotulo: `${NOME_CENARIO[c.id]}${Number.isFinite(f.central) ? ` (meio ${fmt(f.central)})` : ""}` }; }),
+          nota: "Cada faixa vai do menor ao maior dos dois análogos. Mundo parado.",
+        };
+      },
+    }),
+    tabela: () => tabelaSimples(["Cenário", "Horizonte", "Mínimo", "Meio", "Máximo", `Variação (${unidadeVar})`],
+      C.cenarios.flatMap((c) => C.horizontes.map((x) => { const f = medida.faixas[c.id][x.id]; return [NOME_CENARIO[c.id], x.nome, fmt(f.minimo), fmt(f.central), fmt(f.maximo), Number.isFinite(f.var_minimo) ? `${num(f.var_minimo, 1, true)} a ${num(f.var_maximo, 1, true)}` : "–"]; }))),
+  }));
+  if (medida.id === "ibov") host.append(h("p", { class: "aviso", style: "margin-top:12px", texto: C.frase_pessimista }));
+}
+$("cartoes-cenarios").replaceChildren(...C.cenarios.map((c) => h("div", { class: "cartao cartao-cenario" },
+  h("h3", {}, h("i", { class: "chave", style: `background:${COR_CENARIO[c.id]}` }), `${NOME_CENARIO[c.id]}: ${c.titulo}`),
+  h("span", { class: "rotulo", texto: "Eleições parecidas" }),
+  h("p", { texto: c.analogos.join(" e ") }),
+  h("span", { class: "rotulo", texto: "Por que estas" }),
+  h("p", { texto: c.por_que }),
+  h("span", { class: "rotulo", texto: "Gatilhos (o que precisaria acontecer)" }),
+  h("ul", {}, c.gatilhos.map((g) => h("li", { texto: g }))))));
+
+// ------------------------------------------------------------------ 9. limites e fontes
+$("lista-limites").replaceChildren(...DADOS.limites.map((t) => h("li", { texto: t })));
+$("lista-metodo").replaceChildren(...DADOS.metodo.map((t) => h("li", { texto: t })));
+$("t-fontes").replaceChildren(tabelaSimples(["Série", "Fonte", "Código", "Início", "Fim", "Link"],
+  DADOS.catalogo.map((f) => [f.nome, f.fonte, f.codigo || "–", dataBR(f.inicio), dataBR(f.fim), ligacao(f.url, "abrir") || "–"]), { classe: "fontes", texto: [1, 2, 3, 4, 5] }));
+$("aviso-final").textContent = DADOS.aviso;
+
+// Troca de tema do sistema: o mapa de calor calcula as cores em JS e precisa refazer.
+if (window.matchMedia) matchMedia("(prefers-color-scheme: dark)").addEventListener("change", () => { desenharMapa(); });
+</script>
