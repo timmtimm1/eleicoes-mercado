@@ -1,16 +1,16 @@
 ano,data,tipo,descricao,fonte
 1994,1994-07-01,banco_central,O real passa a circular como moeda do Plano Real,https://pt.wikipedia.org/wiki/Plano_Real
-1994,1994-09-04,equipe_economica,Rubens Ricupero deixa o Ministério da Fazenda depois de comentários gravados sobre o uso eleitoral do Plano Real; Ciro Gomes assume,https://pt.wikipedia.org/wiki/Elei%C3%A7%C3%A3o_presidencial_no_Brasil_em_1994
+1994,1994-09-06,equipe_economica,Rubens Ricupero deixa o Ministério da Fazenda depois de uma conversa captada por antenas parabólicas em 01/09 sobre o uso eleitoral do Plano Real; Ciro Gomes assume,https://pt.wikipedia.org/wiki/Rubens_Ricupero
 1994,1994-10-03,politico,"Fernando Henrique Cardoso é eleito no 1º turno, com 54,28% dos votos válidos",https://pt.wikipedia.org/wiki/Elei%C3%A7%C3%A3o_presidencial_no_Brasil_em_1994
 1994,1994-12-20,externo,"México amplia a banda cambial e o peso se desvaloriza, o que dá início à crise do México (efeito tequila)",https://pt.wikipedia.org/wiki/Crise_econ%C3%B4mica_do_M%C3%A9xico_de_1994
-1994,1995-03-06,banco_central,"Banco Central adota a banda cambial, regime que durou até janeiro de 1999",https://pt.wikipedia.org/wiki/Banda_cambial
+1994,1995-03-06,banco_central,"Banco Central cria bandas de flutuação do dólar no mercado interbancário, entre R$ 0,86 e R$ 0,90 (Comunicado 4.479), no início do regime de banda cambial",https://okai.com.br/documento/1995-03-06/comunicado-n-004479
 1994,1995-08-15,estatais,"Promulgada a Emenda Constitucional 8, que altera o art. 21 da Constituição e abre a exploração dos serviços de telecomunicações à iniciativa privada",https://www.planalto.gov.br/ccivil_03/constituicao/emendas/emc/emc08.htm
 1994,1995-11-03,banco_central,"Governo cria o Proer, programa de apoio à reestruturação de bancos",https://pt.wikipedia.org/wiki/Proer
 1994,1995-11-09,estatais,"Promulgada a Emenda Constitucional 9, que flexibiliza o monopólio estatal do petróleo",https://www.planalto.gov.br/ccivil_03/constituicao/emendas/emc/emc09.htm
 1998,1998-08-17,externo,"Rússia desvaloriza o rublo e declara moratória parcial, o que agrava a fuga de capitais de emergentes",https://pt.wikipedia.org/wiki/Crise_financeira_russa_de_1998
 1998,1998-10-04,politico,"FHC é reeleito no 1º turno, com 53,06% dos votos válidos",https://pt.wikipedia.org/wiki/Elei%C3%A7%C3%A3o_presidencial_no_Brasil_em_1998
 1998,1998-10-28,fiscal,Governo divulga pacote de austeridade fiscal depois da reeleição,https://ibscdc.org/Case_Studies/Economics/Economic%20Crisis/The%20Brazilian%20Financial%20Crisis-Case%20Study.htm
-1998,1998-11-13,fiscal,"Governo anuncia pacote de apoio financeiro externo de US$ 41,5 bilhões com o FMI e outros credores",https://web.bndes.gov.br/bib/jspui/bitstream/1408/13286/1/SINOPSE%20ECONOMICA%2c%20n.%2070%2c%20nov.%201998_P_BD.PDF
+1998,1998-11-13,fiscal,"FMI, Banco Mundial, BID e governos do G-10 anunciam pacote de apoio financeiro externo de cerca de US$ 41,5 bilhões em três anos",https://www.imf.org/external/np/tr/1998/tr981113.htm
 1998,1998-12-15,reformas,"Promulgada a Emenda Constitucional 20, reforma da Previdência",https://www.planalto.gov.br/ccivil_03/constituicao/emendas/emc/emc20.htm
 1998,1999-01-13,banco_central,Gustavo Franco deixa a presidência do Banco Central e a banda cambial é alargada,https://pt.wikipedia.org/wiki/Desvaloriza%C3%A7%C3%A3o_do_real_em_1999
 1998,1999-01-15,banco_central,Banco Central deixa de intervir e o real passa a flutuar,https://pt.wikipedia.org/wiki/Desvaloriza%C3%A7%C3%A3o_do_real_em_1999
@@ -18,27 +18,27 @@ ano,data,tipo,descricao,fonte
 1998,1999-06-21,banco_central,Decreto 3.088 institui o regime de metas de inflação,https://www.planalto.gov.br/ccivil_03/decreto/d3088.htm
 2002,2002-06-22,campanha,"Lula divulga a Carta ao Povo Brasileiro, com compromisso de respeitar contratos e manter a estabilidade econômica",https://en.wikipedia.org/wiki/2002_Brazilian_general_election
 2002,2002-07-23,campanha,Lula apresenta o programa de governo da coligação na Câmara dos Deputados,https://siac.fpabramo.org.br/uploads/acervo/J_PT_NOTICIAS_2002_0120.pdf
-2002,2002-08-07,fiscal,"FMI anuncia empréstimo de cerca de US$ 30 bilhões ao Brasil, com a campanha de Lula aceitando o acordo",https://www.pagina12.com.ar/diario/economia/2-8699-2002-08-09.html
+2002,2002-08-07,fiscal,"FMI anuncia acordo de US$ 30 bilhões com o Brasil, com 80% dos recursos previstos para 2003",https://www.imf.org/external/np/sec/nb/2002/nb0285.htm
 2002,2002-10-06,politico,"Lula lidera o 1º turno com 46,44% dos votos válidos; Serra fica em 2º, com 23,20%",https://pt.wikipedia.org/wiki/Elei%C3%A7%C3%A3o_presidencial_no_Brasil_em_2002
 2002,2002-10-27,politico,"Lula é eleito no 2º turno, com 61,27% dos votos válidos",https://pt.wikipedia.org/wiki/Elei%C3%A7%C3%A3o_presidencial_no_Brasil_em_2002
 2002,2002-12-12,equipe_economica,Lula anuncia Antonio Palocci como ministro da Fazenda e Henrique Meirelles como presidente do Banco Central,https://www.bloomberglinea.com.br/2022/10/31/lisboa-meirelles-padilha-e-haddad-os-nomes-cotados-para-comandar-a-economia/
 2002,2003-01-13,fiscal,"Palocci diz que o governo quer superávit primário maior que os 3,75% do PIB do acordo com o FMI",https://memoria.ebc.com.br/agenciabrasil//noticia/2003-01-13/fiscal-restraint-will-ensure-bigger-surplus-2003-says-palocci
 2002,2003-02-19,banco_central,"Copom eleva a Selic a 26,5% ao ano",https://www.bcb.gov.br/controleinflacao/historicotaxasjuros
 2002,2003-12-19,reformas,"Promulgada a Emenda Constitucional 41, reforma da Previdência dos servidores",https://www.planalto.gov.br/ccivil_03/constituicao/emendas/emc/emc41.htm
-2006,2006-08-29,campanha,"Lula lança o programa de governo para o segundo mandato, em São Paulo",https://www.congressoemfoco.com.br/noticia/89037/programa-de-lula-destaca-crescimento-economico
+2006,2006-08-29,campanha,"Lula lança o programa de governo para o segundo mandato, em São Paulo",https://www.congressoemfoco.com.br/noticia/89023/lula-lanca-programa-de-governo-em-sao-paulo
 2006,2006-10-01,politico,"Lula lidera o 1º turno, com 48,61% dos votos válidos, e vai ao 2º turno contra Alckmin",https://pt.wikipedia.org/wiki/Elei%C3%A7%C3%A3o_presidencial_no_Brasil_em_2006
 2006,2006-10-26,campanha,"Pesquisa Ipespe mostra que 70% dos entrevistados querem manter Banco do Brasil, Caixa e Petrobras como estatais, em meio à disputa sobre privatizações",https://www.conjur.com.br/2006-out-26/pesquisa_70_sao_novas_privatizacoes/
 2006,2006-10-29,politico,"Lula é reeleito no 2º turno, com 60,83% dos votos válidos",https://pt.wikipedia.org/wiki/Elei%C3%A7%C3%A3o_presidencial_no_Brasil_em_2006
-2006,2007-01-22,fiscal,Governo lança o Programa de Aceleração do Crescimento (PAC),https://pt.wikipedia.org/wiki/Primeiro_governo_Lula
+2006,2007-01-22,fiscal,"Governo lança o Programa de Aceleração do Crescimento (PAC), em Brasília",https://www.congressoemfoco.com.br/noticia/102313/lula-anuncia-pacote-para-promover-crescimento
 2006,2007-08-09,externo,"Bancos europeus congelam fundos ligados a crédito imobiliário nos EUA, o que marca o início da crise do subprime",https://pt.wikipedia.org/wiki/Crise_do_subprime
-2006,2007-11-08,estatais,"Petrobras anuncia a descoberta do campo de Tupi, primeira grande descoberta do pré-sal",https://pt.wikipedia.org/wiki/Campo_de_Tupi
-2006,2007-12-12,fiscal,Senado rejeita a prorrogação da CPMF,https://pt.wikipedia.org/wiki/CPMF
+2006,2007-11-08,estatais,"Petrobras anuncia a descoberta do campo de Tupi, primeira grande descoberta do pré-sal",https://www.infomoney.com.br/mercados/o-anuncio-do-potencial-do-pre-sal-que-mudou-a-historia-da-petrobras-e-levou-as-acoes-as-alturas/
+2006,2007-12-13,fiscal,"Senado rejeita, na madrugada, a prorrogação da CPMF, por 45 votos a 34",https://pt.wikipedia.org/wiki/CPMF
 2010,2010-10-03,politico,"Dilma lidera o 1º turno, com 46,91% dos votos válidos, e vai ao 2º turno contra Serra",https://pt.wikipedia.org/wiki/Elei%C3%A7%C3%A3o_presidencial_no_Brasil_em_2010
-2010,2010-10-11,campanha,"Campanhas de Dilma e Serra trocam acusações sobre privatizações, Petrobras e pré-sal no 2º turno",https://istoedinheiro.com.br/coordenacao-petista-aprova-debate-sobre-privatizacoes
+2010,2010-10-10,campanha,"No debate da Band do 2º turno, Dilma acusa Serra de querer privatizar o pré-sal e ele rejeita; a coordenação petista decide levar o tema da privatização à campanha",https://istoedinheiro.com.br/coordenacao-petista-aprova-debate-sobre-privatizacoes
 2010,2010-10-31,politico,"Dilma é eleita no 2º turno, com 56,05% dos votos válidos",https://pt.wikipedia.org/wiki/Elei%C3%A7%C3%A3o_presidencial_no_Brasil_em_2010
 2010,2010-11-24,equipe_economica,"Dilma confirma Guido Mantega na Fazenda e anuncia Alexandre Tombini para o Banco Central, no lugar de Henrique Meirelles",https://vermelho.org.br/2010/11/24/dilma-dispensa-meirelles-e-anuncia-tombini-para-a-chefia-do-bc/
 2010,2011-01-19,banco_central,"Copom eleva a Selic para 11,25% na primeira reunião do governo Dilma",https://pt.wikipedia.org/wiki/Governo_Dilma_Rousseff
-2010,2011-02-09,fiscal,Governo anuncia corte de R$ 50 bilhões no Orçamento de 2011,https://pt.wikipedia.org/wiki/Governo_Dilma_Rousseff
+2010,2011-02-09,fiscal,Governo anuncia corte de R$ 50 bilhões no Orçamento de 2011,https://www.congressoemfoco.com.br/noticia/82164/governo-anuncia-corte-de-r-50-bilhoes-no-orcamento
 2010,2011-08-31,banco_central,"Copom corta a Selic de 12,50% para 12% ao ano, contra a expectativa de manutenção do mercado",https://www.baguete.com.br/noticias/corte-no-juro-estimula-reacao-na-bovespa
 2014,2014-08-27,campanha,Aécio promete independência operacional ao Banco Central e Armínio Fraga na Fazenda,"https://www.em.com.br/app/noticia/politica/2014/08/27/interna_politica,562970/bc-tera-independencia-operacional-promete-aecio.shtml"
 2014,2014-10-05,politico,"Dilma lidera o 1º turno, com 41,59% dos votos válidos, e vai ao 2º turno contra Aécio",https://pt.wikipedia.org/wiki/Elei%C3%A7%C3%A3o_presidencial_no_Brasil_em_2014
@@ -65,8 +65,8 @@ ano,data,tipo,descricao,fonte
 2022,2022-10-30,politico,"Lula é eleito no 2º turno, com 50,90% dos votos válidos",https://pt.wikipedia.org/wiki/Elei%C3%A7%C3%A3o_presidencial_no_Brasil_em_2022
 2022,2022-11-10,fiscal,"Em discurso no CCBB, Lula questiona a estabilidade fiscal e o teto de gastos",https://www.bloomberglinea.com.br/2022/11/10/dolar-dispara-apos-lula-questionar-a-estabilidade-fiscal-e-o-teto-de-gastos/
 2022,2022-11-16,fiscal,Geraldo Alckmin entrega ao Senado a minuta da PEC da Transição,https://pt.wikipedia.org/wiki/Terceiro_governo_Lula
-2022,2022-12-01,equipe_economica,Lula confirma Fernando Haddad como futuro ministro da Fazenda,https://pt.wikipedia.org/wiki/Terceiro_governo_Lula
-2022,2022-12-09,equipe_economica,Lula anuncia oficialmente Fernando Haddad no Ministério da Fazenda,https://www.agazeta.com.br/economia/dolar-fecha-em-leve-alta-apos-lula-confirmar-haddad-na-fazenda-1222
+2022,2022-12-01,equipe_economica,"Segundo o Valor Econômico, Lula confirma a interlocutores, em jantar em Brasília, que Fernando Haddad será o ministro da Fazenda (informação não oficial)",https://www.moneytimes.com.br/lula-confirma-haddad-como-ministro-da-fazenda-a-interlocutores-diz-jornal/
+2022,2022-12-09,equipe_economica,"Lula anuncia oficialmente Fernando Haddad como ministro da Fazenda, junto com outros quatro ministros",https://www.bloomberglinea.com.br/2022/12/09/lula-anuncia-haddad-na-fazenda-e-outros-ministros-do-novo-governo/
 2022,2022-12-21,fiscal,"Promulgada a PEC da Transição (EC 126), que tira R$ 145 bilhões do teto de gastos em 2023",https://pt.wikipedia.org/wiki/Terceiro_governo_Lula
 2022,2023-01-08,politico,Apoiadores de Bolsonaro invadem e depredam as sedes dos Três Poderes em Brasília,https://pt.wikipedia.org/wiki/Terceiro_governo_Lula
 2022,2023-03-30,fiscal,Haddad e Tebet apresentam o novo arcabouço fiscal para substituir o teto de gastos,https://pt.wikipedia.org/wiki/Novo_arcabou%C3%A7o_fiscal
@@ -85,5 +85,6 @@ ano,data,tipo,descricao,fonte
 2026,2026-10-25,politico,"Lula é reeleito no 2º turno, com 51,79% dos votos válidos contra 48,21% de Flávio Bolsonaro",https://pt.wikipedia.org/wiki/Elei%C3%A7%C3%A3o_presidencial_no_Brasil_em_2026
 2026,2026-10-25,politico,Flávio Bolsonaro diz que não reconhece o resultado e que pedirá a anulação do 2º turno por causa da prorrogação da votação até as 19h,https://www.infomoney.com.br/politica/flavio-nao-reconhece-resultado-da-eleicao-e-diz-que-pedira-anulacao-ao-tse/
 2026,2026-10-26,politico,O PL reconhece o resultado proclamado pelo TSE e Flávio passa a falar em pedir a cassação da chapa Lula-Alckmin,https://www.infomoney.com.br/politica/partido-de-flavio-bolsonaro-reconhece-vitoria-eleitoral-de-lula/
+2026,2026-10-26,politico,"Segundo a Gazeta do Povo, Flávio Bolsonaro decide não pedir mais a anulação do 2º turno e anuncia que pedirá a cassação da chapa Lula-Alckmin; o InfoMoney, no mesmo dia, diz que o texto não esclarece se o pedido de anulação foi retirado",https://www.gazetadopovo.com.br/republica/flavio-desiste-anular-eleicao-pedira-cassacao-chapa-lula/
 2026,2026-10-26,fiscal,"Durigan diz que o governo mudará a lei ou buscará uma PEC para perseguir o centro da meta fiscal, com pacote de ao menos R$ 39,8 bilhões",https://timesbrasil.com.br/brasil/economia-brasileira/lula-ajuste-fiscal-durigan-orcamento-2027-o-que-falta-esclarecer/
 2026,2026-10-27,equipe_economica,Durigan diz que a equipe do novo mandato não está definida e cita Rafael Fonteles como 'excelente nome' para a Fazenda,https://www.poder360.com.br/poder-economia/rafael-fonteles-e-excelente-nome-para-ministro-da-fazenda-diz-durigan/
