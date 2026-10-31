@@ -17,6 +17,7 @@ def _linha(ticker, especi, codbdi="02", data="2010-05-03", isin="", volume=1000.
         "fechamento": 10.0,
         "volume": volume,
         "negocios": 5,
+        "fatcot": 1,
     }
 
 

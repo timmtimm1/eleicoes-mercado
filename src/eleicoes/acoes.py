@@ -42,6 +42,7 @@ COLUNAS = [
     "fechamento",
     "volume",
     "negocios",
+    "fatcot",
 ]
 
 CODBDI_ACAO = frozenset({"02", "05", "06", "07", "08", "09"})
@@ -93,7 +94,8 @@ def ticker_no_formato_novo(ticker: pd.Series, raiz: pd.Series, isin: pd.Series) 
 def ler_precos(inicio: date, fim: date) -> pd.DataFrame:
     """Ações negociadas de `inicio` a `fim` (inclusive), uma linha por papel e dia.
 
-    Colunas: data, ticker, raiz, nomres, especi, codbdi, fechamento, volume, negocios.
+    Colunas: data, ticker, raiz, nomres, especi, codbdi, fechamento, volume, negocios, fatcot
+    (o fator de cotação dá o menor degrau de preço: 0,01 / fatcot).
     O volume é financeiro, na moeda da época (ver docstring do módulo). Lê só os Parquets dos
     anos que a janela toca, e só as colunas de que precisa.
     """
@@ -114,6 +116,7 @@ def ler_precos(inicio: date, fim: date) -> pd.DataFrame:
                 "fechamento",
                 "volume",
                 "negocios",
+                "fatcot",
             ],
         )
         quadro["data"] = pd.to_datetime(quadro["data"])
