@@ -24,7 +24,7 @@ Vitrine pública. **Não é recomendação de investimento.**
 | Eleições | Presidenciais de **1994 a 2026** (9 eleições; 1994 e 1998 sem 2º turno) |
 | Ativos | Ibovespa e dólar sempre + **juros**, **risco-país**, **estatais × privadas**, **setores** |
 | Efeito do mundo | **Os dois lado a lado**: variação bruta e variação "só Brasil" (descontado o exterior) |
-| Explicação | **Surpresa**: últimas pesquisas antes de cada turno × resultado oficial do TSE |
+| Explicação | **Surpresa**: últimas pesquisas antes de cada turno × resultado oficial do TSE (Datafolha, Ibope/Ipec, Quaest e AtlasIntel na média) |
 | Janelas | **Curtas + longas** (ver abaixo) |
 | Projeção | **Cenários + histórico**: pessimista, base e otimista com gatilhos concretos; faixas tiradas das eleições passadas |
 | Chances | **Sem %**: cada cenário é "se X, então faixa Y". Eu proponho, ele aprova |
@@ -97,8 +97,9 @@ dividendos, nos dois lados (comparação justa).
 varejo e consumo, construção e imóveis. As ações mais negociadas de cada setor
 nos 12 meses antes da eleição. Tabela de classificação à mão em `dados/`.
 
-**Surpresa**: média das últimas pesquisas (Datafolha, Ibope/Ipec, Quaest quando
-houver) antes de cada turno, em votos válidos, contra o resultado do TSE.
+**Surpresa**: média das últimas pesquisas (Datafolha, Ibope/Ipec, e Quaest e
+AtlasIntel quando houver) antes de cada turno, em votos válidos, contra o
+resultado do TSE. A AtlasIntel entrou na média por decisão dele em 31/10/2026.
 
 ## Propostas (qualitativo)
 
