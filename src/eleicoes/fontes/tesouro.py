@@ -1,5 +1,7 @@
 """Taxas do Tesouro Direto (Tesouro Transparente), desde 31/12/2004."""
 
+from pathlib import Path
+
 import pandas as pd
 
 from eleicoes.baixar import baixar
@@ -18,7 +20,7 @@ def _tabela(atualizar: bool) -> pd.DataFrame:
     return ler(caminho)
 
 
-def ler(caminho) -> pd.DataFrame:
+def ler(caminho: Path) -> pd.DataFrame:
     """Lê o CSV do Tesouro: data, título, vencimento e a taxa de compra da manhã."""
     bruto = pd.read_csv(caminho, sep=";", decimal=",", encoding="utf-8-sig")
     tabela = pd.DataFrame(
@@ -29,7 +31,9 @@ def ler(caminho) -> pd.DataFrame:
             "taxa": pd.to_numeric(bruto["Taxa Compra Manha"], errors="coerce"),
         }
     )
-    return tabela.dropna(subset=["taxa"])
+    # Taxa 0,00 aparece quando o título ainda não está à venda (o NTN-F 2021 no começo de
+    # 2010): não é taxa de mercado.
+    return tabela[tabela["taxa"] > 0]
 
 
 def mais_proximo_de(tabela: pd.DataFrame, titulo: str, anos: float) -> pd.DataFrame:

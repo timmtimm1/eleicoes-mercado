@@ -14,8 +14,11 @@ from eleicoes import caminhos
 from eleicoes.fontes import bcb, ipeadata, msci, tesouro, yahoo
 
 PRIMEIRO_DIA = date(1993, 1, 1)
-# Até 30/06/1994 o BCB dá o dólar em cruzeiros reais; no Real, CR$ 2.750 viraram R$ 1.
+# O BCB dá o dólar na moeda de cada época: cruzeiros até 31/07/1993 (Cr$ 1.000 viraram
+# CR$ 1) e cruzeiros reais até 30/06/1994 (CR$ 2.750 viraram R$ 1, a paridade da URV).
+INICIO_DO_CRUZEIRO_REAL = pd.Timestamp("1993-08-01")
 INICIO_DO_REAL = pd.Timestamp("1994-07-01")
+CRUZEIROS_POR_CRUZEIRO_REAL = 1000
 CRUZEIROS_REAIS_POR_REAL = 2750
 CASAS_DECIMAIS = 6
 COLUNAS_CATALOGO = [
@@ -98,11 +101,26 @@ def _tesouro(nome, codigo, descricao, unidade, coluna, funcao):
 
 
 def em_reais(serie: pd.Series) -> pd.Series:
-    """Passa o dólar de antes do Real para a escala do Real, sem salto em 01/07/1994."""
+    """Passa o dólar de antes do Real para a escala do Real, sem degrau na troca de moeda."""
     convertida = serie.copy()
-    antes = convertida.index < INICIO_DO_REAL
-    convertida[antes] = convertida[antes] / CRUZEIROS_REAIS_POR_REAL
+    antes_do_real = convertida.index < INICIO_DO_REAL
+    convertida[antes_do_real] = convertida[antes_do_real] / CRUZEIROS_REAIS_POR_REAL
+    antes_do_cruzeiro_real = convertida.index < INICIO_DO_CRUZEIRO_REAL
+    convertida[antes_do_cruzeiro_real] = (
+        convertida[antes_do_cruzeiro_real] / CRUZEIROS_POR_CRUZEIRO_REAL
+    )
     return convertida
+
+
+def no_fim_do_mes(serie: pd.Series) -> pd.Series:
+    """Série mensal do Ipeadata (data no dia 1º) com a data no último dia do mês.
+
+    O Ipeadata data o valor de fim de outubro como 01/10. Deixado assim, uma janela que
+    começa em 4 de outubro já enxergaria o fechamento do mês inteiro.
+    """
+    movida = serie.copy()
+    movida.index = movida.index + pd.offsets.MonthEnd(0)
+    return movida
 
 
 def definicoes() -> list[Definicao]:
@@ -114,7 +132,7 @@ def definicoes() -> list[Definicao]:
         _ipeadata("ibov_ipea", "GM366_IBVSP366", "Ibovespa, fechamento (Ipeadata)", "pontos"),
         Definicao(
             "dolar",
-            "Dólar comercial, venda (antes de 01/07/1994, cruzeiros reais ÷ 2.750)",
+            "Dólar comercial, venda (antes do Real convertido: Cr$ ÷ 2.750.000, CR$ ÷ 2.750)",
             "R$ por US$",
             "BCB SGS",
             "1",
@@ -128,11 +146,14 @@ def definicoes() -> list[Definicao]:
             "EMBI+ Risco-Brasil (encerrado em jul/2024)",
             "pontos-base",
         ),
-        _ipeadata(
+        Definicao(
             "swap360_mensal",
-            "BMF12_SWAPDI360F12",
-            "Swap DI × pré 360 dias, fim de mês (mensal)",
+            "Swap DI × pré 360 dias, fim de mês (mensal; data no último dia do mês)",
             "% a.a.",
+            "Ipeadata",
+            "BMF12_SWAPDI360F12",
+            URL_IPEADATA.format(codigo="BMF12_SWAPDI360F12"),
+            lambda atualizar: no_fim_do_mes(ipeadata.serie("BMF12_SWAPDI360F12", atualizar)),
         ),
         _tesouro(
             "prefixado_10a", "NTN-F ~10 anos", dez_anos, "% a.a.", "taxa", tesouro.prefixado_10a
