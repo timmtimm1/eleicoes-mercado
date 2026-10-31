@@ -4,6 +4,7 @@ import pandas as pd
 
 from eleicoes import liquidez
 from eleicoes.calendario import Eleicao, Turno
+from eleicoes.empresas import Empresa
 
 PREGOES = pd.bdate_range("1994-01-03", "2010-12-31")
 
@@ -106,3 +107,48 @@ def test_calcular_liquidez_usa_o_periodo_de_cada_eleicao_e_ordena():
         (2010, 1, "BBBB"),
         (2010, 2, "AAAA"),
     ]
+
+
+def test_ranking_soma_as_raizes_da_mesma_empresa():
+    precos = _precos(
+        [
+            ("2010-01-04", "AMBV", "AMBV4", 300.0),
+            ("2010-01-05", "ABEV", "ABEV3", 500.0),
+            ("2010-01-05", "OUTR", "OUTR3", 600.0),
+        ]
+    )
+    sem = liquidez.ranking(precos, 2010)
+    assert list(sem["raiz"]) == ["OUTR", "ABEV", "AMBV"]
+    com = liquidez.ranking(precos, 2010, familias={"AMBV": "ABEV", "ABEV": "ABEV"})
+    assert list(com["raiz"]) == ["ABEV", "OUTR"]
+    ambev = com.iloc[0]
+    assert ambev["ticker"] == "ABEV3"
+    assert ambev["raizes_somadas"] == "ABEV;AMBV"
+    assert ambev["volume_milhoes"] == 800.0 / 1e6
+    assert ambev["pregoes_com_negocio"] == 2
+
+
+def test_classificacao_pela_raiz_do_representante_e_sem_classificacao():
+    eleicao = _eleicao(2010, date(2010, 10, 3))
+    empresas = {
+        "AAAA": Empresa("AAAA", "Alfa", "bancos", "", "estatal", "União", date(2012, 1, 1)),
+        "BBBB": Empresa("BBBB", "Beta", "petroleo", "", "estatal", "União", date(2005, 1, 1)),
+    }
+    precos = _precos(
+        [
+            ("2010-01-04", "AAAA", "AAAA3", 4.0),
+            ("2010-01-04", "BBBB", "BBBB3", 3.0),
+            ("2010-01-04", "CCCC", "CCCC3", 2.0),
+            ("2010-01-04", "DDDD", "DDDD3", 1.0),
+        ]
+    )
+    tabela = liquidez.classificar(
+        liquidez.ranking(precos, 2010), eleicao, empresas, {(2010, "DDDD")}
+    ).set_index("raiz")
+    # Privatizada em 2012: ainda estatal no 1º turno de 2010. Privatizada em 2005: já não era.
+    assert tabela.loc["AAAA", "estatal"]
+    assert not tabela.loc["BBBB", "estatal"]
+    assert tabela.loc["CCCC", "setor"] == "sem_classificacao"
+    assert tabela.loc["CCCC", "empresa"] == "CCCC SA"
+    assert tabela.loc["DDDD", "excluida"]
+    assert not tabela.loc["AAAA", "excluida"]
