@@ -1,0 +1,543 @@
+# Propostas econômicas dos dois principais candidatos de cada eleição (1994-2026) e o que o vencedor fez no
+# primeiro ano e meio de governo. Texto neutro e factual; toda afirmação tem fonte. 'sem fonte encontrada' = não achei.
+# Temas: fiscal, privatizacoes, estatais, banco_central, reformas, cambio_comercio.
+# 2026: sem 'realizado' (governo ainda não começou); no lugar, 'sinais_pos_eleicao' (25-31/10/2026) e 'contestacao'.
+# Pesquisa feita em 31/10/2026.
+- ano: 1994
+  candidatos:
+  - nome: FHC
+    fiscal:
+      texto: A proposta 'Mãos à obra, Brasil' prevê controle da inflação e do déficit público e uma reforma tributária para simplificar tributos; diz que a carga tributária (25% do PIB) deixa pouca margem para aumentar a receita.
+      fonte: https://static.scielo.org/scielobooks/b27wf/pdf/cardoso-9788599662663.pdf
+    privatizacoes:
+      texto: O processo de privatização 'será acelerado', com receita estimada em R$ 15 bilhões em quatro anos para infraestrutura; o Estado mantém papel em áreas estratégicas, com contratos de gestão.
+      fonte: https://static.scielo.org/scielobooks/b27wf/pdf/cardoso-9788599662663.pdf
+    estatais:
+      texto: Propõe emenda constitucional para flexibilizar o monopólio estatal das telecomunicações e incentivar a parceria entre o setor privado e a Petrobras na exploração e produção de petróleo.
+      fonte: https://static.scielo.org/scielobooks/b27wf/pdf/cardoso-9788599662663.pdf
+    banco_central:
+      texto: A proposta trata a estabilização como continuidade do Plano Real e não discute autonomia do Banco Central.
+      fonte: https://static.scielo.org/scielobooks/b27wf/pdf/cardoso-9788599662663.pdf
+    reformas:
+      texto: Reforma da Previdência que unifica regras, mantém a aposentadoria por tempo de serviço com critérios de renda e idade, e cria planos complementares por capitalização; reforma tributária; emendas para desonerar exportações.
+      fonte: https://static.scielo.org/scielobooks/b27wf/pdf/cardoso-9788599662663.pdf
+    cambio_comercio:
+      texto: Propõe emendas para desonerar as exportações e insumos de tributos em cascata e consolidar a tarifa externa comum do Mercosul.
+      fonte: https://static.scielo.org/scielobooks/b27wf/pdf/cardoso-9788599662663.pdf
+  - nome: Lula
+    fiscal:
+      texto: 'Sem fonte encontrada sobre o programa ''Lula Presidente: uma revolução democrática no Brasil''.'
+      fonte: ''
+    privatizacoes:
+      texto: Documento do PT de 1993 lista a revogação das privatizações entre as reivindicações; o texto do programa de 1994 não pôde ser conferido.
+      fonte: https://siac.fpabramo.org.br/uploads/acervo/PTDN-DP_1993_0009-0003.pdf
+    estatais:
+      texto: Sem fonte encontrada.
+      fonte: ''
+    banco_central:
+      texto: Lula tratou o Plano Real como possível mecanismo publicitário e arma eleitoral e o PT não o apoiou.
+      fonte: https://pt.wikipedia.org/wiki/Elei%C3%A7%C3%A3o_presidencial_no_Brasil_em_1994
+    reformas:
+      texto: Sem fonte encontrada.
+      fonte: ''
+    cambio_comercio:
+      texto: O encontro do PT que aprovou as bases do programa de 1994 decidiu questionar os acordos da dívida externa e suspender pagamentos se os credores fossem intransigentes.
+      fonte: https://www.congressoemfoco.com.br/noticia/2391/adeus-ao-calote
+  realizado:
+    fiscal:
+      texto: O Fundo Social de Emergência, criado em 1994, foi prorrogado como Fundo de Estabilização Fiscal (Emenda Constitucional 10, de 04/03/1996).
+      fonte: https://www.planalto.gov.br/ccivil_03/constituicao/emendas/emc/emc10.htm
+    privatizacoes:
+      texto: Sem fonte encontrada com datas confirmadas das primeiras privatizações do período (as maiores, como a Vale, vieram depois).
+      fonte: ''
+    estatais:
+      texto: A Emenda Constitucional 9 (09/11/1995) alterou o art. 177 da Constituição e flexibilizou o monopólio estatal do petróleo.
+      fonte: https://www.planalto.gov.br/ccivil_03/constituicao/emendas/emc/emc09.htm
+    banco_central:
+      texto: Em novembro de 1995 foi criado o Proer, programa de apoio à reestruturação do sistema financeiro; o BC adotou a banda cambial em março de 1995.
+      fonte: https://pt.wikipedia.org/wiki/Proer
+    reformas:
+      texto: A PEC da Previdência, enviada em 1995, só virou lei com a Emenda Constitucional 20 (15/12/1998); a reforma administrativa virou a EC 19 em 04/06/1998.
+      fonte: https://www.planalto.gov.br/ccivil_03/constituicao/emendas/emc/emc20.htm
+    cambio_comercio:
+      texto: A partir de março de 1995 o Banco Central adotou a banda cambial, que durou até janeiro de 1999, com desvalorização gradual do real.
+      fonte: https://pt.wikipedia.org/wiki/Banda_cambial
+- ano: 1998
+  candidatos:
+  - nome: FHC
+    fiscal:
+      texto: O programa 'Avança Brasil' propõe manter estável a dívida pública em relação ao PIB, com superávits primários nos três níveis de governo, simplificar o sistema tributário e reduzir o peso dos impostos sobre produção, investimento e exportação.
+      fonte: https://static.scielo.org/scielobooks/62rp6/pdf/cardoso-9788599662687.pdf
+    privatizacoes:
+      texto: Dar continuidade ao programa de privatização e usar os recursos para melhorar a situação patrimonial do setor público.
+      fonte: https://static.scielo.org/scielobooks/62rp6/pdf/cardoso-9788599662687.pdf
+    estatais:
+      texto: Reorientar as instituições financeiras federais para áreas produtivas e sociais e fortalecer o Estado como regulador. Sem fonte encontrada sobre a Petrobras.
+      fonte: https://static.scielo.org/scielobooks/62rp6/pdf/cardoso-9788599662687.pdf
+    banco_central:
+      texto: Reduzir gradualmente as taxas de juros por meio do ajuste fiscal. O programa não trata de autonomia do Banco Central.
+      fonte: https://static.scielo.org/scielobooks/62rp6/pdf/cardoso-9788599662687.pdf
+    reformas:
+      texto: Completar e implementar a reforma da Previdência votada pelo Congresso, regulamentar a reforma administrativa e fazer uma reforma tributária que racionalize o sistema.
+      fonte: https://static.scielo.org/scielobooks/62rp6/pdf/cardoso-9788599662687.pdf
+    cambio_comercio:
+      texto: Duplicar as exportações até 2002 'não pela via enganadoramente fácil da desvalorização cambial', mas pela redução do 'custo Brasil'; consolidar o Mercosul e defender os interesses do bloco nas negociações da Alca.
+      fonte: https://static.scielo.org/scielobooks/62rp6/pdf/cardoso-9788599662687.pdf
+  - nome: Lula
+    fiscal:
+      texto: Os textos do PT para o programa de 1998 propõem reformar a Previdência para uma previdência pública universal sem privilégios e simplificar e reduzir impostos sobre a produção.
+      fonte: https://siac.fpabramo.org.br/uploads/acervo/J_PT_NOTICIAS_1997_ee_programa_democratico_popular.pdf
+    privatizacoes:
+      texto: Os textos criticam as privatizações de empresas estratégicas e propõem interromper o programa e rever os processos caso a caso.
+      fonte: https://siac.fpabramo.org.br/uploads/acervo/J_PT_NOTICIAS_1997_ee_programa_democratico_popular.pdf
+    estatais:
+      texto: Propõe um Estado 'desprivatizado, democratizado e fortalecido'. Sem fonte encontrada sobre a Petrobras.
+      fonte: https://siac.fpabramo.org.br/uploads/acervo/J_PT_NOTICIAS_1997_ee_programa_democratico_popular.pdf
+    banco_central:
+      texto: Critica a política de juros em patamar elevado para atrair capitais e propõe reduzi-la. Sem fonte encontrada sobre autonomia do BC.
+      fonte: https://siac.fpabramo.org.br/uploads/acervo/J_PT_NOTICIAS_1997_ee_programa_democratico_popular.pdf
+    reformas:
+      texto: Previdência pública universal, sem privilégios; reforma tributária para simplificar e reduzir impostos.
+      fonte: https://siac.fpabramo.org.br/uploads/acervo/J_PT_NOTICIAS_1997_ee_programa_democratico_popular.pdf
+    cambio_comercio:
+      texto: Renegociar a dívida externa e rever a abertura comercial feita 'sem salvaguardas', em consonância com o Mercosul.
+      fonte: https://siac.fpabramo.org.br/uploads/acervo/J_PT_NOTICIAS_1997_ee_programa_democratico_popular.pdf
+  realizado:
+    fiscal:
+      texto: Em novembro de 1998 o governo fechou um pacote de apoio financeiro externo de US$ 41,5 bilhões (FMI, Banco Mundial, BID e países do G-10). Sem fonte encontrada sobre as metas de superávit primário do período.
+      fonte: https://web.bndes.gov.br/bib/jspui/bitstream/1408/13286/1/SINOPSE%20ECONOMICA%2c%20n.%2070%2c%20nov.%201998_P_BD.PDF
+    privatizacoes:
+      texto: Sem fonte encontrada sobre privatizações do período.
+      fonte: ''
+    estatais:
+      texto: Sem fonte encontrada sobre a Petrobras no período.
+      fonte: ''
+    banco_central:
+      texto: Em 13/01/1999 Gustavo Franco deixou o BC; em 15/01 o BC deixou o câmbio flutuar e em 02/02 Arminio Fraga assumiu. A Selic subiu a até 45% em março de 1999 e caiu a 19% em dezembro de 1999.
+      fonte: https://pt.wikipedia.org/wiki/Desvaloriza%C3%A7%C3%A3o_do_real_em_1999
+    reformas:
+      texto: Em 26/11/1999 a Lei 9.876 mudou o cálculo dos benefícios do INSS (fator previdenciário). A reforma da Previdência (EC 20) é de 15/12/1998, antes da posse.
+      fonte: https://www.planalto.gov.br/ccivil_03/leis/l9876.htm
+    cambio_comercio:
+      texto: O Banco Central abandonou a banda cambial em janeiro de 1999 e adotou o câmbio flutuante; o dólar chegou a R$ 2,16 em 03/03/1999.
+      fonte: https://pt.wikipedia.org/wiki/Desvaloriza%C3%A7%C3%A3o_do_real_em_1999
+- ano: 2002
+  candidatos:
+  - nome: Lula
+    fiscal:
+      texto: O programa do PT, segundo o InfoMoney (31/07/2002), mantém a austeridade fiscal, com compromisso de superávit primário e de estabilizar a dívida em relação ao PIB, e propõe flexibilizar a Lei de Responsabilidade Fiscal com parâmetros sociais.
+      fonte: https://www.infomoney.com.br/?p=81340
+    privatizacoes:
+      texto: O programa critica as privatizações, que chama de transferência de patrimônio público a grupos privados, e propõe auditá-las.
+      fonte: https://www.infomoney.com.br/?p=81340
+    estatais:
+      texto: Defende mais intervenção do Estado, por duvidar que o mercado organize sozinho o investimento necessário; o resumo não cita a Petrobras.
+      fonte: https://www.infomoney.com.br/?p=81340
+    banco_central:
+      texto: Diz que o superávit fiscal e a estabilização da dívida são condições para reformas que reduzam os juros; o resumo não trata de autonomia do BC nem de metas de inflação.
+      fonte: https://www.infomoney.com.br/?p=81340
+    reformas:
+      texto: Reforma tributária primeiro (fim da cumulatividade de PIS, Cofins e CPMF, ICMS tipo IVA, desoneração de exportações e investimento); Previdência com sistema universal até um teto e planos complementares acima dele; reforma trabalhista negociada.
+      fonte: https://www.infomoney.com.br/?p=81340
+    cambio_comercio:
+      texto: Apoio estatal às exportações, restrições ao capital especulativo, congelar a negociação da Alca nas condições atuais e fortalecer o Mercosul. O resumo também registra que o texto propunha 'denunciar' o acordo com o FMI.
+      fonte: https://www.infomoney.com.br/?p=81340
+  - nome: José Serra
+    fiscal:
+      texto: O programa de agosto de 2002 promete cumprir a Lei de Responsabilidade Fiscal e gerar superávits primários para controlar a dívida pública, reduzindo a relação dívida/PIB ao longo do tempo.
+      fonte: https://www.slideshare.net/slideshow/jose-serra-programa-presidencia-2002/3318274
+    privatizacoes:
+      texto: 'Sem fonte encontrada: no trecho que li o programa só cita a privatização das telecomunicações como fato passado.'
+      fonte: https://www.slideshare.net/slideshow/jose-serra-programa-presidencia-2002/3318274
+    estatais:
+      texto: O texto cita o 'monopólio de fato' da Petrobras na oferta de derivados e diz que os preços devem ser monitorados pela ANP enquanto durar essa situação.
+      fonte: https://www.slideshare.net/slideshow/jose-serra-programa-presidencia-2002/3318274
+    banco_central:
+      texto: Mantém o 'tripé' (câmbio flutuante, metas de inflação e disciplina fiscal) e projeta juros reais de 6% a 7% até meados da década.
+      fonte: https://www.slideshare.net/slideshow/jose-serra-programa-presidencia-2002/3318274
+    reformas:
+      texto: Eliminar a cumulatividade de COFINS, PIS e CPMF; manter direitos trabalhistas básicos em lei e ampliar a liberdade de negociação e a autonomia sindical. Sem fonte encontrada sobre Previdência.
+      fonte: https://www.slideshare.net/slideshow/jose-serra-programa-presidencia-2002/3318274
+    cambio_comercio:
+      texto: Câmbio de livre flutuação; política de comércio exterior e industrial 'ativa' e consolidação do Mercosul como zona de livre comércio.
+      fonte: https://www.slideshare.net/slideshow/jose-serra-programa-presidencia-2002/3318274
+  realizado:
+    fiscal:
+      texto: A meta de superávit primário de 2003 subiu de 3,75% para 4,25% do PIB, acima da fixada no acordo com o FMI.
+      fonte: https://portal.sescsp.org.br/online/artigo/compartilhar/1866_TRANSICAO+CONSISTENTE
+    privatizacoes:
+      texto: Sem fonte encontrada sobre privatizações ou reversões no período.
+      fonte: ''
+    estatais:
+      texto: Sem fonte encontrada sobre Petrobras ou outras estatais no período.
+      fonte: ''
+    banco_central:
+      texto: Henrique Meirelles, eleito deputado federal pelo PSDB de Goiás, foi nomeado presidente do BC, o que a Wikipédia descreve como sinal ao mercado de que não haveria mudanças bruscas. A Selic estava em 25% na posse.
+      fonte: https://pt.wikipedia.org/wiki/Primeiro_governo_Lula
+    reformas:
+      texto: A reforma da Previdência dos servidores foi promulgada em 19/12/2003 (Emenda Constitucional 41).
+      fonte: https://www.planalto.gov.br/ccivil_03/constituicao/emendas/emc/emc41.htm
+    cambio_comercio:
+      texto: O regime de câmbio flutuante e a política econômica do governo anterior foram mantidos, segundo a Wikipédia.
+      fonte: https://pt.wikipedia.org/wiki/Primeiro_governo_Lula
+- ano: 2006
+  candidatos:
+  - nome: Lula
+    fiscal:
+      texto: O programa foi lançado em 29/08/2006, em São Paulo, com o crescimento econômico como eixo; a imprensa registrou que a base econômica vinha de estudo do Conselho de Desenvolvimento Econômico e Social (CDES). Sem fonte encontrada sobre meta fiscal.
+      fonte: https://www.congressoemfoco.com.br/noticia/89037/programa-de-lula-destaca-crescimento-economico
+    privatizacoes:
+      texto: Sem fonte encontrada no programa. Na campanha, Lula acusou Alckmin de planejar privatizações, inclusive da Petrobras.
+      fonte: https://www.congressoemfoco.com.br/noticia/88608/alckmin-nega-que-fara-privatizacoes
+    estatais:
+      texto: Sem fonte encontrada.
+      fonte: ''
+    banco_central:
+      texto: Sem fonte encontrada.
+      fonte: ''
+    reformas:
+      texto: O programa não cita a reforma trabalhista, que constava das propostas do CDES; sem fonte encontrada sobre os demais temas.
+      fonte: https://www.congressoemfoco.com.br/noticia/89037/programa-de-lula-destaca-crescimento-economico
+    cambio_comercio:
+      texto: Sem fonte encontrada.
+      fonte: ''
+  - nome: Geraldo Alckmin
+    fiscal:
+      texto: Sem fonte encontrada sobre o programa; a imprensa registrou promessas de baixar impostos e juros.
+      fonte: ''
+    privatizacoes:
+      texto: Negou que fosse privatizar a Petrobras e outras estatais durante a campanha, depois de ter dito que 'privatização, se bem feita, pode ocorrer'.
+      fonte: https://www.congressoemfoco.com.br/noticia/88608/alckmin-nega-que-fara-privatizacoes
+    estatais:
+      texto: Negou que fosse privatizar a Petrobras (ver privatizações).
+      fonte: https://www.congressoemfoco.com.br/noticia/88608/alckmin-nega-que-fara-privatizacoes
+    banco_central:
+      texto: Sem fonte encontrada.
+      fonte: ''
+    reformas:
+      texto: Sem fonte encontrada.
+      fonte: ''
+    cambio_comercio:
+      texto: Sem fonte encontrada.
+      fonte: ''
+  realizado:
+    fiscal:
+      texto: Em 22/01/2007 foi lançado o Programa de Aceleração do Crescimento (PAC), conjunto de medidas para acelerar o crescimento com obras de infraestrutura.
+      fonte: https://pt.wikipedia.org/wiki/Primeiro_governo_Lula
+    privatizacoes:
+      texto: Em 09/10/2007 o governo leiloou à iniciativa privada cerca de 2,6 mil km de rodovias federais (concessão por 25 anos; o grupo OHL venceu).
+      fonte: https://pt.wikipedia.org/wiki/Primeiro_governo_Lula
+    estatais:
+      texto: Sem fonte encontrada sobre a Petrobras no período.
+      fonte: ''
+    banco_central:
+      texto: Henrique Meirelles permaneceu na presidência do BC. Sem fonte encontrada sobre a trajetória da Selic no período além do histórico oficial.
+      fonte: https://www.bcb.gov.br/controleinflacao/historicotaxasjuros
+    reformas:
+      texto: Sem fonte encontrada sobre reformas no período.
+      fonte: ''
+    cambio_comercio:
+      texto: O governo ampliou relações comerciais com China, Índia, Rússia e África do Sul e priorizou o Mercosul.
+      fonte: https://pt.wikipedia.org/wiki/Primeiro_governo_Lula
+- ano: 2010
+  candidatos:
+  - nome: Dilma
+    fiscal:
+      texto: O compromisso registrado no TSE prioriza uma reforma tributária que simplifique tributos, desonere a folha de salários e acabe com a tributação sobre o investimento. Sem fonte encontrada sobre meta fiscal.
+      fonte: https://www.conjur.com.br/wp-content/uploads/2023/09/propostas-dilma-atualizado.pdf
+    privatizacoes:
+      texto: No 2º turno, Dilma chamou Serra de 'privatista' e Serra negou, prometendo fortalecer as estatais.
+      fonte: https://www.gazetadopovo.com.br/vida-publica/eleicoes/2010/serra-promete-fortalecer-estatais-e-dilma-chama-tucano-de-privatista-17wcnhqe0z0a0wps1cxmgauz2/
+    estatais:
+      texto: O compromisso prevê a exploração do pré-sal e a criação, a partir dele, de uma indústria de fornecimento de bens e serviços para o setor.
+      fonte: https://www.conjur.com.br/wp-content/uploads/2023/09/propostas-dilma-atualizado.pdf
+    banco_central:
+      texto: Dilma defendeu publicamente a atuação do Banco Central ao rebater críticas de Serra. Sem fonte encontrada sobre autonomia no programa.
+      fonte: https://www.dgabc.com.br/Noticia/247131/dilma-rebate-criticas-de-serra-ao-bc
+    reformas:
+      texto: Reforma tributária como prioridade (ICMS com legislação nacional única); no campo previdenciário, 'reforço da previdência pública' e inclusão previdenciária.
+      fonte: https://www.conjur.com.br/wp-content/uploads/2023/09/propostas-dilma-atualizado.pdf
+    cambio_comercio:
+      texto: Sem fonte encontrada para a política cambial no programa. O texto cita a ampliação de portos e aeroportos para atender às exportações.
+      fonte: https://www.conjur.com.br/wp-content/uploads/2023/09/propostas-dilma-atualizado.pdf
+  - nome: José Serra
+    fiscal:
+      texto: O programa propõe cortar despesas desnecessárias, regulamentar a Lei de Responsabilidade Fiscal, criar um conselho de gestão fiscal e fixar limites para a dívida federal.
+      fonte: https://www.psdb.org.br/acompanhe/programa-de-governo-do-candidato-jose-serra/
+    privatizacoes:
+      texto: Diz que 'o PSDB e seus aliados políticos não são privatistas nem estatizantes' e defende um Estado que planeja e induz a produção. Na campanha, prometeu fortalecer as estatais.
+      fonte: https://www.psdb.org.br/acompanhe/programa-de-governo-do-candidato-jose-serra/
+    estatais:
+      texto: O resumo do programa não discute a Petrobras. Na campanha, Dilma o acusou de querer privatizar o pré-sal e ele negou.
+      fonte: https://www.gazetadopovo.com.br/vida-publica/eleicoes/2010/serra-promete-fortalecer-estatais-e-dilma-chama-tucano-de-privatista-17wcnhqe0z0a0wps1cxmgauz2/
+    banco_central:
+      texto: O programa critica os juros altos do país. Serra criticou publicamente o Banco Central durante a campanha (o resumo do programa não trata de autonomia ou metas).
+      fonte: https://www.psdb.org.br/acompanhe/programa-de-governo-do-candidato-jose-serra/
+    reformas:
+      texto: Sem fonte encontrada sobre reformas no resumo do programa.
+      fonte: ''
+    cambio_comercio:
+      texto: O programa critica o câmbio sobrevalorizado, que diz prejudicar a indústria e a agricultura.
+      fonte: https://www.psdb.org.br/acompanhe/programa-de-governo-do-candidato-jose-serra/
+  realizado:
+    fiscal:
+      texto: Em fevereiro de 2011 o governo anunciou um corte recorde de R$ 50 bilhões no Orçamento do ano (1,2% do PIB); depois, a política fiscal passou a incluir desonerações e estímulos a setores.
+      fonte: https://pt.wikipedia.org/wiki/Governo_Dilma_Rousseff
+    privatizacoes:
+      texto: Em fevereiro de 2012 o governo concedeu à iniciativa privada os aeroportos de Guarulhos, Viracopos e Brasília (concessão de 20 a 30 anos, com a Infraero com até 49%); a Wikipédia observa que o termo correto é concessão, não privatização.
+      fonte: https://pt.wikipedia.org/wiki/Governo_Dilma_Rousseff
+    estatais:
+      texto: Sem fonte encontrada sobre preços de combustíveis ou outras ações de estatais no período.
+      fonte: ''
+    banco_central:
+      texto: Alexandre Tombini passou a presidir o BC. A Selic foi elevada de 10,75% para 12,50% até julho de 2011; em agosto de 2011 o BC cortou 0,50 ponto, para 12%, contra a expectativa de manutenção, e chegou a 7,25% em outubro de 2012.
+      fonte: https://pt.wikipedia.org/wiki/Governo_Dilma_Rousseff
+    reformas:
+      texto: A reforma tributária não avançou; em 2012 foi criada a previdência complementar dos servidores federais (Funpresp, Lei 12.618, de 30/04/2012).
+      fonte: https://www.planalto.gov.br/ccivil_03/_ato2011-2014/2012/lei/l12618.htm
+    cambio_comercio:
+      texto: Sem fonte encontrada sobre medidas de câmbio no período (houve medidas sobre entrada de capital em 2010-2011).
+      fonte: ''
+- ano: 2014
+  candidatos:
+  - nome: Dilma
+    fiscal:
+      texto: O programa diz que a política macroeconômica se baseia na redução sustentável dos juros, câmbio flexível, inflação baixa e estável, 'rigor da gestão fiscal' e ampliação do investimento público. Não traz meta de resultado primário.
+      fonte: https://www.conjur.com.br/wp-content/uploads/2023/09/programa-governo-dilma-2014.pdf
+    privatizacoes:
+      texto: O programa fala em 'fortalecimento das parcerias entre Estado e iniciativa privada' e em concessões; não propõe privatizações.
+      fonte: https://www.conjur.com.br/wp-content/uploads/2023/09/programa-governo-dilma-2014.pdf
+    estatais:
+      texto: O programa destaca a produção do pré-sal (mais de 500 mil barris/dia) e as encomendas da Petrobras à indústria naval. Sem fonte encontrada sobre política de preços de combustíveis.
+      fonte: https://www.conjur.com.br/wp-content/uploads/2023/09/programa-governo-dilma-2014.pdf
+    banco_central:
+      texto: Defende 'política macroeconômica sólida, intransigente no combate à inflação' e redução sustentável dos juros; o texto não trata de autonomia do Banco Central.
+      fonte: https://www.conjur.com.br/wp-content/uploads/2023/09/programa-governo-dilma-2014.pdf
+    reformas:
+      texto: Propõe reforma política e diz que será preciso 'enfrentar o debate sobre a estrutura tributária nacional'; também fala em simplificação tributária para os negócios. Não traz proposta de reforma da Previdência.
+      fonte: https://www.conjur.com.br/wp-content/uploads/2023/09/programa-governo-dilma-2014.pdf
+    cambio_comercio:
+      texto: Cita 'flexibilidade da taxa de câmbio em patamares compatíveis com as condições estruturais do País' e o fortalecimento do Mercosul, da Unasul e da Celac.
+      fonte: https://www.conjur.com.br/wp-content/uploads/2023/09/programa-governo-dilma-2014.pdf
+  - nome: Aécio Neves
+    fiscal:
+      texto: 'Plano coordenado por Armínio Fraga: gastos sem crescer acima do PIB e superávit primário que só começaria a reduzir a dívida em dois ou três anos; Aécio disse que daria transparência fiscal e que o superávit é importante, mas não deu valor.'
+      fonte: https://exame.com/economia/ao-lancar-plano-tucano-arminio-adota-tom-social
+    privatizacoes:
+      texto: Sem fonte encontrada sobre privatizações no plano. Previa ampliar PPPs e concessões, com o BNDES financiando e coordenando projetos.
+      fonte: https://exame.com/economia/ao-lancar-plano-tucano-arminio-adota-tom-social
+    estatais:
+      texto: Aécio disse (27/08/2014) que Petrobras e Eletrobras têm graves problemas de gestão e que priorizaria fontes alternativas como eólica e biomassa.
+      fonte: https://www.em.com.br/app/noticia/politica/2014/08/27/interna_politica,562970/bc-tera-independencia-operacional-promete-aecio.shtml
+    banco_central:
+      texto: O BC teria autonomia operacional logo no início (a autonomia em lei ficaria para discussão depois); a meta de inflação de 4,5% seria perseguida em dois ou três anos e depois reduzida a 3%, com banda de 1,5 ponto.
+      fonte: https://exame.com/economia/ao-lancar-plano-tucano-arminio-adota-tom-social
+    reformas:
+      texto: Reforma tributária com um IVA nacional (fusão do ICMS com tributos federais sobre receita e faturamento) e liberação de créditos tributários travados na Receita. O texto da Exame não cita Previdência nem reforma trabalhista.
+      fonte: https://exame.com/economia/ao-lancar-plano-tucano-arminio-adota-tom-social
+    cambio_comercio:
+      texto: Câmbio flutuante no 'tripé' com meta de inflação e superávit primário; reconexão do Brasil com mercados dos EUA, Europa e Ásia, com colaboração do Mercosul.
+      fonte: https://exame.com/economia/ao-lancar-plano-tucano-arminio-adota-tom-social
+  realizado:
+    fiscal:
+      texto: Joaquim Levy, apresentado em 27/11/2014, fixou meta de superávit primário de 1,2% do PIB em 2015 e ao menos 2% em 2016 e 2017, e o governo editou as MPs 664 e 665 (regras de benefícios previdenciários e trabalhistas). O PIB e a arrecadação caíram em 2015 e a meta não foi cumprida.
+      fonte: https://pt.wikipedia.org/wiki/Governo_Dilma_Rousseff
+    privatizacoes:
+      texto: Sem fonte encontrada sobre privatizações no período; o governo seguiu com concessões à iniciativa privada (política iniciada no primeiro mandato, como a dos aeroportos em 2012).
+      fonte: https://pt.wikipedia.org/wiki/Governo_Dilma_Rousseff
+    estatais:
+      texto: A Operação Lava Jato investigou a Petrobras e a popularidade da presidente caiu depois que o caso veio à tona. Sem fonte encontrada sobre reajustes de combustíveis no período.
+      fonte: https://pt.wikipedia.org/wiki/Governo_Dilma_Rousseff
+    banco_central:
+      texto: Alexandre Tombini foi mantido no Banco Central (anúncio de 27/11/2014). A Selic foi elevada de 11% (out/2014) até 14,25% (jul/2015), segundo o histórico do BC.
+      fonte: https://www.bcb.gov.br/controleinflacao/historicotaxasjuros
+    reformas:
+      texto: O governo enviou as MPs 664 e 665 (pensão por morte, seguro-desemprego e abono) e tentou rever a desoneração da folha de pagamento, que a Câmara devolveu sem votar. Não houve reforma tributária nem da Previdência no período.
+      fonte: https://pt.wikipedia.org/wiki/Governo_Dilma_Rousseff
+    cambio_comercio:
+      texto: O regime de câmbio flutuante foi mantido. Sem fonte encontrada para as cotações no período.
+      fonte: ''
+- ano: 2018
+  candidatos:
+  - nome: Jair Bolsonaro
+    fiscal:
+      texto: O plano 'O Caminho da Prosperidade' (81 páginas) fala em atingir superávit primário em 2020 e em reduzir a dívida pública em 20% com privatizações, concessões, venda de imóveis da União e devolução de recursos de bancos oficiais.
+      fonte: https://www.infomoney.com.br/mercados/politica/noticia/7571300/em-plano-de-governo-bolsonaro-propoe-superministerio-da-economia-e-nova-carteira-de-trabalho
+    privatizacoes:
+      texto: Propõe um amplo programa de privatização, sem dizer quais das 147 estatais federais seriam vendidas; toda a receita seria usada para pagar dívida. A matéria não cita a Petrobras.
+      fonte: https://www.infomoney.com.br/mercados/politica/noticia/7571300/em-plano-de-governo-bolsonaro-propoe-superministerio-da-economia-e-nova-carteira-de-trabalho
+    estatais:
+      texto: Sem fonte encontrada sobre política de preços da Petrobras ou de bancos públicos no plano de 2018 (o plano prevê subordinar as instituições financeiras federais ao novo Ministério da Economia).
+      fonte: ''
+    banco_central:
+      texto: O Banco Central teria independência formal e política, alinhado ao Ministério da Economia, que juntaria Fazenda, Planejamento e Indústria e Comércio.
+      fonte: https://www.infomoney.com.br/mercados/politica/noticia/7571300/em-plano-de-governo-bolsonaro-propoe-superministerio-da-economia-e-nova-carteira-de-trabalho
+    reformas:
+      texto: 'Previdência: trocar o regime de repartição por capitalização com contas individuais (novos trabalhadores escolheriam). Trabalhista: ''carteira de trabalho verde e amarela'' com contratos individuais acima da CLT. Tributária: simplificar e unificar tributos federais.'
+      fonte: https://www.infomoney.com.br/mercados/politica/noticia/7571300/em-plano-de-governo-bolsonaro-propoe-superministerio-da-economia-e-nova-carteira-de-trabalho
+    cambio_comercio:
+      texto: A matéria sobre o plano não traz propostas de câmbio nem de comércio exterior.
+      fonte: https://www.infomoney.com.br/mercados/politica/noticia/7571300/em-plano-de-governo-bolsonaro-propoe-superministerio-da-economia-e-nova-carteira-de-trabalho
+  - nome: Fernando Haddad
+    fiscal:
+      texto: Revogar a Emenda Constitucional 95 (teto de gastos); reforma tributária com tributação de lucros e dividendos, criação gradual de um IVA e isenção de IR até cinco salários mínimos, com alíquotas maiores para os mais ricos.
+      fonte: https://agenciabrasil.ebc.com.br/economia/noticia/2018-10/programa-de-governo-de-haddad-preve-revogacao-de-medidas-de-temer
+    privatizacoes:
+      texto: Suspender a privatização de empresas estratégicas e a venda de terras, água e recursos naturais a estrangeiros.
+      fonte: https://agenciabrasil.ebc.com.br/economia/noticia/2018-10/programa-de-governo-de-haddad-preve-revogacao-de-medidas-de-temer
+    estatais:
+      texto: Rever as mudanças de Temer nos leilões do pré-sal em regime de partilha e revitalizar BNDES, Banco do Brasil e Caixa. A matéria não cita a política de preços da Petrobras.
+      fonte: https://agenciabrasil.ebc.com.br/economia/noticia/2018-10/programa-de-governo-de-haddad-preve-revogacao-de-medidas-de-temer
+    banco_central:
+      texto: Manter a autonomia e o mandato de controlar a inflação; alterar a Taxa de Longo Prazo (TLP) para reduzir a volatilidade dos títulos públicos de longo prazo.
+      fonte: https://agenciabrasil.ebc.com.br/economia/noticia/2018-10/programa-de-governo-de-haddad-preve-revogacao-de-medidas-de-temer
+    reformas:
+      texto: Revogar a reforma trabalhista e substituí-la por um 'Estatuto do Trabalho' negociado; a matéria não menciona reforma da Previdência. A revogação depende do Congresso.
+      fonte: https://agenciabrasil.ebc.com.br/economia/noticia/2018-10/programa-de-governo-de-haddad-preve-revogacao-de-medidas-de-temer
+    cambio_comercio:
+      texto: Regular a especulação de curto prazo e usar um imposto de exportação sobre commodities para formar um fundo de estabilização cambial.
+      fonte: https://agenciabrasil.ebc.com.br/economia/noticia/2018-10/programa-de-governo-de-haddad-preve-revogacao-de-medidas-de-temer
+  realizado:
+    fiscal:
+      texto: A PEC da Previdência foi entregue em 20/02/2019, aprovada com mudanças (regras de transição menos duras) e promulgada em 12/11/2019. O governo manteve o teto de gastos; em 05/11/2019 enviou o Plano Mais Brasil (três PECs fiscais). Em 2020 a pandemia levou a gastos extraordinários (auxílio emergencial).
+      fonte: https://pt.wikipedia.org/wiki/Governo_Jair_Bolsonaro
+    privatizacoes:
+      texto: Segundo o Poder360, o Congresso só aprovou a privatização da Eletrobras bem depois do previsto por Guedes (em 2021, fora do período); a privatização dos Correios seguia em análise. O Ministério da Economia foi criado em 2019.
+      fonte: https://www.poder360.com.br/governo/bolsonaro-cumpriu-9-de-20-promessas-de-campanha-em-mil-dias-de-governo/
+    estatais:
+      texto: Em abril de 2019 a Petrobras anunciou alta de 5,7% no diesel e suspendeu o reajuste depois que Bolsonaro pediu ao presidente da estatal, Roberto Castello Branco, que o reduzisse; as ações caíram.
+      fonte: https://www.moneytimes.com.br/petrobras-cai-4-apos-veto-no-reajuste-do-diesel/
+    banco_central:
+      texto: Roberto Campos Neto assumiu o Banco Central em 2019. A Selic caiu de 6,5% para a mínima histórica de 2% em agosto de 2020. A lei de autonomia do BC só foi aprovada em fevereiro de 2021 (fora do período).
+      fonte: https://pt.wikipedia.org/wiki/Governo_Jair_Bolsonaro
+    reformas:
+      texto: Reforma da Previdência promulgada em 12/11/2019 (Emenda Constitucional 103), sem o regime de capitalização que constava do plano. A reforma tributária e a reforma administrativa não foram aprovadas no período.
+      fonte: https://www.planalto.gov.br/ccivil_03/constituicao/emendas/emc/emc103.htm
+    cambio_comercio:
+      texto: O governo concluiu em 28/06/2019 o acordo comercial entre Mercosul e União Europeia (em negociação desde 1999). O câmbio ficou flutuante.
+      fonte: https://pt.wikipedia.org/wiki/Governo_Jair_Bolsonaro
+- ano: 2022
+  candidatos:
+  - nome: Lula
+    fiscal:
+      texto: As diretrizes do programa dizem que é preciso 'revogar o teto de gastos e rever o atual regime fiscal brasileiro'.
+      fonte: https://www.poder360.com.br/eleicoes/leia-os-principais-pontos-das-diretrizes-do-programa-de-lula/
+    privatizacoes:
+      texto: As diretrizes se opõem à privatização de Petrobras, Eletrobras e Correios; a Eletrobras 'precisa recuperar seu papel como patrimônio do povo' e os Correios seguem como empresa pública com função social.
+      fonte: https://www.poder360.com.br/eleicoes/leia-os-principais-pontos-das-diretrizes-do-programa-de-lula/
+    estatais:
+      texto: Propõe 'abrasileirar o preço dos combustíveis' (deixar a paridade com o preço internacional em dólar) e ampliar a produção nacional de derivados; a Petrobras teria plano orientado para a segurança energética.
+      fonte: https://www.poder360.com.br/eleicoes/leia-os-principais-pontos-das-diretrizes-do-programa-de-lula/
+    banco_central:
+      texto: Cita a busca pela estabilidade de preços como tarefa prioritária. O trecho das diretrizes que li não menciona o Banco Central nem sua autonomia.
+      fonte: https://www.poder360.com.br/eleicoes/leia-os-principais-pontos-das-diretrizes-do-programa-de-lula/
+    reformas:
+      texto: Revogar os 'marcos regressivos' da legislação trabalhista (reforma de 2017), reforma tributária com menos imposto sobre consumo ('pobres paguem menos e ricos paguem mais') e, na Previdência, um modelo que concilie mais cobertura e financiamento sustentável.
+      fonte: https://www.poder360.com.br/eleicoes/leia-os-principais-pontos-das-diretrizes-do-programa-de-lula/
+    cambio_comercio:
+      texto: Propõe 'reduzir a volatilidade da moeda brasileira por meio da política cambial' e fortalecer a integração regional, inclusive o Mercosul; a política comercial não é detalhada.
+      fonte: https://www.poder360.com.br/eleicoes/leia-os-principais-pontos-das-diretrizes-do-programa-de-lula/
+  - nome: Jair Bolsonaro
+    fiscal:
+      texto: O programa registrado no TSE fala em 'manter o equilíbrio fiscal', reduzir a carga tributária e a burocracia e manter o Auxílio Brasil em R$ 600 a partir de 2023. O texto, nas matérias que li, não cita o teto de gastos.
+      fonte: https://agenciabrasil.ebc.com.br/politica/noticia/2022-09/conheca-o-programa-de-governo-do-candidato-reeleicao-jair-bolsonaro
+    privatizacoes:
+      texto: Propõe 'viabilizar a privatização de empresas públicas'; a matéria não cita a Petrobras nominalmente.
+      fonte: https://agenciabrasil.ebc.com.br/politica/noticia/2022-09/conheca-o-programa-de-governo-do-candidato-reeleicao-jair-bolsonaro
+    estatais:
+      texto: Sem fonte encontrada sobre a política de preços da Petrobras no programa de 2022.
+      fonte: ''
+    banco_central:
+      texto: Sem fonte encontrada sobre o programa de 2022. A autonomia do Banco Central já tinha sido aprovada em lei em fevereiro de 2021.
+      fonte: https://pt.wikipedia.org/wiki/Governo_Jair_Bolsonaro
+    reformas:
+      texto: Propõe 'liberdade de negociação' salarial, formalização de trabalhadores e desregulação de normas para incentivar o empreendedorismo; a matéria não cita reforma administrativa, previdenciária ou tributária.
+      fonte: https://agenciabrasil.ebc.com.br/politica/noticia/2022-09/conheca-o-programa-de-governo-do-candidato-reeleicao-jair-bolsonaro
+    cambio_comercio:
+      texto: Propõe a entrada do Brasil na OCDE e ampliar mecanismos de financiamento; a matéria não cita política cambial.
+      fonte: https://agenciabrasil.ebc.com.br/politica/noticia/2022-09/conheca-o-programa-de-governo-do-candidato-reeleicao-jair-bolsonaro
+  realizado:
+    fiscal:
+      texto: 'A PEC da Transição (dez/2022) permitiu gastar fora do teto em 2023 e previu o envio de um novo regime fiscal. O arcabouço foi apresentado por Haddad e Tebet no fim de março de 2023 e aprovado na Câmara (372 a 108) e no Senado (57 a 17): a despesa pode crescer de 0,6% a 2,5% acima da inflação, limitada a 70% do crescimento da receita; o teto de gastos deixou de valer.'
+      fonte: https://pt.wikipedia.org/wiki/Novo_arcabou%C3%A7o_fiscal
+    privatizacoes:
+      texto: O governo retirou os Correios e outras empresas do programa de privatização desde 2023.
+      fonte: https://exame.com/brasil/lula-x-flavio-bolsonaro-o-que-cada-um-propoe-para-as-estatais-e-as-privatizacoes/
+    estatais:
+      texto: Em 16/05/2023 a Petrobras anunciou o fim da paridade de importação (PPI) e adotou uma 'estratégia comercial' de preços; retrospectiva do InfoMoney mostra preços cerca de 5% abaixo do PPI, com defasagem de um mês.
+      fonte: https://www.infomoney.com.br/?p=2464513
+    banco_central:
+      texto: O presidente do BC, Roberto Campos Neto (indicado por Bolsonaro, com mandato fixo), foi mantido. Lula criticou publicamente a Selic de 13,75% em 2023.
+      fonte: https://www.moneytimes.com.br/lula-volta-a-criticar-selic-a-1375-e-fala-de-arcabouco-nao-aceito-licao-sobre-responsabilidade-fiscal/
+    reformas:
+      texto: A reforma tributária do consumo foi promulgada como Emenda Constitucional 132 em 20/12/2023 (dentro do período). Sem fonte encontrada sobre Previdência ou reforma trabalhista no período.
+      fonte: https://www.planalto.gov.br/ccivil_03/constituicao/emendas/emc/emc132.htm
+    cambio_comercio:
+      texto: O regime de câmbio flutuante foi mantido. Sem fonte encontrada para os temas de comércio exterior do período (viagem à China em abril de 2023 e negociações Mercosul-União Europeia).
+      fonte: ''
+- ano: 2026
+  candidatos:
+  - nome: Lula
+    fiscal:
+      texto: O programa registrado no TSE mantém o arcabouço fiscal e diz que o resultado fiscal virá do crescimento, do controle do aumento do gasto primário, da 'justiça tributária' (fundos exclusivos e offshores já tributados) e do combate a distorções. O texto não fixa meta de resultado primário nem corte de despesa; destaca que o déficit primário de 2026 deve ficar perto de 0,4% do PIB.
+      fonte: https://static.poder360.com.br/uploads/2026/08/Programa-Governo-LULA-2026.pdf
+    privatizacoes:
+      texto: O governo se opõe à venda de estatais estratégicas como Petrobras e Correios e, desde 2023, retirou empresas do programa de privatização. Segundo a Gazeta do Povo, o programa deixou de prometer reverter a venda da Eletrobras e a da BR Distribuidora.
+      fonte: https://exame.com/brasil/lula-x-flavio-bolsonaro-o-que-cada-um-propoe-para-as-estatais-e-as-privatizacoes/
+    estatais:
+      texto: Diz que a nova política de preços da Petrobras e as subvenções reduziram a volatilidade de diesel, gasolina e GLP e evitaram repassar os preços internacionais (período da Guerra do Estreito de Ormuz). Prevê que a Petrobras volte a distribuir combustíveis, amplie o refino e use a Transpetro em GNL.
+      fonte: https://static.poder360.com.br/uploads/2026/08/Programa-Governo-LULA-2026.pdf
+    banco_central:
+      texto: O programa promete 'redução sustentada das taxas de juros' com inflação controlada e política fiscal responsável, e diz que a estabilidade de preços é pressuposto do governo. O texto não menciona o Banco Central nem sua autonomia.
+      fonte: https://static.poder360.com.br/uploads/2026/08/Programa-Governo-LULA-2026.pdf
+    reformas:
+      texto: Propõe concluir a reforma tributária do consumo (CBS/IBS, cesta básica isenta, cashback), manter o fim da escala 6x1 com jornada de 40 horas sem corte de salário e, na Previdência, 'reestruturar a base de financiamento' e flexibilizar contribuições, sem propor nova mudança de regras de aposentadoria.
+      fonte: https://static.poder360.com.br/uploads/2026/08/Programa-Governo-LULA-2026.pdf
+    cambio_comercio:
+      texto: Destaca a abertura de 656 novos mercados e a conclusão dos acordos do Mercosul com a União Europeia, a EFTA e Singapura, e prioriza o Mercosul e a integração sul-americana. O texto cita os 'tarifaços' do governo Trump e o Plano Brasil Soberano; não trata da política cambial.
+      fonte: https://static.poder360.com.br/uploads/2026/08/Programa-Governo-LULA-2026.pdf
+  - nome: Flávio Bolsonaro
+    fiscal:
+      texto: O plano registrado no TSE propõe substituir o arcabouço por nova regra fiscal com a dívida/PIB como referência (dívida em 82,9% do PIB), superávits primários duradouros e limite ao crédito subsidiado do Tesouro. Reportagens citam um 'tesouraço' de até R$ 250 bilhões (a equipe fala em ajuste de 1,5% a 2% do PIB), que a campanha disse não ser posição oficial. Propõe rever a reforma tributária e reduzir o IVA, sem alíquota nem compensação.
+      fonte: https://www.poder360.com.br/poder-eleicoes-2026/o-que-se-sabe-sobre-o-plano-economico-de-flavio-bolsonaro/
+    privatizacoes:
+      texto: Propõe retomar o Programa Nacional de Desestatização, sem lista de empresas nem estimativa de arrecadação. Em 08/10 Adolfo Sachsida disse que Petrobras, Banco do Brasil e Caixa não seriam privatizados e em 09/10 Flávio chamou a ideia de 'boataria'; sobre os Correios, as falas variaram ao longo da campanha.
+      fonte: https://exame.com/brasil/lula-x-flavio-bolsonaro-o-que-cada-um-propoe-para-as-estatais-e-as-privatizacoes/
+    estatais:
+      texto: Propõe fortalecer a Lei das Estatais e profissionalizar a gestão, transformar a Caixa no 'Banco da Prosperidade' (foco em crédito e empreendedores) e limitar o BNDES a obras no Brasil. Promete reduzir tributos sobre energia e combustíveis; não encontrei proposta sobre a política de preços da Petrobras.
+      fonte: https://exame.com/brasil/lula-x-flavio-bolsonaro-o-que-cada-um-propoe-para-as-estatais-e-as-privatizacoes/
+    banco_central:
+      texto: O plano diz que estabilizar a dívida permitirá juros 'em linha com a média internacional'. No debate da Band (18/10) Flávio disse que os juros cairiam 'de uma forma muito rápida'. Não encontrei proposta sobre autonomia do Banco Central nem sobre a meta de inflação.
+      fonte: https://www.flaviobolsonaro.com.br/plano-de-governo/leitura
+    reformas:
+      texto: Reforma administrativa com corte de ao menos dez ministérios e de cargos comissionados, 'revogaço' de até mil normas, revisão da reforma tributária e redução do custo de contratação formal; defende o 'negociado sobre o legislado'. Na Previdência, o plano trata da gestão do INSS, sem propor mudar regras.
+      fonte: https://www.poder360.com.br/poder-eleicoes-2026/o-que-se-sabe-sobre-o-plano-economico-de-flavio-bolsonaro/
+    cambio_comercio:
+      texto: Propõe desonerar exportações e investimentos, reduzir gradualmente o IOF sobre operações de câmbio, retomar a adesão à OCDE, ampliar acordos comerciais e buscar 'soluções diplomáticas' para sanções sobre produtos brasileiros; quer reaproximar o Brasil de Estados Unidos, Argentina e Israel e negociar também com China e União Europeia.
+      fonte: https://www.congressoemfoco.com.br/noticia/121271/eua--tesouraco-e-presidios-o-que-preve-o-plano-de-governo-de-flavio
+  sinais_pos_eleicao:
+  - data: '2026-10-25'
+    texto: No discurso da vitória, Lula citou investimentos em economia digital, educação, meio ambiente e SUS e a regulação das big techs; não falou de ajuste fiscal nem de contas públicas.
+    fonte: https://platobr.com.br/no-discurso-da-vitoria-poucos-sinais-sobre-a-economia-e-nada-sobre-o-quadro-fiscal
+  - data: '2026-10-26'
+    texto: O ministro da Fazenda, Dario Durigan (que assumiu em março no lugar de Fernando Haddad), disse ao Estadão que o governo vai mudar a lei ou, se necessário, buscar uma emenda à Constituição para perseguir formalmente o centro da meta fiscal, e citou um pacote de ao menos R$ 39,8 bilhões (emendas parlamentares, pensões especiais, supersalários). Não há projeto nem PEC apresentados.
+    fonte: https://timesbrasil.com.br/brasil/economia-brasileira/lula-ajuste-fiscal-durigan-orcamento-2027-o-que-falta-esclarecer/
+  - data: '2026-10-27'
+    texto: Durigan disse que avisou Lula da necessidade de dar um sinal ao mercado e que há medidas prontas, entre elas uma que permitiria buscar o centro da meta (superávit primário de R$ 73,2 bilhões em 2027, segundo a imprensa). O governo decidiu prorrogar por 30 dias a subvenção ao diesel.
+    fonte: https://www.infomoney.com.br/mercados/ibovespa-segue-fragilizado-e-com-atencao-a-fiscal-apos-tombo-com-reeleicao-de-lula/
+  - data: '2026-10-27'
+    texto: Sobre a equipe do novo mandato, Durigan disse que não há definição e que Lula tratará do tema nas próximas semanas; chamou o governador do Piauí, Rafael Fonteles, de 'excelente nome' para a Fazenda. Alckmin também aparece entre os cotados. Nenhum ministro foi anunciado até 31/10.
+    fonte: https://www.poder360.com.br/poder-economia/rafael-fonteles-e-excelente-nome-para-ministro-da-fazenda-diz-durigan/
+  - data: '2026-10-31'
+    texto: 'Banco Central: não encontrei declaração do presidente Gabriel Galípolo nem anúncio de Lula sobre o BC entre 25/10 e 31/10. A próxima reunião do Copom é em 04/11; o Itaú espera manutenção da Selic em 13,75%.'
+    fonte: https://neofeed.com.br/economia/itau-ve-fim-do-ciclo-de-cortes-da-selic-diante-de-cenario-mais-adverso
+  contestacao:
+  - data: '2026-10-25'
+    texto: Flávio Bolsonaro disse que não reconhece o resultado e que pediria ao TSE a anulação do 2º turno, citando a decisão do ministro Cristiano Zanin (STF) de estender a votação até as 19h a pedido da campanha de Lula e a retirada de fiscais do PL da sala-cofre. A matéria registra que as acusações não foram provadas e que a campanha de Flávio também havia pedido prorrogação em municípios de SP, PR e SC.
+    fonte: https://www.infomoney.com.br/politica/flavio-nao-reconhece-resultado-da-eleicao-e-diz-que-pedira-anulacao-ao-tse/
+  - data: '2026-10-26'
+    texto: O PL, em nota de Valdemar Costa Neto, reconheceu o resultado proclamado pelo TSE, contrariando o candidato. Em vídeo, Flávio passou a falar em pedir a cassação da chapa Lula-Alckmin por abuso de poder político e econômico; o Terra e a Wikipédia registram que ele deixou de falar em anulação (o InfoMoney diz que o texto não esclarece se o pedido foi abandonado).
+    fonte: https://www.infomoney.com.br/politica/partido-de-flavio-bolsonaro-reconhece-vitoria-eleitoral-de-lula/
+  - data: '2026-10-26'
+    texto: Ministros do TSE avaliaram que o pedido de anulação não deve avançar (Lula teve 64,2 milhões de votos contra 59,8 milhões; cerca de 35 mil votos foram registrados depois das 17h). O presidente do TSE, Kassio Nunes Marques, disse que a prorrogação em alguns locais não comprometeu a apuração. Até 31/10 não encontrei decisão formal do TSE sobre pedido de cassação.
+    fonte: https://gazetadoparana.com.br/publico/flavio-quer-anular-eleicao-mas-ministros-do-tse-nao-veem-motivo-para-mudanca-no-resultado
