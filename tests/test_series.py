@@ -59,7 +59,15 @@ def test_definicoes_tem_as_14_series():
 
 
 def test_dolar_antes_do_real_vira_reais():
-    datas = pd.to_datetime(["1994-06-29", "1994-06-30", "1994-07-01", "1994-07-04"])
-    cruzeiros = pd.Series([2698.46, 2750.0, 1.0, 0.94], index=datas)
-    convertida = series.em_reais(cruzeiros)
-    assert convertida.round(4).tolist() == [0.9813, 1.0, 1.0, 0.94]
+    datas = pd.to_datetime(
+        ["1993-07-30", "1993-08-02", "1994-06-29", "1994-06-30", "1994-07-01", "1994-07-04"]
+    )
+    na_moeda_da_epoca = pd.Series([71152.0, 72.07, 2698.46, 2750.0, 1.0, 0.94], index=datas)
+    convertida = series.em_reais(na_moeda_da_epoca)
+    assert convertida.round(4).tolist() == [0.0259, 0.0262, 0.9813, 1.0, 1.0, 0.94]
+
+
+def test_mensal_do_ipeadata_vai_para_o_fim_do_mes():
+    mensal = pd.Series([29.94, 29.7], index=pd.to_datetime(["2002-09-01", "2002-10-01"]))
+    movida = series.no_fim_do_mes(mensal)
+    assert list(movida.index) == list(pd.to_datetime(["2002-09-30", "2002-10-31"]))
