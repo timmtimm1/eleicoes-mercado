@@ -1,0 +1,13 @@
+.venv/
+__pycache__/
+*.pyc
+.pytest_cache/
+.ruff_cache/
+# arquivos brutos baixados da B3, BCB, Yahoo e outras fontes (centenas de MB); `eleicoes extrair` baixa de novo
+dados/cache/
+# trava do LibreOffice ao abrir a planilha
+.~lock.*
+# arquivos locais de ferramentas de agente
+.swarm/
+.claude-flow/
+ruvector.db
