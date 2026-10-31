@@ -1,0 +1,36 @@
+name: Página no GitHub Pages
+
+on:
+  push:
+    branches: [main]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+concurrency:
+  group: pages
+  cancel-in-progress: true
+
+jobs:
+  publicar:
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.publicacao.outputs.page_url }}
+    steps:
+      - uses: actions/checkout@v4
+      # A página e a planilha já estão prontas no repositório: é só juntar as duas.
+      - name: Junta a página e a planilha
+        run: |
+          mkdir _site
+          cp site/index.html _site/index.html
+          cp saida/eleicoes_mercado.xlsx _site/
+      - uses: actions/configure-pages@v5
+      - uses: actions/upload-pages-artifact@v3
+        with:
+          path: _site
+      - id: publicacao
+        uses: actions/deploy-pages@v4
