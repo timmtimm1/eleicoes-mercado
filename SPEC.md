@@ -33,6 +33,8 @@ Vitrine pública. **Não é recomendação de investimento.**
 | Entrega | **Repo novo + página no GitHub Pages + planilha**. Remote e publicação só com aprovação dele |
 | Planilha | **Dados + Painel com fórmulas** (lista de eleição e janela). Precisa abrir no LibreOffice |
 | Depois de pronta | **Foto datada** (fechamento de 30/10/2026) + comando que atualiza preços e compara projeção × realizado |
+| Risco-país em 2026 | **Fica de fora**: EMBI+ só até 2022; em 2026 o medo aparece em juros, dólar e bolsa |
+| Juros em 2002 | **Selic diária + swap DI × pré 360 dias mensal** (Ipeadata `BMF12_SWAPDI360F12`); sem janelas curtas nos juros longos |
 
 ## Calendário
 
@@ -75,7 +77,8 @@ Turno decisivo: o 1º em 1994 e 1998, o 2º nas demais.
 | Dólar | BCB SGS 1 (venda) | 1984 | índice do dólar no mundo (DXY) |
 | Juros curtos | BCB SGS (Selic/CDI) | 1986 | juros dos EUA |
 | Juros prefixados | Tesouro Direto (prefixados) | 31/12/2004 | Treasury 10 anos |
-| Risco-país | Ipeadata EMBI+ `JPM366_EMBI366` | abr/1994 a jul/2024 | já é diferença sobre os EUA |
+| Juros 2002 | Ipeadata swap DI × pré 360 dias, fim de mês | mensal | — |
+| Risco-país | Ipeadata EMBI+ `JPM366_EMBI366` (1994–2022; 2026 fora, decisão dele) | abr/1994 a jul/2024 | já é diferença sobre os EUA |
 | Estatais × privadas | COTAHIST da B3 | 1986 | uma contra a outra |
 | Setores | COTAHIST da B3 | 1986 | Ibovespa |
 | MSCI Emergentes | API pública do MSCI (índice 891800) | 1997 | — |
@@ -156,9 +159,9 @@ Cada fase numa branch, commits separados por assunto, tag na `main` ao fim.
 - **1994**: o Real tinha 3 meses e não há MSCI Emergentes diário; o controle é o
   S&P 500.
 - **Juros prefixados**: o Tesouro Direto começa em 31/12/2004. 1994 e 1998 só
-  têm Selic. **2002 ainda sem fonte diária** (pendência).
-- **Risco-país**: o EMBI+ acabou em julho de 2024. **2026 ainda sem fonte**
-  (pendência: o CDS de 5 anos está em sites que bloqueiam download automático).
+  têm Selic. 2002 tem Selic diária e swap de 360 dias só mensal.
+- **Risco-país**: o EMBI+ acabou em julho de 2024 e o CDS de 5 anos está em
+  sites que bloqueiam download automático. 2026 fica sem risco-país.
 - Carteiras de estatais e setores: só preço, sem dividendos.
 - MSCI Emergentes inclui o Brasil (~5% do índice), o que puxa o "só Brasil" um
   pouco para zero em dias de queda forte.
