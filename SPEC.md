@@ -145,9 +145,20 @@ imprensa e estudos da época, com link em cada linha.
 Três cenários para 2026–2028, cada um com gatilhos concretos (nome e sinais da
 Fazenda, meta fiscal, Selic e Banco Central, contestação do resultado) e a
 faixa de Ibovespa, dólar e juros na posse (05/01/2027), nos 100 dias e em 1 ano
-de governo. As faixas saem das eleições passadas parecidas, aplicadas aos
-preços de 30/10/2026. Sem probabilidade em %. Premissas em YAML com
-`status: proposta` até ele aprovar.
+de governo. Sem probabilidade em %. Premissas em `premissas/cenarios.yaml`.
+
+Aprovado em 31/10/2026 (fase 5):
+
+- **Análogos**: otimista = 2002 e 2006 (sinal fiscal crível), base = 2010 e
+  2022 (continuidade com ruído), pessimista = 1998 e 2014 (presidente reeleito
+  com crise de confiança nas contas logo depois).
+- **Ponto de partida**: o 5º pregão depois do turno decisivo (em 2026, 30/10).
+  A faixa vai do menor ao maior "só Brasil" dos dois análogos desse ponto até
+  cada horizonte, aplicado aos preços de 30/10/2026.
+- **Mundo parado**: só a versão sem o exterior; o texto avisa que o mundo soma
+  por cima.
+- **Bolsa em pontos e em dólar lado a lado**, com a explicação de que no
+  pessimista o Ibovespa quase não cai em pontos porque o real perde valor.
 
 ## Entrega
 

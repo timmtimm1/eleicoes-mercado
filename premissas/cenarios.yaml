@@ -8,8 +8,8 @@
 # Ponto de partida: o 5º pregão depois do turno decisivo (em 2026, 30/10). É onde 2026
 # está agora, e a comparação com o passado começa no mesmo ponto do calendário.
 #
-# Proposta minha (Claude) em 31/10/2026; só o Bernardo troca o status para aprovada.
-status: proposta
+# Proposta minha (Claude) em 31/10/2026, aprovada pelo Bernardo no mesmo dia.
+status: aprovada
 data_base: 2026-10-30
 posse: 2027-01-05
 horizontes:
