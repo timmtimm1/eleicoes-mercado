@@ -50,8 +50,10 @@ Vitrine pública. **Não é recomendação de investimento.**
 | 2022 | 02/10 | 30/10 | Lula × Bolsonaro | 01/01/2023 |
 | 2026 | 04/10 | 25/10 | Lula × Flávio Bolsonaro (reeleição) | **05/01/2027** (EC 111/2021) |
 
-Cada eleição recebe também: espectro do vencedor, situação ou oposição
-(reeleição, continuidade, troca) e quem era o favorito nas pesquisas.
+Cada eleição recebe também a situação do vencedor (reeleição, continuidade ou
+oposição; 1994 conta como continuidade, porque o FHC era o ministro da Fazenda
+do Itamar), o candidato que o mercado preferia e quem era o favorito nas
+pesquisas.
 
 ## Janelas
 
@@ -100,6 +102,10 @@ nos 12 meses antes da eleição. Tabela de classificação à mão em `dados/`.
 **Surpresa**: média das últimas pesquisas (Datafolha, Ibope/Ipec, e Quaest e
 AtlasIntel quando houver) antes de cada turno, em votos válidos, contra o
 resultado do TSE. A AtlasIntel entrou na média por decisão dele em 31/10/2026.
+A surpresa é medida **a favor do candidato que o mercado preferia** (dos dois
+primeiros, o de fora do PT, em todas as eleições): margem dele no TSE menos a
+margem dele nas pesquisas. Assim o sinal da surpresa bate com o da reação da
+bolsa (decisão de 31/10/2026; campo `candidato_mercado` em `dados/eleicoes.yaml`).
 
 ## Propostas (qualitativo)
 

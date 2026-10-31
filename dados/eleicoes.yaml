@@ -1,3 +1,9 @@
+# Eleições presidenciais de 1994 a 2026 (votos válidos do TSE).
+# situacao: reeleicao (o presidente ganhou), continuidade (ganhou o candidato do
+#   governo; 1994 = FHC, ministro da Fazenda do Itamar) ou oposicao.
+# candidato_mercado: dos dois primeiros, o que o mercado preferia (sempre o de
+#   fora do PT). A surpresa das pesquisas é medida a favor dele, para o sinal
+#   bater com o da reação da bolsa. Decisões do Bernardo em 31/10/2026.
 - ano: 1994
   vencedor: FHC
   segundo: Lula
@@ -5,6 +11,7 @@
   partido_vencedor: PSDB
   partido_segundo: PT
   situacao: continuidade
+  candidato_mercado: FHC
   turnos:
     - numero: 1
       data: 1994-10-03
@@ -20,6 +27,7 @@
   partido_vencedor: PSDB
   partido_segundo: PT
   situacao: reeleicao
+  candidato_mercado: FHC
   turnos:
     - numero: 1
       data: 1998-10-04
@@ -35,6 +43,7 @@
   partido_vencedor: PT
   partido_segundo: PSDB
   situacao: oposicao
+  candidato_mercado: José Serra
   turnos:
     - numero: 1
       data: 2002-10-06
@@ -57,6 +66,7 @@
   partido_vencedor: PT
   partido_segundo: PSDB
   situacao: reeleicao
+  candidato_mercado: Geraldo Alckmin
   turnos:
     - numero: 1
       data: 2006-10-01
@@ -78,6 +88,7 @@
   partido_vencedor: PT
   partido_segundo: PSDB
   situacao: continuidade
+  candidato_mercado: José Serra
   turnos:
     - numero: 1
       data: 2010-10-03
@@ -99,6 +110,7 @@
   partido_vencedor: PT
   partido_segundo: PSDB
   situacao: reeleicao
+  candidato_mercado: Aécio Neves
   turnos:
     - numero: 1
       data: 2014-10-05
@@ -120,6 +132,7 @@
   partido_vencedor: PSL
   partido_segundo: PT
   situacao: oposicao
+  candidato_mercado: Jair Bolsonaro
   turnos:
     - numero: 1
       data: 2018-10-07
@@ -141,6 +154,7 @@
   partido_vencedor: PT
   partido_segundo: PL
   situacao: oposicao
+  candidato_mercado: Jair Bolsonaro
   turnos:
     - numero: 1
       data: 2022-10-02
@@ -161,6 +175,7 @@
   partido_vencedor: PT
   partido_segundo: PL
   situacao: reeleicao
+  candidato_mercado: Flávio Bolsonaro
   turnos:
     - numero: 1
       data: 2026-10-04
