@@ -1,0 +1,12 @@
+ano,raiz,ticker_de,ticker_para,data,tipo,escala,fator_tabela,base
+1998,VALE,VALE4,VALE5,1998-06-12,mesma_raiz,1,1,continuidade
+1998,USIM,USIM4,USIM5,1999-01-29,mesma_raiz,1,1,continuidade
+1998,EMBR,EMBR5,EMBR3,1999-06-04,mesma_raiz,0.021186,1,sobreposicao
+2002,BBAS,BBAS4,BBAS3,2002-09-06,mesma_raiz,0.006342,1,sobreposicao
+2006,PRGA,PRGA4,PRGA3,2006-04-06,mesma_raiz,2.84172,1,sobreposicao
+2010,PCAR,PCAR5,PCAR4,2011-03-31,mesma_raiz,1,1,continuidade
+2010,ALLL,ALLL11,ALLL3,2010-10-21,mesma_raiz,0.972694,1,sobreposicao
+2010,UGPA,UGPA4,UGPA3,2011-08-05,mesma_raiz,2.581709,1,sobreposicao
+2010,ELPL,ELPL6,ELPL4,2010-12-20,mesma_raiz,1,1,continuidade
+2018,KROT,KROT3,COGN3,2019-10-10,sucessora,1,1,continuidade
+2018,VVAR,VVAR11,VVAR3,2018-11-23,mesma_raiz,2.983114,1,sobreposicao

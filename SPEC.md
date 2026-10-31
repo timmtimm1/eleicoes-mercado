@@ -75,9 +75,9 @@ Turno decisivo: o 1º em 1994 e 1998, o 2º nas demais.
 
 | Série | Fonte | Desde | "Só Brasil" descontado de |
 |---|---|---|---|
-| Ibovespa | Yahoo `^BVSP`, conferido com Ipeadata `GM366_IBVSP366` | 1993 | MSCI Emergentes em dólar (1997+); S&P 500 em 1994 |
+| Ibovespa | Yahoo `^BVSP` (o Ipeadata é idêntico, não serve de conferência) | 1993 | MSCI Emergentes em dólar (1997+); 1994 só bruto |
 | Dólar | BCB SGS 1 (venda) | 1984 | índice do dólar no mundo (DXY) |
-| Juros curtos | BCB SGS (Selic/CDI) | 1986 | juros dos EUA |
+| Juros curtos | BCB SGS (Selic) | 1986 | — (taxa do BC, anda em degraus: só bruta) |
 | Juros prefixados | Tesouro Direto (prefixados) | 31/12/2004 | Treasury 10 anos |
 | Juros 2002 | Ipeadata swap DI × pré 360 dias, fim de mês | mensal | — |
 | Risco-país | Ipeadata EMBI+ `JPM366_EMBI366` (1994–2022; 2026 fora, decisão dele) | abr/1994 a jul/2024 | já é diferença sobre os EUA |
@@ -88,7 +88,14 @@ Turno decisivo: o 1º em 1994 e 1998, o 2º nas demais.
 **"Só Brasil"**: modelo de mercado do estudo de evento. Ajusto o beta do
 Brasil contra o exterior em 250 pregões que terminam antes da corrida e
 desconto da variação o que o exterior explica. Mostro sempre ao lado da
-variação bruta.
+variação bruta. Ajustes aprovados em 31/10/2026, depois da fase 2:
+
+- Beta de **Dimson** (exterior no dia anterior, no mesmo dia e no seguinte):
+  a Ásia fecha antes da B3 abrir, e o beta do mesmo dia só subestimava a
+  ligação do Brasil com o mundo (2026: 0,27 contra 0,64).
+- **1994 só com variação bruta**: a estimação cairia na hiperinflação e não há
+  índice de emergentes diário antes de 1997 (contra o S&P 500 o beta dava 2,8).
+- **Selic só bruta**.
 
 **Estatais × privadas**: carteira de peso igual com as estatais listadas na data
 de cada eleição (a lista muda: Vale até 1997, Telebras até 1998, Eletrobras até
@@ -98,6 +105,14 @@ dividendos, nos dois lados (comparação justa).
 **Setores**: bancos, petróleo, mineração e siderurgia, elétricas e saneamento,
 varejo e consumo, construção e imóveis. As ações mais negociadas de cada setor
 nos 12 meses antes da eleição. Tabela de classificação à mão em `dados/`.
+
+**Universo das carteiras** (fase 3): as 60 empresas de maior volume na B3 nos
+365 dias antes do 1º turno (1994: só desde 01/07/1994, para não misturar
+cruzeiro real com real), uma ação por empresa (a mais negociada). Estatais e
+privadas saem desse universo. Cada setor é comparado com a **carteira das 60**
+(peso igual, só preço), não com o Ibovespa: o Ibovespa reinveste dividendos e
+as carteiras não, o que daria até ~5 pontos de vantagem falsa ao índice numa
+janela de 1 ano.
 
 **Surpresa**: média das últimas pesquisas (Datafolha, Ibope/Ipec, e Quaest e
 AtlasIntel quando houver) antes de cada turno, em votos válidos, contra o
