@@ -1,6 +1,6 @@
 # Propostas e marcos das eleições presidenciais (1994–2026)
 
-Este arquivo é um **rascunho para revisão**. Ele é gerado por `scripts/propostas_md.py` a partir de `dados/propostas.yaml` (propostas dos dois principais candidatos de cada eleição de 1994 a 2026, o que o vencedor fez no 1º ano e meio e, em 2026, os sinais e a contestação depois da eleição) e de `dados/marcos.csv` (fatos com data que mexeram no mercado). Cada célula traz o texto e um link de fonte (programa de governo, imprensa da época ou documento oficial). "—" quer dizer que nenhuma fonte foi encontrada. Os dados foram pesquisados e conferidos em 31/10/2026. Não edite aqui: corrija os dois arquivos de dados e rode o script de novo.
+Propostas e marcos revisados e aprovados em 31/10/2026. Este arquivo é gerado por `scripts/propostas_md.py` a partir de `dados/propostas.yaml` (propostas dos dois principais candidatos de cada eleição de 1994 a 2026, o que o vencedor fez no 1º ano e meio e, em 2026, os sinais e a contestação depois da eleição) e de `dados/marcos.csv` (fatos com data que mexeram no mercado). Cada célula traz o texto e um link de fonte (programa de governo, imprensa da época ou documento oficial). "—" quer dizer que nenhuma fonte foi encontrada. Os dados foram pesquisados e conferidos em 31/10/2026. Não edite aqui: corrija os dois arquivos de dados e rode o script de novo.
 
 ## 2026 — Lula × Flávio Bolsonaro
 

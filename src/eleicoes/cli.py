@@ -1,6 +1,7 @@
 """Linha de comando do estudo."""
 
 from datetime import date
+from pathlib import Path
 
 import pandas as pd
 import typer
@@ -13,9 +14,15 @@ from eleicoes import conferir_acoes as conferir_acoes_estudo
 from eleicoes import empresas as empresas_csv
 from eleicoes import janelas as estudo
 from eleicoes import liquidez as liquidez_estudo
+from eleicoes import planilha as planilha_estudo
+from eleicoes import site as site_estudo
+from eleicoes import verificar as verificacao
 from eleicoes.fontes import cotahist
 
 PRIMEIRO_ANO_COTAHIST = 1993
+LEIAME_PADRAO = typer.Option(
+    site_estudo.LEIAME, help="README com os trechos da página (para teste)."
+)
 
 app = typer.Typer(
     help="Bolsa, dólar e juros diante das eleições presidenciais de 1994 a 2026.",
@@ -263,3 +270,46 @@ def cenarios() -> None:
                     f"{linha.maximo:+.1f} {linha.unidade}; análogos {linha.analogos_com_dado})"
                 )
             typer.echo(f"  {linha.cenario:<10} {linha.horizonte:<11} {faixa}")
+
+
+@app.command()
+def pagina(
+    leiame: Path = LEIAME_PADRAO,
+) -> None:
+    """Monta site/index.html e site/artefato.html com os dados e o texto do README."""
+    try:
+        destino = site_estudo.construir(leiame)
+    except ValueError as erro:
+        typer.echo(f"ERRO: {erro}", err=True)
+        raise typer.Exit(code=1) from erro
+    typer.echo(f"Gravado em {destino} e {destino.with_name('artefato.html')}")
+
+
+@app.command()
+def planilha(
+    pronta: bool = typer.Option(
+        True, help="Recalcula no LibreOffice para a planilha já chegar com os números."
+    ),
+) -> None:
+    """Gera saida/eleicoes_mercado.xlsx: dados e um Painel com fórmulas."""
+    destino = planilha_estudo.gerar(pronta)
+    typer.echo(f"Gravado em {destino}")
+
+
+@app.command()
+def verificar() -> None:
+    """Confere a planilha: recalcula cópias com outras escolhas no Painel e compara com os CSVs."""
+    problemas = verificacao.conferir()
+    problemas += (
+        verificacao.conferir_arquivo()
+        if planilha_estudo.ARQUIVO.exists()
+        else [f"{planilha_estudo.ARQUIVO} não existe: rode `eleicoes planilha`"]
+    )
+    total = len(verificacao.COMBINACOES)
+    if problemas:
+        for problema in problemas:
+            typer.echo(f"✗ {problema}", err=True)
+        raise typer.Exit(code=1)
+    typer.echo(
+        f"✓ {total} combinações de eleição × janela batem com os CSVs; arquivo publicado sem erros"
+    )
