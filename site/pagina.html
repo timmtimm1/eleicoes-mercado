@@ -497,6 +497,11 @@ graficoDeEmpresas($("g-cairam"), "As 8 empresas que mais caíram (dia seguinte a
 graficoDeEmpresas($("g-menos-cairam"), "As 8 que menos caíram, ou subiram", S.menos_cairam);
 
 // ------------------------------------------------------------------ 6. propostas e marcos
+// Os tipos de marcos.csv com o nome que o leitor vê.
+const TIPOS_DE_MARCO = {
+  equipe_economica: "Equipe econômica", fiscal: "Contas públicas", banco_central: "Banco Central",
+  estatais: "Estatais", reformas: "Reformas", politico: "Política", campanha: "Campanha", externo: "Exterior",
+};
 (function propostas() {
   const raiz = $("propostas-conteudo");
   const P = DADOS.propostas;
@@ -526,7 +531,7 @@ graficoDeEmpresas($("g-menos-cairam"), "As 8 que menos caíram, ou subiram", S.m
       h("div", { class: "cartao rolagem" }, h("table", { class: "proposta" }, h("thead", {}, cabecalho), h("tbody", {}, linhas))),
       listaDatada("Sinais depois da eleição", e.sinais_pos_eleicao),
       listaDatada("Contestação", e.contestacao),
-      marcos.length ? h("div", {}, h("h3", { texto: "Marcos" }), h("ul", { class: "prosa" }, marcos.map((m) => h("li", {}, h("span", { class: "num", texto: dataBR(m.data) + " " }), `${m.tipo ? m.tipo + ": " : ""}${m.descricao} `, ligacao(m.fonte, "fonte"))))) : null);
+      marcos.length ? h("div", {}, h("h3", { texto: "Marcos" }), h("ul", { class: "prosa" }, marcos.map((m) => h("li", {}, h("span", { class: "num", texto: dataBR(m.data) + " " }), `${TIPOS_DE_MARCO[m.tipo] ? TIPOS_DE_MARCO[m.tipo] + ": " : ""}${m.descricao} `, ligacao(m.fonte, "fonte"))))) : null);
   }
   select.addEventListener("change", desenhar);
   raiz.replaceChildren(h("div", { style: "display:grid;gap:16px" }, h("p", { class: "explica", texto: "Seis temas para os dois candidatos mais votados, com a fonte de cada linha. Ao lado, o que o vencedor fez." }), h("div", { class: "filtro" }, h("label", { for: "sel-prop", texto: "Eleição" }), select), corpo));
