@@ -39,6 +39,8 @@ src = ["src", "tests"]
 select = ["E", "W", "F", "I", "N", "UP", "B", "C4", "SIM", "PTH", "RUF"]
 
 [tool.ruff.lint.per-file-ignores]
+# Texto mostrado ao leitor: travessão e sinal de vezes de propósito.
+"scripts/propostas_md.py" = ["RUF001"]
 # Textos mostrados ao leitor: sinais tipográficos (×, −) de propósito.
 "src/eleicoes/series.py" = ["RUF001"]
 "src/eleicoes/cli.py" = ["RUF001"]

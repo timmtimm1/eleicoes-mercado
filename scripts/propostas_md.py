@@ -5,6 +5,7 @@ Uso (na raiz do repositório):
 
 O markdown sai só dos dois arquivos de dados. Se eles mudarem, rode de novo.
 """
+
 import csv
 from datetime import date
 from pathlib import Path
@@ -32,7 +33,7 @@ INTRO = (
     "fez no 1º ano e meio e, em 2026, os sinais e a contestação depois da "
     "eleição) e de `dados/marcos.csv` (fatos com data que mexeram no mercado). "
     "Cada célula traz o texto e um link de fonte (programa de governo, "
-    "imprensa da época ou documento oficial). \"—\" quer dizer que nenhuma fonte "
+    'imprensa da época ou documento oficial). "—" quer dizer que nenhuma fonte '
     "foi encontrada. Os dados foram pesquisados e conferidos em 31/10/2026. "
     "Não edite aqui: corrija os dois arquivos de dados e rode o script de novo."
 )
@@ -77,18 +78,13 @@ def main():
         out += [f"## {ano} — {' × '.join(nomes)}", ""]
 
         out += ["### Propostas", ""]
-        linhas = [
-            [rotulo] + [celula(c.get(chave, {})) for c in cands]
-            for chave, rotulo in TEMAS
-        ]
-        out += [tabela(["Tema"] + nomes, linhas), ""]
+        linhas = [[rotulo] + [celula(c.get(chave, {})) for c in cands] for chave, rotulo in TEMAS]
+        out += [tabela(["Tema", *nomes], linhas), ""]
 
         if "realizado" in e:
             vencedor = nomes[0]  # o primeiro de cada eleição é o vencedor
             out += [f"### O que foi feito no 1º ano e meio ({vencedor})", ""]
-            linhas = [
-                [rotulo, celula(e["realizado"].get(chave, {}))] for chave, rotulo in TEMAS
-            ]
+            linhas = [[rotulo, celula(e["realizado"].get(chave, {}))] for chave, rotulo in TEMAS]
             out += [tabela(["Tema", "O que foi feito"], linhas), ""]
 
         if e.get("sinais_pos_eleicao"):
