@@ -14,6 +14,7 @@ from eleicoes import conferir_acoes as conferir_acoes_estudo
 from eleicoes import empresas as empresas_csv
 from eleicoes import janelas as estudo
 from eleicoes import liquidez as liquidez_estudo
+from eleicoes import painel as painel_estudo
 from eleicoes import planilha as planilha_estudo
 from eleicoes import site as site_estudo
 from eleicoes import verificar as verificacao
@@ -283,6 +284,13 @@ def pagina(
         typer.echo(f"ERRO: {erro}", err=True)
         raise typer.Exit(code=1) from erro
     typer.echo(f"Gravado em {destino} e {destino.with_name('artefato.html')}")
+
+
+@app.command()
+def painel() -> None:
+    """Monta site/painel_completo.html: o painel interativo, com os dados embutidos."""
+    destino = painel_estudo.construir()
+    typer.echo(f"Gravado em {destino}")
 
 
 @app.command()

@@ -781,7 +781,8 @@ function desenharBarras(w, spec) {
     cat.itens.forEach((v, si) => {
       if (!Number.isFinite(v)) return;
       const bx = centro - larguraTotal / 2 + si * (larguraBarra + folga);
-      g.append(s("path", { d: caminhoBarraV(bx, larguraBarra, y(0), y(v)), fill: spec.series[si].cor }));
+      // `corDaBarra(ci, si)` é opcional: serve para destacar uma categoria (por exemplo, o ano atual).
+      g.append(s("path", { d: caminhoBarraV(bx, larguraBarra, y(0), y(v)), fill: spec.corDaBarra ? spec.corDaBarra(ci, si) : spec.series[si].cor }));
       if (rotular.has(`${ci}|${si}`)) {
         const texto = spec.formatoValor(v);
         const largT = larguraTexto(texto, 10.5);
@@ -806,18 +807,25 @@ function desenharBarras(w, spec) {
 // ------------------------------------------------------------------ barras horizontais (uma série, em ordem)
 function desenharBarrasH(w, spec) {
   const itens = spec.itens;
-  const passo = 28, topo = 8;
-  const alt = topo * 2 + itens.length * passo;
+  const ref = spec.referencia; // opcional: {valor, rotulo}, uma linha vertical de referência
+  const passo = 28, topo = ref ? 24 : 8;
+  const alt = topo + 8 + itens.length * passo;
   const maxRotulo = Math.min(w * 0.42, Math.max(...itens.map((i) => larguraTexto(i.rotulo, 11))) + 8);
   const letras = Math.floor(maxRotulo / (11 * 0.58));
   const vs = itens.map((i) => i.valor);
+  if (ref) vs.push(ref.valor);
   const lo = Math.min(0, ...vs), hi = Math.max(0, ...vs);
   const margemRotulo = 46;
   const x0 = maxRotulo + 8 + (lo < 0 ? margemRotulo : 0);
   const x1 = w - 16 - (hi > 0 ? margemRotulo : 0);
   const x = linear(lo, hi, x0, x1);
   const svg = s("svg", { width: w, height: alt, viewBox: `0 0 ${w} ${alt}` });
-  svg.append(s("line", { class: "eixo-base", x1: x(0), x2: x(0), y1: topo, y2: alt - topo }));
+  svg.append(s("line", { class: "eixo-base", x1: x(0), x2: x(0), y1: topo, y2: alt - 8 }));
+  if (ref) {
+    const largRef = larguraTexto(ref.rotulo, 11);
+    svg.append(s("line", { class: "nivel-hoje", x1: x(ref.valor), x2: x(ref.valor), y1: topo - 6, y2: alt - 8 }));
+    svg.append(s("text", { class: "rotulo-cat", x: Math.min(Math.max(x(ref.valor), largRef / 2 + 2), w - largRef / 2 - 2), y: topo - 10, "text-anchor": "middle", texto: ref.rotulo }));
+  }
   itens.forEach((it, i) => {
     const cy = topo + i * passo + passo / 2;
     const g = s("g", { class: "grupo" });

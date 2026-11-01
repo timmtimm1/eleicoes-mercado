@@ -1,0 +1,908 @@
+<title>Eleições e Mercado 2026</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@75..100,500..800&family=IBM+Plex+Mono:wght@400;500&family=IBM+Plex+Sans:wght@400;500;600&display=swap">
+<style>
+/* Painel: abas, filtros e gráficos. Mesma família visual da página longa. Tema claro e escuro: pelo sistema (prefers-color-scheme) ou por data-theme. */
+:root {
+  --bg: #f4f4f1;
+  --superficie: #fcfcfb;
+  --ink: #0b0b0b;
+  --ink-2: #52514e;
+  --ink-3: #898781;
+  --grade: #e1e0d9;
+  --eixo: #c3c2b7;
+  --linha: #d9d8d0;
+  --link: #1c5cab;
+  --serie-1: #2a78d6;   /* azul */
+  --serie-2: #eb6834;   /* laranja */
+  --serie-3: #1baf7a;   /* aqua */
+  --serie-neutra: #898781; /* as outras eleições, quando uma é destacada */
+  --div-meio: #f0efec;  /* mapa de calor: cinza no meio, azul para cima, vermelho para baixo */
+  --div-alto: #2a78d6;
+  --div-baixo: #e34948;
+  --est-recorde: #b3261e; /* estado dos números-chave: separado das cores das séries */
+  --est-fora: #8a5a00;
+  --est-dentro: #52514e;
+  --realce: rgba(11, 11, 11, 0.05);
+  --aviso: #8a5a00;
+  --display: "Archivo", "Arial Narrow", system-ui, sans-serif;
+  --body: "IBM Plex Sans", system-ui, -apple-system, "Segoe UI", sans-serif;
+  --mono: "IBM Plex Mono", ui-monospace, "SF Mono", Menlo, monospace;
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --bg: #0d0d0d; --superficie: #1a1a19; --ink: #f0efec; --ink-2: #c3c2b7; --ink-3: #898781;
+    --grade: #2c2c2a; --eixo: #383835; --linha: #2f2f2d; --link: #6da7ec;
+    --serie-1: #3987e5; --serie-2: #d95926; --serie-3: #199e70; --serie-neutra: #6f6e69;
+    --div-meio: #383835; --div-alto: #3987e5; --div-baixo: #e66767;
+    --est-recorde: #f28b82; --est-fora: #e0a93b; --est-dentro: #c3c2b7;
+    --realce: rgba(255, 255, 255, 0.06); --aviso: #e0a93b; color-scheme: dark;
+  }
+}
+:root[data-theme="dark"] {
+  --bg: #0d0d0d; --superficie: #1a1a19; --ink: #f0efec; --ink-2: #c3c2b7; --ink-3: #898781;
+  --grade: #2c2c2a; --eixo: #383835; --linha: #2f2f2d; --link: #6da7ec;
+  --serie-1: #3987e5; --serie-2: #d95926; --serie-3: #199e70; --serie-neutra: #6f6e69;
+  --div-meio: #383835; --div-alto: #3987e5; --div-baixo: #e66767;
+  --est-recorde: #f28b82; --est-fora: #e0a93b; --est-dentro: #c3c2b7;
+  --realce: rgba(255, 255, 255, 0.06); --aviso: #e0a93b; color-scheme: dark;
+}
+* { box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+@media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } * { transition: none !important; animation: none !important; } }
+body { margin: 0; background: var(--bg); color: var(--ink); font-family: var(--body); font-size: 16px; line-height: 1.55; }
+[hidden] { display: none !important; }
+.wrap { max-width: 1180px; margin: 0 auto; padding: 22px 16px 48px; display: flex; flex-direction: column; gap: 18px; background: var(--bg); color: var(--ink); font-family: var(--body); line-height: 1.55; }
+.wrap > * { min-width: 0; }
+h1 { font-family: var(--display); font-stretch: 80%; font-weight: 800; font-size: clamp(1.9rem, 5vw, 2.8rem); line-height: 1.04; margin: 0; letter-spacing: -0.01em; }
+h2 { font-family: var(--display); font-stretch: 88%; font-weight: 700; font-size: 1.3rem; margin: 0; text-wrap: balance; }
+h3 { font-family: var(--display); font-stretch: 88%; font-weight: 700; font-size: 1.05rem; margin: 0; }
+p { margin: 0; }
+a { color: var(--link); }
+.eyebrow { font-size: 0.74rem; letter-spacing: 0.09em; text-transform: uppercase; color: var(--ink-2); font-weight: 600; margin: 0; }
+.so-leitor { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; }
+.num { font-family: var(--mono); font-variant-numeric: tabular-nums; }
+button:focus-visible, select:focus-visible, a:focus-visible, summary:focus-visible, [tabindex]:focus-visible { outline: 2px solid var(--link); outline-offset: 2px; }
+svg [tabindex]:focus-visible { outline: none; }
+svg [tabindex]:focus-visible.alvo, svg [tabindex]:focus-visible.alvo-ponto { stroke: var(--ink); stroke-width: 2; }
+svg:focus-visible { outline: 2px solid var(--link); outline-offset: 2px; }
+
+/* Cabeçalho */
+.topo { display: flex; flex-wrap: wrap; gap: 8px 24px; justify-content: space-between; align-items: end; }
+.topo .lede { color: var(--ink-2); margin-top: 6px; font-size: 1.02rem; max-width: 56ch; }
+.selos { display: flex; flex-wrap: wrap; gap: 8px; align-items: center; font-size: 0.84rem; }
+.selos .data { font-family: var(--mono); color: var(--ink-2); }
+.selo { border: 1px solid var(--eixo); border-radius: 3px; padding: 3px 9px; font-weight: 600; color: var(--ink); background: var(--superficie); }
+
+/* Números-chave */
+.chaves { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(6, minmax(0, 1fr)); gap: 10px; }
+@media (max-width: 1060px) { .chaves { grid-template-columns: repeat(3, minmax(0, 1fr)); } }
+@media (max-width: 700px) { .chaves { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+@media (max-width: 520px) { .chaves { grid-template-columns: minmax(0, 1fr); } }
+.nchave { background: var(--superficie); border: 1px solid var(--linha); border-top: 3px solid var(--est, var(--eixo)); border-radius: 2px; padding: 9px 12px 11px; display: flex; flex-direction: column; gap: 4px; align-items: flex-start; }
+.chave-recorde { --est: var(--est-recorde); }
+.chave-fora { --est: var(--est-fora); }
+.chave-dentro { --est: var(--est-dentro); }
+.chave-rotulo { font-size: 0.78rem; color: var(--ink-2); line-height: 1.25; min-height: 2.5em; }
+.chave-valor { font-weight: 600; font-size: 1.75rem; line-height: 1.1; white-space: nowrap; }
+.chave-valor small { font-size: 0.55em; font-weight: 500; color: var(--ink-2); margin-left: 3px; }
+.chip { display: inline-block; font-size: 0.72rem; font-weight: 600; letter-spacing: 0.02em; padding: 1px 8px; border-radius: 3px; border: 1px solid var(--est); color: var(--est); background: color-mix(in srgb, var(--est) 10%, transparent); }
+.chave-ctx { font-size: 0.78rem; color: var(--ink-2); line-height: 1.35; }
+.regra { font-size: 0.8rem; color: var(--ink-2); max-width: 90ch; }
+details.como summary { cursor: pointer; font-size: 0.82rem; color: var(--link); margin-top: 4px; }
+details.como > div { margin-top: 8px; }
+
+/* Abas */
+.barra-abas { position: sticky; top: 0; z-index: 10; background: var(--bg); border-bottom: 1px solid var(--linha); padding-block: 8px; margin-inline: -16px; padding-inline: 16px; }
+.abas { display: flex; flex-wrap: wrap; gap: 8px; }
+.aba { font: inherit; font-size: 0.92rem; font-weight: 600; padding: 7px 16px; min-height: 40px; border: 1px solid var(--eixo); border-radius: 6px; background: var(--superficie); color: var(--ink); cursor: pointer; }
+.aba:hover { border-color: var(--ink-3); }
+.aba[aria-selected="true"] { background: var(--ink); color: var(--bg); border-color: var(--ink); }
+@media (max-width: 520px) { .abas { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 6px; } .aba { padding-inline: 4px; font-size: 0.86rem; } }
+
+/* Painéis */
+.painel { display: flex; flex-direction: column; gap: 18px; min-width: 0; }
+.painel > * { min-width: 0; }
+.painel > h2 + p, .painel > .intro { color: var(--ink-2); max-width: 74ch; margin-top: -8px; }
+.sub { display: flex; flex-direction: column; gap: 10px; min-width: 0; }
+.sub > h3 { border-top: 1px solid var(--linha); padding-top: 14px; }
+.cartao { background: var(--superficie); border: 1px solid var(--linha); border-radius: 6px; padding: 14px; min-width: 0; }
+.duas { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 16px; }
+.tres { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 16px; }
+@media (max-width: 860px) { .duas, .tres { grid-template-columns: minmax(0, 1fr); } }
+.rolagem { overflow-x: auto; }
+.aviso { padding: 10px 12px; border-left: 3px solid var(--aviso); background: color-mix(in srgb, var(--aviso) 10%, transparent); font-size: 0.92rem; border-radius: 3px; max-width: 80ch; }
+.nota { font-size: 0.82rem; color: var(--ink-2); line-height: 1.4; margin-top: 2px; }
+.explica { font-size: 0.9rem; color: var(--ink-2); max-width: 76ch; }
+.explica strong { color: var(--ink); }
+
+/* Filtros */
+.filtros { display: flex; flex-wrap: wrap; gap: 10px 22px; align-items: flex-end; padding: 10px 12px; border: 1px solid var(--linha); border-radius: 4px; background: var(--superficie); }
+.campo { display: flex; flex-direction: column; gap: 4px; min-width: 0; }
+.campo label, .campo-rotulo { font-weight: 600; font-size: 0.8rem; color: var(--ink-2); }
+select { font: inherit; font-size: 0.92rem; padding: 6px 10px; border: 1px solid var(--eixo); border-radius: 4px; background: var(--bg); color: var(--ink); min-height: 38px; max-width: 100%; }
+.segmentado { display: flex; flex-wrap: wrap; gap: 6px; }
+.seg { font: inherit; font-size: 0.88rem; font-weight: 500; padding: 6px 12px; min-height: 38px; border: 1px solid var(--eixo); border-radius: 4px; background: var(--bg); color: var(--ink); cursor: pointer; }
+.seg[aria-pressed="true"] { background: var(--ink); color: var(--bg); border-color: var(--ink); }
+@media (max-width: 520px) { .filtros { flex-direction: column; align-items: stretch; } select { width: 100%; } }
+
+/* Indicadores (cartões de leitura rápida) */
+.indicadores { display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 190px), 1fr)); gap: 12px; }
+.indicador { border-left: 3px solid var(--eixo); padding: 2px 0 2px 12px; display: flex; flex-direction: column; gap: 2px; }
+.indicador .rotulo { font-size: 0.8rem; color: var(--ink-2); }
+.indicador .valor { font-weight: 600; font-size: 1.6rem; line-height: 1.15; white-space: nowrap; }
+.indicador .detalhe { font-size: 0.8rem; color: var(--ink-2); line-height: 1.35; }
+
+/* Tabelas */
+table { border-collapse: collapse; width: 100%; font-size: 0.86rem; }
+th, td { padding: 6px 10px; text-align: right; white-space: nowrap; border-bottom: 1px solid var(--grade); }
+th:first-child, td:first-child { text-align: left; white-space: normal; min-width: 90px; }
+thead th { white-space: normal; font-family: var(--body); font-weight: 600; color: var(--ink-2); font-size: 0.78rem; vertical-align: bottom; }
+td.num, th.num { font-family: var(--mono); font-variant-numeric: tabular-nums; }
+thead th.num { font-family: var(--body); min-width: 86px; }
+td.texto, th.texto { text-align: left; white-space: normal; min-width: 150px; }
+td.quebra { white-space: normal; }
+td small { display: block; font-family: var(--body); font-size: 0.76rem; color: var(--ink-2); white-space: normal; }
+table.resumo-cen td, table.resumo-cen th { vertical-align: top; }
+table.resp td, table.resp th { text-align: left; white-space: normal; vertical-align: top; min-width: 150px; }
+table.resp th:first-child, table.resp td:first-child { min-width: 120px; font-weight: 600; }
+.vazio { color: var(--ink-3); }
+@media (max-width: 760px) {
+  table.resp, table.resp tbody, table.resp tr, table.resp th, table.resp td { display: block; width: 100%; min-width: 0; }
+  table.resp thead { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); }
+  table.resp tr { border: 1px solid var(--linha); border-radius: 4px; margin-bottom: 12px; padding: 8px 10px; background: var(--superficie); }
+  table.resp th[scope="row"] { border-bottom: 1px solid var(--grade); padding: 2px 0 6px; font-family: var(--display); font-size: 1rem; }
+  table.resp td { border-bottom: 0; padding: 8px 0 0; min-width: 0; }
+  table.resp td::before { content: attr(data-label); display: block; font-size: 0.72rem; letter-spacing: 0.08em; text-transform: uppercase; color: var(--ink-2); font-weight: 600; }
+}
+
+/* Gráficos */
+.grafico { margin: 0; display: grid; gap: 8px; min-width: 0; }
+.grafico-cab { display: grid; gap: 2px; }
+.grafico-area { min-width: 0; }
+.grafico-rodape { display: flex; justify-content: flex-end; }
+.ver-tabela { font: inherit; font-size: 0.82rem; padding: 6px 10px; min-height: 32px; border: 1px solid var(--eixo); background: transparent; color: var(--ink-2); border-radius: 4px; cursor: pointer; }
+.ver-tabela:hover { color: var(--ink); border-color: var(--ink-3); }
+.grafico-tabela { border-top: 1px solid var(--grade); padding-top: 8px; max-height: 360px; overflow: auto; }
+.legenda { display: flex; flex-wrap: wrap; gap: 6px 16px; font-size: 0.84rem; color: var(--ink-2); }
+.legenda .chave { display: inline-block; width: 10px; height: 10px; border-radius: 2px; margin-right: 6px; vertical-align: -1px; }
+.legenda .chave-linha { width: 16px; height: 2px; border-radius: 1px; vertical-align: 3px; }
+.legenda .chave-ponto { border-radius: 50%; }
+svg { display: block; max-width: 100%; overflow: visible; }
+svg text { font-family: var(--body); font-size: 11px; fill: var(--ink-2); }
+svg .grade { stroke: var(--grade); stroke-width: 1; }
+svg .eixo-base { stroke: var(--eixo); stroke-width: 1; }
+svg .nivel-hoje { stroke: var(--ink-3); stroke-width: 1; }
+svg .marca-vertical { stroke: var(--ink-3); stroke-width: 1; }
+svg .rotulo-marca { font-size: 10.5px; fill: var(--ink-2); }
+svg .rotulo-valor { fill: var(--ink); font-family: var(--mono); font-size: 10.5px; font-weight: 500; }
+svg .rotulo-cat { fill: var(--ink); font-size: 11px; }
+svg .titulo-eixo { font-size: 11px; fill: var(--ink-2); }
+svg .tendencia { stroke: var(--ink-3); stroke-width: 2; stroke-linecap: round; }
+svg .mira-linha { stroke: var(--ink-2); stroke-width: 1; }
+svg .realce { fill: var(--realce); opacity: 0; }
+svg .grupo:hover .realce, svg .grupo:focus-within .realce { opacity: 1; }
+svg .alvo, svg .alvo-ponto { cursor: default; }
+svg .alvo-ponto:hover { stroke: var(--ink-3); stroke-width: 1; }
+
+#dica { position: fixed; pointer-events: none; background: var(--ink); color: var(--superficie); padding: 7px 10px; border-radius: 6px; font-size: 0.82rem; z-index: 20; max-width: 280px; line-height: 1.35; box-shadow: 0 2px 10px rgba(0, 0, 0, 0.25); }
+#dica .dica-titulo { opacity: 0.8; margin-bottom: 3px; }
+#dica .dica-linha { display: flex; gap: 7px; align-items: baseline; }
+#dica .dica-linha strong { font-size: 0.95rem; font-weight: 600; }
+#dica .dica-rotulo { opacity: 0.8; }
+#dica .dica-chave { display: inline-block; width: 12px; height: 2px; border-radius: 1px; align-self: center; flex: none; }
+#dica .dica-nota { opacity: 0.85; margin-top: 3px; }
+
+/* Mapa de calor */
+table.mapa { table-layout: fixed; min-width: 760px; }
+table.mapa th, table.mapa td { text-align: center; padding: 0; white-space: normal; border-bottom: 0; }
+table.mapa thead th { font-size: 0.72rem; line-height: 1.2; padding: 0 3px 6px; }
+table.mapa thead th.escolhida { color: var(--ink); text-decoration: underline; text-underline-offset: 3px; }
+table.mapa th.ano { width: 52px; text-align: left; font-family: var(--mono); font-size: 0.82rem; padding-right: 6px; color: var(--ink); font-weight: 600; }
+table.mapa td { height: 38px; font-family: var(--mono); font-size: 0.78rem; font-variant-numeric: tabular-nums; border: 2px solid var(--superficie); border-radius: 4px; cursor: default; }
+table.mapa td.escolhida { box-shadow: inset 0 0 0 2px var(--ink); }
+table.mapa td.sem { color: var(--ink-3); background: transparent; border: 1px dashed var(--linha); border-radius: 4px; }
+table.mapa td:focus-visible { outline: 2px solid var(--ink); outline-offset: -2px; }
+.escala-mapa { display: flex; align-items: center; gap: 10px; font-size: 0.78rem; color: var(--ink-2); flex-wrap: wrap; }
+.escala-mapa .barra { width: 200px; max-width: 100%; height: 8px; border-radius: 4px; }
+
+/* Linha do tempo */
+.tempo { list-style: none; margin: 0; padding: 0; columns: 2 400px; column-gap: 32px; }
+.tempo li { break-inside: avoid; display: grid; grid-template-columns: 58px minmax(0, 1fr); gap: 2px 12px; padding: 8px 6px; border-top: 1px solid var(--grade); font-size: 0.88rem; }
+.tempo time { font-family: var(--mono); font-size: 0.82rem; color: var(--ink-2); }
+.tempo .tipo { font-size: 0.7rem; letter-spacing: 0.08em; text-transform: uppercase; color: var(--ink-2); font-weight: 600; display: block; }
+.tempo li.turno { background: var(--realce); border-top: 2px solid var(--ink); }
+.tempo li.turno time { color: var(--ink); font-weight: 600; }
+.tempo .turno-etq { font-weight: 700; color: var(--ink); }
+
+/* Cenários */
+.cartao-cenario { display: flex; flex-direction: column; gap: 8px; align-content: start; }
+.cartao-cenario h3 { display: flex; gap: 8px; align-items: center; }
+.cartao-cenario .chave-cor { width: 12px; height: 12px; border-radius: 3px; flex: none; display: inline-block; }
+.cartao-cenario .rotulo { font-size: 0.72rem; letter-spacing: 0.08em; text-transform: uppercase; color: var(--ink-2); font-weight: 600; }
+.cartao-cenario p { font-size: 0.92rem; color: var(--ink-2); }
+.verificacao { list-style: none; margin: 0; padding: 0; display: flex; flex-direction: column; gap: 8px; font-size: 0.9rem; }
+.verificacao li { display: grid; grid-template-columns: 18px minmax(0, 1fr); gap: 0 8px; align-items: start; }
+.verificacao .caixa { width: 16px; height: 16px; border: 2px solid var(--ink-3); border-radius: 3px; margin-top: 3px; }
+.verificacao .estado { grid-column: 2; font-size: 0.72rem; color: var(--ink-3); font-weight: 600; letter-spacing: 0.04em; }
+.acompanhar { list-style: none; margin: 0; padding: 0; display: flex; flex-direction: column; }
+.acompanhar li { display: grid; grid-template-columns: 96px minmax(0, 1fr); gap: 12px; padding: 8px 0; border-top: 1px solid var(--grade); font-size: 0.92rem; }
+.acompanhar time { font-family: var(--mono); font-size: 0.86rem; font-weight: 500; }
+@media (max-width: 520px) { .acompanhar li { grid-template-columns: minmax(0, 1fr); gap: 2px; } }
+
+/* Propostas */
+.vencedor-bloco { display: flex; flex-direction: column; gap: 10px; }
+
+footer { color: var(--ink-2); font-size: 0.86rem; display: flex; flex-direction: column; gap: 10px; max-width: 84ch; border-top: 1px solid var(--linha); padding-top: 16px; }
+footer ul { margin: 6px 0 0; padding-left: 1.2em; display: flex; flex-direction: column; gap: 6px; }
+footer summary { cursor: pointer; color: var(--link); }
+.links-rodape { display: flex; flex-wrap: wrap; gap: 6px 18px; }
+</style>
+
+<div class="wrap">
+  <header class="topo">
+    <div>
+      <p class="eyebrow">Eleições presidenciais · Ibovespa, dólar e juros</p>
+      <h1>Eleições e mercado</h1>
+      <p class="lede">Bolsa, dólar e juros nas eleições para presidente, 1994 a 2026</p>
+    </div>
+    <div class="selos">
+      <span class="data">Dados até __DADOS_ATE__</span>
+      <span class="selo">__SELO__</span>
+    </div>
+  </header>
+
+  <section aria-labelledby="t-chaves">
+    <h2 class="so-leitor" id="t-chaves">Números-chave de 2026</h2>
+    <ol class="chaves" id="chaves"></ol>
+    <p class="regra" id="regra-chips"></p>
+    <details class="como">
+      <summary>Como cada chip é calculado</summary>
+      <div class="cartao rolagem" id="t-chips"></div>
+    </details>
+  </section>
+
+  <nav class="barra-abas" aria-label="Seções do painel">
+    <div class="abas" role="tablist" id="abas">
+      <button type="button" class="aba" role="tab" id="aba-agora" aria-controls="painel-agora" data-aba="agora">2026 agora</button>
+      <button type="button" class="aba" role="tab" id="aba-historico" aria-controls="painel-historico" data-aba="historico">Histórico</button>
+      <button type="button" class="aba" role="tab" id="aba-pesquisas" aria-controls="painel-pesquisas" data-aba="pesquisas">Pesquisas</button>
+      <button type="button" class="aba" role="tab" id="aba-setores" aria-controls="painel-setores" data-aba="setores">Setores</button>
+      <button type="button" class="aba" role="tab" id="aba-cenarios" aria-controls="painel-cenarios" data-aba="cenarios">Cenários</button>
+      <button type="button" class="aba" role="tab" id="aba-propostas" aria-controls="painel-propostas" data-aba="propostas">Propostas</button>
+    </div>
+  </nav>
+
+  <main>
+    <section class="painel" id="painel-agora" role="tabpanel" aria-labelledby="aba-agora" hidden>
+      <h2>2026 agora: bolsa e dólar desde 1º de agosto</h2>
+      <p class="intro">As linhas vão de 1º de agosto a 30 de outubro de 2026. As marcas verticais são os dois turnos (4 e 25 de outubro). Passe o mouse ou use as setas do teclado para ler cada dia.</p>
+      <div class="duas">
+        <div class="cartao" id="g-ibov"></div>
+        <div class="cartao" id="g-dolar"></div>
+      </div>
+      <div class="sub" id="sub-marcos">
+        <h3>O que aconteceu em 2026, em ordem</h3>
+        <ol class="tempo" id="tempo-2026"></ol>
+      </div>
+      <div class="sub">
+        <h3>Janelas de 2026 que já aconteceram</h3>
+        <p class="explica"><strong>Só Brasil</strong> é o que sobra da variação depois de tirar o que o resto do mundo fez no mesmo período. Se as bolsas de todos os países emergentes caem, a daqui costuma cair junto; o “só Brasil” mostra a parte que é nossa. <strong>Pregão</strong> é um dia em que a bolsa abre.</p>
+        <div class="cartao rolagem" id="t-agora"></div>
+      </div>
+    </section>
+
+    <section class="painel" id="painel-historico" role="tabpanel" aria-labelledby="aba-historico" hidden>
+      <div class="filtros" id="filtros-historico"></div>
+      <h2 id="h-historico"></h2>
+      <p class="intro">Cada barra é uma eleição. A de 2026 está em cor; as outras estão em cinza, só para comparar. Escolha a medida e o período nos filtros acima.</p>
+      <div class="cartao" id="g-historico"></div>
+      <p class="nota" id="nota-historico"></p>
+      <div class="indicadores" id="leitura-historico"></div>
+      <div class="sub">
+        <h3>Todos os períodos de uma vez</h3>
+        <p class="explica">Cada linha é uma eleição, cada coluna é um período depois (ou antes) do voto. <strong>Azul subiu, vermelho caiu</strong>, e a cor fica mais forte quanto maior a variação. Cinza com tracejado é “sem dado” ou “ainda não aconteceu”: passe o mouse para ver o motivo. A coluna sublinhada é o período escolhido. <strong>“Só Brasil”</strong> é a variação sem o que o exterior fez.</p>
+        <div class="cartao" style="display:flex;flex-direction:column;gap:12px">
+          <div class="rolagem" id="mapa"></div>
+          <div class="escala-mapa" id="escala-mapa"></div>
+          <div><button type="button" class="ver-tabela" id="ver-tabela-mapa" aria-expanded="false">Ver tabela</button><div id="t-mapa" hidden class="grafico-tabela rolagem"></div></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="painel" id="painel-pesquisas" role="tabpanel" aria-labelledby="aba-pesquisas" hidden>
+      <h2>Pesquisas × resultado</h2>
+      <p class="intro">A <strong>surpresa</strong> é o resultado do TSE menos o que as pesquisas da véspera mostravam, medida a favor do candidato que o mercado preferia (sempre o de fora do PT). Surpresa positiva: ele foi melhor do que as pesquisas diziam. Cada ponto do gráfico é um turno.</p>
+      <div class="filtros" id="filtros-pesquisas"></div>
+      <div class="cartao" id="g-surpresa"></div>
+      <div class="indicadores" id="indicadores-pesquisas"></div>
+      <p class="aviso" id="aviso-corr"></p>
+      <div class="sub">
+        <h3>Os turnos, um por um</h3>
+        <p class="explica"><strong>Margem</strong> é a diferença, em pontos, entre o candidato que o mercado preferia e o rival, nos votos válidos (sem brancos e nulos). Positiva: o candidato do mercado na frente. “Favorito” é quem estava na frente nas pesquisas. D+1 é o dia seguinte ao turno.</p>
+        <div class="cartao rolagem" id="t-surpresa"></div>
+      </div>
+    </section>
+
+    <section class="painel" id="painel-setores" role="tabpanel" aria-labelledby="aba-setores" hidden>
+      <div class="filtros" id="filtros-setores"></div>
+      <h2 id="h-setores"></h2>
+      <p class="explica"><strong>Peso igual, só preço</strong>: cada carteira junta as empresas mais negociadas antes da eleição, com o mesmo valor em cada uma e sem contar dividendos. Assim a comparação entre estatais e privadas é justa, mas a variação não é igual à do Ibovespa. A lista de estatais muda a cada eleição.</p>
+      <p class="aviso" id="aviso-setores" hidden></p>
+      <div class="painel" id="conteudo-setores">
+        <div class="sub">
+          <p class="explica" id="p-setores"></p>
+          <div class="cartao" id="g-setores"></div>
+          <ul class="verificacao" id="sem-carteira" style="gap:4px"></ul>
+        </div>
+        <div class="sub">
+          <h3>Estatais, privadas e todas</h3>
+          <div class="cartao" id="g-grupos"></div>
+          <p class="nota">Média é a variação da carteira de peso igual. Mediana é a empresa do meio: se uma ação disparar, a média sobe, mas a mediana quase não muda.</p>
+        </div>
+        <div class="sub">
+          <h3>Empresas nos dois extremos</h3>
+          <div class="duas">
+            <div class="cartao" id="g-cairam"></div>
+            <div class="cartao" id="g-subiram"></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="painel" id="painel-cenarios" role="tabpanel" aria-labelledby="aba-cenarios" hidden>
+      <div class="filtros" id="filtros-cenarios"></div>
+      <h2>Cenários para os próximos 14 meses</h2>
+      <p class="intro">Três caminhos possíveis. Cada um diz “se isto acontecer, a faixa foi esta nas eleições parecidas”. A barra vai do menor ao maior valor dessas duas eleições, e o círculo é a média delas. A linha fina horizontal é o nível de hoje (30/10/2026).</p>
+      <p class="aviso"><strong>Sem chance em %: com 9 eleições, um número seria chute.</strong> <strong>Mundo parado: se o exterior subir ou cair, isso soma por cima.</strong> <span id="status-premissas"></span></p>
+      <div class="cartao" id="g-cenarios"></div>
+      <p class="aviso" id="cen-pessimista" hidden></p>
+      <div class="sub">
+        <h3>Resumo: faixa e meio de cada cenário</h3>
+        <div class="cartao rolagem" id="t-cenarios"></div>
+      </div>
+      <div class="sub">
+        <h3>Os três cenários, com análogos e gatilhos</h3>
+        <p class="explica">Gatilhos são o que precisaria acontecer para o cenário valer. Nenhum está confirmado: não sabemos o futuro, então todos aparecem como “a acompanhar”.</p>
+        <div class="tres" id="cartoes-cenarios"></div>
+      </div>
+      <div class="sub">
+        <h3>O que acompanhar</h3>
+        <ul class="acompanhar" id="acompanhar"></ul>
+      </div>
+    </section>
+
+    <section class="painel" id="painel-propostas" role="tabpanel" aria-labelledby="aba-propostas" hidden>
+      <div id="propostas-conteudo" class="painel"></div>
+    </section>
+  </main>
+
+  <footer>
+    <p class="aviso" id="aviso-final">__AVISO__</p>
+    <details>
+      <summary>Limites do estudo</summary>
+      <ul id="lista-limites"></ul>
+    </details>
+    <p class="links-rodape"><a href="__PAGINA__">Página completa com a análise</a> <a href="__REPOSITORIO__">Código e dados no GitHub</a></p>
+    <p>Estudo de Bernardo Steffen Timm.</p>
+  </footer>
+</div>
+<div id="dica" hidden></div>
+
+<script>
+/*__GRAFICOS__*/
+</script>
+<script>
+const DADOS = /*__DADOS__*/;
+
+const $ = (id) => document.getElementById(id);
+const COR = { 1: "var(--serie-1)", 2: "var(--serie-2)", 3: "var(--serie-3)" };
+const NEUTRA = "var(--serie-neutra)";
+const NOME_JANELA = Object.fromEntries(DADOS.janelas.map((j) => [j.id, j.nome]));
+const periodo = (de, ate) => (de && ate ? `${dataBR(de)} a ${dataBR(ate)}` : "");
+const casasDaUnidade = (u) => (u === "p.b." ? 0 : u === "p.p." ? 2 : 1);
+const TIPOS_DE_MARCO = {
+  equipe_economica: "Equipe econômica", fiscal: "Contas públicas", banco_central: "Banco Central",
+  estatais: "Estatais", reformas: "Reformas", politico: "Política", campanha: "Campanha", externo: "Exterior",
+};
+Dica.iniciar();
+
+// ------------------------------------------------------------------ peças reaproveitadas
+function campo(rotulo, id, opcoes, valor, aoMudar) {
+  const sel = h("select", { id }, opcoes.map((o) => h("option", { value: String(o.valor), texto: o.nome })));
+  sel.value = String(valor);
+  sel.addEventListener("change", () => aoMudar(sel.value));
+  return h("div", { class: "campo" }, h("label", { for: id, texto: rotulo }), sel);
+}
+function segmentado(rotulo, opcoes, atual, aoMudar) {
+  const botoes = opcoes.map((o) => h("button", { type: "button", class: "seg", "aria-pressed": String(o.valor === atual), texto: o.nome }));
+  botoes.forEach((b, i) => b.addEventListener("click", () => {
+    botoes.forEach((x, j) => x.setAttribute("aria-pressed", String(i === j)));
+    aoMudar(opcoes[i].valor);
+  }));
+  return h("div", { class: "campo", role: "group", "aria-label": rotulo }, h("span", { class: "campo-rotulo", texto: rotulo }), h("div", { class: "segmentado" }, botoes));
+}
+function ols(pontos) {
+  const n = pontos.length;
+  const mx = pontos.reduce((a, p) => a + p.x, 0) / n, my = pontos.reduce((a, p) => a + p.y, 0) / n;
+  const sxx = pontos.reduce((a, p) => a + (p.x - mx) ** 2, 0);
+  const sxy = pontos.reduce((a, p) => a + (p.x - mx) * (p.y - my), 0);
+  const inclinacao = sxx ? sxy / sxx : 0;
+  return { inclinacao, intercepto: my - inclinacao * mx };
+}
+const mediana = (v) => {
+  const o = [...v].sort((a, b) => a - b), m = Math.floor(o.length / 2);
+  return o.length % 2 ? o[m] : (o[m - 1] + o[m]) / 2;
+};
+function indicador(rotulo, valor, detalhe) {
+  return h("div", { class: "indicador" }, h("span", { class: "rotulo", texto: rotulo }), h("span", { class: "valor", texto: valor }), detalhe ? h("span", { class: "detalhe", texto: detalhe }) : null);
+}
+function linhaDoTempo(marcos, datasDosTurnos) {
+  return marcos.map((m) => {
+    const turno = datasDosTurnos[m.data];
+    return h("li", { class: turno ? "turno" : null },
+      h("time", { datetime: m.data, texto: dataBR(m.data).slice(0, 5) + (m.data.slice(0, 4) === "2026" ? "" : "/" + m.data.slice(2, 4)) }),
+      h("div", {},
+        h("span", { class: "tipo", texto: TIPOS_DE_MARCO[m.tipo] || m.tipo }),
+        turno ? h("span", { class: "turno-etq", texto: turno + ": " }) : null,
+        m.descricao, " ", ligacao(m.fonte, "fonte")));
+  });
+}
+
+// ------------------------------------------------------------------ cabeçalho: números-chave
+$("chaves").replaceChildren(...DADOS.chaves.map((c) => {
+  const corte = c.valor.lastIndexOf(" ");
+  const numero = corte > 0 ? c.valor.slice(0, corte) : c.valor, unidade = corte > 0 ? c.valor.slice(corte + 1) : "";
+  return h("li", { class: `nchave chave-${c.estado}` },
+    h("p", { class: "chave-rotulo", texto: c.rotulo }),
+    h("p", { class: "chave-valor", "aria-label": c.valor }, numero, unidade ? h("small", { texto: unidade }) : null),
+    h("span", { class: `chip`, texto: c.estado_texto }),
+    h("p", { class: "chave-ctx", texto: c.contexto }));
+}));
+$("regra-chips").textContent = DADOS.regra_dos_chips;
+$("t-chips").replaceChildren(tabelaSimples(
+  ["Número", "2026", "Média sem 2026", "Desvio-padrão", "Distância (desvios)", "Turnos na série", "Estado"],
+  DADOS.chaves.map((c) => [c.rotulo, c.valor, c.media_sem_2026, c.desvio_sem_2026, c.distancia, String(c.n), c.estado_texto]), { texto: [6] }));
+$("lista-limites").replaceChildren(...DADOS.limites.map((t) => h("li", { texto: t })));
+
+// ------------------------------------------------------------------ abas
+const ABAS = ["agora", "historico", "pesquisas", "setores", "cenarios", "propostas"];
+const montadas = new Set();
+let abaAtual = null;
+const montar = {};
+function abaDoHash() {
+  let id = "";
+  try { id = decodeURIComponent(location.hash.replace(/^#/, "")); } catch (e) { id = ""; }
+  return ABAS.includes(id) ? id : "agora";
+}
+function mostrar(id, aoClicar) {
+  if (id === abaAtual) return;
+  abaAtual = id;
+  for (const a of ABAS) {
+    const botao = $("aba-" + a), ativo = a === id;
+    botao.setAttribute("aria-selected", String(ativo));
+    botao.tabIndex = ativo ? 0 : -1;
+    $("painel-" + a).hidden = !ativo;
+  }
+  if (!montadas.has(id)) { montadas.add(id); montar[id](); }
+  Dica.esconder();
+  if (aoClicar) {
+    const barra = document.querySelector(".barra-abas");
+    const topo = barra.getBoundingClientRect().top + window.scrollY;
+    if (window.scrollY > topo) window.scrollTo(0, topo);
+  }
+}
+function irPara(id) {
+  mostrar(id, true);
+  try { if (location.hash !== "#" + id) location.hash = id; } catch (e) { /* sem hash: a aba já mudou */ }
+}
+document.querySelectorAll(".aba").forEach((botao) => {
+  botao.addEventListener("click", () => irPara(botao.dataset.aba));
+  botao.addEventListener("keydown", (e) => {
+    const i = ABAS.indexOf(botao.dataset.aba);
+    const novo = { ArrowRight: (i + 1) % ABAS.length, ArrowLeft: (i + ABAS.length - 1) % ABAS.length, Home: 0, End: ABAS.length - 1 }[e.key];
+    if (novo === undefined) return;
+    e.preventDefault();
+    irPara(ABAS[novo]);
+    $("aba-" + ABAS[novo]).focus();
+  });
+});
+window.addEventListener("hashchange", () => mostrar(abaDoHash()));
+
+// ------------------------------------------------------------------ 2026 agora
+montar.agora = function () {
+  const turnos2026 = DADOS.eleicoes.find((e) => e.ano === 2026).turnos;
+  const marcas = turnos2026.map((t) => ({ data: t.data, rotulo: `${t.numero}º turno` }));
+  const linha = (host, nome, titulo, serie, formatoY, formatoValor, formatoRotulo) => criarGrafico(host, () => ({
+    titulo,
+    descricao: `${titulo}, de ${dataBR(serie[0][0])} a ${dataBR(serie[serie.length - 1][0])}. Último valor: ${formatoValor(serie[serie.length - 1][1])}.`,
+    svg: (w) => desenharLinha(w, { pontos: serie.map(([data, y]) => ({ data, y })), marcas, cor: COR[1], nome, formatoY, formatoValor, formatoRotulo }),
+    tabela: () => tabelaSimples(["Data", nome, "Variação no dia"], serie.map(([d, v], i) => [dataBR(d), formatoValor(v), i ? pct((v / serie[i - 1][1] - 1) * 100, 2) : "–"])),
+  }));
+  linha($("g-ibov"), "Ibovespa", "Ibovespa, pontos de fechamento", DADOS.agora.series.ibov, (v) => num(v, 0), (v) => num(v, 0) + " pontos", (v) => num(v, 0));
+  linha($("g-dolar"), "Dólar", "Dólar, reais por dólar", DADOS.agora.series.dolar, (v) => num(v, 2), (v) => "R$ " + num(v, 2), (v) => num(v, 2));
+
+  const P = DADOS.propostas;
+  if (P) {
+    const datas = Object.fromEntries(turnos2026.map((t) => [t.data, `${t.numero}º turno`]));
+    const marcos = P.marcos.filter((m) => m.ano === "2026").sort((a, b) => (a.data < b.data ? -1 : a.data > b.data ? 1 : 0));
+    $("tempo-2026").replaceChildren(...linhaDoTempo(marcos, datas));
+  } else {
+    $("sub-marcos").hidden = true;
+  }
+  $("t-agora").replaceChildren(tabelaSimples(
+    ["Período", "De → até", "Ibovespa", "Ibovespa em dólar, só Brasil", "Dólar", "Tesouro 10 anos"],
+    DADOS.agora.janelas.map((j) => [j.janela, `${dataBR(j.de)} → ${dataBR(j.ate)}`, pct(j.ibov), pct(j.ibov_usd_so_brasil), pct(j.dolar), num(j.tesouro_10a, 2, true) + " p.p."])));
+};
+
+// ------------------------------------------------------------------ Histórico
+montar.historico = function () {
+  const estado = { medida: 0, janela: "t2_d1" };
+  const indiceJanela = () => DADOS.janelas.findIndex((j) => j.id === estado.janela);
+  const opcao = () => DADOS.mapa[estado.medida];
+  const celulas = () => opcao().linhas.map((l) => ({ ano: l.ano, c: l.celulas[indiceJanela()] }));
+  const eixo = () => {
+    const vs = celulas().map((x) => x.c.v).filter(Number.isFinite);
+    const faixa = vs.length ? Math.max(...vs) - Math.min(...vs) : 1;
+    const casas = faixa < 0.6 ? 2 : faixa < 6 ? 1 : 0;
+    return (v) => num(v, casas) + (opcao().unidade === "%" ? "%" : "");
+  };
+  const textoDe = (v) => comUnidade(v, opcao().unidade, casasDaUnidade(opcao().unidade));
+
+  $("filtros-historico").replaceChildren(
+    campo("Medida", "sel-medida", DADOS.mapa.map((o, i) => ({ valor: i, nome: o.nome })), 0, (v) => { estado.medida = Number(v); atualizar(); }),
+    campo("Janela", "sel-janela", DADOS.janelas.map((j) => ({ valor: j.id, nome: j.nome })), estado.janela, (v) => { estado.janela = v; atualizar(); }));
+
+  const barras = criarGrafico($("g-historico"), () => {
+    const o = opcao(), nomeJ = NOME_JANELA[estado.janela];
+    return {
+      titulo: `${o.nome}, ${nomeJ.toLowerCase()}, por eleição`,
+      legenda: [{ nome: "2026", cor: COR[1] }, { nome: "Outras eleições", cor: NEUTRA }],
+      descricao: `Barras por eleição: ${o.nome}, ${nomeJ}. 2026 em destaque.`,
+      svg: (w) => desenharBarras(w, {
+        categorias: celulas().map((x) => ({ rotulo: String(x.ano), itens: [x.c.v], x })),
+        series: [{ cor: COR[1] }],
+        corDaBarra: (ci) => (celulas()[ci].ano === 2026 ? COR[1] : NEUTRA),
+        formatoEixo: eixo(), formatoValor: textoDe,
+        descricaoDaCategoria: (c) => `${c.rotulo}: ${c.x.c.v === null ? "sem dado. " + c.x.c.motivo : textoDe(c.x.c.v)}`,
+        dicaDaCategoria: (c) => c.x.c.v === null
+          ? { titulo: `${c.rotulo} · ${nomeJ}`, linhas: [{ valor: "Sem dado" }], nota: c.x.c.motivo }
+          : { titulo: `${c.rotulo} · ${nomeJ}`, linhas: [{ cor: c.x.ano === 2026 ? COR[1] : NEUTRA, valor: textoDe(c.x.c.v), rotulo: o.nome }], nota: periodo(c.x.c.de, c.x.c.ate) },
+      }),
+      tabela: () => tabelaSimples(["Eleição", o.nome, "Datas / motivo"], celulas().map((x) => [String(x.ano), x.c.v === null ? "sem dado" : textoDe(x.c.v), x.c.v === null ? x.c.motivo : periodo(x.c.de, x.c.ate)]), { texto: [2] }),
+    };
+  });
+
+  function desenharMapa() {
+    const o = opcao(), casas = casasDaUnidade(o.unidade), escolhida = indiceJanela();
+    const valores = o.linhas.flatMap((l) => l.celulas.map((c) => c.v)).filter(Number.isFinite).map(Math.abs).sort((a, b) => a - b);
+    // O teto das cores é o 90º percentil: um valor extremo não apaga o resto do mapa.
+    const teto = valores.length ? Math.max(valores[Math.floor(valores.length * 0.9)] || valores[valores.length - 1], 1e-6) : 1;
+    const tabela = h("table", { class: "mapa" });
+    tabela.append(h("caption", { class: "so-leitor", texto: `${o.nome}: variação por eleição e período` }));
+    tabela.append(h("thead", {}, h("tr", {}, h("th", { class: "ano", scope: "col", texto: "Ano" }), DADOS.janelas.map((j, i) => h("th", { scope: "col", class: i === escolhida ? "escolhida" : null, texto: j.nome })))));
+    const corpo = h("tbody");
+    o.linhas.forEach((linha) => {
+      const tr = h("tr", {}, h("th", { class: "ano", scope: "row", texto: String(linha.ano) }));
+      linha.celulas.forEach((c, i) => {
+        const nome = DADOS.janelas[i].nome;
+        const td = h("td", { tabindex: "0", class: i === escolhida ? "escolhida" : null });
+        if (c.v === null) {
+          td.classList.add("sem");
+          td.textContent = "·";
+          td.setAttribute("aria-label", `${linha.ano}, ${nome}: sem dado. ${c.motivo}`);
+          Dica.ligar(td, () => ({ titulo: `${linha.ano} · ${nome}`, linhas: [{ valor: "Sem dado" }], nota: c.motivo }));
+        } else {
+          const cor = corDaCelula(c.v, teto);
+          td.style.background = cor.fundo; td.style.color = cor.texto;
+          td.textContent = num(c.v, casas, true);
+          td.setAttribute("aria-label", `${linha.ano}, ${nome}: ${comUnidade(c.v, o.unidade)}`);
+          Dica.ligar(td, () => ({ titulo: `${linha.ano} · ${nome}`, linhas: [{ valor: comUnidade(c.v, o.unidade), rotulo: o.nome }], nota: periodo(c.de, c.ate) }));
+        }
+        tr.append(td);
+      });
+      corpo.append(tr);
+    });
+    tabela.append(corpo);
+    $("mapa").replaceChildren(tabela);
+    $("escala-mapa").replaceChildren(
+      h("span", { texto: `${comUnidade(-teto, o.unidade, casas)} ou menos` }),
+      h("span", { class: "barra", style: `background:${gradienteDaLegenda(teto)}`, "aria-hidden": "true" }),
+      h("span", { texto: `${comUnidade(teto, o.unidade, casas)} ou mais` }),
+      h("span", { texto: "· Cinza com tracejado: sem dado ou ainda não aconteceu." }));
+    const linhasTabela = [];
+    o.linhas.forEach((l) => l.celulas.forEach((c, i) => linhasTabela.push([String(l.ano), DADOS.janelas[i].nome, c.v === null ? "sem dado" : comUnidade(c.v, o.unidade, casas), c.v === null ? c.motivo : periodo(c.de, c.ate)])));
+    $("t-mapa").replaceChildren(tabelaSimples(["Eleição", "Período", o.nome, "Datas / motivo"], linhasTabela, { texto: [1, 3] }));
+  }
+  $("ver-tabela-mapa").addEventListener("click", (e) => {
+    const aberta = $("t-mapa").hidden;
+    $("t-mapa").hidden = !aberta;
+    e.currentTarget.setAttribute("aria-expanded", String(aberta));
+    e.currentTarget.textContent = aberta ? "Esconder tabela" : "Ver tabela";
+  });
+  matchMedia("(prefers-color-scheme: dark)").addEventListener("change", desenharMapa);
+
+  function leitura() {
+    const o = opcao(), todos = celulas().filter((x) => Number.isFinite(x.c.v));
+    if (!todos.length) { $("leitura-historico").replaceChildren(h("p", { class: "nota", texto: "Nenhuma eleição tem dado para esta medida e este período." })); return; }
+    const maior = todos.reduce((a, b) => (b.c.v > a.c.v ? b : a)), menor = todos.reduce((a, b) => (b.c.v < a.c.v ? b : a));
+    const sem2026 = todos.filter((x) => x.ano !== 2026);
+    const de2026 = todos.find((x) => x.ano === 2026);
+    $("leitura-historico").replaceChildren(
+      indicador(maior.c.v > 0 ? "Maior alta" : "Menor queda", textoDe(maior.c.v), `${maior.ano}${maior.ano === 2026 ? " (esta eleição)" : ""}`),
+      indicador(menor.c.v < 0 ? "Maior queda" : "Menor alta", textoDe(menor.c.v), `${menor.ano}${menor.ano === 2026 ? " (esta eleição)" : ""}`),
+      sem2026.length
+        ? indicador("Mediana sem 2026", textoDe(mediana(sem2026.map((x) => x.c.v))), `${sem2026.length} eleições com dado.${de2026 ? " 2026: " + textoDe(de2026.c.v) + "." : ""}`)
+        : indicador("Mediana sem 2026", "–", "Nenhuma outra eleição tem dado."));
+  }
+  function nota() {
+    const vazios = celulas().filter((x) => x.c.v === null);
+    const porMotivo = new Map();
+    vazios.forEach((x) => porMotivo.set(x.c.motivo, [...(porMotivo.get(x.c.motivo) || []), x.ano]));
+    $("nota-historico").textContent = porMotivo.size
+      ? "Sem barra: " + [...porMotivo].map(([motivo, anos]) => `${anos.join(", ")} (${motivo.replace(/\.$/, "")})`).join("; ") + "."
+      : "";
+  }
+  function atualizar() {
+    $("h-historico").textContent = `${opcao().nome}: ${NOME_JANELA[estado.janela].toLowerCase()}`;
+    barras.render(); desenharMapa(); leitura(); nota();
+  }
+  atualizar();
+};
+
+// ------------------------------------------------------------------ Pesquisas
+montar.pesquisas = function () {
+  const estado = { turno: "todos" };
+  const turnos = DADOS.surpresa.turnos.filter((t) => t.surpresa !== null && t.ibov_d1 !== null);
+  const rotuloTurno = (t) => `${t.ano} · ${t.turno}º turno`;
+  const visiveis = () => turnos.filter((t) => estado.turno === "todos" || String(t.turno) === estado.turno);
+  const corr = Object.fromEntries(DADOS.pesquisas.correlacoes.map((c) => [c.grupo, c]));
+  const todos = corr["Todos os turnos"], sem2026 = corr["Sem 2026"];
+
+  $("filtros-pesquisas").replaceChildren(segmentado("Turnos", [{ valor: "todos", nome: "Todos" }, { valor: "1", nome: "1º turno" }, { valor: "2", nome: "2º turno" }], "todos", (v) => { estado.turno = v; grafico.render(); }));
+  const grafico = criarGrafico($("g-surpresa"), () => {
+    const pts = visiveis();
+    const presentes = [1, 2].filter((n) => pts.some((t) => t.turno === n));
+    return {
+      titulo: "Surpresa das pesquisas (eixo horizontal) e Ibovespa no dia seguinte (eixo vertical)",
+      nota: `${pts.length} turnos no gráfico. 2026 vem com o nome.`,
+      legenda: [...presentes.map((n) => ({ nome: `${n}º turno`, cor: COR[n], tipo: "ponto" })), { nome: "Tendência", cor: "var(--ink-3)", tipo: "linha" }],
+      descricao: `Dispersão de ${pts.length} turnos. Correlação de todos os turnos: ${num(todos.correlacao, 2)}.`,
+      svg: (w) => desenharDispersao(w, {
+        tituloX: "Surpresa (pontos a favor do candidato do mercado)", tituloY: "Ibovespa no dia seguinte (%)",
+        formatoY: (v) => num(v, 0) + "%",
+        tendencia: ols(pts.map((t) => ({ x: t.surpresa, y: t.ibov_d1 }))),
+        series: [{ cor: COR[1] }, { cor: COR[2] }],
+        pontos: pts.map((t) => ({
+          x: t.surpresa, y: t.ibov_d1, serie: t.turno - 1,
+          destaque: t.ano === 2026,
+          rotulo: `${t.ano} · ${t.turno}º`,
+          texto: `surpresa ${pontos(t.surpresa)}, Ibovespa ${pct(t.ibov_d1)}`,
+          dica: { titulo: rotuloTurno(t), linhas: [{ cor: COR[t.turno], valor: pct(t.ibov_d1), rotulo: "Ibovespa no dia seguinte" }, { valor: pontos(t.surpresa), rotulo: "surpresa" }], nota: `Pesquisas: ${num(t.margem_pesquisas, 1, true)}; urnas: ${num(t.margem_resultado, 1, true)} (margem do candidato do mercado).` },
+        })),
+      }),
+      tabela: () => tabelaSimples(["Turno", "Surpresa", "Ibovespa no dia seguinte"], pts.map((t) => [rotuloTurno(t), pontos(t.surpresa), pct(t.ibov_d1)])),
+    };
+  });
+
+  const sem = turnos.filter((t) => t.ano !== 2026);
+  const reta = ols(sem.map((t) => ({ x: t.surpresa, y: t.ibov_d1 })));
+  const t2026 = turnos.find((t) => t.ano === 2026 && t.turno === 2);
+  const previsto = t2026 ? reta.intercepto + reta.inclinacao * t2026.surpresa : null;
+  $("indicadores-pesquisas").replaceChildren(
+    ...["Todos os turnos", "Sem 2026", "Só 1º turno", "Só 2º turno"].map((g) => indicador(`Correlação: ${g.toLowerCase()}`, num(corr[g].correlacao, 2), `${corr[g].n} turnos`)),
+    indicador("Cada ponto de surpresa, em média", `≈ ${pct(sem2026.inclinacao, 1)} de bolsa`, previsto === null ? `Sem 2026 (${sem2026.n} turnos).` : `Sem 2026 (${sem2026.n} turnos). Por essa reta, a surpresa de ${pontos(t2026.surpresa)} em 2026 daria ${pct(previsto)}; a bolsa fez ${pct(t2026.ibov_d1)}.`));
+  $("aviso-corr").textContent = `Correlação vai de −1 a 1: 0 é nenhuma relação e 1 é relação perfeita. ${todos.n} turnos: é indício, não lei.`;
+  $("t-surpresa").replaceChildren(tabelaSimples(
+    ["Eleição", "Margem nas pesquisas", "Margem no TSE", "Surpresa", "Favorito nas pesquisas", "Ibovespa D+1", "Dólar D+1"],
+    DADOS.surpresa.turnos.map((t) => [rotuloTurno(t), t.margem_pesquisas === null ? "sem pesquisa" : num(t.margem_pesquisas, 1, true), num(t.margem_resultado, 1, true), t.surpresa === null ? "–" : num(t.surpresa, 1, true), t.favorito || "–", pct(t.ibov_d1), pct(t.dolar_d1)]),
+    { texto: [4] }));
+};
+
+// ------------------------------------------------------------------ Setores
+montar.setores = function () {
+  const S = DADOS.setores;
+  const estado = { ano: "2026", janela: "decisivo" };
+  const selecao = () => {
+    const janela = estado.janela === "decisivo" ? S.padrao[estado.ano] : estado.janela;
+    return { janela, d: S.dados[`${estado.ano}|${janela}`] };
+  };
+  $("filtros-setores").replaceChildren(
+    campo("Eleição", "sel-eleicao", DADOS.eleicoes.map((e) => ({ valor: e.ano, nome: String(e.ano) })), estado.ano, (v) => { estado.ano = v; atualizar(); }),
+    campo("Janela", "sel-janela-set", [{ valor: "decisivo", nome: "Dia seguinte ao turno decisivo" }, ...DADOS.janelas.map((j) => ({ valor: j.id, nome: j.nome }))], estado.janela, (v) => { estado.janela = v; atualizar(); }));
+
+  const pctSimplesAbs = (v) => pct(v, 1);
+  const gSetores = criarGrafico($("g-setores"), () => {
+    const { janela, d } = selecao();
+    const lista = [...d.setores].sort((a, b) => b.media - a.media);
+    return {
+      titulo: `Setores, ${NOME_JANELA[janela].toLowerCase()} de ${estado.ano} (variação média, em %)`,
+      descricao: `Variação média por setor em ${estado.ano}, do maior ao menor.`,
+      svg: (w) => desenharBarrasH(w, {
+        cor: COR[1], formatoValor: pctSimplesAbs,
+        referencia: { valor: d.todas.media, rotulo: `Todas as ${d.todas.n}: ${pct(d.todas.media)}` },
+        itens: lista.map((x) => ({ rotulo: x.setor, valor: x.media, x })),
+        dica: (it) => ({ titulo: it.x.setor, linhas: [{ valor: pct(it.x.media), rotulo: "média do setor" }, { valor: pct(it.x.mediana), rotulo: "mediana" }], nota: `${it.x.n} empresas. Contra a carteira das ${d.todas.n}: ${num(it.x.contra_todas, 1, true)} pontos.` }),
+      }),
+      tabela: () => tabelaSimples(["Setor", "Empresas", "Média", "Mediana", `Contra as ${d.todas.n} (p.p.)`], lista.map((x) => [x.setor, String(x.n), pct(x.media), pct(x.mediana), num(x.contra_todas, 1, true)])),
+    };
+  });
+  const gGrupos = criarGrafico($("g-grupos"), () => {
+    const { janela, d } = selecao();
+    const grupos = [["Estatais", d.estatais], ["Privadas", d.privadas], ["Todas", d.todas]];
+    return {
+      titulo: `Estatais, privadas e todas, ${NOME_JANELA[janela].toLowerCase()} de ${estado.ano} (variação em %)`,
+      legenda: [{ nome: "Média", cor: COR[1] }, { nome: "Mediana", cor: COR[2] }],
+      descricao: "Média e mediana da variação das estatais, das privadas e de todas as empresas.",
+      svg: (w) => desenharBarras(w, {
+        categorias: grupos.map(([nome, g]) => ({ rotulo: `${nome} (${g.n})`, itens: [g.media, g.mediana], g })),
+        series: [{ cor: COR[1] }, { cor: COR[2] }],
+        formatoEixo: (v) => num(v, 0) + "%", formatoValor: (v) => pct(v, 1),
+        descricaoDaCategoria: (c) => `${c.rotulo}: média ${pct(c.g.media)}, mediana ${pct(c.g.mediana)}`,
+        dicaDaCategoria: (c) => ({ titulo: `${c.rotulo.replace(/ \(\d+\)$/, "")}, ${c.g.n} empresas`, linhas: [{ cor: COR[1], valor: pct(c.g.media), rotulo: "média" }, { cor: COR[2], valor: pct(c.g.mediana), rotulo: "mediana" }], nota: "Estatais menos privadas: " + num(d.estatais_menos_privadas, 1, true) + " p.p." }),
+      }),
+      tabela: () => tabelaSimples(["Carteira", "Empresas", "Média", "Mediana"], grupos.map(([nome, g]) => [nome, String(g.n), pct(g.media), pct(g.mediana)])),
+    };
+  });
+  const empresas = (host, tituloDe, listaDe) => criarGrafico(host, () => {
+    const { d } = selecao(), lista = listaDe(d), titulo = tituloDe(lista);
+    return {
+      titulo,
+      descricao: titulo,
+      svg: (w) => desenharBarrasH(w, {
+        cor: COR[1], formatoValor: (v) => pct(v, 1),
+        itens: lista.map((e) => ({ rotulo: e.estatal ? `${e.nome} (estatal)` : e.nome, valor: e.variacao, e })),
+        dica: (it) => ({ titulo: it.e.nome, linhas: [{ valor: pct(it.e.variacao), rotulo: "variação" }], nota: `${it.e.setor}${it.e.estatal ? " · estatal" : " · privada"}` }),
+      }),
+      tabela: () => tabelaSimples(["Empresa", "Setor", "Variação"], lista.map((e) => [e.estatal ? `${e.nome} (estatal)` : e.nome, e.setor, pct(e.variacao)]), { texto: [1] }),
+    };
+  });
+  const gCairam = empresas($("g-cairam"), (l) => (l.length && l[0].variacao > 0 ? "As 8 que menos subiram" : "As 8 que mais caíram"), (d) => d.mais_cairam);
+  const gSubiram = empresas($("g-subiram"), (l) => (l.length && l[0].variacao < 0 ? "As 8 que menos caíram" : "As 8 que mais subiram"), (d) => d.mais_subiram);
+
+  function atualizar() {
+    const { janela, d } = selecao();
+    $("h-setores").textContent = `Estatais, privadas e setores em ${estado.ano}: ${NOME_JANELA[janela].toLowerCase()}`;
+    $("aviso-setores").hidden = d.aconteceu;
+    $("conteudo-setores").hidden = !d.aconteceu;
+    if (!d.aconteceu) { $("aviso-setores").textContent = `${estado.ano}, ${NOME_JANELA[janela].toLowerCase()}: ${d.motivo} Escolha outra janela ou outra eleição.`; return; }
+    $("p-setores").textContent = `Cada barra é a variação média (peso igual, só preço) das empresas do setor entre as ${d.n_empresas} mais negociadas. A linha vertical é a carteira de todas as ${d.todas.n}: ${pct(d.todas.media)}. Passe o mouse para ver quanto cada setor ficou acima ou abaixo dela.`;
+    $("sem-carteira").replaceChildren(...d.sem_carteira.map((nome) => h("li", {}, h("span", { class: "caixa", "aria-hidden": "true" }), h("span", { texto: `${nome}: sem carteira nesta eleição (menos de 3 empresas).` }))));
+    $("sem-carteira").hidden = d.sem_carteira.length === 0;
+    [gSetores, gGrupos, gCairam, gSubiram].forEach((g) => g.render());
+  }
+  atualizar();
+};
+
+// ------------------------------------------------------------------ Cenários
+montar.cenarios = function () {
+  const C = DADOS.cenarios;
+  const COR_CEN = { otimista: COR[1], base: COR[2], pessimista: COR[3] };
+  const NOME_CEN = { otimista: "Otimista", base: "Base", pessimista: "Pessimista" };
+  const CURTO = { otimista: "Otim.", base: "Base", pessimista: "Pess." };
+  const NOMES_MEDIDA = { ibov: "Ibovespa em pontos", ibov_usd: "Ibovespa em dólar", dolar: "Dólar", prefixado_10a: "Tesouro 10 anos" };
+  const estado = { medida: "ibov" };
+  const medida = () => C.medidas.find((m) => m.id === estado.medida);
+  const hoje = dataBR(C.data_base);
+  $("status-premissas").textContent = `Premissas: ${C.status}.`;
+
+  $("filtros-cenarios").replaceChildren(segmentado("Medida", C.medidas.map((m) => ({ valor: m.id, nome: NOMES_MEDIDA[m.id] || m.nome })), estado.medida, (v) => { estado.medida = v; atualizar(); }));
+
+  const faixas = criarGrafico($("g-cenarios"), () => {
+    const m = medida(), fmt = (v) => num(v, m.casas);
+    return {
+      titulo: m.nome,
+      legenda: C.cenarios.map((c) => ({ nome: NOME_CEN[c.id], cor: COR_CEN[c.id] })),
+      descricao: `${m.nome}: faixa de cada cenário na posse, aos 100 dias e em 1 ano. Hoje: ${fmt(m.base)}.`,
+      svg: (w) => {
+        const largo = w >= 700, medio = w >= 480;
+        const nomes = ["Hoje", ...C.horizontes.map((x, i) => {
+          const dia = i === 0 ? C.posse : x.data;
+          return largo ? `${x.nome} · ${dataBR(dia)}` : medio ? `${x.nome} ${dataBR(dia).slice(0, 5)}` : x.nome;
+        })];
+        nomes[0] = largo ? `Hoje · ${hoje}` : medio ? `Hoje ${hoje.slice(0, 5)}` : "Hoje";
+        return desenharFaixas(w, {
+          categorias: nomes, base: m.base, formatoEixo: fmt, formatoValor: fmt,
+          series: C.cenarios.map((c) => ({ nome: NOME_CEN[c.id], curto: CURTO[c.id], cor: COR_CEN[c.id], faixas: C.horizontes.map((x) => m.faixas[c.id][x.id]) })),
+          descricaoDaCategoria: (ci) => ci === 0 ? `Hoje: ${fmt(m.base)}` : `${C.horizontes[ci - 1].nome}: ` + C.cenarios.map((c) => { const f = m.faixas[c.id][C.horizontes[ci - 1].id]; return `${NOME_CEN[c.id]} ${fmt(f.minimo)} a ${fmt(f.maximo)}`; }).join("; "),
+          dicaDaCategoria: (ci) => {
+            if (ci === 0) return { titulo: `Hoje (${hoje})`, linhas: [{ valor: fmt(m.base), rotulo: m.nome }] };
+            const hor = C.horizontes[ci - 1];
+            return {
+              titulo: `${hor.nome}, ${dataBR(hor.data)}`,
+              linhas: C.cenarios.map((c) => { const f = m.faixas[c.id][hor.id]; return { cor: COR_CEN[c.id], valor: Number.isFinite(f.minimo) ? `${fmt(f.minimo)} a ${fmt(f.maximo)}` : "sem dado", rotulo: `${NOME_CEN[c.id]}${Number.isFinite(f.central) ? ` (meio ${fmt(f.central)})` : ""}` }; }),
+              nota: ci === 1 ? "Último pregão antes da posse de " + dataBR(C.posse) + ". Cada faixa vai do menor ao maior dos dois análogos. Mundo parado." : "Cada faixa vai do menor ao maior dos dois análogos. Mundo parado.",
+            };
+          },
+        });
+      },
+      tabela: () => resumo(),
+    };
+  });
+
+  function resumo() {
+    const m = medida(), fmt = (v) => num(v, m.casas), u = m.unidade;
+    const celula = (f) => {
+      if (!f || !Number.isFinite(f.minimo)) return "sem dado";
+      const variacao = Number.isFinite(f.var_minimo) ? ` · ${comUnidade(f.var_minimo, u, u === "p.p." ? 2 : 1)} a ${comUnidade(f.var_maximo, u, u === "p.p." ? 2 : 1)}` : "";
+      return h("div", {}, h("span", { texto: `${fmt(f.minimo)} a ${fmt(f.maximo)}` }), h("small", { texto: `meio ${fmt(f.central)}${variacao}` }));
+    };
+    const cab = ["Cenário", ...C.horizontes.map((x) => `${x.nome} (${dataBR(x.id === "ate_posse" ? C.posse : x.data)})`)];
+    const linhas = C.cenarios.map((c) => [h("span", {}, h("i", { class: "chave-cor", style: `display:inline-block;width:10px;height:10px;border-radius:2px;margin-right:8px;background:${COR_CEN[c.id]}` }), NOME_CEN[c.id]), ...C.horizontes.map((x) => celula(m.faixas[c.id][x.id]))]);
+    return tabelaSimples(cab, linhas, { classe: "resumo-cen", legenda: `${m.nome}: faixa e meio de cada cenário` });
+  }
+  function atualizar() {
+    const m = medida();
+    faixas.render();
+    $("t-cenarios").replaceChildren(resumo());
+    $("cen-pessimista").hidden = m.id !== "ibov";
+    if (m.id === "ibov") $("cen-pessimista").textContent = C.frase_pessimista;
+  }
+
+  $("cartoes-cenarios").replaceChildren(...C.cenarios.map((c) => h("div", { class: "cartao cartao-cenario" },
+    h("h3", {}, h("i", { class: "chave-cor", style: `background:${COR_CEN[c.id]}` }), `${NOME_CEN[c.id]}: ${c.titulo}`),
+    h("span", { class: "rotulo", texto: "Eleições parecidas" }),
+    h("p", { texto: c.analogos.join(" e ") }),
+    h("span", { class: "rotulo", texto: "Por que estas" }),
+    h("p", { texto: c.por_que }),
+    h("span", { class: "rotulo", texto: "Gatilhos" }),
+    h("ul", { class: "verificacao" }, c.gatilhos.map((g) => h("li", {}, h("span", { class: "caixa", "aria-hidden": "true" }), h("span", { texto: g }), h("span", { class: "estado", texto: "a acompanhar" })))))));
+  $("acompanhar").replaceChildren(...DADOS.acompanhar.map((a) => h("li", {}, h("time", { datetime: a.data, texto: dataBR(a.data) }), h("span", { texto: a.texto }))));
+  atualizar();
+};
+
+// ------------------------------------------------------------------ Propostas
+montar.propostas = function () {
+  const raiz = $("propostas-conteudo");
+  const P = DADOS.propostas;
+  if (!P) {
+    raiz.replaceChildren(h("p", { class: "aviso", texto: "Em revisão. As propostas de cada candidato, o que o vencedor fez e os marcos que mexeram no mercado ainda estão sendo conferidas nas fontes. Esta aba aparece completa quando a revisão terminar." }));
+    return;
+  }
+  const temas = Object.entries(P.temas);
+  const celula = (c, rotulo) => {
+    const td = h("td", { class: "quebra", "data-label": rotulo });
+    if (!c) { td.append(h("span", { class: "vazio", texto: "sem informação" })); return td; }
+    td.append(c.texto || "");
+    const l = ligacao(c.fonte, "fonte");
+    if (l) td.append(" ", l);
+    return td;
+  };
+  const listaDatada = (titulo, itens) => !itens || !itens.length ? null : h("div", { class: "sub" }, h("h3", { texto: titulo }), h("ul", { class: "acompanhar" }, itens.map((i) => h("li", {}, h("time", { datetime: i.data, texto: dataBR(i.data) }), h("span", {}, i.texto || "", i.fonte ? [" ", ligacao(i.fonte, "fonte")] : null)))));
+  const corpo = h("div", { class: "painel" });
+  const select = campo("Eleição", "sel-prop", P.eleicoes.map((e) => ({ valor: e.ano, nome: String(e.ano) })), P.eleicoes[P.eleicoes.length - 1].ano, () => desenhar());
+  function desenhar() {
+    const ano = Number($("sel-prop").value);
+    const e = P.eleicoes.find((x) => x.ano === ano), info = DADOS.eleicoes.find((x) => x.ano === ano);
+    const marcos = P.marcos.filter((m) => m.ano === String(ano)).sort((a, b) => (a.data < b.data ? -1 : 1));
+    const datas = {};
+    info.turnos.forEach((t) => { datas[t.data] = `${t.numero}º turno`; });
+    const nomes = e.candidatos.map((c) => c.nome);
+    const grade = h("div", { class: "cartao rolagem" }, h("table", { class: "resp" },
+      h("caption", { class: "so-leitor", texto: `Propostas de ${nomes.join(" e ")} em ${ano}, por tema` }),
+      h("thead", {}, h("tr", {}, h("th", { scope: "col", texto: "Tema" }), nomes.map((n) => h("th", { scope: "col", texto: n })))),
+      h("tbody", {}, temas.map(([k, nome]) => h("tr", {}, h("th", { scope: "row", texto: nome }), e.candidatos.map((c) => celula(c.temas[k], c.nome)))))));
+    let realizado = null;
+    if (ano !== 2026) {
+      realizado = h("div", { class: "sub" },
+        h("h3", { texto: `O que o vencedor (${info.vencedor}) fez no 1º ano e meio` }),
+        h("div", { class: "cartao rolagem" }, h("table", { class: "resp" },
+          h("caption", { class: "so-leitor", texto: `O que ${info.vencedor} fez no primeiro ano e meio de governo` }),
+          h("thead", {}, h("tr", {}, h("th", { scope: "col", texto: "Tema" }), h("th", { scope: "col", texto: "O que foi feito" }))),
+          h("tbody", {}, temas.map(([k, nome]) => h("tr", {}, h("th", { scope: "row", texto: nome }), celula(e.realizado[k], "O que foi feito")))))));
+    }
+    corpo.replaceChildren(...[
+      h("p", { class: "explica", texto: `Seis temas para os dois candidatos mais votados em ${ano}, com a fonte de cada linha.` }),
+      grade,
+      realizado,
+      ano === 2026 ? listaDatada("Sinais depois da eleição", e.sinais_pos_eleicao) : null,
+      ano === 2026 ? listaDatada("Contestação", e.contestacao) : null,
+      marcos.length ? h("div", { class: "sub" }, h("h3", { texto: `Marcos de ${ano}` }), h("ol", { class: "tempo" }, linhaDoTempo(marcos, datas))) : null,
+    ].filter(Boolean));
+  }
+  raiz.replaceChildren(h("div", { class: "filtros" }, select), h("h2", { texto: "Propostas e marcos" }), corpo);
+  desenhar();
+};
+
+// ------------------------------------------------------------------ partida
+mostrar(abaDoHash());
+</script>
